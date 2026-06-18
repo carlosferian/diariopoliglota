@@ -25,12 +25,34 @@
   button { font-family: inherit; }
   #root { height: 100%; }
   @keyframes toastIn { from { opacity: 0; transform: translateX(-50%) translateY(-14px) scale(0.94); } to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); } }
+
+  .diary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diary-card {
+    height: 380px;
+  }
+  @media (min-width: 1024px) {
+    .diary-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      overflow-y: hidden;
+    }
+    .diary-card {
+      height: 100%;
+    }
+  }
 </style>
 </head>
 <body>
 <div id="root"></div>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<!-- FIX: produção em vez de builds de desenvolvimento -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <!-- ── content.js ── conteúdo do ano: 12 meses × 4 semanas ────────────── -->
@@ -352,23 +374,128 @@ window.YEAR = [
   const today = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
   const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
 
-  const inkKey = (isoStr, lang) => `diary_ink_${isoStr}_${lang}`;
-  function loadInk(isoStr, lang) {
-    try { return JSON.parse(localStorage.getItem(inkKey(isoStr, lang)) || '[]'); }
-    catch (e) { return []; }
-  }
-  function saveInk(isoStr, lang, strokes) {
-    try {
-      if (!strokes || !strokes.length) localStorage.removeItem(inkKey(isoStr, lang));
-      else localStorage.setItem(inkKey(isoStr, lang), JSON.stringify(strokes));
-      return true;
-    } catch (e) { return false; }
-  }
-  function dayHasInk(isoStr) {
-    return LANGS.some((l) => {
-      const v = localStorage.getItem(inkKey(isoStr, l));
-      return v && v !== '[]';
+  // --- MÓDULO INDEXEDDB ---
+  const DB_NAME = 'diario_poliglota_db';
+  const STORE_NAME = 'strokes';
+
+  function getDB() {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(DB_NAME, 1);
+      request.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(STORE_NAME)) {
+          db.createObjectStore(STORE_NAME);
+        }
+      };
+      request.onsuccess = (e) => resolve(e.target.result);
+      request.onerror = (e) => reject(e.target.error);
     });
+  }
+
+  function dbGet(key) {
+    return getDB().then((db) => {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readonly');
+        const store = tx.objectStore(STORE_NAME);
+        const req = store.get(key);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => reject(req.error);
+      });
+    });
+  }
+
+  function dbSet(key, val) {
+    return getDB().then((db) => {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        const store = tx.objectStore(STORE_NAME);
+        const req = store.put(val, key);
+        req.onsuccess = () => resolve();
+        req.onerror = () => reject(req.error);
+      });
+    });
+  }
+
+  function dbDel(key) {
+    return getDB().then((db) => {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        const store = tx.objectStore(STORE_NAME);
+        const req = store.delete(key);
+        req.onsuccess = () => resolve();
+        req.onerror = () => reject(req.error);
+      });
+    });
+  }
+
+  function dbGetAll() {
+    return getDB().then((db) => {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readonly');
+        const store = tx.objectStore(STORE_NAME);
+        const keysReq = store.getAllKeys();
+        const valsReq = store.getAll();
+        keysReq.onsuccess = () => {
+          valsReq.onsuccess = () => {
+            const result = {};
+            const keys = keysReq.result;
+            const vals = valsReq.result;
+            for (let i = 0; i < keys.length; i++) {
+              result[keys[i]] = vals[i];
+            }
+            resolve(result);
+          };
+        };
+        keysReq.onerror = () => reject(keysReq.error);
+        valsReq.onerror = () => reject(valsReq.error);
+      });
+    });
+  }
+
+  // --- LÓGICA DE NEGÓCIO ---
+  const inkKey = (isoStr, lang) => `diary_ink_${isoStr}_${lang}`;
+
+  function loadInk(isoStr, lang) {
+    return dbGet(inkKey(isoStr, lang)).then((val) => val || []);
+  }
+
+  async function saveInk(isoStr, lang, strokes) {
+    const key = inkKey(isoStr, lang);
+    try {
+      if (!strokes || !strokes.length) {
+        await dbDel(key);
+        const m = getMeta();
+        if (m.days[isoStr] && Array.isArray(m.days[isoStr])) {
+          m.days[isoStr] = m.days[isoStr].filter((l) => l !== lang);
+          if (m.days[isoStr].length === 0) {
+            delete m.days[isoStr];
+          }
+          setMeta(m);
+        }
+      } else {
+        await dbSet(key, strokes);
+        const m = getMeta();
+        if (!m.days[isoStr] || m.days[isoStr] === true) {
+          m.days[isoStr] = [];
+        }
+        if (Array.isArray(m.days[isoStr]) && !m.days[isoStr].includes(lang)) {
+          m.days[isoStr].push(lang);
+          setMeta(m);
+        }
+      }
+      return true;
+    } catch (e) {
+      console.error('saveInk error:', e);
+      return false;
+    }
+  }
+
+  async function saveInkRaw(key, strokes) {
+    if (!strokes || !strokes.length) {
+      await dbDel(key);
+    } else {
+      await dbSet(key, strokes);
+    }
   }
 
   function getMeta() {
@@ -380,11 +507,14 @@ window.YEAR = [
   }
   function setMeta(m) { localStorage.setItem(META_KEY, JSON.stringify(m)); }
 
-  function refreshDay(isoStr) {
-    const m = getMeta();
-    if (dayHasInk(isoStr)) m.days[isoStr] = true; else delete m.days[isoStr];
-    setMeta(m);
-    return m;
+  function dayHasInk(m, isoStr) {
+    const val = m.days[isoStr];
+    return !!(val && Array.isArray(val) && val.length > 0);
+  }
+
+  function dayHasAllLangs(m, isoStr) {
+    const val = m.days[isoStr];
+    return !!(val && Array.isArray(val) && LANGS.every((l) => val.includes(l)));
   }
 
   function currentStreak(m) {
@@ -407,18 +537,11 @@ window.YEAR = [
   }
   function totalDays(m) { return Object.keys(m.days).length; }
 
-  function dayHasAllLangs(isoStr) {
-    return LANGS.every((l) => {
-      const v = localStorage.getItem(inkKey(isoStr, l));
-      return v && v !== '[]';
-    });
-  }
-
   function stats(m) {
     const keys = Object.keys(m.days);
     let allLangs = false, maxWeek = 0;
     for (const k of keys) {
-      if (!allLangs && dayHasAllLangs(k)) allLangs = true;
+      if (!allLangs && dayHasAllLangs(m, k)) allLangs = true;
       maxWeek = Math.max(maxWeek, weekFlatForDate(m, fromIso(k)) + 1);
     }
     return { total: keys.length, best: bestStreak(m), current: currentStreak(m), allLangs, maxWeek };
@@ -433,10 +556,73 @@ window.YEAR = [
   }
   function today0(d) { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; }
 
+  // --- MIGRAÇÃO DE DADOS ---
+  async function migrateLegacyData() {
+    const keysToMigrate = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith('diary_ink_')) {
+        keysToMigrate.push(key);
+      }
+    }
+    if (keysToMigrate.length === 0) {
+      const m = getMeta();
+      let updated = false;
+      for (const isoStr of Object.keys(m.days)) {
+        if (m.days[isoStr] === true) {
+          m.days[isoStr] = ['EN'];
+          updated = true;
+        }
+      }
+      if (updated) setMeta(m);
+      return;
+    }
+
+    const m = getMeta();
+    let updated = false;
+
+    for (const key of keysToMigrate) {
+      const val = localStorage.getItem(key);
+      if (val && val !== '[]') {
+        try {
+          const strokes = JSON.parse(val);
+          await dbSet(key, strokes);
+          
+          const parts = key.split('_');
+          if (parts.length >= 4) {
+            const isoStr = parts[2];
+            const lang = parts[3];
+            if (!m.days[isoStr] || m.days[isoStr] === true) {
+              m.days[isoStr] = [];
+            }
+            if (Array.isArray(m.days[isoStr]) && !m.days[isoStr].includes(lang)) {
+              m.days[isoStr].push(lang);
+              updated = true;
+            }
+          }
+        } catch (e) {
+          console.error('Erro de migração na chave:', key, e);
+        }
+      }
+      localStorage.removeItem(key);
+    }
+
+    for (const isoStr of Object.keys(m.days)) {
+      if (m.days[isoStr] === true) {
+        m.days[isoStr] = ['EN'];
+        updated = true;
+      }
+    }
+
+    if (updated || keysToMigrate.length > 0) {
+      setMeta(m);
+    }
+  }
+
   window.DiaryStore = {
     LANGS, iso, fromIso, today, addDays, today0,
-    loadInk, saveInk, dayHasInk,
-    getMeta, setMeta, refreshDay,
+    loadInk, saveInk, saveInkRaw, dbGetAll, migrateLegacyData,
+    getMeta, setMeta,
     currentStreak, bestStreak, totalDays, weekFlatForDate, dayNumber,
     dayHasAllLangs, stats,
   };
@@ -453,6 +639,7 @@ window.YEAR = [
       this.canvas = canvas;
       this.ctx = canvas.getContext('2d');
       this.onChange = opts.onChange || (() => {});
+      this.onActive = opts.onActive || (() => {});
       this.penOnlyGetter = opts.penOnly || (() => false);
       this.strokes = [];
       this.cur = null;
@@ -502,14 +689,14 @@ window.YEAR = [
         return { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height,
                  p: e.pressure && e.pressure > 0 ? e.pressure : 0.5 };
       };
+      // FIX: removido window.__penSeen que bloqueava toque permanentemente após uso de caneta
       c.addEventListener('pointerdown', (e) => {
         if (this.penOnlyGetter() && e.pointerType === 'touch') return;
-        if (e.pointerType === 'touch' && window.__penSeen) return;
-        if (e.pointerType === 'pen') window.__penSeen = true;
         e.preventDefault();
         c.setPointerCapture(e.pointerId);
         this.cur = { color: this.tool.color, wFrac: WIDTHS[this.tool.width],
                      erase: this.tool.mode === 'eraser', pts: [norm(e)] };
+        this.onActive(true);
         this._drawDab(this.cur, 0);
       });
       c.addEventListener('pointermove', (e) => {
@@ -525,6 +712,7 @@ window.YEAR = [
         if (!this.cur) return;
         if (this.cur.pts.length === 1) this.cur.pts.push(Object.assign({}, this.cur.pts[0]));
         this.strokes.push(this.cur); this.cur = null;
+        this.onActive(false);
         this.onChange(this.strokes);
       };
       c.addEventListener('pointerup', end);
@@ -598,10 +786,10 @@ const DS = window.DiaryStore;
 const LANGS = DS.LANGS;
 
 const INK_COLORS = [
-  { id: 'ink',    label: 'Tinta',    v: '#1b2030' },
-  { id: 'blue',   label: 'Azul',     v: '#2563EB' },
-  { id: 'red',    label: 'Vermelho', v: '#E11D48' },
-  { id: 'pencil', label: 'Lápis',   v: '#7c8597' },
+  { id: 'ink',    label: 'Tinta (1)',    v: '#1b2030' },
+  { id: 'blue',   label: 'Azul (2)',     v: '#2563EB' },
+  { id: 'red',    label: 'Vermelho (3)', v: '#E11D48' },
+  { id: 'pencil', label: 'Lápis (4)',   v: '#7c8597' },
 ];
 const WD_PT = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
 const MES_PT = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
@@ -651,11 +839,16 @@ function guideStyle(code, t, paper) {
   return { backgroundImage: `repeating-linear-gradient(to bottom, transparent 0, transparent 42px, ${t.primary}30 42px, ${t.primary}30 44px)`, backgroundPosition: '0 8px' };
 }
 
-function WritingBox({ code, data, T, paper, registerCanvas, onClearBox }) {
+// FIX: isActive prop adicionado para indicador visual de canvas ativo
+function WritingBox({ code, data, T, paper, registerCanvas, onClearBox, isActive }) {
   const t = LANG_THEME[code];
   const jp = code === 'JP';
   return (
-    <div style={{ background: T.card, borderRadius: 16, overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: 0, boxShadow: `0 0 0 1px ${t.primary}${T.mode === 'light' ? '33' : '55'}, ${T.shadow}` }}>
+    <div className="diary-card" style={{ background: T.card, borderRadius: 16, overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: 0,
+      boxShadow: isActive
+        ? `0 0 0 3px ${t.primary}, ${T.shadow}`
+        : `0 0 0 1px ${t.primary}${T.mode === 'light' ? '33' : '55'}, ${T.shadow}`,
+      transition: 'box-shadow 0.12s ease' }}>
       <div style={{ background: `linear-gradient(90deg, ${t.primary}, ${t.primary}cc)`, padding: '8px 14px', display: 'flex', alignItems: 'center', gap: 10, flex: '0 0 auto' }}>
         <div style={{ width: 30, height: 30, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Space Mono', monospace", fontWeight: 700, fontSize: 12, flex: '0 0 auto' }}>{code}</div>
         <div style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: 17, color: '#fff' }}>{t.name}</div>
@@ -678,8 +871,11 @@ function WritingBox({ code, data, T, paper, registerCanvas, onClearBox }) {
   );
 }
 
-function ProgressModal({ meta, viewDate, T, onPick, onClose }) {
+// FIX: adicionados props onDeleteDay, onExport, onImport; calendário mostra ✓ em vez de ✕;
+// dias concluídos abrem confirmação de exclusão; botões de backup adicionados
+function ProgressModal({ meta, viewDate, T, onPick, onClose, onDeleteDay, onExport, onImport }) {
   const [m, setM] = useState(() => new Date(viewDate.getFullYear(), viewDate.getMonth(), 1));
+  const [confirmDel, setConfirmDel] = useState(null);
   const t0 = DS.today();
   const first = new Date(m.getFullYear(), m.getMonth(), 1);
   const offset = first.getDay();
@@ -718,25 +914,45 @@ function ProgressModal({ meta, viewDate, T, onPick, onClose }) {
               const isToday = DS.iso(date) === DS.iso(t0);
               const isView = DS.iso(date) === DS.iso(viewDate);
               const future = DS.today0(date) > t0;
+              const isConfirming = confirmDel === DS.iso(date);
               return (
-                <button key={i} onClick={() => onPick(date)} style={{
-                  aspectRatio: '1', borderRadius: 9, cursor: 'pointer', fontSize: 12, fontWeight: 800,
-                  border: isView ? `2px solid ${T.accent}` : (isToday ? `2px solid ${T.flame}` : `1px solid ${T.border}`),
+                <button key={i} onClick={() => {
+                  if (future) return;
+                  if (done) setConfirmDel(isConfirming ? null : DS.iso(date));
+                  else onPick(date);
+                }} style={{
+                  aspectRatio: '1', borderRadius: 9, cursor: future ? 'default' : 'pointer', fontSize: 12, fontWeight: 800,
+                  border: isConfirming ? `2px solid #dc2626` : (isView ? `2px solid ${T.accent}` : (isToday ? `2px solid ${T.flame}` : `1px solid ${T.border}`)),
                   background: done ? 'linear-gradient(135deg,#FBBF24,#F97316)' : T.cellBg,
                   color: done ? '#0E1326' : (future ? T.faint : T.dim),
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>{done ? '✕' : d}</button>
+                }}>{done ? '✓' : d}</button>
               );
             })}
           </div>
+          {/* confirmação de exclusão de dia */}
+          {confirmDel && (
+            <div style={{ marginTop: 10, padding: '10px 12px', background: T.cellBg, border: `1px solid #dc2626`, borderRadius: 10, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              <span style={{ flex: 1, fontSize: 12, color: T.text2, minWidth: 80 }}>Apagar escrita de <strong>{confirmDel}</strong>?</span>
+              <button onClick={() => { onPick(DS.fromIso(confirmDel)); setConfirmDel(null); }}
+                style={{ background: T.ctrlBg, border: `1px solid ${T.border}`, color: T.text, borderRadius: 7, padding: '4px 12px', cursor: 'pointer', fontSize: 12, fontWeight: 700 }}>Ir ao dia</button>
+              <button onClick={() => { onDeleteDay(DS.fromIso(confirmDel)); setConfirmDel(null); }}
+                style={{ background: '#dc2626', border: 'none', color: '#fff', borderRadius: 7, padding: '4px 12px', cursor: 'pointer', fontSize: 12, fontWeight: 700 }}>Apagar ✗</button>
+              <button onClick={() => setConfirmDel(null)}
+                style={{ background: 'none', border: 'none', color: T.dim, cursor: 'pointer', fontSize: 16, padding: '2px 4px', lineHeight: 1 }}>×</button>
+            </div>
+          )}
+          {!confirmDel && (
+            <p style={{ fontSize: 11, color: T.faint, marginTop: 8, marginBottom: 0 }}>Clique em um dia concluído (✓) para apagar.</p>
+          )}
         </div>
         {/* coluna medalhas */}
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 12 }}>
             <span style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: 18, color: T.text }}>Medalhas</span>
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 12, color: T.accent }}>{MEDALS.filter((md) => md.test(s)).length}/{MEDALS.length}</span>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 9 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 9, flex: 1 }}>
             {MEDALS.map((md) => {
               const got = md.test(s);
               return (
@@ -750,7 +966,16 @@ function ProgressModal({ meta, viewDate, T, onPick, onClose }) {
               );
             })}
           </div>
-          <button onClick={onClose} style={{ marginTop: 16, width: '100%', background: T.ctrlBg, border: `1px solid ${T.borderStrong}`, color: T.text, borderRadius: 10, padding: '11px', fontWeight: 800, cursor: 'pointer', fontFamily: "'Nunito', sans-serif" }}>Fechar</button>
+          {/* botões de backup */}
+          <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
+            <button onClick={onExport}
+              style={{ flex: 1, background: T.ctrlBg, border: `1px solid ${T.borderStrong}`, color: T.text, borderRadius: 10, padding: '9px 6px', fontWeight: 800, cursor: 'pointer', fontFamily: "'Nunito', sans-serif", fontSize: 13 }}>💾 Backup</button>
+            <label style={{ flex: 1, background: T.ctrlBg, border: `1px solid ${T.borderStrong}`, color: T.text, borderRadius: 10, padding: '9px 6px', fontWeight: 800, cursor: 'pointer', fontFamily: "'Nunito', sans-serif", fontSize: 13, textAlign: 'center', display: 'block' }}>
+              📥 Restaurar
+              <input type="file" accept=".json" style={{ display: 'none' }} onChange={(e) => { if (e.target.files[0]) { onImport(e.target.files[0]); onClose(); } }} />
+            </label>
+          </div>
+          <button onClick={onClose} style={{ marginTop: 8, width: '100%', background: T.ctrlBg, border: `1px solid ${T.borderStrong}`, color: T.text, borderRadius: 10, padding: '11px', fontWeight: 800, cursor: 'pointer', fontFamily: "'Nunito', sans-serif" }}>Fechar</button>
         </div>
       </div>
     </div>
@@ -783,12 +1008,14 @@ function DiaryApp() {
   const [meta, setMeta] = useStateApp(() => DS.getMeta());
   const [viewDate, setViewDate] = useStateApp(() => DS.today());
   const [tool, setTool] = useStateApp({ mode: 'pen', color: INK_COLORS[0].v, width: 'grossa' });
-  const [penOnly, setPenOnly] = useStateApp(false);
+  // FIX: penOnly agora persiste entre sessões
+  const [penOnly, setPenOnly] = useStateApp(() => localStorage.getItem('diary_penOnly') === 'true');
   const [paper, setPaper] = useStateApp(() => localStorage.getItem('diary_paper') || 'pautado');
   const [showCal, setShowCal] = useStateApp(false);
   const [quota, setQuota] = useStateApp(false);
   const [mode, setMode] = useStateApp(() => localStorage.getItem('diary_mode') || 'auto');
   const [toast, setToast] = useStateApp(null);
+  const [activeCanvas, setActiveCanvas] = useStateApp(null);
   const [, setTick] = useStateApp(0);
 
   const dayNight = () => { const h = new Date().getHours(); return (h >= 7 && h < 19) ? 'light' : 'dark'; };
@@ -800,33 +1027,178 @@ function DiaryApp() {
   const viewRef = useRef(viewDate);
   const penOnlyRef = useRef(penOnly);
   const lastLang = useRef('EN');
+  const swipeStart = useRef(null);
 
   useEffect(() => { viewRef.current = viewDate; }, [viewDate]);
   useEffect(() => { penOnlyRef.current = penOnly; }, [penOnly]);
   useEffect(() => { localStorage.setItem('diary_mode', mode); }, [mode]);
   useEffect(() => { localStorage.setItem('diary_paper', paper); }, [paper]);
+  useEffect(() => { localStorage.setItem('diary_penOnly', String(penOnly)); }, [penOnly]);
   useEffect(() => { const id = setInterval(() => setTick((n) => n + 1), 60000); return () => clearInterval(id); }, []);
   useEffect(() => { if (!toast) return; const id = setTimeout(() => setToast(null), 3400); return () => clearTimeout(id); }, [toast]);
 
   const registerCanvas = useCallback((code, el) => { if (el) canvasEls.current[code] = el; }, []);
 
-  const handleInk = useCallback((code, strokes) => {
+  const handleInk = useCallback(async (code, strokes) => {
     lastLang.current = code;
     const isoStr = DS.iso(viewRef.current);
-    if (!DS.saveInk(isoStr, code, strokes)) setQuota(true);
-    const m = DS.refreshDay(isoStr);
+    const ok = await DS.saveInk(isoStr, code, strokes);
+    if (!ok) {
+      setQuota(true);
+      return;
+    }
+    const m = DS.getMeta();
     const s = DS.stats(m);
     const earned = m.medals || [];
     const newly = MEDALS.filter((md) => md.test(s) && !earned.includes(md.id));
-    if (newly.length) { m.medals = earned.concat(newly.map((md) => md.id)); DS.setMeta(m); setToast(newly[0]); }
+    if (newly.length) {
+      m.medals = earned.concat(newly.map((md) => md.id));
+      DS.setMeta(m);
+      setToast(newly[0]);
+    }
     setMeta({ ...m });
   }, []);
 
+  // FIX: deleteDay — apaga escrita de um dia do calendário
+  const deleteDay = useCallback(async (date) => {
+    const isoStr = DS.iso(date);
+    for (const lang of DS.LANGS) {
+      await DS.saveInk(isoStr, lang, []);
+    }
+    const m = DS.getMeta();
+    if (isoStr === DS.iso(viewRef.current)) {
+      DS.LANGS.forEach((code) => { const p = pads.current[code]; if (p) p.load([]); });
+    }
+    setMeta({ ...m });
+  }, []);
+
+  // FIX: exportBackup — baixa todos os dados como JSON
+  const exportBackup = useCallback(async () => {
+    try {
+      const meta = localStorage.getItem('diary_meta_v1');
+      const metaObj = meta ? JSON.parse(meta) : null;
+      const settings = {};
+      ['diary_mode', 'diary_paper', 'diary_penOnly'].forEach((k) => {
+        const v = localStorage.getItem(k);
+        if (v !== null) settings[k] = v;
+      });
+      const strokes = await DS.dbGetAll();
+      const backupData = {
+        meta: metaObj,
+        strokes: strokes,
+        settings: settings
+      };
+      const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `diario-poliglota-backup-${DS.iso(DS.today())}.json`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    } catch (err) {
+      console.error('Erro ao exportar backup:', err);
+    }
+  }, []);
+
+  // FIX: handleImport — restaura dados de um arquivo JSON de backup
+  const handleImport = useCallback((file) => {
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        let metaObj = null;
+        let strokesMap = {};
+
+        if (data.meta && data.strokes) {
+          metaObj = data.meta;
+          strokesMap = data.strokes;
+          if (data.settings) {
+            Object.entries(data.settings).forEach(([k, v]) => localStorage.setItem(k, v));
+          }
+        } else {
+          // Formato legado (plano)
+          Object.entries(data).forEach(([k, v]) => {
+            if (k === 'diary_meta_v1') {
+              try { metaObj = JSON.parse(v); } catch (err) {}
+            } else if (k.startsWith('diary_ink_')) {
+              try { strokesMap[k] = JSON.parse(v); } catch (err) {}
+            } else if (k.startsWith('diary_')) {
+              localStorage.setItem(k, v);
+            }
+          });
+        }
+
+        if (metaObj) {
+          localStorage.setItem('diary_meta_v1', JSON.stringify(metaObj));
+        }
+
+        for (const [key, strokes] of Object.entries(strokesMap)) {
+          await DS.saveInkRaw(key, strokes);
+        }
+
+        const m = DS.getMeta();
+        setMeta({ ...m });
+        const isoStr = DS.iso(viewRef.current);
+        DS.LANGS.forEach(async (code) => {
+          const strokes = await DS.loadInk(isoStr, code);
+          const p = pads.current[code];
+          if (p) p.load(strokes);
+        });
+      } catch (_) { /* arquivo inválido */ }
+    };
+    reader.readAsText(file);
+  }, []);
+
+  // FIX: exportPNG — exporta o dia atual como imagem (grade 2×2)
+  const exportPNG = useCallback(() => {
+    const firstEl = canvasEls.current['EN'];
+    if (!firstEl) return;
+    const cw = firstEl.width, ch = firstEl.height;
+    const pad = 20;
+    const off = document.createElement('canvas');
+    off.width = cw * 2 + pad * 3;
+    off.height = ch * 2 + pad * 3;
+    const ctx = off.getContext('2d');
+    ctx.fillStyle = T.mode === 'dark' ? '#0E1326' : '#E9EEF7';
+    ctx.fillRect(0, 0, off.width, off.height);
+    DS.LANGS.forEach((code, i) => {
+      const el = canvasEls.current[code];
+      if (!el) return;
+      const col = i % 2, row = Math.floor(i / 2);
+      const x = pad + col * (cw + pad);
+      const y = pad + row * (ch + pad);
+      ctx.fillStyle = T.cream;
+      ctx.fillRect(x, y, el.width, el.height);
+      ctx.drawImage(el, x, y);
+    });
+    const a = document.createElement('a');
+    a.href = off.toDataURL('image/png');
+    a.download = `diario-${DS.iso(viewRef.current)}.png`;
+    a.click();
+  }, [T]);
+
   useEffect(() => {
+    async function init() {
+      await DS.migrateLegacyData();
+      const m = DS.getMeta();
+      setMeta({ ...m });
+      const isoStr = DS.iso(viewRef.current);
+      for (const code of LANGS) {
+        const strokes = await DS.loadInk(isoStr, code);
+        const p = pads.current[code];
+        if (p) p.load(strokes);
+      }
+    }
+    init();
+
     LANGS.forEach((code) => {
       const el = canvasEls.current[code];
       if (el && !pads.current[code]) {
-        pads.current[code] = new InkPad(el, { onChange: (s) => handleInk(code, s), penOnly: () => penOnlyRef.current });
+        // FIX: onActive conecta ao indicador visual de canvas ativo
+        pads.current[code] = new InkPad(el, {
+          onChange: (s) => handleInk(code, s),
+          penOnly: () => penOnlyRef.current,
+          onActive: (active) => setActiveCanvas(active ? code : null),
+        });
         pads.current[code].setTool(tool);
       }
     });
@@ -835,7 +1207,11 @@ function DiaryApp() {
 
   useEffect(() => {
     const isoStr = DS.iso(viewDate);
-    LANGS.forEach((code) => { const p = pads.current[code]; if (p) p.load(DS.loadInk(isoStr, code)); });
+    LANGS.forEach(async (code) => {
+      const strokes = await DS.loadInk(isoStr, code);
+      const p = pads.current[code];
+      if (p) p.load(strokes);
+    });
   }, [viewDate]);
 
   useEffect(() => { Object.values(pads.current).forEach((p) => p.setTool(tool)); }, [tool]);
@@ -850,12 +1226,20 @@ function DiaryApp() {
   const clearBox = (code) => { const p = pads.current[code]; if (p) p.clear(); };
   const undo = () => { const p = pads.current[lastLang.current]; if (p) p.undo(); };
 
+  // FIX: atalhos de teclado expandidos — E (borracha), 1–4 (cores)
   useEffect(() => {
     const onKey = (e) => {
       if (showCal) return;
       if (e.key === 'ArrowRight') goDay(1);
       if (e.key === 'ArrowLeft') goDay(-1);
       if ((e.metaKey || e.ctrlKey) && e.key === 'z') { e.preventDefault(); undo(); }
+      if (!e.metaKey && !e.ctrlKey && !e.altKey) {
+        if (e.key === 'e' || e.key === 'E') setTool((t) => ({ ...t, mode: t.mode === 'eraser' ? 'pen' : 'eraser' }));
+        if (e.key === '1') setTool((t) => ({ ...t, mode: 'pen', color: INK_COLORS[0].v }));
+        if (e.key === '2') setTool((t) => ({ ...t, mode: 'pen', color: INK_COLORS[1].v }));
+        if (e.key === '3') setTool((t) => ({ ...t, mode: 'pen', color: INK_COLORS[2].v }));
+        if (e.key === '4') setTool((t) => ({ ...t, mode: 'pen', color: INK_COLORS[3].v }));
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -868,7 +1252,7 @@ function DiaryApp() {
     <div style={{ position: 'fixed', inset: 0, background: T.appBg, fontFamily: "'Nunito', sans-serif", display: 'flex', flexDirection: 'column', backgroundImage: `linear-gradient(${T.grid} 1px, transparent 1px), linear-gradient(90deg, ${T.grid} 1px, transparent 1px)`, backgroundSize: '40px 40px', overflow: 'hidden' }}>
       {/* TOP BAR */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '12px 20px 6px', flex: '0 0 auto' }}>
-        <button onClick={() => goDay(-1)} style={ctrl} title="Dia anterior">‹</button>
+        <button onClick={() => goDay(-1)} style={ctrl} title="Dia anterior (←)">‹</button>
         <div style={{ minWidth: 250 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
             <span style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: 25, color: T.text, textTransform: 'capitalize', lineHeight: 1, whiteSpace: 'nowrap' }}>{dateLabel}</span>
@@ -876,9 +1260,11 @@ function DiaryApp() {
           </div>
           <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 12, color: T.dim, marginTop: 2 }}>DIA {dayN} · MÓDULO {M.n}/12 · LVL {M.lv}</div>
         </div>
-        <button onClick={() => goDay(1)} style={ctrl} title="Próximo dia">›</button>
+        <button onClick={() => goDay(1)} style={ctrl} title="Próximo dia (→)">›</button>
 
-        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
+          {/* FIX: botão de exportar PNG do dia */}
+          <button onClick={exportPNG} title="Exportar dia como PNG" style={{ ...ctrl, fontSize: 15 }}>📸</button>
           <button
             onClick={() => setMode(mode === 'auto' ? 'light' : (mode === 'light' ? 'dark' : 'auto'))}
             title={mode === 'auto' ? 'Tema: automático (claro 7h–19h, escuro à noite)' : (mode === 'light' ? 'Tema: claro' : 'Tema: escuro')}
@@ -916,48 +1302,71 @@ function DiaryApp() {
         <div style={{ flex: '0 0 auto', maxWidth: 260, fontSize: 12, color: T.dim, fontWeight: 600, lineHeight: 1.25, textAlign: 'right' }}>💡 {M.g}</div>
       </div>
 
-      {/* GRADE 2×2 */}
-      <div style={{ flex: 1, minHeight: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 12, padding: '0 20px 88px' }}>
+      {/* GRADE 2×2 — FIX: swipe para navegar entre dias no mobile */}
+      <div
+        className="diary-grid"
+        style={{ flex: 1, minHeight: 0, gap: 12, padding: '0 20px 88px' }}
+        onTouchStart={(e) => { swipeStart.current = e.touches[0].clientX; }}
+        onTouchEnd={(e) => {
+          if (swipeStart.current === null) return;
+          const dx = e.changedTouches[0].clientX - swipeStart.current;
+          if (Math.abs(dx) > 60) { dx < 0 ? goDay(1) : goDay(-1); }
+          swipeStart.current = null;
+        }}
+      >
         {LANGS.map((code) => (
-          <WritingBox key={code} code={code} data={W.L[code]} T={T} paper={paper} registerCanvas={registerCanvas} onClearBox={clearBox} />
+          <WritingBox key={code} code={code} data={W.L[code]} T={T} paper={paper}
+            registerCanvas={registerCanvas} onClearBox={clearBox}
+            isActive={activeCanvas === code} />
         ))}
       </div>
 
-      {/* BARRA DE FERRAMENTAS */}
-      <div style={{ position: 'fixed', left: '50%', bottom: 16, transform: 'translateX(-50%)', zIndex: 100, display: 'flex', alignItems: 'center', gap: 8, background: T.mode === 'light' ? 'rgba(255,255,255,0.97)' : 'rgba(20,26,48,0.95)', border: `1px solid ${T.border}`, borderRadius: 16, padding: '8px 12px', boxShadow: '0 10px 36px rgba(0,0,0,0.4)', backdropFilter: 'blur(6px)' }}>
+      {/* BARRA DE FERRAMENTAS — FIX: scroll horizontal no mobile */}
+      <div style={{ position: 'fixed', left: '50%', bottom: 16, transform: 'translateX(-50%)', zIndex: 100,
+        display: 'flex', alignItems: 'center', gap: 8,
+        background: T.mode === 'light' ? 'rgba(255,255,255,0.97)' : 'rgba(20,26,48,0.95)',
+        border: `1px solid ${T.border}`, borderRadius: 16, padding: '8px 12px',
+        boxShadow: '0 10px 36px rgba(0,0,0,0.4)', backdropFilter: 'blur(6px)',
+        overflowX: 'auto', maxWidth: 'calc(100vw - 24px)' }}>
         {INK_COLORS.map((c) => (
           <button key={c.id} onClick={() => setTool((t) => ({ ...t, mode: 'pen', color: c.v }))} title={c.label}
-            style={{ width: 30, height: 30, borderRadius: '50%', background: c.v, cursor: 'pointer', border: tool.mode === 'pen' && tool.color === c.v ? `3px solid ${T.accent}` : `2px solid ${T.borderStrong}` }} />
+            style={{ width: 30, height: 30, borderRadius: '50%', background: c.v, cursor: 'pointer', border: tool.mode === 'pen' && tool.color === c.v ? `3px solid ${T.accent}` : `2px solid ${T.borderStrong}`, flex: '0 0 auto' }} />
         ))}
-        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px' }} />
+        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px', flex: '0 0 auto' }} />
         {[['fina', 'Fina', 4], ['grossa', 'Grossa', 8]].map(([w, lab, dot]) => (
           <button key={w} onClick={() => setTool((t) => ({ ...t, width: w }))} title={lab}
-            style={{ ...dock, background: tool.width === w ? T.ctrlHover : T.ctrlBg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            style={{ ...dock, background: tool.width === w ? T.ctrlHover : T.ctrlBg, display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto' }}>
             <span style={{ width: dot, height: dot, borderRadius: '50%', background: T.text, display: 'block' }} />
           </button>
         ))}
-        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px' }} />
-        <button onClick={() => setTool((t) => ({ ...t, mode: t.mode === 'eraser' ? 'pen' : 'eraser' }))} title="Borracha"
-          style={{ ...dock, width: 'auto', padding: '0 12px', background: tool.mode === 'eraser' ? T.accent : T.ctrlBg, color: tool.mode === 'eraser' ? '#0E1326' : T.text }}>Borracha</button>
-        <button onClick={undo} title="Desfazer (⌘Z)" style={{ ...dock, width: 'auto', padding: '0 12px' }}>↶ Desfazer</button>
-        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px' }} />
+        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px', flex: '0 0 auto' }} />
+        {/* FIX: atalho E para borracha */}
+        <button onClick={() => setTool((t) => ({ ...t, mode: t.mode === 'eraser' ? 'pen' : 'eraser' }))} title="Borracha (E)"
+          style={{ ...dock, width: 'auto', padding: '0 12px', flex: '0 0 auto', background: tool.mode === 'eraser' ? T.accent : T.ctrlBg, color: tool.mode === 'eraser' ? '#0E1326' : T.text }}>Borracha</button>
+        <button onClick={undo} title="Desfazer (⌘Z)" style={{ ...dock, width: 'auto', padding: '0 12px', flex: '0 0 auto' }}>↶ Desfazer</button>
+        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px', flex: '0 0 auto' }} />
         {[['pautado', 'Pautado', '≡'], ['branco', 'Em branco', '□'], ['quadriculado', 'Quadriculado', '▦']].map(([p, lab, ic]) => (
           <button key={p} onClick={() => setPaper(p)} title={lab}
-            style={{ ...dock, background: paper === p ? T.ctrlHover : T.ctrlBg, fontSize: 17, lineHeight: 1 }}>{ic}</button>
+            style={{ ...dock, background: paper === p ? T.ctrlHover : T.ctrlBg, fontSize: 17, lineHeight: 1, flex: '0 0 auto' }}>{ic}</button>
         ))}
-        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px' }} />
+        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px', flex: '0 0 auto' }} />
         <button onClick={() => setPenOnly((v) => !v)} title="Ignorar toques (só caneta)"
-          style={{ ...dock, width: 'auto', padding: '0 12px', background: penOnly ? T.ctrlHover : T.ctrlBg, fontSize: 12 }}>{penOnly ? '✎ Só caneta' : '✎ Caneta+toque'}</button>
+          style={{ ...dock, width: 'auto', padding: '0 12px', flex: '0 0 auto', background: penOnly ? T.ctrlHover : T.ctrlBg, fontSize: 12 }}>{penOnly ? '✎ Só caneta' : '✎ Caneta+toque'}</button>
       </div>
 
       {quota && (
         <div style={{ position: 'fixed', bottom: 70, left: '50%', transform: 'translateX(-50%)', zIndex: 120, background: '#7f1d1d', color: '#fff', padding: '8px 16px', borderRadius: 10, fontSize: 13, fontWeight: 700 }}>
-          Memória cheia — apague dias antigos no calendário.
+          Memória cheia — use 💾 Backup e apague dias antigos no calendário.
         </div>
       )}
 
       <MedalToast medal={toast} T={T} />
-      {showCal && <ProgressModal meta={meta} viewDate={viewDate} T={T} onPick={(d) => { setViewDate(d); setShowCal(false); }} onClose={() => setShowCal(false)} />}
+      {showCal && <ProgressModal meta={meta} viewDate={viewDate} T={T}
+        onPick={(d) => { setViewDate(d); setShowCal(false); }}
+        onClose={() => setShowCal(false)}
+        onDeleteDay={deleteDay}
+        onExport={exportBackup}
+        onImport={handleImport} />}
     </div>
   );
 }
