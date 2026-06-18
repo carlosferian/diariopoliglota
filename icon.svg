@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0E1326"/>
+  <!-- EN -->
+  <rect x="28" y="28" width="218" height="218" rx="40" fill="#2563EB"/>
+  <text x="137" y="163" text-anchor="middle" font-family="monospace" font-weight="700" font-size="88" fill="white">EN</text>
+  <!-- IT -->
+  <rect x="266" y="28" width="218" height="218" rx="40" fill="#15A34A"/>
+  <text x="375" y="163" text-anchor="middle" font-family="monospace" font-weight="700" font-size="88" fill="white">IT</text>
+  <!-- DE -->
+  <rect x="28" y="266" width="218" height="218" rx="40" fill="#D9A21A"/>
+  <text x="137" y="401" text-anchor="middle" font-family="monospace" font-weight="700" font-size="88" fill="white">DE</text>
+  <!-- JP -->
+  <rect x="266" y="266" width="218" height="218" rx="40" fill="#E11D48"/>
+  <text x="375" y="401" text-anchor="middle" font-family="monospace" font-weight="700" font-size="88" fill="white">JP</text>
+</svg>
