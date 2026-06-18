@@ -1,5 +1,5 @@
-import React from 'react';
-import { Trash2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { Trash2, HelpCircle } from 'lucide-react';
 import type { LanguagePrompt } from '../data/prompts';
 
 export interface LanguageTheme {
@@ -48,6 +48,7 @@ interface WritingBoxProps {
   registerCanvas: (code: string, el: HTMLCanvasElement | null) => void;
   onClearBox: (code: string) => void;
   isActive: boolean;
+  suggestions: string[];
 }
 
 function guideStyle(code: string, t: LanguageTheme, paper: string) {
@@ -74,7 +75,9 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
   registerCanvas,
   onClearBox,
   isActive,
+  suggestions,
 }) => {
+  const [showHelp, setShowHelp] = useState(false);
   const t = LANG_THEME[code];
   const jp = code === 'JP';
 
@@ -156,6 +159,33 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
           <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.75)' }}>{data.tr}</span>
         </div>
 
+        {/* Botão de Ajuda */}
+        {suggestions && suggestions.length > 0 && (
+          <button
+            onClick={() => setShowHelp((prev) => !prev)}
+            title="Exemplos de frases de ajuda (Inspiração)"
+            style={{
+              flex: '0 0 auto',
+              background: showHelp ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.15)',
+              border: 'none',
+              color: '#fff',
+              borderRadius: 8,
+              width: 28,
+              height: 28,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'background 0.2s',
+              marginRight: 4,
+            }}
+            onMouseEnter={(e) => !showHelp && (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.25)')}
+            onMouseLeave={(e) => !showHelp && (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)')}
+          >
+            <HelpCircle size={14} />
+          </button>
+        )}
+
         {/* Botão de Limpar */}
         <button
           onClick={() => onClearBox(code)}
@@ -180,6 +210,94 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
           <Trash2 size={14} />
         </button>
       </div>
+
+      {/* Painel de Sugestões de Ajuda */}
+      {showHelp && suggestions && suggestions.length > 0 && (
+        <div
+          style={{
+            background: T.cellBg,
+            borderBottom: `1px solid ${T.borderStrong}`,
+            padding: '12px 14px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 8,
+            animation: 'toastIn 0.2s ease',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontSize: 11, fontWeight: 800, color: T.dim, letterSpacing: 0.5, textTransform: 'uppercase' }}>
+              💡 Exemplos (Simples ➔ Complexo)
+            </span>
+            <button
+              onClick={() => setShowHelp(false)}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: T.dim,
+                cursor: 'pointer',
+                fontSize: 11,
+                fontWeight: 700,
+              }}
+            >
+              fechar
+            </button>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {suggestions.map((item, idx) => {
+              const levels = [
+                { name: 'Simples', color: '#10B981' },
+                { name: 'Fácil', color: '#3B82F6' },
+                { name: 'Médio', color: '#F59E0B' },
+                { name: 'Complexo', color: '#EF4444' },
+                { name: 'Avançado', color: '#8B5CF6' }
+              ];
+              const lvl = levels[idx] || levels[0];
+              return (
+                <div
+                  key={idx}
+                  style={{
+                    background: T.card,
+                    borderRadius: 8,
+                    padding: '8px 10px',
+                    border: `1px solid ${T.border}`,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 4,
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span
+                      style={{
+                        fontSize: 9,
+                        fontWeight: 800,
+                        color: '#fff',
+                        background: lvl.color,
+                        padding: '2px 6px',
+                        borderRadius: 4,
+                        textTransform: 'uppercase',
+                        lineHeight: 1.1,
+                      }}
+                    >
+                      {lvl.name}
+                    </span>
+                  </div>
+                  <span
+                    style={{
+                      fontFamily: jp ? "'Zen Maru Gothic', sans-serif" : "'Nunito', sans-serif",
+                      fontSize: 13.5,
+                      color: T.text,
+                      fontWeight: 600,
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {item}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Sugestão de início */}
       <div style={{ padding: '8px 14px 0', flex: '0 0 auto' }}>

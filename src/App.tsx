@@ -7,6 +7,7 @@ import * as DS from './services/DiaryStore';
 import { InkPad } from './services/InkPad';
 import type { Stroke, InkPadTool } from './services/InkPad';
 import { YEAR } from './data/prompts';
+import { SUGGESTIONS } from './data/suggestions';
 import { WritingBox } from './components/WritingBox';
 import type { ThemeColors } from './components/WritingBox';
 import { ProgressModal, MEDALS } from './components/ProgressModal';
@@ -597,6 +598,7 @@ export function App() {
             registerCanvas={registerCanvas}
             onClearBox={clearBox}
             isActive={activeCanvas === code}
+            suggestions={SUGGESTIONS[flat]?.[code as 'EN' | 'IT' | 'DE' | 'JP'] || []}
           />
         ))}
       </div>
