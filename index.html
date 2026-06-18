@@ -619,9 +619,20 @@ window.YEAR = [
     }
   }
 
+  async function clearAll() {
+    const db = await getDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, 'readwrite');
+      const store = tx.objectStore(STORE_NAME);
+      const req = store.clear();
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+  }
+
   window.DiaryStore = {
     LANGS, iso, fromIso, today, addDays, today0,
-    loadInk, saveInk, saveInkRaw, dbGetAll, migrateLegacyData,
+    loadInk, saveInk, saveInkRaw, dbGetAll, migrateLegacyData, clearAll,
     getMeta, setMeta,
     currentStreak, bestStreak, totalDays, weekFlatForDate, dayNumber,
     dayHasAllLangs, stats,
@@ -683,7 +694,7 @@ window.YEAR = [
 
     _bind() {
       const c = this.canvas;
-      c.style.touchAction = 'none';
+      c.style.touchAction = this.penOnlyGetter() ? 'pan-y' : 'none';
       const norm = (e) => {
         const r = c.getBoundingClientRect();
         return { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height,
@@ -873,7 +884,7 @@ function WritingBox({ code, data, T, paper, registerCanvas, onClearBox, isActive
 
 // FIX: adicionados props onDeleteDay, onExport, onImport; calendário mostra ✓ em vez de ✕;
 // dias concluídos abrem confirmação de exclusão; botões de backup adicionados
-function ProgressModal({ meta, viewDate, T, onPick, onClose, onDeleteDay, onExport, onImport }) {
+function ProgressModal({ meta, viewDate, T, onPick, onClose, onDeleteDay, onExport, onImport, onClearHistory }) {
   const [m, setM] = useState(() => new Date(viewDate.getFullYear(), viewDate.getMonth(), 1));
   const [confirmDel, setConfirmDel] = useState(null);
   const t0 = DS.today();
@@ -975,6 +986,8 @@ function ProgressModal({ meta, viewDate, T, onPick, onClose, onDeleteDay, onExpo
               <input type="file" accept=".json" style={{ display: 'none' }} onChange={(e) => { if (e.target.files[0]) { onImport(e.target.files[0]); onClose(); } }} />
             </label>
           </div>
+          <button onClick={onClearHistory}
+            style={{ marginTop: 12, width: '100%', background: '#dc2626', border: 'none', color: '#fff', borderRadius: 10, padding: '9px 6px', fontWeight: 800, cursor: 'pointer', fontFamily: "'Nunito', sans-serif", fontSize: 13 }}>⚠️ Limpar Histórico</button>
           <button onClick={onClose} style={{ marginTop: 8, width: '100%', background: T.ctrlBg, border: `1px solid ${T.borderStrong}`, color: T.text, borderRadius: 10, padding: '11px', fontWeight: 800, cursor: 'pointer', fontFamily: "'Nunito', sans-serif" }}>Fechar</button>
         </div>
       </div>
@@ -1176,6 +1189,25 @@ function DiaryApp() {
     a.click();
   }, [T]);
 
+  const clearAllHistory = useCallback(async () => {
+    if (!confirm("Tem certeza que deseja apagar TODO o seu histórico de escrita e estatísticas? Esta ação não pode ser desfeita!")) return;
+    try {
+      await DS.clearAll();
+      localStorage.removeItem('diary_meta_v1');
+      const m = DS.getMeta();
+      setMeta({ ...m });
+      DS.LANGS.forEach((code) => {
+        const p = pads.current[code];
+        if (p) p.clear();
+      });
+      setShowCal(false);
+      alert("Histórico apagado com sucesso!");
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao apagar histórico.");
+    }
+  }, []);
+
   useEffect(() => {
     async function init() {
       await DS.migrateLegacyData();
@@ -1216,6 +1248,14 @@ function DiaryApp() {
 
   useEffect(() => { Object.values(pads.current).forEach((p) => p.setTool(tool)); }, [tool]);
 
+  useEffect(() => {
+    Object.values(pads.current).forEach((p) => {
+      if (p && p.canvas) {
+        p.canvas.style.touchAction = penOnly ? 'pan-y' : 'none';
+      }
+    });
+  }, [penOnly]);
+
   const flat = DS.weekFlatForDate(meta, viewDate);
   const M = window.YEAR[Math.floor(flat / 4)], W = M.w[flat % 4];
   const streak = DS.currentStreak(meta);
@@ -1252,15 +1292,17 @@ function DiaryApp() {
     <div style={{ position: 'fixed', inset: 0, background: T.appBg, fontFamily: "'Nunito', sans-serif", display: 'flex', flexDirection: 'column', backgroundImage: `linear-gradient(${T.grid} 1px, transparent 1px), linear-gradient(90deg, ${T.grid} 1px, transparent 1px)`, backgroundSize: '40px 40px', overflow: 'hidden' }}>
       {/* TOP BAR */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '12px 20px 6px', flex: '0 0 auto' }}>
-        <button onClick={() => goDay(-1)} style={ctrl} title="Dia anterior (←)">‹</button>
-        <div style={{ minWidth: 250 }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
-            <span style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: 25, color: T.text, textTransform: 'capitalize', lineHeight: 1, whiteSpace: 'nowrap' }}>{dateLabel}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: '0 0 auto' }}>
+          <button onClick={() => goDay(-1)} style={ctrl} title="Dia anterior (←)">‹</button>
+          <button onClick={() => goDay(1)} style={ctrl} title="Próximo dia (→)">›</button>
+        </div>
+        <div style={{ minWidth: 0, flex: '1 1 auto', marginLeft: 4 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: 'clamp(18px, 3.5vw, 25px)', color: T.text, textTransform: 'capitalize', lineHeight: 1.1 }}>{dateLabel}</span>
             {!isToday && <button onClick={() => setViewDate(DS.today())} style={{ ...ctrl, width: 'auto', padding: '2px 10px', fontSize: 12, height: 24 }}>hoje</button>}
           </div>
-          <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 12, color: T.dim, marginTop: 2 }}>DIA {dayN} · MÓDULO {M.n}/12 · LVL {M.lv}</div>
+          <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: T.dim, marginTop: 4 }}>DIA {dayN} · MÓDULO {M.n}/12 · LVL {M.lv}</div>
         </div>
-        <button onClick={() => goDay(1)} style={ctrl} title="Próximo dia (→)">›</button>
 
         <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
           {/* FIX: botão de exportar PNG do dia */}
@@ -1325,33 +1367,44 @@ function DiaryApp() {
       <div style={{ position: 'fixed', left: '50%', bottom: 16, transform: 'translateX(-50%)', zIndex: 100,
         display: 'flex', alignItems: 'center', gap: 8,
         background: T.mode === 'light' ? 'rgba(255,255,255,0.97)' : 'rgba(20,26,48,0.95)',
-        border: `1px solid ${T.border}`, borderRadius: 16, padding: '8px 12px',
+        border: `1px solid ${T.border}`, borderRadius: 16, padding: '6px 10px',
         boxShadow: '0 10px 36px rgba(0,0,0,0.4)', backdropFilter: 'blur(6px)',
-        overflowX: 'auto', maxWidth: 'calc(100vw - 24px)' }}>
-        {INK_COLORS.map((c) => (
-          <button key={c.id} onClick={() => setTool((t) => ({ ...t, mode: 'pen', color: c.v }))} title={c.label}
-            style={{ width: 30, height: 30, borderRadius: '50%', background: c.v, cursor: 'pointer', border: tool.mode === 'pen' && tool.color === c.v ? `3px solid ${T.accent}` : `2px solid ${T.borderStrong}`, flex: '0 0 auto' }} />
-        ))}
-        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px', flex: '0 0 auto' }} />
-        {[['fina', 'Fina', 4], ['grossa', 'Grossa', 8]].map(([w, lab, dot]) => (
-          <button key={w} onClick={() => setTool((t) => ({ ...t, width: w }))} title={lab}
-            style={{ ...dock, background: tool.width === w ? T.ctrlHover : T.ctrlBg, display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto' }}>
-            <span style={{ width: dot, height: dot, borderRadius: '50%', background: T.text, display: 'block' }} />
-          </button>
-        ))}
-        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px', flex: '0 0 auto' }} />
-        {/* FIX: atalho E para borracha */}
-        <button onClick={() => setTool((t) => ({ ...t, mode: t.mode === 'eraser' ? 'pen' : 'eraser' }))} title="Borracha (E)"
-          style={{ ...dock, width: 'auto', padding: '0 12px', flex: '0 0 auto', background: tool.mode === 'eraser' ? T.accent : T.ctrlBg, color: tool.mode === 'eraser' ? '#0E1326' : T.text }}>Borracha</button>
-        <button onClick={undo} title="Desfazer (⌘Z)" style={{ ...dock, width: 'auto', padding: '0 12px', flex: '0 0 auto' }}>↶ Desfazer</button>
-        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px', flex: '0 0 auto' }} />
-        {[['pautado', 'Pautado', '≡'], ['branco', 'Em branco', '□'], ['quadriculado', 'Quadriculado', '▦']].map(([p, lab, ic]) => (
-          <button key={p} onClick={() => setPaper(p)} title={lab}
-            style={{ ...dock, background: paper === p ? T.ctrlHover : T.ctrlBg, fontSize: 17, lineHeight: 1, flex: '0 0 auto' }}>{ic}</button>
-        ))}
-        <div style={{ width: 1, height: 28, background: T.border, margin: '0 3px', flex: '0 0 auto' }} />
-        <button onClick={() => setPenOnly((v) => !v)} title="Ignorar toques (só caneta)"
-          style={{ ...dock, width: 'auto', padding: '0 12px', flex: '0 0 auto', background: penOnly ? T.ctrlHover : T.ctrlBg, fontSize: 12 }}>{penOnly ? '✎ Só caneta' : '✎ Caneta+toque'}</button>
+        maxWidth: 'calc(100vw - 24px)', overflowX: 'auto' }}>
+        {/* Grupo Cores */}
+        <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
+          {INK_COLORS.map((c) => (
+            <button key={c.id} onClick={() => setTool((t) => ({ ...t, mode: 'pen', color: c.v }))} title={c.label}
+              style={{ width: 28, height: 28, borderRadius: '50%', background: c.v, cursor: 'pointer', border: tool.mode === 'pen' && tool.color === c.v ? `3px solid ${T.accent}` : `2px solid ${T.borderStrong}`, flexShrink: 0 }} />
+          ))}
+        </div>
+        <div style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
+        {/* Grupo Caneta/Tamanho/Borracha/Desfazer */}
+        <div style={{ display: 'flex', gap: 3, background: T.ctrlBg, borderRadius: 10, padding: 2, flexShrink: 0 }}>
+          {[['fina', 'Fina', 3], ['grossa', 'Grossa', 6]].map(([w, lab, dot]) => (
+            <button key={w} onClick={() => setTool((t) => ({ ...t, width: w, mode: 'pen' }))} title={lab}
+              style={{ background: tool.width === w && tool.mode === 'pen' ? T.ctrlHover : 'transparent', border: 'none', color: T.text, borderRadius: 8, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+              <span style={{ width: dot, height: dot, borderRadius: '50%', background: T.text }} />
+            </button>
+          ))}
+          <button onClick={() => setTool((t) => ({ ...t, mode: t.mode === 'eraser' ? 'pen' : 'eraser' }))} title="Borracha (E)"
+            style={{ background: tool.mode === 'eraser' ? T.accent : 'transparent', border: 'none', color: tool.mode === 'eraser' ? '#0E1326' : T.text, borderRadius: 8, width: 28, height: 28, fontSize: 13, cursor: 'pointer' }}>🧽</button>
+          <button onClick={undo} title="Desfazer (⌘Z)"
+            style={{ background: 'transparent', border: 'none', color: T.text, borderRadius: 8, width: 28, height: 28, fontSize: 13, cursor: 'pointer' }}>↶</button>
+        </div>
+        <div style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
+        {/* Grupo Folha */}
+        <div style={{ display: 'flex', gap: 3, background: T.ctrlBg, borderRadius: 10, padding: 2, flexShrink: 0 }}>
+          {[['pautado', 'Pautado', '≡'], ['branco', 'Em branco', '□'], ['quadriculado', 'Quadriculado', '▦']].map(([p, lab, ic]) => (
+            <button key={p} onClick={() => setPaper(p)} title={lab}
+              style={{ background: paper === p ? T.ctrlHover : 'transparent', border: 'none', color: T.text, borderRadius: 8, width: 28, height: 28, fontSize: 15, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{ic}</button>
+          ))}
+        </div>
+        <div style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
+        {/* Botão Rejeição Toque */}
+        <button onClick={() => setPenOnly((v) => !v)} title={penOnly ? "Ignorar toques (modo apenas caneta)" : "Aceitar caneta e toque"}
+          style={{ background: penOnly ? T.accent : T.ctrlBg, border: `1px solid ${T.borderStrong}`, color: penOnly ? '#0E1326' : T.text, borderRadius: 10, width: 30, height: 30, cursor: 'pointer', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          {penOnly ? '✍️' : '👆'}
+        </button>
       </div>
 
       {quota && (
@@ -1366,7 +1419,8 @@ function DiaryApp() {
         onClose={() => setShowCal(false)}
         onDeleteDay={deleteDay}
         onExport={exportBackup}
-        onImport={handleImport} />}
+        onImport={handleImport}
+        onClearHistory={clearAllHistory} />}
     </div>
   );
 }
