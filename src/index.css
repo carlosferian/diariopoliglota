@@ -1,0 +1,55 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #0E1326;
+  overscroll-behavior: none;
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-family: 'Nunito', sans-serif;
+  touch-action: manipulation;
+}
+button {
+  font-family: inherit;
+}
+#root {
+  height: 100%;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-14px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.diary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.diary-card {
+  height: 380px;
+}
+
+@media (min-width: 1024px) {
+  .diary-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    overflow-y: hidden;
+  }
+  .diary-card {
+    height: 100%;
+  }
+}
