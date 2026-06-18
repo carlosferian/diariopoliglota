@@ -653,6 +653,7 @@ window.YEAR = [
       this.onActive = opts.onActive || (() => {});
       this.penOnlyGetter = opts.penOnly || (() => false);
       this.strokes = [];
+      this.redoStack = [];
       this.cur = null;
       this.tool = { mode: 'pen', color: '#1b2030', width: 'grossa' };
       this.cssW = 1; this.cssH = 1;
@@ -669,17 +670,31 @@ window.YEAR = [
 
     load(strokes) {
       this.strokes = Array.isArray(strokes) ? strokes : [];
+      this.redoStack = [];
       this.cur = null;
       this.redraw();
     }
     clear() {
-      this.strokes = []; this.cur = null;
+      this.strokes = []; this.redoStack = []; this.cur = null;
       this.redraw(); this.onChange(this.strokes);
     }
     undo() {
-      if (this.cur) this.cur = null;
-      else this.strokes.pop();
+      if (this.cur) {
+        this.cur = null;
+      } else {
+        const stroke = this.strokes.pop();
+        if (stroke) {
+          this.redoStack.push(stroke);
+        }
+      }
       this.redraw(); this.onChange(this.strokes);
+    }
+    redo() {
+      const stroke = this.redoStack.pop();
+      if (stroke) {
+        this.strokes.push(stroke);
+        this.redraw(); this.onChange(this.strokes);
+      }
     }
 
     _resize() {
@@ -707,6 +722,7 @@ window.YEAR = [
         c.setPointerCapture(e.pointerId);
         this.cur = { color: this.tool.color, wFrac: WIDTHS[this.tool.width],
                      erase: this.tool.mode === 'eraser', pts: [norm(e)] };
+        this.redoStack = [];
         this.onActive(true);
         this._drawDab(this.cur, 0);
       });
@@ -1265,6 +1281,7 @@ function DiaryApp() {
   const goDay = (n) => setViewDate((d) => DS.addDays(d, n));
   const clearBox = (code) => { const p = pads.current[code]; if (p) p.clear(); };
   const undo = () => { const p = pads.current[lastLang.current]; if (p) p.undo(); };
+  const redo = () => { const p = pads.current[lastLang.current]; if (p) p.redo(); };
 
   // FIX: atalhos de teclado expandidos — E (borracha), 1–4 (cores)
   useEffect(() => {
@@ -1272,7 +1289,18 @@ function DiaryApp() {
       if (showCal) return;
       if (e.key === 'ArrowRight') goDay(1);
       if (e.key === 'ArrowLeft') goDay(-1);
-      if ((e.metaKey || e.ctrlKey) && e.key === 'z') { e.preventDefault(); undo(); }
+      if ((e.metaKey || e.ctrlKey) && e.key === 'z') {
+        e.preventDefault();
+        if (e.shiftKey) {
+          redo();
+        } else {
+          undo();
+        }
+      }
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'y' || e.key === 'Y')) {
+        e.preventDefault();
+        redo();
+      }
       if (!e.metaKey && !e.ctrlKey && !e.altKey) {
         if (e.key === 'e' || e.key === 'E') setTool((t) => ({ ...t, mode: t.mode === 'eraser' ? 'pen' : 'eraser' }));
         if (e.key === '1') setTool((t) => ({ ...t, mode: 'pen', color: INK_COLORS[0].v }));
@@ -1378,7 +1406,7 @@ function DiaryApp() {
           ))}
         </div>
         <div style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
-        {/* Grupo Caneta/Tamanho/Borracha/Desfazer */}
+        {/* Grupo Caneta/Tamanho/Borracha/Desfazer/Refazer */}
         <div style={{ display: 'flex', gap: 3, background: T.ctrlBg, borderRadius: 10, padding: 2, flexShrink: 0 }}>
           {[['fina', 'Fina', 3], ['grossa', 'Grossa', 6]].map(([w, lab, dot]) => (
             <button key={w} onClick={() => setTool((t) => ({ ...t, width: w, mode: 'pen' }))} title={lab}
@@ -1388,8 +1416,10 @@ function DiaryApp() {
           ))}
           <button onClick={() => setTool((t) => ({ ...t, mode: t.mode === 'eraser' ? 'pen' : 'eraser' }))} title="Borracha (E)"
             style={{ background: tool.mode === 'eraser' ? T.accent : 'transparent', border: 'none', color: tool.mode === 'eraser' ? '#0E1326' : T.text, borderRadius: 8, width: 28, height: 28, fontSize: 13, cursor: 'pointer' }}>🧽</button>
-          <button onClick={undo} title="Desfazer (⌘Z)"
+          <button onClick={undo} title="Desfazer (Ctrl+Z)"
             style={{ background: 'transparent', border: 'none', color: T.text, borderRadius: 8, width: 28, height: 28, fontSize: 13, cursor: 'pointer' }}>↶</button>
+          <button onClick={redo} title="Refazer (Ctrl+Shift+Z / Ctrl+Y)"
+            style={{ background: 'transparent', border: 'none', color: T.text, borderRadius: 8, width: 28, height: 28, fontSize: 13, cursor: 'pointer' }}>↷</button>
         </div>
         <div style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
         {/* Grupo Folha */}
