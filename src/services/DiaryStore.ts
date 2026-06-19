@@ -176,6 +176,44 @@ export async function saveInkRaw(key: string, strokes: any[]): Promise<void> {
   }
 }
 
+export const textKey = (isoStr: string, lang: string) => `diary_text_${isoStr}_${lang}`;
+
+export function loadText(isoStr: string, lang: string): Promise<string> {
+  return dbGet(textKey(isoStr, lang)).then((val) => (typeof val === 'string' ? val : ''));
+}
+
+export async function saveText(isoStr: string, lang: string, text: string): Promise<boolean> {
+  const key = textKey(isoStr, lang);
+  try {
+    if (!text || !text.trim()) {
+      await dbDel(key);
+      // Remove lang do meta somente se também não há traços para este lang
+      const inkData = await dbGet(inkKey(isoStr, lang));
+      const hasInk = Array.isArray(inkData) && inkData.length > 0;
+      if (!hasInk) {
+        const m = getMeta();
+        if (m.days[isoStr] && Array.isArray(m.days[isoStr])) {
+          m.days[isoStr] = (m.days[isoStr] as string[]).filter((l) => l !== lang);
+          if ((m.days[isoStr] as string[]).length === 0) delete m.days[isoStr];
+          setMeta(m);
+        }
+      }
+    } else {
+      await dbSet(key, text);
+      const m = getMeta();
+      if (!m.days[isoStr] || m.days[isoStr] === true) m.days[isoStr] = [];
+      if (Array.isArray(m.days[isoStr]) && !(m.days[isoStr] as string[]).includes(lang)) {
+        (m.days[isoStr] as string[]).push(lang);
+        setMeta(m);
+      }
+    }
+    return true;
+  } catch (e) {
+    console.error('saveText error:', e);
+    return false;
+  }
+}
+
 export function getMeta(): DiaryMeta {
   let m: DiaryMeta | null = null;
   try {
