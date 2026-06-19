@@ -374,123 +374,147 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
 
   // --- MÓDULO 4: PASSADO ---
   12: {
+    // Tema: ontem — algo concreto que fiz (estudar, cozinhar, sair)
+    // L1: passado simples + marcador temporal
+    // L2: sequência de dois verbos no passado
+    // L3: causa no passado (DE: weil com verbo no fim)
+    // L4: contraste no passado
+    // L5: anterioridade temporal (past perfect / trapassato / Plusquamperfekt / 〜ていました)
     EN: [
-      "Yesterday I stayed at home.",
-      "Yesterday I studied a lot and cleaned my room.",
-      "Yesterday I met my friend and we drank coffee together.",
-      "Yesterday I worked late because I had many things to finish.",
-      "Yesterday I woke up late, but I managed to finish my tasks on time."
+      "Yesterday I cooked dinner from scratch.",
+      "Yesterday I went for a run and made a proper meal afterwards.",
+      "Yesterday I stayed in to study because the weather was too miserable to go out.",
+      "Yesterday I was exhausted after work, but I managed to get through two chapters of my book.",
+      "By the time I finally sat down last night, I had already done three loads of laundry and tidied the whole flat."
     ],
     IT: [
-      "Ieri sono rimasto a casa.",
-      "Ieri ho studiato molto e ho pulito la mia stanza.",
-      "Ieri ho incontrato il mio amico e abbiamo bevuto un caffè.",
-      "Ieri ho lavorato fino a tardi perché avevo molte cose da finire.",
-      "Ieri mi sono svegliato tardi, ma sono riuscito a completare tutto in tempo."
+      "Ieri ho cucinato la cena da zero.",
+      "Ieri sono andato a correre e poi ho preparato un pasto come si deve.",
+      "Ieri sono rimasto a studiare a casa perché il tempo era troppo brutto per uscire.",
+      "Ieri ero esausto dopo il lavoro, ma sono riuscito a leggere due capitoli del mio libro.",
+      "Quando finalmente mi sono seduto ieri sera, avevo già fatto tre lavatrici e riordinato tutto l'appartamento."
     ],
     DE: [
-      "Gestern bin ich zu Hause geblieben.",
-      "Gestern habe ich viel gelernt und mein Zimmer aufgeräumt.",
-      "Gestern habe ich meinen Freund getroffen und wir haben Kaffee getrunken.",
-      "Gestern habe ich bis spät gearbeitet, da ich viele Aufgaben erledigen musste.",
-      "Gestern bin ich spät aufgewacht, konnte aber meine Arbeit rechtzeitig beenden."
+      "Gestern habe ich das Abendessen von Grund auf selbst gekocht.",
+      "Gestern bin ich joggen gegangen und habe danach eine richtige Mahlzeit zubereitet.",
+      "Gestern bin ich zu Hause geblieben und habe gelernt, weil das Wetter zu schlecht zum Ausgehen war.",
+      "Gestern war ich nach der Arbeit erschöpft, aber ich habe es geschafft, zwei Kapitel meines Buches zu lesen.",
+      "Als ich mich gestern Abend endlich hinsetzte, hatte ich schon drei Wäschen gemacht und die ganze Wohnung aufgeräumt."
     ],
     JP: [
-      "昨日、わたしは家にいました。(Kinō, watashi wa ie ni imashita.)",
-      "昨日、一生懸命勉強して部屋の掃除をしました。(Kinō, isshōkenmei benkyō shite heya no souji o shimashita.)",
-      "昨日、友達に会って一緒にコーヒーを飲みました。(Kinō, tomodachi ni atte issho ni kōhī o nomimashita.)",
-      "昨日、終わらせるべきタスクがたくさんあったので遅くまで働きました。(Kinō, owaraseru beki tasuku ga takasan atta node osoku made hatarakimashita.)",
-      "昨日、寝坊してしまいましたが、なんとか時間通りに作業を終えました。(Kinō, nebō shite shimaimashita ga, nantoka jikandōri ni sagyou o oemashita.)"
+      "昨日、手作りの夕食を一から作りました。(Kinō, tezukuri no yūshoku o ichikara tsukurimashita.)",
+      "昨日、ランニングをして、その後ちゃんとした食事を作りました。(Kinō, ranningu o shite, sono ato chanto shita shokuji o tsukurimashita.)",
+      "昨日、外に出るには天気が悪すぎたので、家で勉強しました。(Kinō, soto ni deru ni wa tenki ga warusugita node, ie de benkyō shimashita.)",
+      "昨日、仕事の後はくたくたでしたが、本を二章読み終えることができました。(Kinō, shigoto no ato wa kutakuta deshita ga, hon o nishō yomi oeru koto ga dekimashita.)",
+      "昨夜やっと腰を落ち着けたとき、もう洗濯を三回済ませて部屋中を片付けていました。(Sakuya yatto koshi o ochitsuketakotoki, mō sentaku o sankai sumasete heya-jū o katazukete imashita.)"
     ]
   },
   13: {
+    // Tema: melhor refeição que já comi
+    // L1: passado simples + marcador temporal
+    // L2: sequência de dois verbos no passado
+    // L3: causa no passado (DE: weil com verbo no fim)
+    // L4: contraste no passado
+    // L5: anterioridade temporal (past perfect / trapassato / Plusquamperfekt / 〜ていました)
     EN: [
-      "The best thing I ate was pizza.",
-      "The best thing I ate was pasta at a local restaurant.",
-      "The best thing I ate was a chocolate cake made by my mother.",
-      "The best thing I ate was fresh sushi when I visited Tokyo.",
-      "The best thing I ate was a traditional dish that I cooked myself last Sunday."
+      "Last summer I had the most incredible bowl of ramen in Tokyo.",
+      "I ordered a tasting menu and ate every single course.",
+      "I walked twenty minutes to reach that place because a chef friend had said it was unmissable.",
+      "The restaurant looked completely ordinary from the outside, but I managed to get a table and it turned out to be unforgettable.",
+      "By the time the dessert arrived, I had already decided I would come back before I even left the city."
     ],
     IT: [
-      "La cosa migliore che ho mangiato è stata la pizza.",
-      "La cosa migliore che ho mangiato è stata la pasta in un ristorante.",
-      "La cosa migliore che ho mangiato è stata la torta al cioccolato di mia madre.",
-      "La cosa migliore che ho mangiato è stato il sushi fresco a Tokyo.",
-      "La cosa migliore che ho mangiato è stato un piatto tradizionale fatto da me domenica."
+      "L'estate scorsa ho mangiato una ciotola di ramen straordinaria a Tokyo.",
+      "Ho ordinato il menu degustazione e ho assaggiato ogni singola portata.",
+      "Ho camminato venti minuti per arrivare a quel posto perché un amico cuoco mi aveva detto che era imperdibile.",
+      "Il ristorante sembrava normalissimo dall'esterno, ma sono riuscito ad avere un tavolo e si è rivelato indimenticabile.",
+      "Quando è arrivato il dessert, avevo già deciso che sarei tornato prima ancora di lasciare la città."
     ],
     DE: [
-      "Das Beste, was ich gegessen habe, war Pizza.",
-      "Das Beste, was ich gegessen habe, war Pasta in einem lokalen Restaurant.",
-      "Das Beste, was ich gegessen habe, war ein Schokoladenkuchen von meiner Mutter.",
-      "Das Beste, was ich gegessen habe, war frisches Sushi in Tokio.",
-      "Das Beste, was ich gegessen habe, war ein traditionelles Gericht, das ich selbst gekocht habe."
+      "Letzten Sommer habe ich in Tokio eine unglaubliche Schüssel Ramen gegessen.",
+      "Ich habe das Degustationsmenü bestellt und jeden einzelnen Gang gegessen.",
+      "Ich bin zwanzig Minuten zu diesem Lokal gelaufen, weil ein Kochfreund gesagt hatte, dass man es nicht verpassen darf.",
+      "Das Restaurant sah von außen völlig gewöhnlich aus, aber ich habe es geschafft, einen Tisch zu bekommen, und es war unvergesslich.",
+      "Als das Dessert kam, hatte ich schon beschlossen, zurückzukommen, bevor ich die Stadt überhaupt verlassen hatte."
     ],
     JP: [
-      "一番美味しかったのはピザでした。(Ichiban oishikatta no wa piza deshita.)",
-      "一番美味しかったのはレストランで食べたパスタでした。(Ichiban oishikatta no wa resutoran de tabeta pasuta deshita.)",
-      "一番美味しかったのは母が作ってくれたチョコレートケーキでした。(Ichiban oishikatta no wa haha ga tsukutte kureta chokorēto kēki deshita.)",
-      "一番美味しかったのは東京を訪れたときに食べた新鮮なお寿司でした。(Ichiban oishikatta no wa Tōkyō o otozureta toki ni tabeta shinsen na osushi deshita.)",
-      "一番美味しかったのは、先週の日曜日に自分で作った伝統的な料理でした。(Ichiban oishikatta no wa, senshū no nichiyōbi ni jibun de tsukutta dentōteki na ryōri deshita.)"
+      "去年の夏、東京で最高のラーメンを食べました。(Kyonen no natsu, Tōkyō de saikō no rāmen o tabemashita.)",
+      "コース料理を注文して、全品味わいました。(Kōsu ryōri o chūmon shite, zenpin ajiwaimashita.)",
+      "料理人の友人が絶対に行くべきだと言っていたので、そのお店まで二十分歩きました。(Ryōrinin no yūjin ga zettai ni iku beki da to itte ita node, sono omise made nijuppun arukimashita.)",
+      "外見はごく普通のお店でしたが、席を確保することができて、結果的に忘れられない食事になりました。(Gaiken wa goku futsū no omise deshita ga, seki o kakuho suru koto ga dekite, kekkateki ni wasurerarenai shokuji ni narimashita.)",
+      "デザートが来たとき、もうその街を離れる前に再訪することを決めていました。(Dezāto ga kita toki, mō sono machi o hanareru mae ni saihō suru koto o kimete imashita.)"
     ]
   },
   14: {
+    // Tema: lugar interessante que visitei
+    // L1: passado simples + marcador temporal
+    // L2: sequência de dois verbos no passado
+    // L3: causa no passado (DE: weil com verbo no fim)
+    // L4: contraste no passado
+    // L5: anterioridade temporal (past perfect / trapassato / Plusquamperfekt / 〜ていました)
     EN: [
-      "Last month I visited a park.",
-      "Last month I visited a beautiful beach with my family.",
-      "Last month I visited an interesting museum in the capital city.",
-      "Last month I visited a historical castle during my weekend trip.",
-      "Last month I visited a quiet mountain village to escape the noisy city."
+      "Last spring I visited a small hilltop town in southern Italy.",
+      "I wandered through the old streets and stopped at every little church I found.",
+      "I chose that town because a friend had described it as one of the most beautiful places she had ever seen.",
+      "The climb up was steep and tiring, but I managed to reach the top just before sunset.",
+      "By the time I found a bench to sit on, I had already walked for five hours and taken more than two hundred photos."
     ],
     IT: [
-      "Il mese scorso ho visitato un parco.",
-      "Il mese scorso ho visitato una bellissima spiaggia con la famiglia.",
-      "Il mese scorso ho visitato un museo interessante nella capitale.",
-      "Il mese scorso ho visitato un castello storico durante il fine settimana.",
-      "Il mese scorso ho visitato un piccolo paese in montagna per rilassarmi."
+      "La scorsa primavera ho visitato un piccolo paese arroccato nel sud Italia.",
+      "Ho girato per i vicoli antichi e mi sono fermato a ogni piccola chiesa che trovavo.",
+      "Ho scelto quel paese perché un'amica me lo aveva descritto come uno dei posti più belli che avesse mai visto.",
+      "La salita era ripida e faticosa, ma sono riuscito ad arrivare in cima poco prima del tramonto.",
+      "Quando ho trovato una panchina su cui sedermi, avevo già camminato per cinque ore e scattato più di duecento foto."
     ],
     DE: [
-      "Letzten Monat habe ich einen Park besucht.",
-      "Letzten Monat habe ich einen wunderschönen Strand mit meiner Familie besucht.",
-      "Letzten Monat habe ich ein interessantes Museum in der Hauptstadt besucht.",
-      "Letzten Monat habe ich ein historisches Schloss während meiner Wochenendreise besucht.",
-      "Letzten Monat habe ich ein ruhiges Bergdorf besucht, um der lauten Stadt zu entfliehen."
+      "Letzten Frühling habe ich ein kleines Städtchen auf einem Hügel in Süditalien besucht.",
+      "Ich bin durch die alten Gassen geschlendert und habe an jeder kleinen Kirche angehalten.",
+      "Ich habe diesen Ort gewählt, weil eine Freundin ihn als einen der schönsten Orte beschrieben hatte, die sie je gesehen hatte.",
+      "Der Aufstieg war steil und anstrengend, aber ich habe es geschafft, kurz vor Sonnenuntergang oben anzukommen.",
+      "Als ich endlich eine Bank zum Sitzen fand, hatte ich schon fünf Stunden lang gelaufen und mehr als zweihundert Fotos gemacht."
     ],
     JP: [
-      "先月、近くの公園に行きました。(Sengetsu, chikaku no kouen ni ikimashita.)",
-      "先月、家族と一緒に美しい海を訪れました。(Sengetsu, kazoku to issho ni utsukushii umi o otozuremashita.)",
-      "先月、首都にある面白い博物館に行ってきました。(Sengetsu, shuto ni aru omoshiroi hakubutsukan ni itte kimashita.)",
-      "先月、週末の旅行で歴史的な古いお城を見学しました。(Sengetsu, shūmatsu no ryokō de rekishiteki na furui oshiro o kengaku shimashita.)",
-      "先月、都会の喧騒から離れるために静かな山奥 of mura o otozuremashita。(Sengetsu, tokai no kensō kara hanareru tame ni shizuka na yamaoku no mura o otozuremashita.)"
+      "去年の春、南イタリアの小さな丘の上の町を訪れました。(Kyonen no haru, minami Itaria no chiisana oka no ue no machi o otozuremashita.)",
+      "古い路地を歩き回り、見つけた小さな教会に立ち寄りました。(Furui rōji o arukimawari, mitsuketa chiisana kyōkai ni tachiyorimashita.)",
+      "友人がそこを今まで見た中で最も美しい場所のひとつだと言っていたので、その町を選びました。(Yūjin ga soko o ima made mita naka de mottomo utsukushii basho no hitotsu da to itte ita node, sono machi o erabimashita.)",
+      "登り道は急で疲れましたが、日没直前に頂上にたどり着くことができました。(Nobori michi wa kyū de tsukaremashita ga, nichibotsu chokuzen ni chōjō ni tadoritsuku koto ga dekimashita.)",
+      "ベンチを見つけて座ったとき、もう五時間歩いて二百枚以上の写真を撮っていました。(Benchi o mitsukete suwatta toki, mō gojikan aruite nihyakumai ijō no shashin o totte imashita.)"
     ]
   },
   15: {
+    // Tema: algo que aconteceu esta semana (evento inesperado ou marcante)
+    // L1: passado simples + marcador temporal
+    // L2: sequência de dois verbos no passado
+    // L3: causa no passado (DE: weil com verbo no fim)
+    // L4: contraste no passado
+    // L5: anterioridade temporal (past perfect / trapassato / Plusquamperfekt / 〜ていました)
     EN: [
-      "This week something happened.",
-      "This week something good happened: I got a new job offer.",
-      "This week something unusual happened when I was walking in the park.",
-      "This week something unexpected happened and I had to change all my plans.",
-      "This week something surprising happened that made me rethink my career choices."
+      "This week I bumped into an old school friend on the street.",
+      "I stopped to say hello and we ended up talking for over an hour.",
+      "I almost walked straight past her because I was distracted by a message on my phone.",
+      "I had no free time at all this week, but I managed to squeeze in a long coffee with her.",
+      "By the time we said goodbye, I had already forgotten how stressed I had been all week."
     ],
     IT: [
-      "Questa settimana è successo qualcosa.",
-      "Questa settimana è successo che ho ricevuto un'offerta di lavoro.",
-      "Questa settimana è successo qualcosa di strano mentre camminavo nel parco.",
-      "Questa settimana è successo un imprevisto e ho dovuto cambiare i miei piani.",
-      "Questa settimana è successa una cosa sorprendente che mi ha fatto riflettere sulla carriera."
+      "Questa settimana ho incontrato per caso un vecchio amico di scuola per strada.",
+      "Mi sono fermato a salutarlo e abbiamo finito per chiarire per più di un'ora.",
+      "L'ho quasi superato senza vederlo perché ero distratto da un messaggio sul telefono.",
+      "Questa settimana non avevo per niente tempo libero, ma sono riuscito a ritagliarmi un lungo caffè con lui.",
+      "Quando ci siamo salutati, avevo già dimenticato quanto fossi stato stressato per tutta la settimana."
     ],
     DE: [
-      "Diese Woche ist etwas passiert.",
-      "Diese Woche ist etwas Gutes passiert: Ich habe ein Jobangebot bekommen.",
-      "Diese Woche ist etwas Seltsames passiert, als ich im Park spazieren ging.",
-      "Diese Woche ist etwas Unerwartetes passiert, sodass ich meine Pläne ändern musste.",
-      "Diese Woche ist etwas Überraschendes passiert, das mich über meine Karriere nachdenken ließ."
+      "Diese Woche bin ich zufällig einem alten Schulfreund auf der Straße begegnet.",
+      "Ich bin stehen geblieben und wir haben uns am Ende über eine Stunde lang unterhalten.",
+      "Ich wäre fast einfach an ihm vorbeigegangen, weil ich von einer Nachricht auf meinem Handy abgelenkt war.",
+      "Diese Woche hatte ich überhaupt keine Freizeit, aber ich habe es geschafft, einen langen Kaffee mit ihm einzuschieben.",
+      "Als wir uns verabschiedet haben, hatte ich schon vergessen, wie gestresst ich die ganze Woche über gewesen war."
     ],
     JP: [
-      "今週、あることが起こりました。(Konshū, aru koto ga okorimashita.)",
-      "今週、新しい仕事のオファーをもらうという良いことがありました。(Konshū, atarashii shigoto no ofā o morau to iu yoi koto ga arimashita.)",
-      "今週、公園を散歩しているときに少し奇妙な出来事が起きました。(Konshū, kouen o sanpo shite iru toki ni sukoshi kimyou na dekigoto ga okimashia.)",
-      "今週、予期せぬことが起こり、予定をすべて変更せねばなりませんでした。(Konshū, yokisenu koto ga okori, yotei o subete henkou seneba narimasen deshita.)",
-      "今週、自分のキャリアの選択を再考させるような驚くべき出来事がありました。(Konshū, jibun no kyaria no sentaku o saikou saseru yō na odorokubeki dekigoto ga arimashita.)"
+      "今週、路上で旧友に偶然出会いました。(Konshū, rōjō de kyūyū ni gūzen deaimashita.)",
+      "立ち止まって話しかけたら、一時間以上おしゃべりしてしまいました。(Tachidoma tte hanashikaketa ra, ichijikan ijō oshaberi shite shimaimashita.)",
+      "スマホのメッセージに気を取られていたので、もう少しで彼女に気づかずに通り過ぎるところでした。(Sumaho no messēji ni ki o torarete ita node, mō sukoshi de kanojo ni kidzukazu ni tōrisugiru tokoro deshita.)",
+      "今週はまったく自由な時間がありませんでしたが、なんとか彼女とゆっくりコーヒーを飲む時間を作ることができました。(Konshū wa mattaku jiyū na jikan ga arimasen deshita ga, nantoka kanojo to yukkuri kōhī o nomu jikan o tsukuru koto ga dekimashita.)",
+      "別れを告げたとき、もう一週間ずっと感じていたストレスを忘れていました。(Wakare o tsugeta toki, mō isshūkan zutto kanjite ita sutoresu o wasurete imashita.)"
     ]
   },
 
