@@ -445,7 +445,7 @@ export function App() {
     reader.readAsText(file);
   }, []);
 
-  const exportPNG = useCallback(() => {
+  const exportPNG = useCallback(async () => {
     const firstEl = canvasEls.current['EN'];
     if (!firstEl) return;
     const cw = firstEl.width, ch = firstEl.height;
@@ -467,9 +467,28 @@ export function App() {
       ctx.fillRect(x, y, el.width, el.height);
       ctx.drawImage(el, x, y);
     });
+
+    const filename = `diario-${DS.iso(viewRef.current)}.png`;
+    const dataURL = off.toDataURL('image/png');
+
+    if ('share' in navigator) {
+      const res = await fetch(dataURL);
+      const blob = await res.blob();
+      const file = new File([blob], filename, { type: 'image/png' });
+      if (navigator.canShare?.({ files: [file] })) {
+        try {
+          await navigator.share({ files: [file], title: 'Diário Políglota', text: filename });
+          return;
+        } catch (err) {
+          if ((err as DOMException).name === 'AbortError') return;
+          // outro erro — fallback para download
+        }
+      }
+    }
+
     const a = document.createElement('a');
-    a.href = off.toDataURL('image/png');
-    a.download = `diario-${DS.iso(viewRef.current)}.png`;
+    a.href = dataURL;
+    a.download = filename;
     a.click();
   }, [T]);
 
