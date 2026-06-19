@@ -1137,7 +1137,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "何でも考えすぎてしまいます。しかし、いざというときは素早く決断することもできます。(Nandemo kangaesugite shimaimasu. Shikashi, iza to iu toki wa subayaku ketsudan suru koto mo dekimasu.)",
       "自分に対してとても厳しいのに、周りの人にはできるだけ優しくしようとしています。(Jibun ni taishite totemo kibishii noni, mawari no hito ni wa dekiru dake yasashiku shiyō to shite imasu.)",
       "悲観的になりやすい性格にもかかわらず、未来に対して希望を持ち続けることができています。(Hikanteki ni nari yasui seikaku ni mo kakawarazu, mirai ni taishite kibō o mochitsuzukeru koto ga dekite imasu.)",
-      "頑固な一面があるとはいえ、その粘り強さのおかげで諦めずに続けられてしまいます。(Ganko na ichimen ga aru to wa ie, sono nebari zuyosa no okage de akiramezu ni tsuzukerarete shimaimasu.)"
+      "頑固な一面があるとはいえ、その粘り強さのおかげで諦めずに続けられてしまいます。(Ganko na ichimen ga aru to wa ie, sono nebarizuyosa no okage de akiramezu ni tsuzukerarete shimaimasu.)"
     ]
   },
   33: {
@@ -1166,7 +1166,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     JP: [
       "簡単だと思っていましたが、現実はずいぶん違いました。(Kantan da to omotte imashita ga, genjitsu wa zuibun chigaimashita.)",
       "ほっとするかと思ったのですが、しかし実際にはひどく疲れてしまいました。(Hotto suru ka to omotta no desu ga, shikashi jissai ni wa hidoku tsukarete shimaimashita.)",
-      "しっかり準備したのに、思い描いていたようにはうまくいきませんでした。(Shikkari junbi shita noni, omikaite ita yō ni wa umaku ikimasen deshita.)",
+      "しっかり準備したのに、思い描いていたようにはうまくいきませんでした。(Shikkari junbi shita noni, omoiegaite ita yō ni wa umaku ikimasen deshita.)",
       "何ヶ月も楽しみにしていたにもかかわらず、最初はその体験が意外なほど普通に感じられました。(Nankagetsu mo tanoshimi ni shite ita ni mo kakawarazu, saisho wa sono taiken ga igai na hodo futsū ni kanjiraremashita.)",
       "ターニングポイントになると思っていたとはいえ、本当の変化はずっと静かなかたちでやってきてしまいました。(Tāningu pointo ni naru to omotte ita to wa ie, hontō no henka wa zutto shizuka na katachi de yatte kite shimaimashita.)"
     ]
@@ -1190,15 +1190,15 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     DE: [
       "Ich möchte jeden Tag Sport treiben, aber ich schiebe es immer wieder auf.",
       "Ich habe vor, früher ins Bett zu gehen; jedoch bleibe ich immer zu lange auf.",
-      "Obwohl ich mir sage, mit dem Scrollen aufzuhören, greife ich gedankenlos nach meinem Handy.",
+      "Obwohl ich eigentlich mit dem Scrollen aufhören sollte, greife ich gedankenlos nach meinem Handy.",
       "Trotz meines aufrichtigen Wunsches, mehr zu schreiben, vergehen Wochen ohne eine einzige Zeile.",
       "Ich weiß genau, was ich tun sollte. Und dennoch wären Wissen und tatsächliches Handeln zwei sehr verschiedene Dinge."
     ],
     JP: [
-      "毎日運動したいのですが、ついつい後回しにしてしまいます。(Mainichi undō shitai no desu ga, tsui tsui atomawashi ni shite shimaimasu.)",
+      "毎日運動したいのですが、ついつい後回しにしてしまいます。(Mainichi undō shitai no desu ga, tsuitsui atomawashi ni shite shimaimasu.)",
       "早く寝るつもりなのですが、しかしいつも夜更かしをしてしまいます。(Hayaku neru tsumori na no desu ga, shikashi itsumo yofukashi o shite shimaimasu.)",
-      "スマホを見るのをやめようと思っているのに、考えなしに手が伸びてしまいます。(Sumaho o miru no o yameyō to omotte iru noni, kangae nashi ni te ga nobite shimaimasu.)",
-      "もっと書きたいという気持ちは本物にもかかわらず、一行も書かないまま何週間も過ぎてしまいます。(Motto kakitai to iu kimochi wa honmono ni mo kakawarazu, ichigyo mo kakanai mama nanshūkan mo sugite shimaimasu.)",
+      "スマホを見るのをやめようと思っているのに、考えなしに手が伸びてしまいます。(Sumaho o miru no o yameyō to omotte iru noni, kangaenashi ni te ga nobite shimaimasu.)",
+      "もっと書きたいという本物の気持ちにもかかわらず、一行も書かないまま何週間も過ぎてしまいます。(Motto kakitai to iu honmono no kimochi ni mo kakawarazu, ichigyo mo kakanai mama nanshūkan mo sugite shimaimasu.)",
       "何をすべきかはわかっているとはいえ、わかることと実際にやることは全然別のことになってしまいます。(Nani o subeki ka wa wakatte iru to wa ie, wakaru koto to jissai ni yaru koto wa zenzen betsu no koto ni natte shimaimasu.)"
     ]
   },
