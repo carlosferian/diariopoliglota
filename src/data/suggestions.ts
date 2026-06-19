@@ -262,14 +262,14 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     IT: [
       "Ho intenzione di cucinare stasera.",
       "Ho intenzione di preparare un risotto per cena stasera.",
-      "Nel pomeriggio vado al mercato per comprare gli ingredienti freschi.",
+      "Ho intenzione di andare al mercato nel pomeriggio per comprare gli ingredienti freschi.",
       "Ho intenzione di provare la ricetta della carbonara se ho tempo dopo il lavoro.",
       "Anche se sarà difficile trovare il formaggio giusto, ho intenzione di riuscirci stasera."
     ],
     DE: [
       "Heute Abend werde ich kochen.",
       "Heute Abend werde ich ein richtiges Risotto zum Abendessen kochen.",
-      "Am Nachmittag gehe ich auf den Markt, um frische Zutaten zu kaufen.",
+      "Ich werde am Nachmittag auf den Markt gehen, um frische Zutaten zu kaufen.",
       "Ich werde das neue Carbonara-Rezept ausprobieren, wenn ich nach der Arbeit Zeit habe.",
       "Auch wenn es schwer wird, den richtigen Käse zu finden, werde ich das Gericht heute Abend doch hinbekommen."
     ],
@@ -292,7 +292,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     IT: [
       "Ho intenzione di fare un'escursione questo fine settimana.",
       "Sabato ho intenzione di salire fino al vecchio faro sulle scogliere.",
-      "Sabato mattina parto presto per evitare la folla sul sentiero.",
+      "Ho intenzione di partire presto sabato mattina per evitare la folla sul sentiero.",
       "Ho intenzione di percorrere il sentiero costiero se ho tempo, altrimenti va bene anche una passeggiata corta.",
       "Anche se sarà brutto tempo, ho intenzione di stare fuori almeno un po' questo weekend."
     ],
@@ -307,7 +307,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "今週末、ハイキングに行くつもりです。(Konshūmatsu, haikingu ni iku tsumori desu.)",
       "今週土曜日に、崖の上の古い灯台まで登るつもりです。(Konshū doyōbi ni, gake no ue no furui tōdai made noboru tsumori desu.)",
       "登山道が混む前に出発するために、土曜日の朝早く家を出るつもりです。(Tozandō ga komu mae ni shuppatsu suru tame ni, doyōbi no asa hayaku ie o deru tsumori desu.)",
-      "時間があれば海岸沿いの道を歩くつもりですが、短い散歩でも十分です。(Jikan ga areba kaiganzoi no michi o aruku tsumori desu ga, mijikai sanpo demo jūbun desu.)",
+      "時間があれば海岸沿いの道を歩くつもりですが、短い散歩でも十分です。(Jikan ga areba kaigan zoi no michi o aruku tsumori desu ga, mijikai sanpo demo jūbun desu.)",
       "天気がどうであっても、今週末は外で過ごす時間をきっと作ってみせます。(Tenki ga dō de atte mo, konshūmatsu wa soto de sugosu jikan o kitto tsukutte misemasu.)"
     ]
   },
