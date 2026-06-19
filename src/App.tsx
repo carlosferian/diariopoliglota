@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { 
+import {
   ChevronLeft, ChevronRight, Camera, Sun, Moon, Coffee, Columns, MoreHorizontal,
-  Undo2, Redo2, AlignJustify, Square, Grid3X3, PenTool, Smartphone, Eraser 
+  Undo2, Redo2, AlignJustify, Square, Grid3X3, PenTool, Smartphone, Eraser, Keyboard
 } from 'lucide-react';
 import * as DS from './services/DiaryStore';
 import { InkPad } from './services/InkPad';
@@ -67,6 +67,12 @@ export function App() {
   const [mode, setMode] = useState<string>(() => localStorage.getItem('diary_mode') || 'auto');
   const [toast, setToast] = useState<any | null>(null);
   const [activeCanvas, setActiveCanvas] = useState<string | null>(null);
+  const [inputMode, setInputMode] = useState<'draw' | 'type'>(
+    () => (localStorage.getItem('diary_inputMode') as 'draw' | 'type') || 'draw'
+  );
+  const [typedTexts, setTypedTexts] = useState<Record<string, string>>(
+    { EN: '', IT: '', DE: '', JP: '' }
+  );
   const [, setTick] = useState<number>(0);
 
   // Google Drive Sync States
@@ -229,6 +235,8 @@ export function App() {
   const pads = useRef<{ [code: string]: InkPad | null }>({});
   const viewRef = useRef(viewDate);
   const penOnlyRef = useRef(penOnly);
+  const toolRef = useRef(tool);
+  const inputModeRef = useRef(inputMode);
   const lastLang = useRef('EN');
   const swipeStart = useRef<number | null>(null);
 
@@ -237,7 +245,10 @@ export function App() {
   useEffect(() => { localStorage.setItem('diary_mode', mode); }, [mode]);
   useEffect(() => { localStorage.setItem('diary_paper', paper); }, [paper]);
   useEffect(() => { localStorage.setItem('diary_penOnly', String(penOnly)); }, [penOnly]);
-  
+  useEffect(() => { toolRef.current = tool; }, [tool]);
+  useEffect(() => { inputModeRef.current = inputMode; }, [inputMode]);
+  useEffect(() => { localStorage.setItem('diary_inputMode', inputMode); }, [inputMode]);
+
   useEffect(() => {
     const id = setInterval(() => setTick((n) => n + 1), 60000);
     return () => clearInterval(id);
@@ -250,13 +261,46 @@ export function App() {
   }, [toast]);
 
   const registerCanvas = useCallback((code: string, el: HTMLCanvasElement | null) => {
-    if (el) canvasEls.current[code] = el;
-  }, []);
+    if (el) {
+      canvasEls.current[code] = el;
+      if (pads.current[code]) pads.current[code]!.destroy();
+      pads.current[code] = new InkPad(el, {
+        onChange: (s) => handleInk(code, s),
+        penOnly: () => penOnlyRef.current,
+        onActive: (active) => setActiveCanvas(active ? code : null),
+      });
+      pads.current[code]!.setTool(toolRef.current);
+      DS.loadInk(DS.iso(viewRef.current), code).then((s) => pads.current[code]?.load(s));
+    } else {
+      canvasEls.current[code] = null;
+      pads.current[code]?.destroy();
+      pads.current[code] = null;
+    }
+  }, [handleInk]);
 
   const handleInk = useCallback(async (code: string, strokes: Stroke[]) => {
     lastLang.current = code;
     const isoStr = DS.iso(viewRef.current);
     const ok = await DS.saveInk(isoStr, code, strokes);
+    if (!ok) {
+      setQuota(true);
+      return;
+    }
+    const m = DS.getMeta();
+    const s = DS.stats(m);
+    const earned = m.medals || [];
+    const newly = MEDALS.filter((md) => md.test(s) && !earned.includes(md.id));
+    if (newly.length) {
+      m.medals = earned.concat(newly.map((md) => md.id));
+      DS.setMeta(m);
+      setToast(newly[0]);
+    }
+    setMeta({ ...m });
+  }, []);
+
+  const handleText = useCallback(async (code: string, text: string) => {
+    const isoStr = DS.iso(viewRef.current);
+    const ok = await DS.saveText(isoStr, code, text);
     if (!ok) {
       setQuota(true);
       return;
@@ -410,30 +454,18 @@ export function App() {
   }, []);
 
   useEffect(() => {
-    // 1. Inicializa os InkPads
-    DS.LANGS.forEach((code) => {
-      const el = canvasEls.current[code];
-      if (el && !pads.current[code]) {
-        pads.current[code] = new InkPad(el, {
-          onChange: (s) => handleInk(code, s),
-          penOnly: () => penOnlyRef.current,
-          onActive: (active) => setActiveCanvas(active ? code : null),
-        });
-        pads.current[code]!.setTool(tool);
-      }
-    });
-
-    // 2. Roda a migração e carrega os dados
     async function init() {
       await DS.migrateLegacyData();
       const m = DS.getMeta();
       setMeta({ ...m });
       const isoStr = DS.iso(viewRef.current);
-      for (const code of DS.LANGS) {
-        const strokes = await DS.loadInk(isoStr, code);
-        const p = pads.current[code];
-        if (p) p.load(strokes);
-      }
+      const texts: Record<string, string> = {};
+      await Promise.all(
+        DS.LANGS.map(async (code) => {
+          texts[code] = await DS.loadText(isoStr, code);
+        })
+      );
+      setTypedTexts(texts);
     }
     init();
 
@@ -450,6 +482,12 @@ export function App() {
       const p = pads.current[code];
       if (p) p.load(strokes);
     });
+    const texts: Record<string, string> = {};
+    Promise.all(
+      DS.LANGS.map(async (code) => {
+        texts[code] = await DS.loadText(isoStr, code);
+      })
+    ).then(() => setTypedTexts({ ...texts }));
   }, [viewDate]);
 
   useEffect(() => {
@@ -476,8 +514,13 @@ export function App() {
 
   const goDay = (n: number) => setViewDate((d) => DS.addDays(d, n));
   const clearBox = (code: string) => {
-    const p = pads.current[code];
-    if (p) p.clear();
+    if (inputModeRef.current === 'draw') {
+      const p = pads.current[code];
+      if (p) p.clear();
+    } else {
+      setTypedTexts((prev) => ({ ...prev, [code]: '' }));
+      handleText(code, '');
+    }
   };
   const undo = () => {
     const p = pads.current[lastLang.current];
@@ -491,15 +534,20 @@ export function App() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (showCal) return;
+      const isTextArea = (e.target as HTMLElement)?.tagName === 'TEXTAREA';
+      // Ctrl+M / ⌘+M: alterna modo em qualquer contexto
+      if ((e.metaKey || e.ctrlKey) && e.key === 'm') {
+        e.preventDefault();
+        setInputMode((m) => m === 'draw' ? 'type' : 'draw');
+        return;
+      }
+      // Bloquear demais atalhos quando textarea está focada
+      if (isTextArea) return;
       if (e.key === 'ArrowRight') goDay(1);
       if (e.key === 'ArrowLeft') goDay(-1);
       if ((e.metaKey || e.ctrlKey) && e.key === 'z') {
         e.preventDefault();
-        if (e.shiftKey) {
-          redo();
-        } else {
-          undo();
-        }
+        if (e.shiftKey) { redo(); } else { undo(); }
       }
       if ((e.metaKey || e.ctrlKey) && (e.key === 'y' || e.key === 'Y')) {
         e.preventDefault();
@@ -759,6 +807,12 @@ export function App() {
             onClearBox={clearBox}
             isActive={activeCanvas === code}
             suggestions={SUGGESTIONS[flat]?.[code as 'EN' | 'IT' | 'DE' | 'JP'] || []}
+            inputMode={inputMode}
+            typedText={typedTexts[code] || ''}
+            onTextChange={(text) => {
+              setTypedTexts((prev) => ({ ...prev, [code]: text }));
+              handleText(code, text);
+            }}
           />
         ))}
       </div>
@@ -785,7 +839,7 @@ export function App() {
         }}
       >
         {/* Grupo Cores */}
-        <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
+        <div style={{ display: 'flex', gap: 4, flexShrink: 0, opacity: inputMode === 'type' ? 0.35 : 1, pointerEvents: inputMode === 'type' ? 'none' : 'auto' }}>
           {INK_COLORS.map((c) => (
             <button
               key={c.id}
@@ -806,7 +860,7 @@ export function App() {
         <div style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
 
         {/* Grupo Caneta/Tamanho/Borracha/Desfazer/Refazer */}
-        <div style={{ display: 'flex', gap: 3, background: T.ctrlBg, borderRadius: 10, padding: 2, flexShrink: 0 }}>
+        <div style={{ display: 'flex', gap: 3, background: T.ctrlBg, borderRadius: 10, padding: 2, flexShrink: 0, opacity: inputMode === 'type' ? 0.35 : 1, pointerEvents: inputMode === 'type' ? 'none' : 'auto' }}>
           {[
             { w: 'fina' as const, label: 'Fina', size: 3 },
             { w: 'grossa' as const, label: 'Grossa', size: 6 }
@@ -943,6 +997,27 @@ export function App() {
           }}
         >
           {penOnly ? <PenTool size={14} /> : <Smartphone size={14} />}
+        </button>
+        <div style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
+        <button
+          onClick={() => setInputMode((m) => m === 'draw' ? 'type' : 'draw')}
+          title={inputMode === 'draw' ? 'Mudar para modo teclado (Ctrl+M)' : 'Mudar para modo caneta (Ctrl+M)'}
+          style={{
+            background: inputMode === 'type' ? T.accent : T.ctrlBg,
+            border: `1px solid ${T.borderStrong}`,
+            color: inputMode === 'type' ? '#0E1326' : T.text,
+            borderRadius: 10,
+            width: 32,
+            height: 32,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            transition: 'background 0.2s',
+          }}
+        >
+          {inputMode === 'type' ? <Keyboard size={14} /> : <PenTool size={14} />}
         </button>
       </div>
 
