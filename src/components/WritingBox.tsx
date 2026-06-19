@@ -50,6 +50,9 @@ interface WritingBoxProps {
   onClearBox: (code: string) => void;
   isActive: boolean;
   suggestions: string[];
+  inputMode: 'draw' | 'type';
+  typedText: string;
+  onTextChange: (text: string) => void;
 }
 
 function guideStyle(code: string, t: LanguageTheme, paper: string) {
@@ -90,6 +93,9 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
   onClearBox,
   isActive,
   suggestions,
+  inputMode,
+  typedText,
+  onTextChange,
 }) => {
   const [showHelp, setShowHelp] = useState(false);
   const t = LANG_THEME[code];
@@ -374,7 +380,7 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
         </div>
       </div>
 
-      {/* Área do Canvas */}
+      {/* Área de escrita */}
       <div
         style={{
           position: 'relative',
@@ -388,16 +394,42 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
           ...guideStyle(code, t, paper),
         }}
       >
-        <canvas
-          ref={(el) => registerCanvas(code, el)}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            cursor: 'crosshair',
-          }}
-        />
+        {inputMode === 'draw' ? (
+          <canvas
+            ref={(el) => registerCanvas(code, el)}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              cursor: 'crosshair',
+            }}
+          />
+        ) : (
+          <textarea
+            value={typedText}
+            onChange={(e) => onTextChange(e.target.value)}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              background: 'transparent',
+              border: 'none',
+              outline: 'none',
+              resize: 'none',
+              padding: '12px',
+              fontFamily: jp ? "'Zen Maru Gothic', sans-serif" : "'Nunito', sans-serif",
+              fontSize: 16,
+              fontWeight: 600,
+              color: t.ink,
+              lineHeight: 1.6,
+              boxSizing: 'border-box',
+            }}
+            placeholder="Escreva aqui…"
+            spellCheck={false}
+          />
+        )}
       </div>
     </div>
   );
