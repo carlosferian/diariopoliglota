@@ -512,7 +512,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     JP: [
       "今週、路上で旧友に偶然出会いました。(Konshū, rōjō de kyūyū ni gūzen deaimashita.)",
       "立ち止まって話しかけたら、一時間以上おしゃべりしてしまいました。(Tachidomatte hanashikaketara, ichijikan ijō oshaberi shite shimaimashita.)",
-      "スマホのメッセージに気を取られていたので、もう少しで彼女に気づかずに通り過ぎるところでした。(Sumaho no messēji ni ki o torarete ita node, mō sukoshi de kanojo ni kidzukazu ni tōrisugiru tokoro deshita.)",
+      "スマホのメッセージに気を取られていたので、もう少しで彼女に気づかずに通り過ぎるところでした。(Sumaho no messēji ni ki o torarete ita node, mō sukoshi de kanojo ni kizukazu ni tōrisugiru tokoro deshita.)",
       "今週はまったく自由な時間がありませんでしたが、なんとか彼女とゆっくりコーヒーを飲む時間を作ることができました。(Konshū wa mattaku jiyū na jikan ga arimasen deshita ga, nantoka kanojo to yukkuri kōhī o nomu jikan o tsukuru koto ga dekimashita.)",
       "別れを告げたとき、もう一週間ずっと感じていたストレスを忘れていました。(Wakare o tsugeta toki, mō isshūkan zutto kanjite ita sutoresu o wasurete imashita.)"
     ]
@@ -584,7 +584,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Obwohl es mich fast eine Stunde gekostet hat, habe ich's doch selbst hinbekommen — und war ziemlich stolz darauf."
     ],
     JP: [
-      "まず、家を出る前に自転車のタイヤが完全にパンクしているのに気づきました。(Mazu, ie o deru mae ni jitensha no taiya ga kanzen ni panku shite iru no ni kidzukimashita.)",
+      "まず、家を出る前に自転車のタイヤが完全にパンクしているのに気づきました。(Mazu, ie o deru mae ni jitensha no taiya ga kanzen ni panku shite iru no ni kizukimashita.)",
       "それから、台所の流し台の下からパンク修理キットを見つけて、床に広げました。(Sorekara, daidokoro no nagashidai no shita kara panku shūri kitto o mitsukete, yuka ni hirogemashita.)",
       "最初はパッチがうまく貼れなかったから、表面をきれいに拭いてもう一度試しました。(Saisho wa patchi ga umaku harenakatta kara, hyōmen o kirei ni fuite mō ichido tameshimashita.)",
       "一度も自分でパンク修理をしたことがなかったので、動画のチュートリアルを調べなければなりませんでした。(Ichido mo jibun de panku shūri o shita koto ga nakatta node, dōga no chūtoriaru o shirabenakereba narimasen deshita.)",
@@ -1228,7 +1228,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     JP: [
       "静けさを大切にしていますが、あまりに静かになると落ち着かなくなります。(Shizukesa o taisetsu ni shite imasu ga, amari ni shizuka ni naru to ochitsukanaku narimasu.)",
       "一人の時間が必要だと言っているのですが、しかし孤独感は思っている以上に堪えてしまいます。(Hitori no jikan ga hitsuyō da to itte iru no desu ga, shikashi kodokukan wa omotte iru ijō ni kotaete shimaimasu.)",
-      "人の目を気にしないと言っているのに、他人の言葉がこんなに影響するとは気づいていませんでした。(Hito no me o ki ni shinai to itte iru noni, tanin no kotoba ga konna ni eikyō suru to wa kidzuite imasen deshita.)",
+      "人の目を気にしないと言っているのに、他人の言葉がこんなに影響するとは気づいていませんでした。(Hito no me o ki ni shinai to itte iru noni, tanin no kotoba ga konna ni eikyō suru to wa kizuite imasen deshita.)",
       "自分は忍耐強いと思っているにもかかわらず、些細なことですぐに苛立ってしまいます。(Jibun wa nintaizuyoi to omotte iru ni mo kakawarazu, sasai na koto de sugu ni iradatte shimaimasu.)",
       "完璧よりも成長が大切だと信じているとはいえ、失敗への恐れで動けなくなってしまいます。(Kanpeki yori mo seichō ga taisetsu da to shinjite iru to wa ie, shippai e no osore de ugokenaku natte shimaimasu.)"
     ]
@@ -1560,7 +1560,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Je älter ich werde, desto mehr schätze ich die wenigen tiefen Verbindungen, die ich aufgebaut habe."
     ],
     JP: [
-      "いくつかの友情にはもっと気遣いが必要だということに気づきました。(Ikutsu ka no yūjō ni wa motto kidzukai ga hitsuyō da to iu koto ni kizukimashita.)",
+      "いくつかの友情にはもっと気遣いが必要だということに気づきました。(Ikutsu ka no yūjō ni wa motto kizukai ga hitsuyō da to iu koto ni kizukimashita.)",
       "振り返ってみると、本当に大切な人たちとより近くなれたことに気がつきました。(Furikaette miru to, hontō ni taisetsu na hitotachi to yori chikaku nareta koto ni ki ga tsukimashita.)",
       "以前より、助けを求めることに対してオープンになりました。(Izen yori, tasuke o motomeru koto ni taishite ōpun ni narimashita.)",
       "来年は大切にしている関係にもっと時間を注ぎたいと思っています。(Rainen wa taisetsu ni shite iru kankei ni motto jikan o sosogitai to omotte imasu.)",
