@@ -49,7 +49,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Prendo il treno per andare al lavoro.",
       "Prendo il treno per andare al lavoro alle otto.",
       "Di solito prendo il primo treno, prima che i vagoni si riempiano.",
-      "Esco di casa, cammino fino alla fermata e aspetto l'autobus leggendo qualcosa.",
+      "Esco di casa, cammino fino alla stazione e aspetto il treno leggendo qualcosa sul binario.",
       "Il tragitto è abbastanza lungo, eppure una volta messa la musica nelle orecchie il tempo vola."
     ],
     DE: [
@@ -94,7 +94,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "寝る前に３０分本を読みます。(Neru mae ni sanjuppun hon o yomimasu.)",
       "たいてい寝る一時間前には画面を全部消します。(Taitei neru ichijikan mae ni wa gamen o zenbu keshimasu.)",
       "お茶を入れて、電気を少し暗くして、眠くなるまで静かに読書します。(Ocha o irete, denki o sukoshi kuraku shite, nemuku naru made shizuka ni dokusho shimasu.)",
-      "スマホをつい見てしまいたくなるんですが、早めに置くようにしたらぐっすり眠れるようになってしまいました。(Sumaho o tsui mite shimai taku naru n desu ga, hayame ni oku yō ni shitara gussuri nemureru yō ni natte shimaimashita.)"
+      "スマホをつい見てしまうんですが、早めに置くようにしたらぐっすり眠れるようになりました。(Sumaho o tsui mite shimau n desu ga, hayame ni oku yō ni shitara gussuri nemureru yō ni narimashita.)"
     ]
   },
   3: {
