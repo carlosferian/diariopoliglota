@@ -12,7 +12,8 @@ Permitir que o usuário compartilhe o PNG exportado do dia usando o menu nativo 
 
 - Ao clicar no botão de exportar PNG, o app tenta usar `navigator.share()` com o arquivo.
 - Se o navegador suporta `navigator.share` com arquivos (`navigator.canShare({ files: [...] })` retorna `true`), o menu nativo de compartilhamento é exibido.
-- Se o usuário cancela o share (rejeita a Promise), o app faz o download normalmente como fallback.
+- Se o usuário cancela o menu de share (`AbortError`), o app não faz nada — cancelar é uma escolha explícita.
+- Se o share falha por outro motivo (erro de rede, API indisponível em runtime), o app faz o download normalmente como fallback.
 - Se o navegador não suporta Web Share (Firefox desktop, Safari < 15), o app faz o download normalmente — comportamento idêntico ao atual.
 - Sem nova UI, sem novo botão, sem toast, sem indicador de estado.
 
@@ -45,8 +46,9 @@ if ('share' in navigator) {
     try {
       await navigator.share({ files: [file], title: 'Diário Políglota', text: filename });
       return;
-    } catch {
-      // Usuário cancelou ou share falhou — fallback para download
+    } catch (err) {
+      if ((err as DOMException).name === 'AbortError') return; // usuário cancelou — não faz nada
+      // Outro erro — fallback para download
     }
   }
 }
