@@ -1358,123 +1358,147 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
 
   // --- MÓDULO 11: RELATIVOS ---
   40: {
+    // Tema: uma pessoa importante na minha vida
+    // L1: relativa restritiva simples (sujeito)
+    // L2: relativa com preposição
+    // L3: relativa não-restritiva (, which / , il quale / , was / それは〜)
+    // L4: relativa partitiva (one of the … who / uno dei … che + congiuntivo / einer der … / 〜の一人)
+    // L5: relativa encaixada sofisticada (the kind of … that …, which is why …)
     EN: [
-      "There is a person who helps me.",
-      "There is a teacher who changed my life at school.",
-      "There is a developer who created the drawing library we use.",
-      "I know a person who speaks six languages and travels constantly.",
-      "The person who inspired me to study languages lives in Germany."
+      "She is the person who understands me best.",
+      "He is the friend that I grew up with.",
+      "My mentor, who guided me through my hardest years, still checks in on me regularly.",
+      "She is one of the few people who have ever truly believed in me.",
+      "He is the kind of person that makes you feel heard, which is why I always turn to him when I need advice."
     ],
     IT: [
-      "C'è una persona che mi aiuta.",
-      "C'è un insegnante che ha cambiato la mia vita a scuola.",
-      "C'è uno sviluppatore che ha scritto la libreria che usiamo.",
-      "Conosco una persona che parla sei lingue e viaggia sempre.",
-      "La persona che mi ha spinto a studiare le lingue vive in Germania."
+      "Lei è la persona che mi capisce meglio.",
+      "Lui è l'amico con cui sono cresciuto.",
+      "Il mio mentore, il quale mi ha guidato negli anni più difficili, mi chiama ancora regolarmente.",
+      "Lei è una delle poche persone che abbia mai creduto davvero in me.",
+      "Lui è il tipo di persona che sa farti sentire ascoltato, il che spiega perché mi rivolgo sempre a lui quando ho bisogno di un consiglio."
     ],
     DE: [
-      "Es gibt einen Menschen, der mir hilft.",
-      "Es gibt einen Lehrer, der mein Leben in der Schule verändert hat.",
-      "Es gibt einen Entwickler, der die Zeichenbibliothek erstellt hat.",
-      "Ich kenne eine Person, die sechs Sprachen spricht und viel reist.",
-      "Die Person, die mich zum Sprachenlernen inspiriert hat, lebt in Deutschland."
+      "Sie ist die Person, die mich am besten versteht.",
+      "Er ist der Freund, mit dem ich aufgewachsen bin.",
+      "Mein Mentor, der mich durch meine schwierigsten Jahre begleitet hat, meldet sich noch immer regelmäßig bei mir.",
+      "Sie ist eine der wenigen Menschen, die jemals wirklich an mich geglaubt haben.",
+      "Er ist die Art von Mensch, der einen wirklich zuhören lässt, weshalb ich mich immer an ihn wende, wenn ich einen Rat brauche."
     ],
     JP: [
-      "わたしを助けてくれる人がいます。(Watashi o tasukete kureru hito ga imasu.)",
-      "学生時代にわたしの考え方を変えてくれた恩師がいます。(Gakusei jidai ni watashi no kangaekata o kaete kureta onshi ga imasu.)",
-      "この手書き機能に使われているコードを書いた開発者がいます。(Kono tegaki kinou ni tsukawarete iru kōdo o kaita kaihatsugha ga imasu.)",
-      "６つの言語を操り、世界中を飛び回っている知人がいます。(Mutsu no gengo o ayatsuri, sekaijū o tobimawatte iru chijin ga imasu.)",
-      "わたしに外国語の面白さを教えてくれたインフルエンサーはドイツに住んでいます。(Watashi ni gaikokugo no omoshirosa o oshiete kureta infuruensā wa Doitsu ni sunde imasu.)"
+      "彼女はわたしのことを一番わかってくれる人です。(Kanojo wa watashi no koto o ichiban wakatte kureru hito desu.)",
+      "彼はわたしが一緒に育った友達です。(Kare wa watashi ga issho ni sodatta tomodachi desu.)",
+      "わたしの恩師、それは一番つらい時期にずっと支えてくれた人で、今も定期的に連絡をくれます。(Watashi no onshi, sore wa ichiban tsurai jiki ni zutto sasaete kureta hito de, ima mo teikiteki ni renraku o kuremasu.)",
+      "彼女はわたしのことを心から信じてくれた数少ない人の一人です。(Kanojo wa watashi no koto o kokoro kara shinjite kureta kazuskunai hito no hitori desu.)",
+      "彼はこちらの話をちゃんと聞いてくれるような人で、だからこそ困ったときにいつも頼りにしています。(Kare wa kochira no hanashi o chanto kiite kureru yō na hito de, dakara koso komatta toki ni itsumo tayori ni shite imasu.)"
     ]
   },
   41: {
+    // Tema: um lugar que tem significado especial
+    // L1: relativa restritiva simples
+    // L2: relativa com preposição
+    // L3: relativa não-restritiva
+    // L4: relativa partitiva + congiuntivo IT
+    // L5: relativa encaixada sofisticada
     EN: [
-      "I love the place where I live.",
-      "I love the library where I usually study on weekends.",
-      "I love the quiet park where I can read books under the trees.",
-      "I love the small Italian cafe where they serve the best espresso.",
-      "I love the historical town where my grandparents built their house."
+      "This is the park that shaped my childhood.",
+      "That is the café that I return to every time I visit the city.",
+      "The old library on the corner, which closed last year, was where I spent every Saturday.",
+      "It is one of the few places that still feel exactly the same as when I was young.",
+      "It is the kind of place that slows you down and makes you breathe, which is why I go back there whenever I feel overwhelmed."
     ],
     IT: [
-      "Adoro il posto dove vivo.",
-      "Adoro la biblioteca dove studio di solito nel fine settimana.",
-      "Adoro il parco tranquillo dove posso leggere sotto gli alberi.",
-      "Adoro il piccolo bar italiano dove fanno il caffè migliore.",
-      "Adoro la città storica dove i miei nonni hanno costruito casa."
+      "Questo è il parco che ha segnato la mia infanzia.",
+      "Quello è il bar a cui torno ogni volta che visito la città.",
+      "La vecchia biblioteca all'angolo, la quale ha chiuso l'anno scorso, era il posto dove passavo ogni sabato.",
+      "È uno dei pochi posti che abbia ancora esattamente la stessa atmosfera di quando ero piccolo.",
+      "È il tipo di luogo che ti rallenta e ti fa respirare, il che spiega perché ci torno ogni volta che mi sento sopraffatto."
     ],
     DE: [
-      "Ich liebe den Ort, wo ich wohne.",
-      "Ich liebe die Bibliothek, wo ich am Wochenende lerne.",
-      "Ich liebe den ruhigen Park, wo ich unter Bäumen lesen kann.",
-      "Ich liebe das kleine italienische Café, wo es den besten Espresso gibt.",
-      "Ich liebe die historische Stadt, wo meine Großeltern ihr Haus gebaut haben."
+      "Das ist der Park, der meine Kindheit geprägt hat.",
+      "Das ist das Café, in das ich jedes Mal zurückkehre, wenn ich die Stadt besuche.",
+      "Die alte Bibliothek an der Ecke, die letztes Jahr geschlossen hat, war der Ort, an dem ich jeden Samstag verbracht habe.",
+      "Es ist einer der wenigen Orte, der sich noch genauso anfühlt wie damals, als ich jung war.",
+      "Es ist die Art von Ort, der einen verlangsamt und atmen lässt, weshalb ich dorthin zurückgehe, wann immer ich mich überfordert fühle."
     ],
     JP: [
-      "自分が住んでいる場所が大好きです。(Jibun ga sunde iru basho ga daisuki desu.)",
-      "週末によく勉強しに行く図書館がお気に入りです。(Shūmatsu ni yoku benkyō shi ni iku toshokan ga okiniiri desu.)",
-      "木々の下で静かに読書ができるあの公園が大好きです。(Kigi no shita de shizuka ni dokusho ga dekiru ano kouen ga daisuki desu.)",
-      "最高に美味しいエスプレッソを出してくれる、あのイタリアンカフェが気に入っています。(Saikou ni oishii esupuresso o dashite kureru, ano Itarian kafe ga kiniitte imasu.)",
-      "祖父母が自分たちの手で家を建てtada, ano rekishi no aru furui machi ga daisuki desu。(Sofubo ga jibuntachi no te de ie o tateta, ano rekishi no aru furui machi ga daisuki desu.)"
+      "ここは子ども時代を形作ってくれた公園です。(Koko wa kodomo jidai o katachizukutte kureta kōen desu.)",
+      "あそこはこの街を訪れるたびに戻ってくるカフェです。(Asoko wa kono machi o otozureru tabi ni modotte kuru kafe desu.)",
+      "角にある古い図書館、それは去年閉館してしまいましたが、毎週土曜日を過ごした場所でした。(Kado ni aru furui toshokan, sore wa kyonen heikan shite shimaimashita ga, maishū doyōbi o sugoshita basho deshita.)",
+      "あの頃と変わらない雰囲気を持つ場所の一つです。(Ano koro to kawaranai fun'iki o motsu basho no hitotsu desu.)",
+      "気持ちをゆったりさせてくれるような場所で、だからこそ追い詰められたときにいつもそこへ戻ります。(Kimochi o yuttari sasete kureru yō na basho de, dakara koso oitsumeurareta toki ni itsumo soko e modorimasu.)"
     ]
   },
   42: {
+    // Tema: um livro/filme que me marcou
+    // L1: relativa restritiva simples
+    // L2: relativa com preposição
+    // L3: relativa não-restritiva
+    // L4: relativa partitiva + congiuntivo IT
+    // L5: relativa encaixada sofisticada
     EN: [
-      "Something I learned is that practice is important.",
-      "Something I learned is that consistency is better than speed.",
-      "Something I learned is that mistakes are part of the learning process.",
-      "Something I learned is that drawing helps to develop visual memory.",
-      "Something I learned is that studying languages opens your mind to new perspectives."
+      "That is the book that changed the way I see the world.",
+      "It is a film that I have watched more than ten times.",
+      "The final chapter, which I read in one sitting, left me completely speechless.",
+      "It is one of the few stories that have stayed with me long after I finished reading.",
+      "It is the kind of book that keeps asking you questions even after you put it down, which is why I still think about it years later."
     ],
     IT: [
-      "Una cosa che ho imparato è che fare pratica è importante.",
-      "Una cosa che ho imparato è che la costanza è meglio della velocità.",
-      "Una cosa che ho imparato è che gli errori fanno parte dell'apprendimento.",
-      "Una cosa che ho imparato è che il disegno aiuta la memoria visiva.",
-      "Una cosa che ho imparato è che studiare le lingue apre la mente."
+      "Quello è il libro che ha cambiato il modo in cui vedo il mondo.",
+      "È un film che ho visto più di dieci volte.",
+      "L'ultimo capitolo, il quale ho letto tutto d'un fiato, mi ha lasciato senza parole.",
+      "È uno dei pochi libri che siano rimasti con me ancora a lungo dopo la fine della lettura.",
+      "È il tipo di libro che continua a farti domande anche dopo averlo chiuso, il che spiega perché ci penso ancora anni dopo."
     ],
     DE: [
-      "Etwas, das ich gelernt habe, ist, dass Übung wichtig ist.",
-      "Etwas, das ich gelernt habe, ist, dass Beständigkeit besser ist als Schnelligkeit.",
-      "Etwas, das ich gelernt habe, ist, dass Fehler zum Lernen dazugehören.",
-      "Etwas, das ich gelernt habe, ist, dass Zeichnen das visuelle Gedächtnis fördert.",
-      "Etwas, das ich gelernt habe, ist, dass Sprachenlernen den Geist öffnet."
+      "Das ist das Buch, das meine Sichtweise auf die Welt verändert hat.",
+      "Es ist ein Film, den ich mehr als zehnmal gesehen habe.",
+      "Das letzte Kapitel, das ich in einem Zug gelesen habe, hat mich völlig sprachlos zurückgelassen.",
+      "Es ist eines der wenigen Bücher, das mich noch lange nach dem Lesen begleitet hat.",
+      "Es ist die Art von Buch, die einem auch nach dem Zuklappen noch Fragen stellt, weshalb ich noch Jahre später daran denke."
     ],
     JP: [
-      "学んだことは、練習が大切だということです。(Mananda koto wa, renshū ga taisetsu da to iu koto desu.)",
-      "学んだことは、スピードよりも毎日継続することの方が重要だということです。(Mananda koto wa, supīdo yori mo mainichi keizoku suru koto no hō ga jūyou da to iu koto desu.)",
-      "学んだことは、間違えることは学習プロセスにおいて不可欠な一部だということです。(Mananda koto wa, machigaeru koto wa gakushū purosesu ni oite fukaketsu na ichibu da to iu koto desu.)",
-      "手書きで図や絵を描くことは、視覚的な記憶力を鍛えるのにとても効果的だと知りました。(Tegaki de zu ya e o kaku koto wa, shikakuteki na kiokuryoku o kitaeru no ni totemo koukateki da to shirimashita.)",
-      "異国の言語を勉強することは、新しい視点や柔軟な思考力を養うのに役立つと学びました。(Ikoku no gengo o benkyō suru koto wa, atarashii shiten ya jūnan na shikou ryoku o yasunau no ni yakudatsu to manabimashita.)"
+      "あれは世界の見方を変えてくれた本です。(Are wa sekai no mikata o kaete kureta hon desu.)",
+      "それは十回以上観た映画です。(Sore wa jukkai ijō mita eiga desu.)",
+      "最後の章、それは一気に読んでしまいましたが、読み終えた後にしばらく言葉が出ませんでした。(Saigo no shō, sore wa ikki ni yonde shimaimashita ga, yomiowatta ato ni shibaraku kotoba ga demasen deshita.)",
+      "読み終えてからもずっと心に残った数少ない物語の一つです。(Yomiowatte kara mo zutto kokoro ni nokotta kazuskunai monogatari no hitotsu desu.)",
+      "本を閉じた後も問いかけ続けてくれるような本で、だからこそ何年も経った今でも思い出します。(Hon o tojita ato mo toikake tsuzukete kureru yō na hon de, dakara koso nannen mo tatta ima demo omoidashimasu.)"
     ]
   },
   43: {
+    // Tema: uma experiência que mudou meu jeito de ver as coisas
+    // L1: relativa restritiva simples
+    // L2: relativa com preposição
+    // L3: relativa não-restritiva
+    // L4: relativa partitiva + congiuntivo IT
+    // L5: relativa encaixada sofisticada
     EN: [
-      "I'll never forget the day when I finished school.",
-      "I'll never forget the day when I traveled alone for the first time.",
-      "I'll never forget the day when I arrived in Tokyo and saw the lights.",
-      "I'll never forget the day when my team completed our biggest software project.",
-      "I'll never forget the day when I was finally able to speak with a native fluently."
+      "It was an experience that changed everything for me.",
+      "It was a journey that I had never prepared myself for.",
+      "Living abroad for a year, which I almost did not do, turned out to be the most important decision of my life.",
+      "It was one of those moments that have a way of reshaping how you see yourself.",
+      "It was the kind of experience that forces you to question everything you thought you knew, which is why I came back a completely different person."
     ],
     IT: [
-      "Non dimenticherò mai il giorno in cui ho finito la scuola.",
-      "Non dimenticherò mai il giorno in cui ho viaggiato da solo per la prima volta.",
-      "Non dimenticherò mai il giorno in cui sono arrivato a Tokyo.",
-      "Non dimenticherò mai il giorno in cui abbiamo completato il progetto.",
-      "Non dimenticherò mai il giorno in cui ho parlato fluentemente con un madrelingua."
+      "È stata un'esperienza che ha cambiato tutto per me.",
+      "È stato un viaggio per cui non ero mai davvero preparato.",
+      "Vivere all'estero per un anno, il che quasi non ho fatto, si è rivelata la decisione più importante della mia vita.",
+      "È stato uno di quei momenti che abbiano mai ridefinito il modo in cui mi vedo.",
+      "È stato il tipo di esperienza che ti costringe a mettere in discussione tutto ciò che credevi di sapere, il che spiega perché sono tornato una persona completamente diversa."
     ],
     DE: [
-      "Ich werde den Tag nie vergessen, als ich die Schule beendet habe.",
-      "Ich werde den Tag nie vergessen, als ich zum ersten Mal allein gereist bin.",
-      "Ich werde den Tag nie vergessen, als ich in Tokio ankam.",
-      "Ich werde den Tag nie vergessen, an dem unser Team das projekt abgeschlossen hat.",
-      "Ich werde den Tag nie vergessen, an dem ich fließend mit einem Muttersprachler sprach."
+      "Es war eine Erfahrung, die alles für mich verändert hat.",
+      "Es war eine Reise, auf die ich mich nie wirklich vorbereitet hatte.",
+      "Ein Jahr im Ausland zu leben, was ich fast nicht getan hätte, stellte sich als die wichtigste Entscheidung meines Lebens heraus.",
+      "Es war einer jener Momente, der die Art und Weise, wie man sich selbst sieht, neu gestalten kann.",
+      "Es war die Art von Erfahrung, die einen zwingt, alles in Frage zu stellen, was man zu wissen glaubte, weshalb ich als völlig anderer Mensch zurückgekehrt bin."
     ],
     JP: [
-      "学校を卒業した日のことは一生忘れません。(Gakkou o sotsugyou shita hi no koto wa isshou wasuremasen.)",
-      "初めて一人で海外旅行に出発した日のことは絶対に忘れません。(Hajimete hitori de kaigai ryokō ni shuppatsu shita hi no koto wa zettai ni wasuremasen.)",
-      "東京に到着して、夜の眩しい街の光を初めて見た日のことは忘れられません。(Tōkyō ni tōchaku shite, yoru no mabushii machi no hikari o hajimete mita hi no koto wa wasurerarenasu.)",
-      "わたしたちの開発チームが最大のシステムを作り上げ、無事にリリースした日は忘れられません。(Watashitachi no kaihatsu chīmu ga saidai no shisutemu o tsukuriage, buji ni rirīsu shita hi wa wasureraremasen.)",
-      "ネイティブスピーカーと初めて緊張せずに自然な会話ができた瞬間は、一生の思い出です。(Neitibu supīkā to hajimete kinchou sezu ni shizen na kaiwa ga dekita shunkan wa, isshou no omoide desu.)"
+      "それはわたしにとってすべてを変えた経験でした。(Sore wa watashi ni totte subete o kaeta keiken deshita.)",
+      "それはまったく心の準備ができていなかった旅でした。(Sore wa mattaku kokoro no junbi ga dekite inakatta tabi deshita.)",
+      "一年間の海外生活、それはあやうくしなかったところでしたが、人生で最も大切な決断になりました。(Ichinenkan no kaigai seikatsu, sore wa ayauku shinakatta tokoro deshita ga, jinsei de mottomo taisetsu na ketsudan ni narimashita.)",
+      "自分自身を見つめ直すきっかけになった経験の一つです。(Jibun jishin o mitsumenaosu kikkake ni natta keiken no hitotsu desu.)",
+      "知っていると思っていたすべてを問い直させるような経験で、だからこそまったく別の人間になって帰ってきました。(Shitte iru to omotteita subete o toikaosasereru yō na keiken de, dakara koso mattaku betsu no ningen ni natte kaette kimashita.)"
     ]
   },
 
