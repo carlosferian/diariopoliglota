@@ -131,122 +131,122 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
   // --- MÓDULO 2: GOSTOS ---
   4: {
     EN: [
-      "I really love eating pizza.",
-      "I really love eating fresh fruits in the summer.",
-      "I really love eating tasty food from different countries.",
-      "I really love eating Italian pasta, especially when it is homemade.",
-      "I really love eating at local restaurants to try new dishes."
+      "I love pasta.",
+      "I love eating fresh homemade pasta.",
+      "I really love a big bowl of pasta with a rich tomato sauce.",
+      "I prefer pasta to rice on any given day.",
+      "There's nothing like a plate of handmade tagliatelle after a long week."
     ],
     IT: [
-      "Mi piace molto mangiare la pizza.",
-      "Mi piace molto mangiare la frutta fresca in estate.",
-      "Mi piace molto mangiare cibo saporito di paesi diversi.",
-      "Mi piace molto mangiare la pasta italiana, specialmente se è fatta in casa.",
-      "Mi piace molto mangiare nei ristoranti locali per provare nuovi piatti."
+      "Adoro la pasta.",
+      "Adoro mangiare la pasta fresca fatta in casa.",
+      "Mi piace moltissimo un bel piatto di pasta al pomodoro ricco di sapore.",
+      "Preferisco la pasta al riso in qualsiasi momento della giornata.",
+      "Non c'è niente di meglio di un piatto di tagliatelle fatte a mano dopo una lunga settimana."
     ],
     DE: [
-      "Ich esse sehr gern Pizza.",
-      "Ich esse im Sommer sehr gern frisches Obst.",
-      "Ich esse sehr gern leckeres Essen aus verschiedenen Ländern.",
-      "Ich esse sehr gern italienische Pasta, besonders wenn sie selbstgemacht ist.",
-      "Ich esse sehr gern in lokalen Restaurants, um neue Gerichte auszuprobieren."
+      "Ich liebe Pasta.",
+      "Ich liebe es, frische selbstgemachte Pasta zu essen.",
+      "Ich liebe es sehr, eine große Schüssel Pasta mit reichhaltiger Tomatensauce zu genießen.",
+      "Ich mag Pasta lieber als Reis, egal zu welcher Tageszeit.",
+      "Nichts geht über einen Teller handgemachter Tagliatelle nach einer langen Woche."
     ],
     JP: [
-      "わたしはピザを食べるのが大好きです。(Watashi wa piza o taberu no ga daisuki desu.)",
-      "夏に新鮮な果物を食べるのが大好きです。(Natsu ni shinsen na kudamono o taberu no ga daisuki desu.)",
-      "色々な国の美味しい料理を食べるのが大好きです。(Iroirona kuni no oishii ryōri o taberu no ga daisuki desu.)",
-      "イタリアのパスタ、特に手作りのものが大好きです。(Itaria no pasuta, tokuni tezukuri no mono ga daisuki desu.)",
-      "新しい味を発見するために、地元のレストランで食べるのが好きです。(Atarashii aji o hakken suru tame ni, jimoto no resutoran de taberu no ga suki desu.)"
+      "パスタが好きです。(Pasuta ga suki desu.)",
+      "手作りの生パスタを食べるのが好きです。(Tezukuri no nama pasuta o taberu no ga suki desu.)",
+      "濃厚なトマトソースのパスタが大好きです。(Nōkō na tomato sōsu no pasuta ga daisuki desu.)",
+      "ご飯よりパスタの方が好きです。(Gohan yori pasuta no hō ga suki desu.)",
+      "長い一週間の後に食べる手打ちタリアテッレほど好きなものはない。(Nagai isshūkan no ato ni taberu teuchi tariatere hodo suki na mono wa nai.)"
     ]
   },
   5: {
     EN: [
-      "In my free time, I often read.",
-      "In my free time, I often listen to music.",
-      "In my free time, I often paint or draw in my studio.",
-      "In my free time, I often play video games with my friends online.",
-      "In my free time, I often practice drawing and write in my languages diary."
+      "I love photography.",
+      "I love going out to take photos on weekends.",
+      "I really love capturing candid moments of people on the street.",
+      "I prefer film photography to digital because the colours feel warmer.",
+      "Nothing beats the feeling of developing a roll of film and seeing the shots for the first time."
     ],
     IT: [
-      "Nel tempo libero, spesso leggo.",
-      "Nel tempo libero, spesso ascolto la musica.",
-      "Nel tempo libero, spesso dipingo o disegno nel mio studio.",
-      "Nel tempo libero, spesso gioco ai videogiochi con i miei amici online.",
-      "Nel tempo libero, spesso mi esercito a disegnare e scrivo sul mio diario."
+      "Adoro la fotografia.",
+      "Adoro uscire a fare foto nel fine settimana.",
+      "Mi piace moltissimo catturare momenti spontanei delle persone per strada.",
+      "Preferisco la fotografia analogica a quella digitale perché i colori sembrano più caldi.",
+      "Non c'è niente di meglio della sensazione di sviluppare un rullino e vedere le foto per la prima volta."
     ],
     DE: [
-      "In meiner Freizeit lese ich oft.",
-      "In meiner Freizeit höre ich oft Musik.",
-      "In meiner Freizeit male oder zeichne ich in meinem Studio.",
-      "In meiner Freizeit spiele ich oft Computerspiele mit meinen Freunden online.",
-      "In meiner Freizeit übe ich das Zeichnen und schreibe in mein Tagebuch."
+      "Ich liebe Fotografie.",
+      "Ich liebe es, am Wochenende rauszugehen und Fotos zu machen.",
+      "Ich liebe es sehr, spontane Momente von Menschen auf der Straße einzufangen.",
+      "Ich mag Analogfotografie lieber als digitale Fotografie, weil die Farben wärmer wirken.",
+      "Nichts geht über das Gefühl, einen Film zu entwickeln und die Aufnahmen zum ersten Mal zu sehen."
     ],
     JP: [
-      "暇なとき、よく本を読みます。(Hima na toki, yoku hon o yomimasu.)",
-      "暇なとき、よく音楽を聞きます。(Hima na toki, yoku ongaku o kikimasu.)",
-      "暇なとき、よく絵を描いたりイラストを練習したりします。(Hima na toki, yoku e o kaitari irasuto o renshū shitari shimasu.)",
-      "暇なとき、オンラインで友達とゲームをすることがよくあります。(Hima na toki, onrain de tomodachi to gēmu o suru koto ga yoku arimasu.)",
-      "暇なとき、手書きの練習をしながらこの日記を書くのが日課です。(Hima na toki, tegaki no renshū o shinagara kono nikki o kaku no ga nikka desu.)"
+      "写真が好きです。(Shashin ga suki desu.)",
+      "週末に写真を撮りに出かけるのが好きです。(Shūmatsu ni shashin o tori ni dekakeru no ga suki desu.)",
+      "街中で人々のありのままの瞬間を撮るのが大好きです。(Machinaka de hitobito no ari no mama no shunkan o toru no ga daisuki desu.)",
+      "色の温かさがデジタルより好きなので、フィルム写真の方が好きです。(Iro no atatakasa ga dejitaru yori suki na node, firumu shashin no hō ga suki desu.)",
+      "フィルムを現像して初めて写真を見る瞬間ほど好きなものはない。(Firumu o genzō shite hajimete shashin o miru shunkan hodo suki na mono wa nai.)"
     ]
   },
   6: {
     EN: [
-      "I usually listen to pop music.",
-      "I usually listen to relaxing songs when I study.",
-      "I usually listen to classical music to help me concentrate.",
-      "I usually listen to energetic songs while running or working out.",
-      "I usually listen to indie music, but I also enjoy watching documentary films."
+      "I love jazz.",
+      "I love listening to jazz while I cook dinner.",
+      "I really love how jazz musicians improvise and respond to each other in real time.",
+      "I prefer jazz to pop because the melodies are more unpredictable.",
+      "There's nothing like a live jazz club on a rainy Friday night."
     ],
     IT: [
-      "Di solito ascolto musica pop.",
-      "Di solito ascolto canzoni rilassanti quando studio.",
-      "Di solito ascolto musica classica per concentrarmi meglio.",
-      "Di solito ascolto canzoni energiche mentre corro o mi alleno.",
-      "Di solito ascolto musica indie, ma mi piace anche guardare film documentari."
+      "Adoro il jazz.",
+      "Adoro ascoltare jazz mentre cucino la cena.",
+      "Mi piace moltissimo come i musicisti jazz improvvisano e si rispondono in tempo reale.",
+      "Preferisco il jazz alla musica pop perché le melodie sono più imprevedibili.",
+      "Non c'è niente di meglio di un locale jazz dal vivo in una serata piovosa di venerdì."
     ],
     DE: [
-      "Ich höre meistens Popmusik.",
-      "Ich höre meistens entspannende Lieder beim Lernen.",
-      "Ich höre meistens klassische Musik, um mich zu konzentrieren.",
-      "Ich höre meistens energiegeladene Lieder beim Laufen oder Trainieren.",
-      "Ich höre meistens Indie-Musik, aber ich schaue mir auch gern Dokumentarfilme an."
+      "Ich liebe Jazz.",
+      "Ich liebe es, beim Kochen Jazz zu hören.",
+      "Ich liebe es sehr, wie Jazzmusiker improvisieren und in Echtzeit aufeinander reagieren.",
+      "Ich mag Jazz lieber als Pop, weil die Melodien unberechenbarer sind.",
+      "Nichts geht über einen Live-Jazzclub an einem verregneten Freitagabend."
     ],
     JP: [
-      "わたしはよくポップスを聴きます。(Watashi wa yoku poppusu o kikimasu.)",
-      "勉強するとき、よくリラックスできる曲を聴きます。(Benkyō suru toki, yoku rirakkusu dekiru kyoku o kikimasu.)",
-      "集中力を高めるために、よくクラシック音楽を聴きます。(Shūchūryoku o takameru tame ni, yoku kurashikku ongaku o kikimasu.)",
-      "ランニングや筋トレをするときは、激しい曲を聴きます。(Ranningu ya kintore o suru toki wa, hageshii kyoku o kikimasu.)",
-      "普段はインディーズ音楽を聴きますが、ドキュメンタリー映画も好きです。(Fudan wa indīzu ongaku o kikimasu ga, dokyumentarī eiga mo suki desu.)"
+      "ジャズが好きです。(Jazu ga suki desu.)",
+      "夕食を作りながらジャズを聴くのが好きです。(Yūshoku o tsukuri nagara jazu o kiku no ga suki desu.)",
+      "ジャズミュージシャンがリアルタイムで即興演奏し合う場面が大好きです。(Jazu myūjishan ga riaru taimu de sokkyō ensō shi au bamen ga daisuki desu.)",
+      "メロディーが予測しにくいので、ポップスよりジャズの方が好きです。(Merodī ga yosoku shinikui node, poppusu yori jazu no hō ga suki desu.)",
+      "雨の金曜の夜に生のジャズクラブで聴くジャズほど好きなものはない。(Ame no kin'yō no yoru ni nama no jazu kurabu de kiku jazu hodo suki na mono wa nai.)"
     ]
   },
   7: {
     EN: [
-      "I don't really like waking up early.",
-      "I don't really like washing the dishes after cooking.",
-      "I don't really like driving in heavy traffic during rush hour.",
-      "I don't really like doing sports when the weather is extremely hot.",
-      "I don't really like spending too much time scrolling through social media."
+      "I don't like loud noise.",
+      "I don't like being stuck in traffic for hours.",
+      "I really can't stand the sound of construction work early in the morning.",
+      "I dislike sitting in traffic more than waiting in any kind of queue.",
+      "Nothing kills the mood like a car alarm going off at two in the morning."
     ],
     IT: [
-      "Non mi piace molto svegliarmi presto.",
-      "Non mi piace molto lavare i piatti dopo aver cucinato.",
-      "Non mi piace molto guidare nel traffico intenso nelle ore di punta.",
-      "Non mi piace molto fare sport quando fa troppo caldo fuori.",
-      "Non mi piace molto passare troppo tempo sui social network."
+      "Non mi piace il rumore forte.",
+      "Non mi piace restare bloccato nel traffico per ore.",
+      "Non sopporto per niente il rumore dei cantieri presto al mattino.",
+      "Preferisco aspettare in qualsiasi fila piuttosto che stare nel traffico.",
+      "Non c'è niente di peggio di un allarme auto che scatta alle due di notte."
     ],
     DE: [
-      "Ich mag es nicht besonders, früh aufzustehen.",
-      "Ich mag es nicht besonders, nach dem Kochen das Geschirr zu spülen.",
-      "Ich mag es nicht besonders, im Berufsverkehr im Stau zu stehen.",
-      "Ich mag es nicht besonders, bei extremer Hitze Sport zu treiben.",
-      "Ich mag es nicht besonders, zu viel Zeit in sozialen Medien zu verbringen."
+      "Ich mag lauten Lärm nicht.",
+      "Ich mag es nicht, stundenlang im Stau zu stehen.",
+      "Ich kann den Baulärm früh am Morgen überhaupt nicht ausstehen.",
+      "Im Stau zu sitzen nervt mich mehr als in jeder anderen Warteschlange.",
+      "Nichts nervt mich mehr als ein Autoalarm, der um zwei Uhr nachts losgeht."
     ],
     JP: [
-      "早起きはあまり好きではありません。(Hayaoki wa amari suki ja arimasen.)",
-      "料理した後の皿洗いは好きではありません。(Ryōri shita ato no saraarai wa suki ja arimasen.)",
-      "ラッシュアワーの激しい渋滞の中を運転するのは嫌いです。(Rasshuawā no hageshii jūtaji no naka o unten suru no wa kirai desu.)",
-      "気温が非常に高いときに運動するのは好きではありません。(Kion ga hijou ni takai toki ni undou suru no wa suki ja arimasen.)",
-      "ソーシャルメディアに多くの時間を費やすのは好きではありません。(Sōsharu media ni ōku no jikan o tsuiyasu no wa suki ja arimasen.)"
+      "騒音が嫌いです。(Sōon ga kirai desu.)",
+      "何時間も渋滞にはまるのが嫌いです。(Nanjikan mo jūtai ni hamaru no ga kirai desu.)",
+      "朝早くから始まる工事の音が大嫌いです。(Asa hayaku kara hajimaru kōji no oto ga daikirai desu.)",
+      "どんな列に並ぶよりも、渋滞の中に座っている方が嫌いです。(Donna retsu ni narabu yori mo, jūtai no naka ni suwatte iru hō ga kirai desu.)",
+      "夜中の二時に鳴り出す車のアラームほど嫌いなものはない。(Yonaka no niji ni nari dasu kuruma no arāmu hodo kirai na mono wa nai.)"
     ]
   },
 
