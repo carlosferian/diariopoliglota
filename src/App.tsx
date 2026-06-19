@@ -260,24 +260,6 @@ export function App() {
     return () => clearTimeout(id);
   }, [toast]);
 
-  const registerCanvas = useCallback((code: string, el: HTMLCanvasElement | null) => {
-    if (el) {
-      canvasEls.current[code] = el;
-      if (pads.current[code]) pads.current[code]!.destroy();
-      pads.current[code] = new InkPad(el, {
-        onChange: (s) => handleInk(code, s),
-        penOnly: () => penOnlyRef.current,
-        onActive: (active) => setActiveCanvas(active ? code : null),
-      });
-      pads.current[code]!.setTool(toolRef.current);
-      DS.loadInk(DS.iso(viewRef.current), code).then((s) => pads.current[code]?.load(s));
-    } else {
-      canvasEls.current[code] = null;
-      pads.current[code]?.destroy();
-      pads.current[code] = null;
-    }
-  }, [handleInk]);
-
   const handleInk = useCallback(async (code: string, strokes: Stroke[]) => {
     lastLang.current = code;
     const isoStr = DS.iso(viewRef.current);
@@ -297,6 +279,24 @@ export function App() {
     }
     setMeta({ ...m });
   }, []);
+
+  const registerCanvas = useCallback((code: string, el: HTMLCanvasElement | null) => {
+    if (el) {
+      canvasEls.current[code] = el;
+      if (pads.current[code]) pads.current[code]!.destroy();
+      pads.current[code] = new InkPad(el, {
+        onChange: (s) => handleInk(code, s),
+        penOnly: () => penOnlyRef.current,
+        onActive: (active) => setActiveCanvas(active ? code : null),
+      });
+      pads.current[code]!.setTool(toolRef.current);
+      DS.loadInk(DS.iso(viewRef.current), code).then((s) => pads.current[code]?.load(s));
+    } else {
+      canvasEls.current[code] = null;
+      pads.current[code]?.destroy();
+      pads.current[code] = null;
+    }
+  }, [handleInk]);
 
   const handleText = useCallback(async (code: string, text: string) => {
     const isoStr = DS.iso(viewRef.current);
