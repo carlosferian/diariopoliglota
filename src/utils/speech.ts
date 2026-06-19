@@ -8,6 +8,13 @@ const LANG_VOICE_MAP: { [key: string]: string } = {
   JP: 'ja-JP'
 };
 
+const LANG_NAME: { [key: string]: string } = {
+  EN: 'English',
+  IT: 'Italiano',
+  DE: 'Deutsch',
+  JP: '日本語',
+};
+
 export function speakText(text: string, langKey: string) {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
     console.warn('Síntese de voz não é suportada neste navegador.');
@@ -46,4 +53,30 @@ export function speakText(text: string, langKey: string) {
   utterance.rate = langKey === 'JP' ? 0.85 : 0.95;
 
   window.speechSynthesis.speak(utterance);
+
+  if ('mediaSession' in navigator) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: cleanText,
+      artist: LANG_NAME[langKey] ?? langKey,
+    });
+
+    navigator.mediaSession.setActionHandler('play', () => {
+      window.speechSynthesis.resume();
+      navigator.mediaSession.playbackState = 'playing';
+    });
+    navigator.mediaSession.setActionHandler('pause', () => {
+      window.speechSynthesis.pause();
+      navigator.mediaSession.playbackState = 'paused';
+    });
+    navigator.mediaSession.setActionHandler('stop', () => {
+      window.speechSynthesis.cancel();
+      navigator.mediaSession.playbackState = 'none';
+    });
+
+    utterance.onstart  = () => { navigator.mediaSession.playbackState = 'playing'; };
+    utterance.onpause  = () => { navigator.mediaSession.playbackState = 'paused';  };
+    utterance.onresume = () => { navigator.mediaSession.playbackState = 'playing'; };
+    utterance.onend    = () => { navigator.mediaSession.playbackState = 'none';    };
+    utterance.onerror  = () => { navigator.mediaSession.playbackState = 'none';    };
+  }
 }
