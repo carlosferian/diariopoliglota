@@ -812,123 +812,147 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
 
   // --- MÓDULO 7: OPINIÕES ---
   24: {
+    // Tema: opinião sobre tecnologia / redes sociais
+    // L1: opinião simples — I think… / Penso che… + indicativo / Ich denke, dass… / 〜と思います
+    // L2: opinião com subordinada — I think that… (cláusula); IT: congiuntivo presente; DE: Ich glaube, dass…; JP: 〜と思っています
+    // L3: opinião com razão — I think…because… / perché / weil (verbo no fim) / なぜなら〜から
+    // L4: concessão — Even though…, I still think… / Anche se…, penso comunque che… (congiuntivo); DE: Auch wenn…; JP: 〜ても、やはり〜と思います
+    // L5: hedging formal — It seems to me that… / Sembrerebbe che… (congiuntivo imperfeito); DE: Es scheint mir, als ob…wäre; JP: 〜のではないかと思います
     EN: [
-      "I think that social media is popular.",
-      "I think that social media has many useful tools.",
-      "In my opinion, social media makes people feel lonely.",
-      "I think that social media is a good way to keep in touch with old friends.",
-      "In my opinion, people should spend less time online and talk face-to-face."
+      "I think technology is useful.",
+      "I think that social media has changed the way we communicate.",
+      "I think social media is addictive because it is designed to keep us scrolling.",
+      "Even though social media helps us stay connected, I still think it can damage real friendships.",
+      "It seems to me that we have not yet fully understood the long-term effects of constant connectivity."
     ],
     IT: [
-      "Penso che i social network siano popolari.",
-      "Penso che i social offrano molti strumenti utili.",
-      "Secondo me, i social network rendono le persone più sole.",
-      "Penso che i social siano ottimi per rimanere in contatto con vecchi amici.",
-      "Secondo me, dovremmo passare meno tempo online e parlarci di persona."
+      "Penso che la tecnologia sia utile.",
+      "Penso che i social media abbiano cambiato il modo in cui comunichiamo.",
+      "Penso che i social siano dipendenti perché sono progettati per tenerci incollati allo schermo.",
+      "Anche se i social ci aiutano a restare in contatto, penso comunque che possano danneggiare le amicizie vere.",
+      "Sembrerebbe che non si siano ancora capiti appieno gli effetti a lungo termine della connessione costante."
     ],
     DE: [
-      "Ich finde, dass soziale Medien beliebt sind.",
-      "Ich finde, dass soziale Medien viele nützliche Tools haben.",
-      "Meiner Meinung nach machen soziale Medien die Menschen einsam.",
-      "Ich finde, dass soziale Medien gut sind, um mit Freunden in Kontakt zu bleiben.",
-      "Meiner Meinung nach sollten die Menschen weniger Zeit online verbringen."
+      "Ich denke, dass Technologie nützlich ist.",
+      "Ich glaube, dass soziale Medien die Art, wie wir kommunizieren, verändert haben.",
+      "Ich denke, dass soziale Medien süchtig machen, weil sie darauf ausgelegt sind, uns am Scrollen zu halten.",
+      "Auch wenn soziale Medien uns verbinden, glaube ich trotzdem, dass sie echte Freundschaften schädigen können.",
+      "Es scheint mir, als ob wir die Langzeitfolgen ständiger Vernetzung noch nicht wirklich verstanden hätten."
     ],
     JP: [
-      "SNSはとても人気があると思います。(SNS wa totemo ninki ga aru to omoimasu.)",
-      "SNSには便利な情報収集ツールがたくさんあると思います。(SNS ni wa benri na jōhōshūshū tūru ga takasan aru to omoimasu.)",
-      "わたしの意見では、SNSは人々を少し孤独にさせる気がします。(Watashi no iken de wa, SNS wa hitobito o sukoshi kodoku ni saseru ki ga shimasu.)",
-      "昔の友達と連絡を取り合うために、SNSは非常に優れた手段だと思います。(Mukashi no tomodachi to renrakutori au tame ni, SNS wa hijou ni sugureta shudan da to omoimasu.)",
-      "ネット上の交流よりも、対面で直接会話する時間を増やすべきだと考えます。(Nettojō no kōryū yori mo, taimen de chokusetsu kaiwa suru jikan o fuyasu beki da to kangaemasu.)"
+      "テクノロジーは便利だと思います。(Tekunorojī wa benri da to omoimasu.)",
+      "SNSはわたしたちのコミュニケーションの仕方を変えたと思っています。(SNS wa watashitachi no komyunikēshon no shikata o kaeta to omotte imasu.)",
+      "SNSは依存性があると思います。なぜならずっとスクロールし続けるように設計されているからです。(SNS wa izonsei ga aru to omoimasu. Nazenara zutto sukurōru shitsuzukeru yō ni sekkeisarete iru kara desu.)",
+      "SNSがつながりを保つのに役立つとしても、やはり本当の友情を傷つける可能性があると思います。(SNS ga tsunagari o tamotsu no ni yakudatsu to shite mo, yahari hontō no yūjō o kizutsukeru kanōsei ga aru to omoimasu.)",
+      "常時接続の長期的な影響はまだ十分に理解されていないのではないかと思います。(Jōji setsuzoku no chōkiteki na eikyō wa mada jūbun ni rikai sarete inai no de wa nai ka to omoimasu.)"
     ]
   },
   25: {
+    // Tema: opinião sobre aprendizado de idiomas
+    // L1: opinião simples — I think… / Penso che… + indicativo / Ich denke, dass… / 〜と思います
+    // L2: opinião com subordinada — I think that… (cláusula); IT: congiuntivo presente; DE: Ich glaube, dass…; JP: 〜と思っています
+    // L3: opinião com razão — I think…because… / perché / weil (verbo no fim) / なぜなら〜から
+    // L4: concessão — Even though…, I still think… / Anche se…, penso comunque che… (congiuntivo); DE: Auch wenn…; JP: 〜ても、やはり〜と思います
+    // L5: hedging formal — It seems to me that… / Sembrerebbe che… (congiuntivo imperfeito); DE: Es scheint mir, als ob…wäre; JP: 〜のではないかと思います
     EN: [
-      "I agree because it is true.",
-      "I agree with your opinion because learning languages is very hard.",
-      "I disagree because you can learn easily with consistency.",
-      "I agree because studying grammar and characters requires a lot of time.",
-      "I disagree because although it is challenging, the process is very fun."
+      "I think learning languages is rewarding.",
+      "I think that speaking a second language opens many doors in life.",
+      "I think consistency is the key to fluency because progress comes from daily practice.",
+      "Even though grammar can feel overwhelming, I still think it is worth mastering properly.",
+      "It seems to me that the best way to learn a language might be simply to use it every single day."
     ],
     IT: [
-      "Sono d'accordo perché è vero.",
-      "Sono d'accordo con te perché studiare le lingue è difficile.",
-      "Non sono d'accordo perché si può imparare facilmente con la costanza.",
-      "Sono d'accordo perché la grammatica e i caratteri richiedono tempo.",
-      "Non sono d'accordo perché, anche se è una sfida, il processo è divertente."
+      "Penso che imparare le lingue sia gratificante.",
+      "Penso che parlare una seconda lingua apra molte porte nella vita.",
+      "Penso che la costanza sia la chiave per la fluenza perché i progressi vengono dalla pratica quotidiana.",
+      "Anche se la grammatica può sembrare opprimente, penso comunque che valga la pena padroneggiarla bene.",
+      "Avrei l'impressione che il modo migliore per imparare una lingua fosse semplicemente usarla ogni giorno."
     ],
     DE: [
-      "Ich stimme zu, weil es wahr ist.",
-      "Ich stimme dir zu, weil das Sprachenlernen sehr schwer ist.",
-      "Ich stimme nicht zu, weil man mit Beständigkeit leicht lernen kann.",
-      "Ich stimme zu, weil Grammatik und Schriftzeichen viel Zeit erfordern.",
-      "Ich stimme nicht zu, weil der Prozess trotz aller Schwierigkeiten Spaß macht."
+      "Ich denke, dass Sprachenlernen lohnenswert ist.",
+      "Ich glaube, dass das Sprechen einer zweiten Sprache viele Türen öffnet.",
+      "Ich denke, dass Beständigkeit der Schlüssel zur Flüssigkeit ist, weil Fortschritte aus täglicher Übung kommen.",
+      "Auch wenn Grammatik überwältigend wirken kann, glaube ich trotzdem, dass es sich lohnt, sie richtig zu beherrschen.",
+      "Es scheint mir, als ob der beste Weg, eine Sprache zu lernen, schlicht und einfach wäre, sie jeden Tag zu benutzen."
     ],
     JP: [
-      "同感です。なぜならそれが本当だからです。(Dōkan desu. Nazenara sore ga hontō dakara desu.)",
-      "語学を学ぶのはとても難しいという意見に、わたしも賛成です。(Gogaku o manabu no wa totemo muzukashii to iu iken ni, watashi mo sansei desu.)",
-      "毎日コツコツと継続すれば簡単に学べるので、わたしは反対意見です。(Mainichi kotsukotsu to keizoku sureba kantan ni manaberu node, watashi wa hantai iken desu.)",
-      "文法や文字を覚えるのには膨大な時間がかかるため、その意見には賛成です。(Bunpou ya moji o oboeru no ni wa bōdai na jikan ga kakaru tame, sono iken ni wa sansei desu.)",
-      "確かに大変な面もありますが、上達のプロセス自体が楽しいので反対です。(Tashikani taihen na men mo arimasu ga, jōtatsu no purosesu jitai ga tanoshii node hantai desu.)"
+      "語学を学ぶことはやりがいがあると思います。(Gogaku o manabu koto wa yarigai ga aru to omoimasu.)",
+      "第二言語を話せることで人生の多くの扉が開くと思っています。(Daini gengo o hanaseru koto de jinsei no ōku no tobira ga hiraku to omotte imasu.)",
+      "流暢さへの鍵は継続だと思います。なぜなら毎日の練習から上達が生まれるからです。(Ryūchōsa e no kagi wa keizoku da to omoimasu. Nazenara mainichi no renshū kara jōtatsu ga umareru kara desu.)",
+      "文法が難しく感じられるとしても、やはりきちんとマスターする価値があると思います。(Bunpō ga muzukashiku kanjirareru to shite mo, yahari kichinto masutā suru kachi ga aru to omoimasu.)",
+      "言語を学ぶ最善の方法は毎日ただ使い続けることなのではないかと思います。(Gengo o manabu saizen no hōhō wa mainichi tada tsukaitsuzukeru koto na no de wa nai ka to omoimasu.)"
     ]
   },
   26: {
+    // Tema: opinião sobre viagens vs. ficar em casa
+    // L1: opinião simples — I think… / Penso che… + indicativo / Ich denke, dass… / 〜と思います
+    // L2: opinião com subordinada — I think that… (cláusula); IT: congiuntivo presente; DE: Ich glaube, dass…; JP: 〜と思っています
+    // L3: opinião com razão — I think…because… / perché / weil (verbo no fim) / なぜなら〜から
+    // L4: concessão — Even though…, I still think… / Anche se…, penso comunque che… (congiuntivo); DE: Auch wenn…; JP: 〜ても、やはり〜と思います
+    // L5: hedging formal — It seems to me that… / Sembrerebbe che… (congiuntivo imperfeito); DE: Es scheint mir, als ob…wäre; JP: 〜のではないかと思います
     EN: [
-      "I think you should sleep more.",
-      "I think you should practice your speaking skills.",
-      "I think you should write in your journal to clarify your thoughts.",
-      "I think you should take a short break instead of working all night.",
-      "I think you should learn from your mistakes and not give up so easily."
+      "I think travelling broadens the mind.",
+      "I think that staying home can be just as enriching as going abroad.",
+      "I think travel changes you as a person because it forces you to face the unfamiliar.",
+      "Even though staying home is comfortable and cheap, I still think everyone should travel at least once.",
+      "It seems to me that what matters most is not where you go, but how open you are to new experiences."
     ],
     IT: [
-      "Secondo me dovresti dormire di più.",
-      "Secondo me dovresti praticare la lingua parlata.",
-      "Secondo me dovresti scrivere sul diario per chiarirti le idee.",
-      "Secondo me dovresti fare una pausa invece di lavorare tutta la notte.",
-      "Secondo me dovresti imparare dai tuoi errori e non arrenderti subito."
+      "Penso che viaggiare allarghi gli orizzonti.",
+      "Penso che restare a casa possa essere altrettanto arricchente che andare all'estero.",
+      "Penso che viaggiare cambi come persona perché ti costringe ad affrontare l'ignoto.",
+      "Anche se restare a casa è comodo ed economico, penso comunque che tutti dovrebbero viaggiare almeno una volta.",
+      "Sembrerebbe che ciò che conta di più non fosse il posto in cui si va, ma quanto si sia aperti alle nuove esperienze."
     ],
     DE: [
-      "Ich finde, du solltest mehr schlafen.",
-      "Ich finde, du solltest das Sprechen aktiver üben.",
-      "Ich finde, du solltest Tagebuch schreiben, um deine Gedanken zu ordnen.",
-      "Ich finde, du solltest eine Pause machen, anstatt die Nacht durchzuarbeiten.",
-      "Ich finde, du solltest aus deinen Fehlern lernen und nicht aufgeben."
+      "Ich denke, dass Reisen den Horizont erweitert.",
+      "Ich glaube, dass Zuhausebleiben genauso bereichernd sein kann wie ins Ausland zu fahren.",
+      "Ich denke, dass Reisen einen als Person verändert, weil es einen zwingt, sich dem Unbekannten zu stellen.",
+      "Auch wenn Zuhausebleiben bequem und günstig ist, glaube ich trotzdem, dass jeder mindestens einmal reisen sollte.",
+      "Es scheint mir, als ob das Wichtigste nicht wäre, wohin man reist, sondern wie offen man für neue Erfahrungen wäre."
     ],
     JP: [
-      "もっと休んだ方がいいと思います。(Motto yasunda hō ga ii to omoimasu.)",
-      "話す練習をもっとたくさんした方がいいと思います。(Hanasu renshū o motto takasan shita hō ga ii to omoimasu.)",
-      "自分の頭を整理するために、日記を毎日書いた方がいいと思います。(Jibun no atama o seiri suru tame ni, nikki o mainichi kaita hō ga ii to omoimasu.)",
-      "徹夜で仕事をする代わりに、少し休憩を入れた方がいいとアドバイスします。(Tetsuya de shigoto o suru kawari ni, sukoshi kyūkei o ireta hō ga ii to adobaisu shimasu.)",
-      "失敗から多くの教訓を学び、そんなに簡単に諦めない方がいいと思います。(Shippai kara ōku no kyōkun o manabi, sonnani kantan ni akiramenai hō ga ii to omoimasu.)"
+      "旅は視野を広げると思います。(Tabi wa shiya o hirogeru to omoimasu.)",
+      "家にいることも海外に行くことと同じくらい豊かな経験になりえると思っています。(Ie ni iru koto mo kaigai ni iku koto to onaji kurai yutaka na keiken ni narieru to omotte imasu.)",
+      "旅は人を変えると思います。なぜなら未知のものに向き合うことを強いられるからです。(Tabi wa hito o kaeru to omoimasu. Nazenara michi no mono ni mukiau koto o shiirarereru kara desu.)",
+      "家にいることが快適で費用もかからないとしても、やはり一度は旅をするべきだと思います。(Ie ni iru koto ga kaiteki de hiyō mo kakaranai to shite mo, yahari ichido wa tabi o suru beki da to omoimasu.)",
+      "大切なのは行き先よりも、どれだけ新しい経験に心を開いているかではないかと思います。(Taisetsu na no wa yukisaki yori mo, dore dake atarashii keiken ni kokoro o hiraite iru ka de wa nai ka to omoimasu.)"
     ]
   },
   27: {
+    // Tema: opinião sobre uma mudança no estilo de vida
+    // L1: opinião simples — I think… / Penso che… + indicativo / Ich denke, dass… / 〜と思います
+    // L2: opinião com subordinada — I think that… (cláusula); IT: congiuntivo presente; DE: Ich glaube, dass…; JP: 〜と思っています
+    // L3: opinião com razão — I think…because… / perché / weil (verbo no fim) / なぜなら〜から
+    // L4: concessão — Even though…, I still think… / Anche se…, penso comunque che… (congiuntivo); DE: Auch wenn…; JP: 〜ても、やはり〜と思います
+    // L5: hedging formal — It seems to me that… / Sembrerebbe che… (congiuntivo imperfeito); DE: Es scheint mir, als ob…wäre; JP: 〜のではないかと思います
     EN: [
-      "In my opinion, money is not everything.",
-      "In my opinion, money does not buy true love.",
-      "In my opinion, money is important but health matters more.",
-      "In my opinion, money is just a tool to help us achieve our goals.",
-      "In my opinion, money can buy comfort, but happiness comes from simple things."
+      "I think small habits make a big difference.",
+      "I think that changing your daily routine is harder than it looks.",
+      "I think sleeping earlier is a good first step because rest affects everything else in your day.",
+      "Even though changing habits takes time and effort, I still think anyone can do it with the right mindset.",
+      "It seems to me that lasting lifestyle change comes not from willpower alone, but from building a supportive environment."
     ],
     IT: [
-      "Secondo me, i soldi non sono tutto.",
-      "Secondo me, i soldi non possono comprare il vero amore.",
-      "Secondo me, i soldi sono importanti, ma la salute conta di più.",
-      "Secondo me, il denaro è solo uno strumento per raggiungere i nostri scopi.",
-      "Secondo me, i soldi comprano la comodità, ma la felicità è nelle piccole cose."
+      "Penso che le piccole abitudini facciano una grande differenza.",
+      "Penso che cambiare la propria routine quotidiana sia più difficile di quanto sembri.",
+      "Penso che dormire prima sia un buon primo passo perché il riposo influenza tutto il resto della giornata.",
+      "Anche se cambiare abitudini richiede tempo e fatica, penso comunque che chiunque possa farcela con la mentalità giusta.",
+      "Avrei l'impressione che un cambiamento duraturo nello stile di vita non dipendesse solo dalla forza di volontà, ma dal creare un ambiente favorevole."
     ],
     DE: [
-      "Meiner Meinung nach ist Geld nicht alles.",
-      "Meiner Meinung nach kann man mit Geld keine Liebe kaufen.",
-      "Meiner Meinung nach ist Geld wichtig, aber Gesundheit zählt mehr.",
-      "Meiner Meinung nach ist Geld nur ein Mittel, um unsere Ziele zu erreichen.",
-      "Meiner Meinung nach bringt Geld Komfort, aber Glück liegt in kleinen Dingen."
+      "Ich denke, dass kleine Gewohnheiten einen großen Unterschied machen.",
+      "Ich glaube, dass die eigene Tagesroutine zu verändern schwieriger ist, als es aussieht.",
+      "Ich denke, dass früher schlafen ein guter erster Schritt ist, weil Erholung alles andere im Tag beeinflusst.",
+      "Auch wenn das Ändern von Gewohnheiten Zeit und Mühe kostet, glaube ich trotzdem, dass es jeder mit der richtigen Einstellung schaffen kann.",
+      "Es scheint mir, als ob dauerhafter Lebenswandel nicht allein von der Willenskraft abhinge, sondern davon, eine unterstützende Umgebung zu schaffen."
     ],
     JP: [
-      "わたしの意見では、お金がすべてではないと思います。(Watashi no iken de wa, okane ga subete de wa nai to omoimasu.)",
-      "お金で本当の愛や信頼を買うことはできないと考えます。(Okane de hontō no ai ya shinrai o kau koto wa dekinai to kangaemasu.)",
-      "お金は確かに生活に必要ですが、健康の方がもっと大切です。(Okane wa tashikani seikatsu ni hitsuyō desu ga, kenkō no hō ga motto taisetsu desu.)",
-      "お金は目標を達成し、選択肢を広げるための単なる道具だと思います。(Okane wa mokuhyō o tassei shi, sentakushi o hirogeru tame no tannaru dōgu da to omoimasu.)",
-      "お金で快適さは買えますが、本当の幸せは些細な日常の中にあります。(Okane de kaitekisa wa kaemasu ga, hontō no shiawase wa sasai na nichijō no naka ni arimasu.)"
+      "小さな習慣が大きな違いを生むと思います。(Chiisana shūkan ga ōkina chigai o umu to omoimasu.)",
+      "日常のルーティンを変えることは見た目より難しいと思っています。(Nichijō no rūtin o kaeru koto wa mita me yori muzukashii to omotte imasu.)",
+      "早めに寝ることは良い第一歩だと思います。なぜなら休息が一日のほかのすべてに影響するからです。(Hayame ni neru koto wa yoi daiippo da to omoimasu. Nazenara kyūsoku ga ichinichi no hoka no subete ni eikyō suru kara desu.)",
+      "習慣を変えるには時間と努力がかかるとしても、やはり正しい考え方があれば誰でもできると思います。(Shūkan o kaeru ni wa jikan to doryoku ga kakaru to shite mo, yahari tadashii kangaekata ga areba dare demo dekiru to omoimasu.)",
+      "長続きするライフスタイルの変化は意志の力だけでなく、支えになる環境を作ることから生まれるのではないかと思います。(Nagatsuzuki suru raifusutairu no henka wa ishi no chikara dake de naku, sasae ni naru kankyō o tsukuru koto kara umareru no de wa nai ka to omoimasu.)"
     ]
   },
 
