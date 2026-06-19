@@ -224,6 +224,13 @@ export function App() {
         const p = pads.current[code];
         if (p) p.load(strokes);
       }
+      const texts: Record<string, string> = {};
+      await Promise.all(
+        DS.LANGS.map(async (code) => {
+          texts[code] = await DS.loadText(isoStr, code);
+        })
+      );
+      setTypedTexts(texts);
       alert('Backup do Google Drive importado com sucesso!');
     } catch (err) {
       console.error(err);
@@ -321,6 +328,7 @@ export function App() {
     const isoStr = DS.iso(date);
     for (const lang of DS.LANGS) {
       await DS.saveInk(isoStr, lang, []);
+      await DS.saveText(isoStr, lang, '');
     }
     const m = DS.getMeta();
     if (isoStr === DS.iso(viewRef.current)) {
@@ -328,6 +336,7 @@ export function App() {
         const p = pads.current[code];
         if (p) p.load([]);
       });
+      setTypedTexts({ EN: '', IT: '', DE: '', JP: '' });
     }
     setMeta({ ...m });
   }, []);
@@ -401,6 +410,13 @@ export function App() {
           const p = pads.current[code];
           if (p) p.load(strokes);
         });
+        const texts: Record<string, string> = {};
+        await Promise.all(
+          DS.LANGS.map(async (code) => {
+            texts[code] = await DS.loadText(isoStr, code);
+          })
+        );
+        setTypedTexts(texts);
       } catch (_) { /* arquivo inválido */ }
     };
     reader.readAsText(file);
