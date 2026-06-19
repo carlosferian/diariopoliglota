@@ -406,7 +406,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "昨日、ランニングをして、その後ちゃんとした食事を作りました。(Kinō, ranningu o shite, sono ato chanto shita shokuji o tsukurimashita.)",
       "昨日、外に出るには天気が悪すぎたので、家で勉強しました。(Kinō, soto ni deru ni wa tenki ga warusugita node, ie de benkyō shimashita.)",
       "昨日、仕事の後はくたくたでしたが、本を二章読み終えることができました。(Kinō, shigoto no ato wa kutakuta deshita ga, hon o nishō yomi oeru koto ga dekimashita.)",
-      "昨夜やっと腰を落ち着けたとき、もう洗濯を三回済ませて部屋中を片付けていました。(Sakuya yatto koshi o ochitsuketakotoki, mō sentaku o sankai sumasete heya-jū o katazukete imashita.)"
+      "昨夜やっと腰を落ち着けたとき、もう洗濯を三回済ませて部屋中を片付けていました。(Sakuya yatto koshi o ochitsuketa toki, mō sentaku o sankai sumasete heya-jū o katazukete imashita.)"
     ]
   },
   13: {
@@ -497,7 +497,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     ],
     IT: [
       "Questa settimana ho incontrato per caso un vecchio amico di scuola per strada.",
-      "Mi sono fermato a salutarlo e abbiamo finito per chiarire per più di un'ora.",
+      "Ci siamo fermati a parlare e abbiamo chiacchierato per più di un'ora.",
       "L'ho quasi superato senza vederlo perché ero distratto da un messaggio sul telefono.",
       "Questa settimana non avevo per niente tempo libero, ma sono riuscito a ritagliarmi un lungo caffè con lui.",
       "Quando ci siamo salutati, avevo già dimenticato quanto fossi stato stressato per tutta la settimana."
@@ -511,7 +511,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     ],
     JP: [
       "今週、路上で旧友に偶然出会いました。(Konshū, rōjō de kyūyū ni gūzen deaimashita.)",
-      "立ち止まって話しかけたら、一時間以上おしゃべりしてしまいました。(Tachidoma tte hanashikaketa ra, ichijikan ijō oshaberi shite shimaimashita.)",
+      "立ち止まって話しかけたら、一時間以上おしゃべりしてしまいました。(Tachidomatte hanashikaketara, ichijikan ijō oshaberi shite shimaimashita.)",
       "スマホのメッセージに気を取られていたので、もう少しで彼女に気づかずに通り過ぎるところでした。(Sumaho no messēji ni ki o torarete ita node, mō sukoshi de kanojo ni kidzukazu ni tōrisugiru tokoro deshita.)",
       "今週はまったく自由な時間がありませんでしたが、なんとか彼女とゆっくりコーヒーを飲む時間を作ることができました。(Konshū wa mattaku jiyū na jikan ga arimasen deshita ga, nantoka kanojo to yukkuri kōhī o nomu jikan o tsukuru koto ga dekimashita.)",
       "別れを告げたとき、もう一週間ずっと感じていたストレスを忘れていました。(Wakare o tsugeta toki, mō isshūkan zutto kanjite ita sutoresu o wasurete imashita.)"
