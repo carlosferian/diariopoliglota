@@ -827,10 +827,10 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     ],
     IT: [
       "Penso che la tecnologia sia utile.",
-      "Penso che i social media abbiano cambiato il modo in cui comunichiamo.",
+      "Penso che i social media cambino il modo in cui comunichiamo.",
       "Penso che i social siano dipendenti perché sono progettati per tenerci incollati allo schermo.",
       "Anche se i social ci aiutano a restare in contatto, penso comunque che possano danneggiare le amicizie vere.",
-      "Sembrerebbe che non si siano ancora capiti appieno gli effetti a lungo termine della connessione costante."
+      "Sembrerebbe che non si fossero ancora capiti appieno gli effetti a lungo termine della connessione costante."
     ],
     DE: [
       "Ich denke, dass Technologie nützlich ist.",
@@ -901,8 +901,8 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Penso che viaggiare allarghi gli orizzonti.",
       "Penso che restare a casa possa essere altrettanto arricchente che andare all'estero.",
       "Penso che viaggiare cambi come persona perché ti costringe ad affrontare l'ignoto.",
-      "Anche se restare a casa è comodo ed economico, penso comunque che tutti dovrebbero viaggiare almeno una volta.",
-      "Sembrerebbe che ciò che conta di più non fosse il posto in cui si va, ma quanto si sia aperti alle nuove esperienze."
+      "Anche se restare a casa è comodo ed economico, penso comunque che tutti debbano viaggiare almeno una volta.",
+      "Sembrerebbe che ciò che contasse di più non fosse il posto in cui si va, ma quanto si fosse aperti alle nuove esperienze."
     ],
     DE: [
       "Ich denke, dass Reisen den Horizont erweitert.",
