@@ -975,7 +975,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Ho dormito male stanotte perché ho bevuto il caffè troppo tardi.",
       "Stamattina ero così stanco che riuscivo a malapena ad alzarmi.",
       "Ho fissato lo schermo per ore prima di dormire, per cui non riuscivo ad addormentarmi.",
-      "Ieri sera non solo sono andato a letto tardi, ma mi sono svegliato ogni ora.",
+      "Ieri sera non solo sono andato a letto tardi, ma mi sono svegliato anche ogni ora.",
       "A forza di restare sveglio a scorrere il telefono, finisce che non dormo e non riesco a combinare niente il giorno dopo."
     ],
     DE: [
@@ -989,8 +989,8 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "夜遅くにコーヒーを飲んだから、昨夜はよく眠れませんでした。(Yoru osoku ni kōhī o nonda kara, sakuya wa yoku nemurenakatta.)",
       "今朝はひどく眠かったので、ベッドからほとんど出られませんでした。(Kesa wa hidoku nemukatta node, beddo kara hotondo deraremasen deshita.)",
       "寝る前に何時間もスマホの画面を見ていた、だからなかなか眠れませんでした。(Neru mae ni nanjikan mo sumaho no gamen o mite ita, dakara nakanaka nemurenakatta.)",
-      "昨夜は寝るのが遅かっただけでなく、何度も目が覚めてしまいました。(Sakuya wa neru no ga osokatta dake de naku, nandomo me ga samete shimaimashita.)",
-      "スマホを見れば見るほど眠れなくなり、眠れなければ翌朝がつらくなります。(Sumaho o mireba miru hodo nemurenaku nari, nemurenakere ba yokuasa ga tsuraku narimasu.)"
+      "昨夜は寝るのが遅かっただけでなく、夜中に目が覚めることも何度かありました。(Sakuya wa neru no ga osokatta dake de naku, yonaka ni me ga sameru koto mo nandoka arimashita.)",
+      "スマホを見れば見るほど眠れなくなり、眠れなければ翌朝がつらくなります。(Sumaho o mireba miru hodo nemurenaku nari, nemurenakereba yokuasa ga tsuraku narimasu.)"
     ]
   },
   29: {
@@ -1026,7 +1026,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "毎日午後になるとひどく眠くなるので、昼食後の砂糖をやめることにしました。(Mainichi gogo ni naru to hidoku nemuku naru node, chūshoku go no satō o yameru koto ni shimashita.)",
       "いつも昼ごろにエネルギーが切れてしまう、だから自炊を始めることにしました。(Itsumo hirogoro ni enerugī ga kirete shimau, dakara jisui o hajimeru koto ni shimashita.)",
       "食事を変えただけでなく、毎晩一時間早く寝るようにもしました。(Shokuji o kaeta dake de naku, maiban ichijikan hayaku neru yō ni mo shimashita.)",
-      "よく眠れば眠るほど体が軽くなり、体が軽くなれば運動も続けやすくなります。(Yoku nemurebanemurun hodo karada ga karuku nari, karada ga karuku nareba undō mo tsuzukeyasuku narimasu.)"
+      "よく眠れば眠るほど体が軽くなり、体が軽くなれば運動も続けやすくなります。(Yoku nemureba nemuru hodo karada ga karuku nari, karada ga karuku nareba undō mo tsuzukeyasuku narimasu.)"
     ]
   },
   30: {
@@ -1059,10 +1059,10 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     ],
     JP: [
       "午前中の方が集中できるから、朝に勉強するようにしました。(Gozenchū no hō ga shūchū dekiru kara, asa ni benkyō suru yō ni shimashita.)",
-      "仕事で追加のプロジェクトを引き受けたので、こなすことが多くなりスケジュール全体を見直さなければなりませんでした。(Shigoto de tsuika no purojekuto o hikiuketa node, konasu koto ga ōku nari sukejūru zentai o minaotsanakereba narimasen deshita.)",
+      "仕事で追加のプロジェクトを引き受けたので、こなすことが多くなりスケジュール全体を見直さなければなりませんでした。(Shigoto de tsuika no purojekuto o hikiuketa node, konasu koto ga ōku nari sukejūru zentai o minaosanakereba narimasen deshita.)",
       "一夜漬けをやめて毎日少しずつ勉強することにした、だからテストの結果が少しずつ上がっています。(Ichiyazuke o yamete mainichi sukoshi zutsu benkyō suru koto ni shita, dakara tesuto no kekka ga sukoshi zutsu agatte imasu.)",
       "毎晩ノートを見直す時間を作っただけでなく、覚えたことを定着させるために短い音声メモも録るようにしました。(Maiban nōto o minaosu jikan o tsukutta dake de naku, oboeta koto o teichaku saseru tame ni mijikai onsei memo mo toru yō ni shimashita.)",
-      "コツコツ勉強すればするほど自信がつき、自信がつけばつくほどもっと学びたくなります。(Kotsukotsu benkyō sureba suru hodo jishin ga tsuki, jishin ga tsukeba tsuku hodo motto manabi taku narimasu.)"
+      "コツコツ勉強すればするほど自信がつき、自信がつけばつくほどもっと学びたくなります。(Kotsukotsu benkyō sureba suru hodo jishin ga tsuki, jishin ga tsukeba tsuku hodo motto manabitaku narimasu.)"
     ]
   },
   31: {
@@ -1095,10 +1095,10 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     ],
     JP: [
       "翌朝に大事な発表があったから、不安でいっぱいでした。(Yokuasa ni daiji na happyō ga atta kara, fuan de ippai deshita.)",
-      "面接の前がとても緊張していたので、ほとんど何も食べられませんでした。(Mensetsu no mae ga totemo kinchō shite ita node, hotondo nani mo taberaremasen deshita.)",
+      "面接の前はとても緊張していたので、ほとんど何も食べられませんでした。(Mensetsu no mae wa totemo kinchō shite ita node, hotondo nani mo taberaremasen deshita.)",
       "先月、親しい友人が海外に引っ越してしまった、だから最近少し寂しく感じています。(Sengetsu, shitashii yūjin ga kaigai ni hikkoshite shimatta, dakara saikin sukoshi sabishiku kanjite imasu.)",
-      "プロジェクトがようやく終わったとき、ほっとしただけでなく、自分がやり遂げたことに深い誇りも感じました。(Purojekuto ga yōyaku owatta toki, hotto shita dake de naku, jibun ga yaritage ta koto ni fukai hokori mo kanjimashita.)",
-      "自分の成長を人と分かち合えば分かち合うほどやる気が高まり、やる気が高まれば高まるほど毎日が楽しくなります。(Jibun no seichō o hito to wakachiaeba wakachiau hodo yaruki ga takamari, yaruki ga tamarereba takamaru hodo mainichi ga tanoshiku narimasu.)"
+      "プロジェクトがようやく終わったとき、ほっとしただけでなく、自分がやり遂げたことに深い誇りも感じました。(Purojekuto ga yōyaku owatta toki, hotto shita dake de naku, jibun ga yaritogeta koto ni fukai hokori mo kanjimashita.)",
+      "自分の成長を人と分かち合えば分かち合うほどやる気が高まり、やる気が高まれば高まるほど毎日が楽しくなります。(Jibun no seichō o hito to wakachiaeba wakachiau hodo yaruki ga takamari, yaruki ga takamareba takamaru hodo mainichi ga tanoshiku narimasu.)"
     ]
   },
 
