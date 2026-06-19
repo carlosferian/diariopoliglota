@@ -732,7 +732,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     JP: [
       "祖母はわたしがこれまで知っている人の中で誰よりもずっと強い人です。(Sobo wa watashi ga kore made shitte iru hito no naka de dare yori mo zutto tsuyoi hito desu.)",
       "彼女はわたしが人生で出会った中で一番刺激を与えてくれる人です。(Kanojo wa watashi ga jinsei de deatta naka de ichiban shigeki o ataete kureru hito desu.)",
-      "他の人への彼女の忍耐力は、プレッシャーのもとで落ち着いていられる力と同じくらい見事です。(Hoka no hito e no kanojo no nintairyoku wa, puresshā no moto de ochitsuiteirarereru chikara to onaji kurai migoto desu.)",
+      "他の人への彼女の忍耐力は、プレッシャーのもとで落ち着いていられる力と同じくらい見事です。(Hoka no hito e no kanojo no nintairyoku wa, puresshā no moto de ochitsuite irarereru chikara to onaji kurai migoto desu.)",
       "彼女は今まで幸運にも教えを受けた中で一番情熱的な先生です。(Kanojo wa ima made kōun ni mo oshie o uketa naka de ichiban jōnetsuteki na sensei desu.)",
       "何があっても信じてくれる人が人生にいるということにはかないません。(Nani ga atte mo shinjite kureru hito ga jinsei ni iru to iu koto ni wa kanaimasen.)"
     ]
@@ -770,7 +770,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "この二年間はわたしの人生の中で一番自分を形成した時期でした。(Kono ninenkan wa watashi no jinsei no naka de ichiban jibun o keisei shita jiki deshita.)",
       "今日の自分の自信は、始めた頃と同じくらい不安定ですが、違うかたちで。(Kyō no jibun no jishin wa, hajimeta koro to onaji kurai fuantei desu ga, chigau katachi de.)",
       "語学を学ぶことにしたのは、今まで自分の成長のためにした中で一番良い選択です。(Gogaku o manabu koto ni shita no wa, ima made jibun no seichō no tame ni shita naka de ichiban yoi sentaku desu.)",
-      "やはり振り返って自分がどれだけ成長したかに気づく瞬間が一番ですね。(Yahari furikaette jibun ga dore dake seichō shita ka ni ki zuku shunkan ga ichiban desu ne.)"
+      "やはり振り返って自分がどれだけ成長したかに気づく瞬間が一番ですね。(Yahari furikaette jibun ga dore dake seichō shita ka ni kizuku shunkan ga ichiban desu ne.)"
     ]
   },
   23: {
