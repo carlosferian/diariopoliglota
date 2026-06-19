@@ -253,122 +253,122 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
   // --- MÓDULO 3: FUTURO ---
   8: {
     EN: [
-      "Today I'm going to work.",
-      "Today I'm going to study languages and read a book.",
-      "Today I'm going to cook a delicious pasta dish for dinner.",
-      "Today I'm going to clean my apartment and go to the gym.",
-      "Today I'm going to meet my colleagues to discuss our new project."
+      "I'm going to cook tonight.",
+      "I'm going to cook a proper risotto for dinner tonight.",
+      "I'm going to the market this afternoon in order to buy fresh ingredients.",
+      "I'm going to try that new carbonara recipe if I have time after work.",
+      "Even if it's hard to find the right cheese, I'm determined to get this dish right tonight."
     ],
     IT: [
-      "Oggi ho intenzione di lavorare.",
-      "Oggi ho intenzione di studiare le lingue e leggere.",
-      "Oggi ho intenzione di cucinare un piatto di pasta per cena.",
-      "Oggi ho intenzione di pulire l'appartamento e andare in palestra.",
-      "Oggi ho intenzione di incontrare i colleghi per discutere del progetto."
+      "Ho intenzione di cucinare stasera.",
+      "Ho intenzione di preparare un risotto per cena stasera.",
+      "Nel pomeriggio vado al mercato per comprare gli ingredienti freschi.",
+      "Ho intenzione di provare la ricetta della carbonara se ho tempo dopo il lavoro.",
+      "Anche se sarà difficile trovare il formaggio giusto, ho intenzione di riuscirci stasera."
     ],
     DE: [
-      "Heute werde ich arbeiten.",
-      "Heute werde ich Sprachen lernen und ein Buch lesen.",
-      "Heute werde ich ein leckeres Nudelgericht zum Abendessen kochen.",
-      "Heute werde ich meine Wohnung putzen und ins Fitnessstudio gehen.",
-      "Heute werde ich meine Kollegen treffen, um das neue Projekt zu besprechen."
+      "Heute Abend werde ich kochen.",
+      "Heute Abend werde ich ein richtiges Risotto zum Abendessen kochen.",
+      "Am Nachmittag gehe ich auf den Markt, um frische Zutaten zu kaufen.",
+      "Ich werde das neue Carbonara-Rezept ausprobieren, wenn ich nach der Arbeit Zeit habe.",
+      "Auch wenn es schwer wird, den richtigen Käse zu finden, werde ich das Gericht heute Abend doch hinbekommen."
     ],
     JP: [
-      "今日、仕事をするつもりです。(Kyō, shigoto o suru tsumori desu.)",
-      "今日、語学の勉強をして本を読むつもりです。(Kyō, gogaku no benkyō o shite hon o yomu tsumori desu.)",
-      "今日、晩ご飯に美味しいパスタを作るつもりです。(Kyō, bangohan ni oishii pasuta o tsukuru tsumori desu.)",
-      "今日、アパートの掃除をしてからジムに行く予定です。(Kyō, apāto no souji o shite kara jimu ni iku yotei desu.)",
-      "今日、同僚と会って新しいプロジェクトについて話し合う予定です。(Kyō, dōryō to atte atarashii purojekuto ni tsuite hanashiau yotei desu.)"
+      "今夜、料理をするつもりです。(Konya, ryōri o suru tsumori desu.)",
+      "今夜の夕食に、ちゃんとしたリゾットを作るつもりです。(Konya no yūshoku ni, chanto shita rizotto o tsukuru tsumori desu.)",
+      "新鮮な食材を買うために、今日の午後に市場へ行くつもりです。(Shinsen na shokuzai o kau tame ni, kyō no gogo ni ichiba e iku tsumori desu.)",
+      "仕事の後で時間があったら、カルボナーラの新しいレシピに挑戦するつもりです。(Shigoto no ato de jikan ga attara, karubonaara no atarashii reshipi ni chōsen suru tsumori desu.)",
+      "正しいチーズが見つからなくても、今夜きっとこの料理を完成させてみせます。(Tadashii chīzu ga mitsukaranakute mo, konya kitto kono ryōri o kansei sasete misemasu.)"
     ]
   },
   9: {
     EN: [
-      "This weekend I plan to sleep.",
-      "This weekend I plan to watch a good movie.",
-      "This weekend I plan to visit my parents and eat together.",
-      "This weekend I plan to go hiking in the mountains to breathe fresh air.",
-      "This weekend I plan to work on my personal project and relax at home."
+      "I'm going to go hiking this weekend.",
+      "I'm going to hike up to the old lighthouse on the cliffs this Saturday.",
+      "I'm going to leave early on Saturday morning in order to beat the crowds on the trail.",
+      "I'm going to take the coastal path if I have time, but even a short walk will do.",
+      "No matter what the weather does, I'm determined to spend at least part of this weekend outside."
     ],
     IT: [
-      "Questo fine settimana voglio dormire.",
-      "Questo fine settimana voglio vedere un bel film.",
-      "Questo fine settimana voglio visitare i miei genitori e cenare con loro.",
-      "Questo fine settimana voglio fare un'escursione in montagna per stare all'aria aperta.",
-      "Questo fine settimana voglio lavorare al mio progetto personale e rilassarmi."
+      "Ho intenzione di fare un'escursione questo fine settimana.",
+      "Sabato ho intenzione di salire fino al vecchio faro sulle scogliere.",
+      "Sabato mattina parto presto per evitare la folla sul sentiero.",
+      "Ho intenzione di percorrere il sentiero costiero se ho tempo, altrimenti va bene anche una passeggiata corta.",
+      "Anche se sarà brutto tempo, ho intenzione di stare fuori almeno un po' questo weekend."
     ],
     DE: [
-      "Dieses Wochenende möchte ich schlafen.",
-      "Dieses Wochenende möchte ich einen guten Film sehen.",
-      "Dieses Wochenende möchte ich meine Eltern besuchen und mit ihnen essen.",
-      "Dieses Wochenende möchte ich in den Bergen wandern gehen, um frische Luft zu schnappen.",
-      "Dieses Wochenende möchte ich an meinem Projekt arbeiten und mich zu Hause entspannen."
+      "Dieses Wochenende werde ich wandern gehen.",
+      "Am Samstag werde ich zum alten Leuchtturm auf den Klippen wandern.",
+      "Am Samstagmorgen werde ich früh aufbrechen, um den Menschenmassen auf dem Weg zuvorzukommen.",
+      "Ich werde den Küstenpfad nehmen, wenn ich Zeit habe — sonst reicht auch ein kurzer Spaziergang.",
+      "Auch wenn das Wetter schlecht wird, werde ich dieses Wochenende doch zumindest ein bisschen Zeit draußen verbringen."
     ],
     JP: [
-      "今週末、ゆっくり寝たいです。(Konshūmatsu, yukkuri netai desu.)",
-      "今週末、面白い映画を見たいです。(Konshūmatsu, omoshiroi eiga o mitai desu.)",
-      "今週末、実家に行って親と一緒にご飯を食べたいです。(Konshūmatsu, jikka ni itte oya to issho ni gohan o tabetai desu.)",
-      "今週末、新鮮な空気を吸うために山へハイキングに行きたいです。(Konshūmatsu, shinsen na kūki o sū tame ni yama e haikingu ni ikitai desu.)",
-      "今週末は自分の個人開発を進めて、家でリラックスしたいと考えています。(Konshūmatsu wa jibun no kojin kaihatsu o susumete, ie de rirakkusu shitai to kangaete imasu.)"
+      "今週末、ハイキングに行くつもりです。(Konshūmatsu, haikingu ni iku tsumori desu.)",
+      "今週土曜日に、崖の上の古い灯台まで登るつもりです。(Konshū doyōbi ni, gake no ue no furui tōdai made noboru tsumori desu.)",
+      "登山道が混む前に出発するために、土曜日の朝早く家を出るつもりです。(Tozandō ga komu mae ni shuppatsu suru tame ni, doyōbi no asa hayaku ie o deru tsumori desu.)",
+      "時間があれば海岸沿いの道を歩くつもりですが、短い散歩でも十分です。(Jikan ga areba kaiganzoi no michi o aruku tsumori desu ga, mijikai sanpo demo jūbun desu.)",
+      "天気がどうであっても、今週末は外で過ごす時間をきっと作ってみせます。(Tenki ga dō de atte mo, konshūmatsu wa soto de sugosu jikan o kitto tsukutte misemasu.)"
     ]
   },
   10: {
     EN: [
-      "One day I want to travel to Japan.",
-      "One day I want to travel to Italy to eat real pizza.",
-      "One day I want to travel to Europe and visit historical sites.",
-      "One day I want to travel to Canada to see the beautiful nature and lakes.",
-      "One day I want to travel around the world and experience different cultures."
+      "I'm going to visit Kyoto someday.",
+      "I'm going to spend two weeks in Kyoto, staying in a traditional inn.",
+      "I'm going to learn basic Japanese in order to explore the temples on my own.",
+      "I'm going to go during cherry blossom season if I have enough money saved by then.",
+      "Even if it takes years to save up, I'm determined to walk those stone paths in Kyoto."
     ],
     IT: [
-      "Un giorno voglio andare in Giappone.",
-      "Un giorno voglio andare in Italia per mangiare la vera pizza.",
-      "Un giorno voglio andare in Europa e visitare i monumenti storici.",
-      "Un giorno voglio andare in Canada per vedere i laghi e la natura selvaggia.",
-      "Un giorno voglio fare un viaggio intorno al mondo per conoscere culture diverse."
+      "Ho intenzione di visitare Kyoto un giorno.",
+      "Ho intenzione di trascorrere due settimane a Kyoto, dormendo in un ryokan tradizionale.",
+      "Ho intenzione di imparare il giapponese di base per girare i templi da solo.",
+      "Ho intenzione di andarci durante la fioritura dei ciliegi se avrò risparmiato abbastanza.",
+      "Anche se ci vorrà molto tempo per risparmiare, ho intenzione di percorrere quei sentieri di pietra a Kyoto."
     ],
     DE: [
-      "Eines Tages will ich nach Japan reisen.",
-      "Eines Tages will ich nach Italien reisen, um echte pizza zu essen.",
-      "Eines Tages will ich nach Europa reisen und historische Orte besuchen.",
-      "Eines Tages will ich nach Kanada reisen, um die schöne Natur zu sehen.",
-      "Eines Tages will ich eine Weltreise machen und fremde Kulturen erleben."
+      "Ich werde irgendwann Kyoto besuchen.",
+      "Ich werde zwei Wochen in Kyoto verbringen und in einem traditionellen Gasthaus übernachten.",
+      "Ich werde Grundkenntnisse in Japanisch lernen, um die Tempel auf eigene Faust zu erkunden.",
+      "Ich werde während der Kirschblüte fahren, wenn ich bis dahin genug gespart habe.",
+      "Auch wenn es Jahre dauern wird zu sparen, werde ich eines Tages doch über diese Steinwege in Kyoto gehen."
     ],
     JP: [
-      "いつか日本に旅行したいです。(Itsuka Nihon ni ryokō shitai desu.)",
-      "いつか本場のピザを食べるためにイタリアへ行きたいです。(Itsuka honba no piza o taberu tame ni Itaria e ikitai desu.)",
-      "いつかヨーロッパに行って歴史的な場所を訪ねたいです。(Itsuka Yōroppa ni itte rekishiteki na basho o tazunetai desu.)",
-      "いつかカナダに行って美しい大自然と湖を見てみたいです。(Itsuka Kanada ni itte utsukushii daishizen to mizuumi o mite mitai desu.)",
-      "いつか世界一周 of ryokou ni dete, tayō na bunka o chokusetsu taiken shite mitai desu。(Itsuka sekai isshū no tabi ni dete, tayō na bunka o chokusetsu taiken shite mitai desu.)"
+      "いつか京都を訪れるつもりです。(Itsuka Kyōto o otozureru tsumori desu.)",
+      "いつか伝統的な旅館に泊まりながら、京都で二週間過ごすつもりです。(Itsuka dentōteki na ryokan ni tomarinagara, Kyōto de nishūkan sugosu tsumori desu.)",
+      "一人でお寺を巡るために、日本語の基礎を身につけるつもりです。(Hitori de otera o meguru tame ni, Nihongo no kiso o mi ni tsukeru tsumori desu.)",
+      "それまでに十分なお金が貯まったら、桜の季節に行くつもりです。(Sore made ni jūbun na okane ga tamattara, sakura no kisetsu ni iku tsumori desu.)",
+      "何年かかっても、きっと京都のあの石畳の道を歩いてみせます。(Nannenkakatte mo, kitto Kyōto no ano ishidatami no michi o aruite misemasu.)"
     ]
   },
   11: {
     EN: [
-      "This month I will try to read more.",
-      "This month I will try to practice English every day.",
-      "This month I will try to save money for my future trip.",
-      "This month I will try to eat healthier foods and avoid sugar.",
-      "This month I will try to complete the first module of my online course."
+      "I'm going to read every day this month.",
+      "I'm going to read at least twenty pages of my Italian novel every evening.",
+      "I'm going to set aside thirty minutes before bed in order to build a real reading habit.",
+      "I'm going to keep a short reading log if I have five minutes free after each session.",
+      "Even if some evenings are exhausting, I'm determined to finish this book by the end of the month."
     ],
     IT: [
-      "Questo mese cercherò di leggere di più.",
-      "Questo mese cercherò di praticare l'inglese ogni giorno.",
-      "Questo mese cercherò di risparmiare soldi per il mio prossimo viaggio.",
-      "Questo mese cercherò di mangiare in modo più sano ed evitare gli zuccheri.",
-      "Questo mese cercherò di completare il primo modulo del mio corso online."
+      "Ho intenzione di leggere ogni giorno questo mese.",
+      "Ho intenzione di leggere almeno venti pagine del mio romanzo italiano ogni sera.",
+      "Ho intenzione di ritagliare mezz'ora prima di dormire per creare una vera abitudine di lettura.",
+      "Ho intenzione di tenere un breve diario di lettura se ho cinque minuti liberi dopo ogni sessione.",
+      "Anche se alcune serate saranno stancanti, ho intenzione di finire questo libro entro la fine del mese."
     ],
     DE: [
-      "Diesen Monat will ich mehr lesen.",
-      "Diesen Monat will ich jeden Tag Englisch üben.",
-      "Diesen Monat will ich Geld für meine nächste Reise sparen.",
-      "Diesen Monat will ich mich gesünder ernähren und Zucker vermeiden.",
-      "Diesen Monat will ich das erste Modul meines Online-Kurses abschließen."
+      "Diesen Monat werde ich jeden Tag lesen.",
+      "Jeden Abend werde ich mindestens zwanzig Seiten in meinem italienischen Roman lesen.",
+      "Ich werde mir dreißig Minuten vor dem Schlafen freihalten, um eine echte Lesegewohnheit aufzubauen.",
+      "Ich werde ein kurzes Lesetagebuch führen, wenn ich nach jeder Sitzung fünf Minuten Zeit habe.",
+      "Auch wenn manche Abende anstrengend sein werden, werde ich dieses Buch bis Ende des Monats doch fertig lesen."
     ],
     JP: [
-      "今月、もっと本を読むようにします。(Kongetsu, motto hon o yomu yō ni shimasu.)",
-      "今月、毎日外国語を練習しようと思います。(Kongetsu, mainichi gaikokugo o renshū shiyō to omoimasu.)",
-      "今月、将来の旅行のために貯金を頑張るつもりです。(Kongetsu, shourai no ryokō no tame ni chokin o ganbaru tsumori desu.)",
-      "今月、健康的な食事を心がけて砂糖を控えるようにします。(Kongetsu, kenkōteki na shokuji o kokorogakete satou o hikaeru yō ni shimasu.)",
-      "今月中にオンラインコースの最初のモジュールを終わらせることを目標にしています。(Kongetsuchū ni onrain kōsu no saisho no mojūru o owaraseru koto o mokuhyō ni shite imasu.)"
+      "今月、毎日読書をするつもりです。(Kongetsu, mainichi dokusho o suru tsumori desu.)",
+      "毎晩、イタリア語の小説を少なくとも二十ページ読むつもりです。(Maiban, Itariago no shōsetsu o sukunakutomo nijuppēji yomu tsumori desu.)",
+      "本当の読書習慣を身につけるために、寝る前の三十分を確保するつもりです。(Hontō no dokusho shūkan o mi ni tsukeru tame ni, neru mae no sanjuppun o kakuho suru tsumori desu.)",
+      "時間が五分あれば、読書の後に短い読書記録をつけるつもりです。(Jikan ga gofun areba, dokusho no ato ni mijikai dokusho kiroku o tsukeru tsumori desu.)",
+      "どんなに疲れた夜でも、今月中にきっとこの本を読み終えてみせます。(Donna ni tsukareta yoru demo, kongetsu-jū ni kitto kono hon o yomi oete misemasu.)"
     ]
   },
 
