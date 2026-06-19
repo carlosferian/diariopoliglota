@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   X, Trophy, Flame, BookOpen, ChevronLeft, ChevronRight, 
-  Download, Upload, Trash2, ShieldAlert 
+  Download, Upload, Trash2, ShieldAlert
 } from 'lucide-react';
 import * as DS from '../services/DiaryStore';
 
@@ -15,6 +15,20 @@ interface ProgressModalProps {
   onExport: () => void;
   onImport: (file: File) => void;
   onClearHistory: () => void;
+
+  // Google Drive Sync
+  gdriveClientId: string;
+  onSaveClientId: (id: string) => void;
+  gdriveToken: string | null;
+  onConnectGDrive: () => void;
+  onSyncGDrive: () => void;
+  onLoadGDrive: () => void;
+
+  // Lembrete PWA
+  reminderTime: string;
+  onSaveReminderTime: (time: string) => void;
+  reminderEnabled: boolean;
+  onToggleReminder: (enabled: boolean) => void;
 }
 
 const WD_PT = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
@@ -44,9 +58,20 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
   onExport,
   onImport,
   onClearHistory,
+  gdriveClientId,
+  onSaveClientId,
+  gdriveToken,
+  onConnectGDrive,
+  onSyncGDrive,
+  onLoadGDrive,
+  reminderTime,
+  onSaveReminderTime,
+  reminderEnabled,
+  onToggleReminder,
 }) => {
   const [currentMonthDate, setCurrentMonthDate] = useState(() => new Date(viewDate.getFullYear(), viewDate.getMonth(), 1));
   const [confirmDelIso, setConfirmDelIso] = useState<string | null>(null);
+  const [clientIdInput, setClientIdInput] = useState(gdriveClientId);
 
   const stats = DS.stats(meta);
   const t0 = DS.today();
@@ -371,6 +396,160 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
                 </div>
               );
             })}
+          </div>
+
+          {/* Sincronização Google Drive (Privado) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10, background: T.cellBg, padding: 14, borderRadius: 16, border: `1px dashed ${T.borderStrong}` }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 800, fontSize: 13.5, color: T.text }}>
+              <span>☁️ Google Drive Sync (Privado)</span>
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <span style={{ fontSize: 10, fontWeight: 800, color: T.dim, textTransform: 'uppercase', letterSpacing: 0.5 }}>Google Client ID</span>
+              <div style={{ display: 'flex', gap: 6 }}>
+                <input
+                  type="password"
+                  value={clientIdInput}
+                  onChange={(e) => setClientIdInput(e.target.value)}
+                  placeholder="Cole seu Google Client ID aqui..."
+                  style={{
+                    flex: 1,
+                    background: T.card,
+                    border: `1px solid ${T.border}`,
+                    borderRadius: 8,
+                    padding: '5px 8px',
+                    color: T.text,
+                    fontSize: 11.5,
+                  }}
+                />
+                <button
+                  onClick={() => onSaveClientId(clientIdInput)}
+                  style={{
+                    background: T.ctrlBg,
+                    border: `1px solid ${T.borderStrong}`,
+                    color: T.text,
+                    borderRadius: 8,
+                    padding: '5px 10px',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                  }}
+                >
+                  Salvar
+                </button>
+              </div>
+            </div>
+
+            {gdriveClientId ? (
+              <div style={{ display: 'flex', gap: 6 }}>
+                {!gdriveToken ? (
+                  <button
+                    onClick={onConnectGDrive}
+                    style={{
+                      flex: 1,
+                      background: T.accent,
+                      color: T.mode === 'light' ? '#fff' : '#0E1326',
+                      border: 'none',
+                      borderRadius: 10,
+                      padding: '8px',
+                      fontSize: 11.5,
+                      fontWeight: 800,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 4,
+                    }}
+                  >
+                    Conectar Drive
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      onClick={onSyncGDrive}
+                      style={{
+                        flex: 1,
+                        background: '#10B981',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: 10,
+                        padding: '8px',
+                        fontSize: 11.5,
+                        fontWeight: 800,
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: 4,
+                      }}
+                    >
+                      Salvar Nuvem
+                    </button>
+                    <button
+                      onClick={onLoadGDrive}
+                      style={{
+                        flex: 1,
+                        background: '#3B82F6',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: 10,
+                        padding: '8px',
+                        fontSize: 11.5,
+                        fontWeight: 800,
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: 4,
+                      }}
+                    >
+                      Ler Nuvem
+                    </button>
+                  </>
+                )}
+              </div>
+            ) : (
+              <div style={{ fontSize: 10, color: T.dim, fontStyle: 'italic', lineHeight: 1.2 }}>
+                * Insira o seu Client ID do Google Cloud Console para sincronizar com seu Google Drive de forma 100% privada e gratuita.
+              </div>
+            )}
+          </div>
+
+          {/* Lembretes Diários (PWA) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, background: T.cellBg, padding: 14, borderRadius: 16, border: `1px solid ${T.border}` }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 800, fontSize: 13.5, color: T.text }}>
+                <span>🔔 Lembretes Diários</span>
+              </div>
+              <label style={{ display: 'inline-flex', alignItems: 'center', cursor: 'pointer' }}>
+                <input
+                  type="checkbox"
+                  checked={reminderEnabled}
+                  onChange={(e) => onToggleReminder(e.target.checked)}
+                  style={{ width: 16, height: 16, accentColor: T.accent, cursor: 'pointer' }}
+                />
+              </label>
+            </div>
+            
+            {reminderEnabled && (
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginTop: 4 }}>
+                <span style={{ fontSize: 11.5, color: T.dim }}>Notificar às:</span>
+                <input
+                  type="time"
+                  value={reminderTime}
+                  onChange={(e) => onSaveReminderTime(e.target.value)}
+                  style={{
+                    background: T.card,
+                    border: `1px solid ${T.border}`,
+                    borderRadius: 8,
+                    padding: '4px 8px',
+                    color: T.text,
+                    fontSize: 12,
+                    fontWeight: 700,
+                  }}
+                />
+              </div>
+            )}
           </div>
 
           {/* Ações de Backup e Restauração */}

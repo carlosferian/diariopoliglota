@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { 
-  ChevronLeft, ChevronRight, Camera, Sun, Moon, 
+  ChevronLeft, ChevronRight, Camera, Sun, Moon, Coffee, Columns, MoreHorizontal,
   Undo2, Redo2, AlignJustify, Square, Grid3X3, PenTool, Smartphone, Eraser 
 } from 'lucide-react';
 import * as DS from './services/DiaryStore';
@@ -26,7 +26,7 @@ const MES_PT = [
   'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
 ];
 
-export function makeTheme(mode: 'light' | 'dark'): ThemeColors {
+export function makeTheme(mode: 'light' | 'dark' | 'sepia'): ThemeColors {
   if (mode === 'light') return {
     mode, appBg: '#E9EEF7', grid: 'rgba(30,42,80,0.05)',
     card: '#FFFFFF', panel: '#FFFFFF', band: 'linear-gradient(90deg,#FFFFFF,#F2F6FC)',
@@ -35,6 +35,15 @@ export function makeTheme(mode: 'light' | 'dark'): ThemeColors {
     ctrlBg: '#eef1f9', ctrlHover: '#e1e7f4',
     cream: '#FCFBF6', modalOverlay: 'rgba(20,28,50,0.38)', modalBg: '#FFFFFF', cellBg: '#F1F4FA',
     accent: '#0E9F6E', flame: '#F97316', shadow: '0 4px 20px rgba(30,42,80,0.08)',
+  };
+  if (mode === 'sepia') return {
+    mode, appBg: '#F4ECD8', grid: 'rgba(92,64,36,0.05)',
+    card: '#FAF4E8', panel: '#FAF4E8', band: 'linear-gradient(90deg,#FAF4E8,#EFE5CD)',
+    border: '#E3D3B4', borderStrong: '#D0BD96',
+    text: '#433422', text2: '#5C4830', dim: '#80684B', faint: '#A48E72',
+    ctrlBg: '#EDE2C8', ctrlHover: '#E3D5B4',
+    cream: '#FDFBF7', modalOverlay: 'rgba(67,52,34,0.35)', modalBg: '#FAF4E8', cellBg: '#EFE5CD',
+    accent: '#8B5A2B', flame: '#D2691E', shadow: '0 4px 20px rgba(92,64,36,0.08)',
   };
   return {
     mode, appBg: '#0E1326', grid: 'rgba(255,255,255,0.03)',
@@ -60,12 +69,161 @@ export function App() {
   const [activeCanvas, setActiveCanvas] = useState<string | null>(null);
   const [, setTick] = useState<number>(0);
 
+  // Google Drive Sync States
+  const [gdriveClientId, setGdriveClientId] = useState<string>(() => localStorage.getItem('diary_gdriveClientId') || '');
+  const [gdriveToken, setGdriveToken] = useState<string | null>(null);
+
+  // Lembrete States
+  const [reminderTime, setReminderTime] = useState<string>(() => localStorage.getItem('diary_reminderTime') || '20:00');
+  const [reminderEnabled, setReminderEnabled] = useState<boolean>(() => localStorage.getItem('diary_reminderEnabled') === 'true');
+
   const dayNight = () => {
     const h = new Date().getHours();
     return (h >= 7 && h < 19) ? 'light' : 'dark';
   };
-  const effMode = mode === 'auto' ? dayNight() : (mode === 'light' ? 'light' : 'dark');
+  const effMode = mode === 'auto' ? dayNight() : (mode === 'light' ? 'light' : (mode === 'sepia' ? 'sepia' : 'dark'));
   const T = makeTheme(effMode);
+
+  // Inicializa Google Drive Identity
+  useEffect(() => {
+    if (gdriveClientId) {
+      import('./services/GoogleDriveSync').then((GDS) => {
+        GDS.initTokenClient(gdriveClientId, (token) => {
+          setGdriveToken(token);
+        });
+      });
+    }
+  }, [gdriveClientId]);
+
+  // Salva Lembretes
+  useEffect(() => {
+    localStorage.setItem('diary_reminderTime', reminderTime);
+  }, [reminderTime]);
+
+  useEffect(() => {
+    localStorage.setItem('diary_reminderEnabled', String(reminderEnabled));
+    if (reminderEnabled && 'Notification' in window) {
+      if (Notification.permission === 'default') {
+        Notification.requestPermission();
+      }
+    }
+  }, [reminderEnabled]);
+
+  // Checa e dispara notificação local
+  useEffect(() => {
+    const checkNotification = () => {
+      if (!reminderEnabled || !('Notification' in window) || Notification.permission !== 'granted') return;
+      
+      const t = new Date();
+      const timeStr = `${DS.pad2(t.getHours())}:${DS.pad2(t.getMinutes())}`;
+      if (timeStr === reminderTime) {
+        const todayIso = DS.iso(t);
+        const lastNotif = localStorage.getItem('diary_lastNotificationDate');
+        if (lastNotif !== todayIso) {
+          const m = DS.getMeta();
+          if (!DS.dayHasInk(m, todayIso)) {
+            new Notification('Hora de escrever! ✍️', {
+              body: 'Você ainda não praticou sua escrita hoje. Mantenha sua sequência ativa!',
+              icon: '/icon.svg'
+            });
+            localStorage.setItem('diary_lastNotificationDate', todayIso);
+          }
+        }
+      }
+    };
+
+    const timer = setInterval(checkNotification, 60000);
+    return () => clearInterval(timer);
+  }, [reminderEnabled, reminderTime]);
+
+  const saveClientId = (id: string) => {
+    localStorage.setItem('diary_gdriveClientId', id);
+    setGdriveClientId(id);
+  };
+
+  const connectGDrive = () => {
+    import('./services/GoogleDriveSync').then((GDS) => {
+      GDS.requestGoogleToken();
+    });
+  };
+
+  const syncGDrive = async () => {
+    if (!gdriveToken) return;
+    try {
+      const metaStr = localStorage.getItem('diary_meta_v1');
+      const metaObj = metaStr ? JSON.parse(metaStr) : null;
+      const settings: { [key: string]: string } = {};
+      ['diary_mode', 'diary_paper', 'diary_penOnly', 'diary_gdriveClientId', 'diary_reminderTime', 'diary_reminderEnabled'].forEach((k) => {
+        const v = localStorage.getItem(k);
+        if (v !== null) settings[k] = v;
+      });
+      const strokes = await DS.dbGetAll();
+      const backupData = {
+        meta: metaObj,
+        strokes,
+        settings
+      };
+      const GDS = await import('./services/GoogleDriveSync');
+      const fileId = await GDS.findBackupFile(gdriveToken);
+      await GDS.uploadBackupFile(gdriveToken, fileId, backupData);
+      alert('Progresso sincronizado com o Google Drive!');
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao enviar backup para o Google Drive.');
+    }
+  };
+
+  const loadGDrive = async () => {
+    if (!gdriveToken) return;
+    if (!confirm('Deseja carregar o backup do Drive? Seus desenhos locais atuais serão substituídos!')) return;
+    try {
+      const GDS = await import('./services/GoogleDriveSync');
+      const fileId = await GDS.findBackupFile(gdriveToken);
+      if (!fileId) {
+        alert('Nenhum backup encontrado no Google Drive.');
+        return;
+      }
+      const data = await GDS.downloadBackupFile(gdriveToken, fileId);
+      
+      let metaObj = null;
+      let strokesMap: { [key: string]: any[] } = {};
+
+      if (data.meta && data.strokes) {
+        metaObj = data.meta;
+        strokesMap = data.strokes;
+        if (data.settings) {
+          Object.entries(data.settings).forEach(([k, v]) => localStorage.setItem(k, v as string));
+        }
+      }
+
+      if (metaObj) {
+        localStorage.setItem('diary_meta_v1', JSON.stringify(metaObj));
+      }
+
+      await DS.clearAll();
+      for (const [key, strokes] of Object.entries(strokesMap)) {
+        await DS.saveInkRaw(key, strokes);
+      }
+
+      // Atualiza interface
+      const m = DS.getMeta();
+      setMeta({ ...m });
+      if (data.settings?.diary_gdriveClientId) setGdriveClientId(data.settings.diary_gdriveClientId);
+      if (data.settings?.diary_reminderTime) setReminderTime(data.settings.diary_reminderTime);
+      if (data.settings?.diary_reminderEnabled) setReminderEnabled(data.settings.diary_reminderEnabled === 'true');
+
+      const isoStr = DS.iso(viewRef.current);
+      for (const code of DS.LANGS) {
+        const strokes = await DS.loadInk(isoStr, code);
+        const p = pads.current[code];
+        if (p) p.load(strokes);
+      }
+      alert('Backup do Google Drive importado com sucesso!');
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao carregar backup do Drive.');
+    }
+  };
 
   const canvasEls = useRef<{ [code: string]: HTMLCanvasElement | null }>({});
   const pads = useRef<{ [code: string]: InkPad | null }>({});
@@ -443,17 +601,19 @@ export function App() {
             <Camera size={18} />
           </button>
           <button
-            onClick={() => setMode(mode === 'auto' ? 'light' : (mode === 'light' ? 'dark' : 'auto'))}
+            onClick={() => setMode(mode === 'auto' ? 'light' : (mode === 'light' ? 'sepia' : (mode === 'sepia' ? 'dark' : 'auto')))}
             title={
               mode === 'auto'
                 ? 'Tema: automático (claro 7h–19h, escuro à noite)'
                 : mode === 'light'
                 ? 'Tema: claro'
+                : mode === 'sepia'
+                ? 'Tema: sépia'
                 : 'Tema: escuro'
             }
             style={{ ...headerBtnStyle, position: 'relative' }}
           >
-            {mode === 'auto' ? '🌗' : mode === 'light' ? <Sun size={18} /> : <Moon size={18} />}
+            {mode === 'auto' ? '🌗' : mode === 'light' ? <Sun size={18} /> : mode === 'sepia' ? <Coffee size={18} /> : <Moon size={18} />}
             {mode === 'auto' && (
               <span
                 style={{
@@ -735,8 +895,10 @@ export function App() {
         <div style={{ display: 'flex', gap: 3, background: T.ctrlBg, borderRadius: 10, padding: 2, flexShrink: 0 }}>
           {[
             { p: 'pautado', label: 'Pautado', icon: <AlignJustify size={14} /> },
-            { p: 'branco', label: 'Em branco', icon: <Square size={12} /> },
-            { p: 'quadriculado', label: 'Quadriculado', icon: <Grid3X3 size={14} /> }
+            { p: 'quadriculado', label: 'Quadriculado', icon: <Grid3X3 size={14} /> },
+            { p: 'pontilhado', label: 'Pontilhado', icon: <MoreHorizontal size={14} /> },
+            { p: 'cornell', label: 'Cornell Notes', icon: <Columns size={14} /> },
+            { p: 'branco', label: 'Em branco', icon: <Square size={12} /> }
           ].map((item) => (
             <button
               key={item.p}
@@ -821,6 +983,16 @@ export function App() {
           onExport={exportBackup}
           onImport={handleImport}
           onClearHistory={clearAllHistory}
+          gdriveClientId={gdriveClientId}
+          onSaveClientId={saveClientId}
+          gdriveToken={gdriveToken}
+          onConnectGDrive={connectGDrive}
+          onSyncGDrive={syncGDrive}
+          onLoadGDrive={loadGDrive}
+          reminderTime={reminderTime}
+          onSaveReminderTime={setReminderTime}
+          reminderEnabled={reminderEnabled}
+          onToggleReminder={setReminderEnabled}
         />
       )}
     </div>

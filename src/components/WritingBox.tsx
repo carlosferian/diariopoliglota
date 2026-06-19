@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Trash2, HelpCircle } from 'lucide-react';
+import { Trash2, HelpCircle, Volume2 } from 'lucide-react';
 import type { LanguagePrompt } from '../data/prompts';
+import { speakText } from '../utils/speech';
 
 export interface LanguageTheme {
   primary: string;
@@ -17,7 +18,7 @@ export const LANG_THEME: { [key: string]: LanguageTheme } = {
 };
 
 export interface ThemeColors {
-  mode: 'light' | 'dark';
+  mode: 'light' | 'dark' | 'sepia';
   appBg: string;
   grid: string;
   card: string;
@@ -56,8 +57,21 @@ function guideStyle(code: string, t: LanguageTheme, paper: string) {
   if (paper === 'quadriculado') {
     const cell = code === 'JP' ? 54 : 40;
     return {
-      backgroundColor: t.primary + '0a',
-      backgroundImage: `repeating-linear-gradient(to right, ${t.primary}33 0 1px, transparent 1px ${cell}px), repeating-linear-gradient(to bottom, ${t.primary}33 0 1px, transparent 1px ${cell}px)`,
+      backgroundColor: t.primary + '03',
+      backgroundImage: `repeating-linear-gradient(to right, ${t.primary}22 0 1px, transparent 1px ${cell}px), repeating-linear-gradient(to bottom, ${t.primary}22 0 1px, transparent 1px ${cell}px)`,
+    };
+  }
+  if (paper === 'pontilhado') {
+    const size = code === 'JP' ? 32 : 24;
+    return {
+      backgroundImage: `radial-gradient(${t.primary}44 1.5px, transparent 1.5px)`,
+      backgroundSize: `${size}px ${size}px`,
+    };
+  }
+  if (paper === 'cornell') {
+    return {
+      backgroundImage: `linear-gradient(to right, transparent 74px, rgba(239, 68, 68, 0.25) 74px, rgba(239, 68, 68, 0.25) 76px, transparent 76px), repeating-linear-gradient(to bottom, transparent 0, transparent 42px, ${t.primary}18 42px, ${t.primary}18 44px)`,
+      backgroundPosition: '0 8px',
     };
   }
   // pautado
@@ -280,6 +294,24 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
                     >
                       {lvl.name}
                     </span>
+                    <button
+                      onClick={() => speakText(item, code)}
+                      title="Ouvir esta frase de exemplo"
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        color: T.dim,
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        padding: 2,
+                        borderRadius: 4,
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = T.ctrlBg)}
+                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                    >
+                      <Volume2 size={11} />
+                    </button>
                   </div>
                   <span
                     style={{
@@ -299,26 +331,47 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
         </div>
       )}
 
-      {/* Sugestão de início */}
-      <div style={{ padding: '8px 14px 0', flex: '0 0 auto' }}>
-        <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 10, color: t.primary, letterSpacing: 1 }}>
-          ▸ COMECE ASSIM&nbsp;&nbsp;
-        </span>
-        <span
-          style={{
-            fontFamily: jp ? "'Zen Maru Gothic', sans-serif" : "'Nunito', sans-serif",
-            fontWeight: 700,
-            fontSize: 15.5,
-            color: T.text2,
-          }}
-        >
-          {data.s}
-        </span>
-        {data.r && (
-          <span style={{ fontSize: 12, color: T.faint, fontStyle: 'italic' }}>
-            &nbsp;· {data.r}
+      <div style={{ padding: '8px 14px 0', flex: '0 0 auto', display: 'flex', alignItems: 'baseline', gap: 6, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 10, color: t.primary, letterSpacing: 1 }}>
+            ▸ COMECE ASSIM
           </span>
-        )}
+          <button
+            onClick={() => speakText(data.s, code)}
+            title="Ouvir pronúncia da frase inicial"
+            style={{
+              background: 'none',
+              border: 'none',
+              color: t.primary,
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '2px 4px',
+              borderRadius: 4,
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = t.soft)}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+          >
+            <Volume2 size={12} />
+          </button>
+        </div>
+        <div>
+          <span
+            style={{
+              fontFamily: jp ? "'Zen Maru Gothic', sans-serif" : "'Nunito', sans-serif",
+              fontWeight: 700,
+              fontSize: 15.5,
+              color: T.text2,
+            }}
+          >
+            {data.s}
+          </span>
+          {data.r && (
+            <span style={{ fontSize: 12, color: T.faint, fontStyle: 'italic' }}>
+              &nbsp;· {data.r}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Área do Canvas */}
