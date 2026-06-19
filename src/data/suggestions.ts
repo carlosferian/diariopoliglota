@@ -1237,122 +1237,122 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
   // --- MÓDULO 10: HIPÓTESES ---
   36: {
     EN: [
-      "If I could, I would travel now.",
-      "If I had more money, I would buy a tablet.",
-      "If I could speak Japanese fluently, I would move to Tokyo.",
-      "If I had extra free time, I would study languages every day.",
-      "If we could run serverless databases, we wouldn't need local storage."
+      "If I have free time this weekend, I will go for a long walk.",
+      "If I had more free time, I would read a lot more.",
+      "If I had had more free time last year, I would have learned a new instrument.",
+      "If I had more free time, I would study every day, which would mean I could reach fluency much faster.",
+      "I sometimes wonder what would have happened if I had chosen a job with shorter hours."
     ],
     IT: [
-      "Se potessi, viaggerei subito.",
-      "Se avessi più soldi, comprerei un tablet.",
-      "Se parlassi il giapponese fluentemente, mi trasferirei a Tokyo.",
-      "Se avessi più tempo libero, studierei le lingue tutti i giorni.",
-      "Se potessimo usare database serverless, non servirebbe la memoria locale."
+      "Se ho tempo libero questo fine settimana, farò una lunga passeggiata.",
+      "Se avessi più tempo libero, leggerei molto di più.",
+      "Se avessi avuto più tempo libero l'anno scorso, avrei imparato uno strumento musicale.",
+      "Se avessi più tempo libero, studierei ogni giorno, il che significherebbe raggiungere la fluidità molto prima.",
+      "Ogni tanto mi chiedo cosa sarebbe successo se avessi scelto un lavoro con orari più brevi."
     ],
     DE: [
-      "Wenn ich könnte, würde ich jetzt reisen.",
-      "Wenn ich mehr Geld hätte, würde ich ein Tablet kaufen.",
-      "Wenn ich fließend Japanisch sprechen könnte, würde ich nach Tokio ziehen.",
-      "Wenn ich mehr Freizeit hätte, würde ich jeden Tag Sprachen lernen.",
-      "Wenn wir eine Serverless-Datenbank hätten, bräuchten wir keinen lokalen Speicher."
+      "Wenn ich dieses Wochenende Zeit habe, werde ich einen langen Spaziergang machen.",
+      "Wenn ich mehr Freizeit hätte, würde ich viel mehr lesen.",
+      "Wenn ich letztes Jahr mehr Freizeit gehabt hätte, hätte ich ein neues Instrument gelernt.",
+      "Wenn ich mehr Freizeit hätte, würde ich jeden Tag lernen, was bedeuten würde, dass ich viel schneller fließend sprechen könnte.",
+      "Ich frage mich manchmal, was passiert wäre, wenn ich einen Job mit kürzeren Arbeitszeiten gewählt hätte."
     ],
     JP: [
-      "もしできたら、今すぐ旅行したいです。(Moshi dekitara, ima sugu ryokō shitai desu.)",
-      "もしもっとお金があったら、新しいタブレットを買うのに。(Moshi motto okane ga attara, atarashii taburetto o kau noni.)",
-      "日本語がペラペラに話せたら、東京に引っ越して働きたいです。(Nihongo ga perapera ni hanasetara, Tōkyō ni hikkoshite hatarakitai desu.)",
-      "もし十分な自由時間があれば、毎日４つの言語を学習したいです。(Moshi jūbun na jiyū jikan ga areba, mainichi yotsu no gengo o gakushū shitai desu.)",
-      "もしオンラインの無料サーバーを使えるなら、端末にデータを残さず同期できます。(Moshi onrain no muryō sābā o tsukaeru nara, tansatsu ni dēta o nokosazu dōki dekimasu.)"
+      "今週末に時間があれば、長い散歩をします。(Konshūmatsu ni jikan ga areba, nagai sanpo o shimasu.)",
+      "もっと自由な時間があれば、もっとたくさん本が読めるのに。(Motto jiyū na jikan ga areba, motto takusan hon ga yomeru noni.)",
+      "去年もっと時間があったら、新しい楽器を習っていたでしょう。(Kyonen motto jikan ga attara, atarashii gakki o naratte ita deshō.)",
+      "自由な時間があれば毎日勉強できるし、そうなれば流暢になるのもずっと早くなるはずです。(Jiyū na jikan ga areba mainichi benkyō dekiru shi, sō nareba ryūchō ni naru no mo zutto hayaku naru hazu desu.)",
+      "もっと短い時間の仕事を選んでいたら、どうなっていたかもしれないと、たまに思います。(Motto mijikai jikan no shigoto o erande ita ra, dō natte ita ka mo shirenai to, tama ni omoimasu.)"
     ]
   },
   37: {
     EN: [
-      "On a perfect day, I would sleep.",
-      "On a perfect day, I would read at a quiet beach.",
-      "On a perfect day, I would walk in nature and eat tasty food.",
-      "On a perfect day, I would travel to a new city without any plans.",
-      "On a perfect day, I would wake up early, exercise, and write code easily."
+      "If I move abroad next year, I will take a language course immediately.",
+      "If I lived in another country, I would pick up the language much faster.",
+      "If I had moved abroad five years ago, I would have become truly bilingual by now.",
+      "If I lived abroad, I would immerse myself in the culture every day, which would mean my accent would disappear quickly.",
+      "I sometimes wonder what would have happened if I had taken that job offer in a foreign city."
     ],
     IT: [
-      "In una giornata perfetta, vorrei dormire.",
-      "In una giornata perfetta, vorrei leggere su una spiaggia tranquilla.",
-      "In una giornata perfetta, vorrei camminare nella natura e mangiare bene.",
-      "In una giornata perfetta, vorrei visitare una nuova città senza fretta.",
-      "In una giornata perfetta, vorrei svegliarmi presto, fare sport e programmare."
+      "Se mi trasferisco all'estero il prossimo anno, farò subito un corso di lingua.",
+      "Se vivessi in un altro paese, imparerei la lingua molto più in fretta.",
+      "Se mi fossi trasferito all'estero cinque anni fa, a quest'ora sarei davvero bilingue.",
+      "Se vivessi all'estero, mi immergerei nella cultura ogni giorno, il che significherebbe perdere l'accento in poco tempo.",
+      "Ogni tanto mi chiedo cosa sarebbe successo se avessi accettato quell'offerta di lavoro in un'altra città."
     ],
     DE: [
-      "An einem perfekten Tag würde ich schlafen.",
-      "An einem perfekten Tag würde ich an einem ruhigen Strand lesen.",
-      "An einem perfekten Tag würde ich in der Natur wandern und gut essen.",
-      "An einem perfekten Tag würde ich ohne Pläne in eine neue Stadt reisen.",
-      "An einem perfekten Tag würde ich früh aufstehen, Sport treiben und programmieren."
+      "Wenn ich nächstes Jahr ins Ausland ziehe, werde ich sofort einen Sprachkurs belegen.",
+      "Wenn ich in einem anderen Land leben würde, würde ich die Sprache viel schneller lernen.",
+      "Wenn ich vor fünf Jahren ins Ausland gezogen wäre, wäre ich inzwischen wirklich zweisprachig.",
+      "Wenn ich im Ausland lebte, würde ich mich jeden Tag in die Kultur vertiefen, was bedeuten würde, dass mein Akzent schnell verschwinden würde.",
+      "Ich frage mich manchmal, was passiert wäre, wenn ich dieses Jobangebot in einer anderen Stadt angenommen hätte."
     ],
     JP: [
-      "完璧な一日なら、ゆっくり寝るでしょう。(Kanpeki na ichinichi nara, yukkuri neru deshō.)",
-      "完璧な一日なら、静かなビーチで一日中本を読みたいです。(Kanpeki na ichinichi nara, shizuka na bīchi de ichinichijū hon o vomitai desu.)",
-      "理想的な一日なら、自然の中を散歩して美味しい料理を食べに行きます。(Risōteki na ichinichi nara, shizen no naka o sanpo shite oishii ryōri o tabe ni ikimasu.)",
-      "もし完璧な休日なら、何の計画も立てずに新しい街へ冒険に出かけます。(Moshi kanpeki na kyūjitsu nara, nan no keikaku mo tatezu ni atarashii machi e bōken ni dekakemasu.)",
-      "完璧な一日とは、早起きして運動し、詰まることなくコードを書ける日です。(Kanpeki na ichinichi to wa, hayaoki shite undou shi, tsumaru koto naku kōdo o kakeru hi desu.)"
+      "来年海外に移住すれば、すぐに語学コースに通います。(Rainen kaigai ni ijū sureba, sugu ni gogaku kōsu ni kayoimasu.)",
+      "別の国に住んでいれば、もっと速く言語を習得できるのに。(Betsu no kuni ni sunde ireba, motto hayaku gengo o shūtoku dekiru noni.)",
+      "５年前に海外に引っ越していたら、今頃本当にバイリンガルになっていたでしょう。(Gonenmae ni kaigai ni hikkoshite itara, imagoro hontō ni bairingaru ni natte ita deshō.)",
+      "海外に住めば毎日文化に浸れるし、そうなればアクセントもすぐに消えるはずです。(Kaigai ni sumeba mainichi bunka ni hitareru shi, sō nareba akusento mo sugu ni kieru hazu desu.)",
+      "あの外国の街での仕事のオファーを受けていたら、どうなっていたかもしれないと、たまに思います。(Ano gaikoku no machi de no shigoto no ofā o ukete itara, dō natte ita ka mo shirenai to, tama ni omoimasu.)"
     ]
   },
   38: {
     EN: [
-      "If I were you, I would take a rest.",
-      "If I were you, I would study grammar first.",
-      "If I were you, I would practice speaking with native speakers.",
-      "If I were you, I would write in this diary to practice calligraphy.",
-      "If I were you, I would make a backup of all my drawings immediately."
+      "If I choose a different path, I will face new challenges.",
+      "If I had made a different choice, I would be living a very different life.",
+      "If I had studied something else at university, I would have ended up in a completely different career.",
+      "If I had taken that opportunity, I would have gained experience abroad, which would mean my life today would look entirely different.",
+      "I sometimes wonder what would have happened if I had followed my childhood dream instead."
     ],
     IT: [
-      "Se fossi in te, mi riposerei.",
-      "Se fossi in te, studierei prima la grammatica.",
-      "Se fossi in te, parlerei con persone madrelingua per fare pratica.",
-      "Se fossi in te, scriverei su questo diario per migliorare la calligrafia.",
-      "Se fossi in te, farei subito un backup di tutti i miei disegni."
+      "Se scelgo una strada diversa, dovrò affrontare nuove sfide.",
+      "Se avessi fatto una scelta diversa, vivrei una vita molto diversa.",
+      "Se avessi studiato qualcos'altro all'università, avrei finito per fare un lavoro completamente diverso.",
+      "Se avessi colto quell'opportunità, avrei fatto esperienza all'estero, il che significherebbe che la mia vita oggi sarebbe del tutto diversa.",
+      "Ogni tanto mi chiedo cosa sarebbe successo se avessi seguito il sogno che avevo da bambino."
     ],
     DE: [
-      "An deiner Stelle würde ich mich ausruhen.",
-      "An deiner Stelle würde ich zuerst die Grammatik lernen.",
-      "An deiner Stelle würde ich das Sprechen mit Muttersprachlern üben.",
-      "An deiner Stelle würde ich in dieses Tagebuch schreiben, um das Schreiben zu üben.",
-      "An deiner Stelle würde ich sofort ein Backup aller meiner Zeichnungen machen."
+      "Wenn ich einen anderen Weg einschlage, werde ich neuen Herausforderungen begegnen.",
+      "Wenn ich eine andere Entscheidung getroffen hätte, würde ich ein ganz anderes Leben führen.",
+      "Wenn ich an der Universität etwas anderes studiert hätte, hätte ich eine völlig andere Karriere eingeschlagen.",
+      "Wenn ich diese Chance ergriffen hätte, hätte ich Auslandserfahrung gesammelt, was bedeuten würde, dass mein Leben heute ganz anders aussähe.",
+      "Ich frage mich manchmal, was passiert wäre, wenn ich meinem Kindheitstraum gefolgt wäre."
     ],
     JP: [
-      "わたしなら、少し休むでしょう。(Watashi nara, sukoshi yasumu deshō.)",
-      "もしわたしがあなたなら、まず最初に基本の文法を勉強します。(Moshi watashi ga anata nara, mazu saisho ni kihon no bunpou o benkyō shimasu.)",
-      "わたしなら、スピーキング力を伸ばすためにネイティブスピーカーと話します。(Watashi nara, supīkingu ryoku o nobasu tame ni neitibu supīkā to hanashimasu.)",
-      "文字を綺麗に書く練習をするために、この手書き日記をお勧めします。(Moji o kirei ni kaku renshū o suru tame ni, kono tegaki nikki o osusume shimasu.)",
-      "大切な手書きデータが消える前に、今すぐバックアップを取るべきです。(Taisetsu na tegaki dēta ga kieru mae ni, ima sugu bakkuappu o toru beki desu.)"
+      "別の道を選べば、新しい困難に直面します。(Betsu no michi o erabeba, atarashii konnan ni chokumen shimasu.)",
+      "別の選択をしていれば、まったく違う人生を送っているのに。(Betsu no sentaku o shite ireba, mattaku chigau jinsei o okutte iru noni.)",
+      "大学で別のことを勉強していたら、まったく違う職業に就いていたでしょう。(Daigaku de betsu no koto o benkyō shite itara, mattaku chigau shokugyō ni tsuite ita deshō.)",
+      "あのチャンスをつかんでいれば海外経験も積めたし、そうなれば今の生活はまったく別のものになっていたはずです。(Ano chansu o tsukande ireba kaigai keiken mo tsumeta shi, sō nareba ima no seikatsu wa mattaku betsu no mono ni natte ita hazu desu.)",
+      "子どもの頃の夢を追いかけていたら、どうなっていたかもしれないと、たまに思います。(Kodomo no koro no yume o oikakete itara, dō natte ita ka mo shirenai to, tama ni omoimasu.)"
     ]
   },
   39: {
     EN: [
-      "If I won the lottery, I would stop working.",
-      "If I won the lottery, I would buy a huge house.",
-      "If I won the lottery, I would travel to all the countries in Europe.",
-      "If I won the lottery, I would invest my money and help poor families.",
-      "If I won the lottery, I would open a school for language learning."
+      "If I become more patient, I will handle stress much better.",
+      "If I were a different kind of person, I would approach problems very differently.",
+      "If I had been more confident when I was younger, I would have spoken up more often.",
+      "If I were more outgoing, I would make friends easily, which would mean I would never feel lonely in a new place.",
+      "I sometimes wonder what would have happened if I had been brave enough to share my real opinions back then."
     ],
     IT: [
-      "Se vincessi alla lotteria, smetterei di lavorare.",
-      "Se vincessi alla lotteria, comprerei una casa enorme.",
-      "Se vincessi alla lotteria, viaggerei in tutti i paesi europei.",
-      "Se vincessi alla lotteria, investirei i soldi e aiuterei chi ha bisogno.",
-      "Se vincessi alla lotteria, aprirei una scuola per lo studio delle lingue."
+      "Se diventassi più paziente, gestirei lo stress molto meglio.",
+      "Se fossi una persona diversa, affronterei i problemi in modo molto diverso.",
+      "Se fossi stato più sicuro di me quando ero giovane, avrei parlato più spesso.",
+      "Se fossi più estroverso, farei amicizia facilmente, il che significherebbe non sentirsi mai soli in un posto nuovo.",
+      "Ogni tanto mi chiedo cosa sarebbe successo se avessi avuto il coraggio di esprimere le mie vere opinioni in quel momento."
     ],
     DE: [
-      "Wenn ich im Lotto gewinnen würde, würde ich aufhören zu arbeiten.",
-      "Wenn ich im Lotto gewinnen würde, würde ich ein riesiges Haus kaufen.",
-      "Wenn ich im Lotto gewinnen würde, würde ich in alle Länder Europas reisen.",
-      "Wenn ich im Lotto gewinnen würde, würde ich das Geld investieren und helfen.",
-      "Wenn ich im Lotto gewinnen würde, würde ich eine Sprachenschule eröffnen."
+      "Wenn ich geduldiger werde, werde ich mit Stress viel besser umgehen.",
+      "Wenn ich ein anderer Mensch wäre, würde ich Probleme ganz anders angehen.",
+      "Wenn ich in meiner Jugend selbstbewusster gewesen wäre, hätte ich mich öfter zu Wort gemeldet.",
+      "Wenn ich offener wäre, würde ich leicht Freundschaften schließen, was bedeuten würde, dass ich mich an einem neuen Ort nie einsam fühlen würde.",
+      "Ich frage mich manchmal, was passiert wäre, wenn ich damals mutig genug gewesen wäre, meine wahre Meinung zu sagen."
     ],
     JP: [
-      "宝くじに当たったら、仕事をやめるでしょう。(Takarakuji ni atattara, shigoto o yameru deshō.)",
-      "もし宝くじで一等に当選したら、プール付きの大きな家を買いたいです。(Moshi takarakuji de ittō ni tōsen shitara, pūru tsuki no ōkina ie o kaitai desu.)",
-      "宝くじが当たったら、仕事を休んでヨーロッパの全ての国を巡る旅に出ます。(Takarakuji ga atattara, shigoto o yasunde Yōroppa no subete no kuni o meguru tabi ni demasu.)",
-      "もし大金が手に入ったら、資産運用をしつつ慈善団体に寄付をするつもりです。(Moshi taikin ga te ni haittara, shisan unyou o shitsutsu jizendantai ni kifu o suru tsumori desu.)",
-      "もし宝くじが当たったら、誰もが無料で通えるグローバルな語学学校を作ります。(Moshi takarakuji ga atattara, daremo ga muryō de kayoeru gurōbaru na gogaku gakkou o tsukurimasu.)"
+      "もっと辛抱強くなれば、ストレスをうまく対処できます。(Motto shinbōzuyoku nareba, sutoresu o umaku taisho dekimasu.)",
+      "違う人間であれば、問題にもっと違うやり方で向き合えるのに。(Chigau ningen de areba, mondai ni motto chigau yarikata de mukiaeru noni.)",
+      "若い頃にもっと自信があったら、もっと頻繁に自分の意見を言っていたでしょう。(Wakai koro ni motto jishin ga attara, motto hinpan ni jibun no iken o itte ita deshō.)",
+      "もっと社交的であれば友達も簡単にできるし、そうなれば新しい場所でも孤独を感じないはずです。(Motto shakōteki de areba tomodachi mo kantan ni dekiru shi, sō nareba atarashii basho demo kodoku o kanjinai hazu desu.)",
+      "あのとき本当の気持ちを言える勇気があったら、どうなっていたかもしれないと、たまに思います。(Ano toki hontō no kimochi o ieru yūki ga attara, dō natte ita ka mo shirenai to, tama ni omoimasu.)"
     ]
   },
 
