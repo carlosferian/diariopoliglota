@@ -664,125 +664,149 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     ]
   },
 
-  // --- MÓDULO 6: COMPARAÇÕES ---
+  // --- MÓDULO 6: COMPARAÇÃO ---
   20: {
+    // Tema: duas cidades que conheço
+    // L1: comparativo de superioridade — bigger than / più grande di / größer als / 〜より大きい
+    // L2: superlativo — the most… / il più… / der/die/das …ste / 一番〜
+    // L3: igualdade — as…as / così…come / so…wie / 〜と同じくらい
+    // L4: superlativo + relativa — the X-est I have ever… / il più X che abbia mai… (congiuntivo passato) / der/die/das X-ste, die/den ich je… / 今まで〜した中で一番〜
+    // L5: preferência implícita + registro nativo — Nothing beats… / non c'è niente di meglio di… / Nichts geht über… / 〜にはかないません
     EN: [
-      "Tokyo is bigger than Lisbon.",
-      "This city is much bigger than my hometown.",
-      "Living in New York is more expensive than living in Berlin.",
-      "The public transport system here is cleaner and faster than in Paris.",
-      "The historical district of Rome is more charming than modern skyscrapers."
+      "Kyoto is much older than Tokyo, but both cities feel completely different.",
+      "Barcelona is the most vibrant city I have visited in Europe so far.",
+      "The nightlife in Berlin is just as intense as the nightlife in São Paulo.",
+      "That small alleyway café in Kyoto is the most atmospheric place I have ever sat in.",
+      "Nothing beats wandering through a city you barely know with no plan at all."
     ],
     IT: [
-      "Tokyo è più grande di Lisbona.",
-      "Questa città è molto più grande del mio paese natale.",
-      "Vivere a New York è più costoso che vivere a Berlino.",
-      "I trasporti pubblici qui sono più puliti e veloci che a Parigi.",
-      "Il centro storico di Roma è più affascinante dei grattacieli moderni."
+      "Kyoto è molto più antica di Tokyo, ma le due città hanno un'atmosfera completamente diversa.",
+      "Barcellona è la città più vivace che io abbia visitato in Europa finora.",
+      "La vita notturna di Berlino è così intensa come quella di San Paolo.",
+      "Quel piccolo caffè nel vicolo di Kyoto è il posto più suggestivo in cui mi sia mai seduto.",
+      "Non c'è niente di meglio di perdersi in una città che non si conosce quasi per niente."
     ],
     DE: [
-      "Tokio ist größer als Lissabon.",
-      "Diese Stadt ist viel größer als meine Heimatstadt.",
-      "Das Leben in New York ist teurer als das Leben in Berlin.",
-      "Der öffentliche Nahverkehr hier ist sauberer und schneller als in Paris.",
-      "Die historische Altstadt von Rom ist charmanter als moderne Wolkenkratzer."
+      "Kyoto ist viel älter als Tokio, aber beide Städte fühlen sich völlig anders an.",
+      "Barcelona ist die lebhafteste Stadt, die ich bisher in Europa besucht habe.",
+      "Das Nachtleben in Berlin ist genauso intensiv wie das Nachtleben in São Paulo.",
+      "Dieses kleine Gassencafé in Kyoto ist der stimmungsvollste Ort, an dem ich je gesessen habe.",
+      "Nichts geht über das ziellose Schlendern durch eine Stadt, die man kaum kennt."
     ],
     JP: [
-      "東京はリスボンより大きいです。(Tōkyō wa Risubon yori ōkii desu.)",
-      "この街はわたしの故郷の町よりもずっと大きいです。(Kono machi wa watashi no kokyou no machi yori mo zutto ōkii desu.)",
-      "ニューヨークで生活することは、ベルリンで暮らすよりもお金がかかります。(Nyūyōku de seikatsu suru koto wa, Berurin de kurasu yori mo okane ga kakarimasu.)",
-      "ここの公共交通機関はパリの地下鉄よりも綺麗で早いです。(Koko no koukyou kōtsūkikan wa Pari no chikatetsu yori mo kirei de hayai desu.)",
-      "ローマの歴史地区は、近代的な高層ビルよりもはるかに魅力があります。(Rōma no rekishichiku wa, kindai teki na kōsō biru yori mo haruka ni miyoku ga arimasu.)"
+      "京都は東京よりずっと古いですが、ふたつの街はまったく違う雰囲気があります。(Kyōto wa Tōkyō yori zutto furui desu ga, futatsu no machi wa mattaku chigau fun'iki ga arimasu.)",
+      "バルセロナはわたしが今まで訪れたヨーロッパの街の中で一番活気があります。(Baruserona wa watashi ga ima made otozureta Yōroppa no machi no naka de ichiban kakki ga arimasu.)",
+      "ベルリンのナイトライフはサンパウロのナイトライフと同じくらい賑やかです。(Berurin no naitoraifu wa Sanpauro no naitoraifu to onaji kurai nigiyaka desu.)",
+      "京都の路地にあるあの小さなカフェは、今まで座った中で一番風情のある場所です。(Kyōto no roji ni aru ano chiisana kafe wa, ima made suwatta naka de ichiban fūjō no aru basho desu.)",
+      "まったく計画なしに知らない街をぶらぶら歩くことにはかないません。(Mattaku keikaku nashi ni shiranai machi o burabura aruku koto ni wa kanaimasen.)"
     ]
   },
   21: {
+    // Tema: uma pessoa que admiro
+    // L1: comparativo de superioridade — bigger than / più grande di / größer als / 〜より大きい
+    // L2: superlativo — the most… / il più… / der/die/das …ste / 一番〜
+    // L3: igualdade — as…as / così…come / so…wie / 〜と同じくらい
+    // L4: superlativo + relativa — the X-est I have ever… / il più X che abbia mai… (congiuntivo passato) / der/die/das X-ste, die/den ich je… / 今まで〜した中で一番〜
+    // L5: preferência implícita + registro nativo — Nothing beats… / non c'è niente di meglio di… / Nichts geht über… / 〜にはかないません
     EN: [
-      "The person I admire most is my father.",
-      "The person I admire most is my smart grandfather.",
-      "The person I admire most is an teacher who helped me in school.",
-      "The person I admire most is a famous developer who created open-source tools.",
-      "The person I admire most is my mother because she is strong and patient."
+      "My grandmother is far more resilient than anyone else I have ever known.",
+      "She is the most inspiring person I have met in my entire life.",
+      "Her patience with others is just as remarkable as her ability to stay calm under pressure.",
+      "She is the most dedicated teacher I have ever had the luck of learning from.",
+      "Nothing beats having someone in your life who believes in you no matter what."
     ],
     IT: [
-      "La persona che ammiro di più è mio padre.",
-      "La persona che ammiro di più è mio nonno che è intelligente.",
-      "La persona che ammiro di più è un insegnante che mi ha aiutato.",
-      "La persona che ammiro di più è uno sviluppatore di software open source.",
-      "La persona che ammiro di più è mia madre perché è forte e paziente."
+      "Mia nonna è molto più resiliente di chiunque altro io abbia mai conosciuto.",
+      "È la persona più ispiratrice che io abbia incontrato in tutta la mia vita.",
+      "La sua pazienza con gli altri è così straordinaria come la sua capacità di restare calma sotto pressione.",
+      "È la maestra più appassionata che io abbia mai avuto la fortuna di incontrare.",
+      "Non c'è niente di meglio di avere qualcuno nella vita che creda in te a prescindere da tutto."
     ],
     DE: [
-      "Die Person, die ich am meisten bewundere, ist mein Vater.",
-      "Die Person, die ich am meisten bewundere, ist mein kluger Großvater.",
-      "Die Person, die ich am meisten bewundere, ist ein Lehrer, der mir geholfen hat.",
-      "Die Person, die ich am meisten bewundere, ist ein bekannter Open-Source-Entwickler.",
-      "Die Person, die ich am meisten bewundere, ist meine Mutter, weil sie stark ist."
+      "Meine Großmutter ist viel widerstandsfähiger als alle anderen, die ich je gekannt habe.",
+      "Sie ist die inspirierendste Person, die ich in meinem ganzen Leben getroffen habe.",
+      "Ihre Geduld mit anderen ist genauso bemerkenswert wie ihre Fähigkeit, unter Druck ruhig zu bleiben.",
+      "Sie ist die engagierteste Lehrerin, von der ich je das Glück hatte zu lernen.",
+      "Nichts geht über jemanden im Leben zu haben, der bedingungslos an einen glaubt."
     ],
     JP: [
-      "わたしが一番尊敬する人は父です。(Watashi ga ichiban sonkei suru hito wa chichi desu.)",
-      "わたしが一番尊敬する人は、とても賢い祖fuです。(Watashi ga ichiban sonkei suru hito wa, totemo kashikoi sofu desu.)",
-      "わたしが最も尊敬する人は、学生時代に助けてくれた学校の先生です。(Watashi ga mottomo sonkei suru hito wa, gakusei jidai ni tasukete kureta gakkou no sensei desu.)",
-      "わたしが尊敬している人は、オープンソースソフトを開発したエンジニアです。(Watashi ga sonkei shite iru hito wa, ōpun sōsu sofuto o kaihatsu shita enjinia desu.)",
-      "わたしが最も尊敬する人物は母で、どんな困難にも負けず忍耐強いからです。(Watashi ga mottomo sonkei suru jinbutsu wa haha de, donna konnan ni mo makezu nintaizuyoi kara desu.)"
+      "祖母はわたしがこれまで知っている人の中で誰よりもずっと強い人です。(Sobo wa watashi ga kore made shitte iru hito no naka de dare yori mo zutto tsuyoi hito desu.)",
+      "彼女はわたしが人生で出会った中で一番刺激を与えてくれる人です。(Kanojo wa watashi ga jinsei de deatta naka de ichiban shigeki o ataete kureru hito desu.)",
+      "他の人への彼女の忍耐力は、プレッシャーのもとで落ち着いていられる力と同じくらい見事です。(Hoka no hito e no kanojo no nintairyoku wa, puresshā no moto de ochitsuiteirarereru chikara to onaji kurai migoto desu.)",
+      "彼女は今まで幸運にも教えを受けた中で一番情熱的な先生です。(Kanojo wa ima made kōun ni mo oshie o uketa naka de ichiban jōnetsuteki na sensei desu.)",
+      "何があっても信じてくれる人が人生にいるということにはかないません。(Nani ga atte mo shinjite kureru hito ga jinsei ni iru to iu koto ni wa kanaimasen.)"
     ]
   },
   22: {
+    // Tema: antes e agora (como eu mudei)
+    // L1: comparativo de superioridade — bigger than / più grande di / größer als / 〜より大きい
+    // L2: superlativo — the most… / il più… / der/die/das …ste / 一番〜
+    // L3: igualdade — as…as / così…come / so…wie / 〜と同じくらい
+    // L4: superlativo + relativa — the X-est I have ever… / il più X che abbia mai… (congiuntivo passato) / der/die/das X-ste, die/den ich je… / 今まで〜した中で一番〜
+    // L5: preferência implícita + registro nativo — Nothing beats… / non c'è niente di meglio di… / Nichts geht über… / やはり〜が一番ですね
     EN: [
-      "Before I used to watch TV, but now I read.",
-      "Before I used to live in a village, but now I live in the city.",
-      "Before I used to eat fast food, but now I prefer healthy meals.",
-      "Before I used to waste my free time, but now I study foreign languages.",
-      "Before I used to draw on paper, but now I do everything on my tablet."
+      "I am far more comfortable with uncertainty now than I was five years ago.",
+      "The last two years have been the most formative period of my life.",
+      "My confidence today is just as fragile as it was when I first started, but in a different way.",
+      "Deciding to study languages is the best choice I have ever made for my own growth.",
+      "Nothing beats looking back and realising how far you have actually come."
     ],
     IT: [
-      "Prima guardavo la televisione, ma adesso leggo libri.",
-      "Prima vivevo in un paesino, ma adesso abito in città.",
-      "Prima mangiavo cibo spazzatura, ma adesso preferisco piatti sani.",
-      "Prima perdevo molto tempo libero, ma adesso studio le lingue straniere.",
-      "Prima disegnavo sulla carta, ma adesso faccio tutto sul tablet."
+      "Sono molto più a mio agio con l'incertezza adesso di quanto lo fossi cinque anni fa.",
+      "Gli ultimi due anni sono stati il periodo più formativo della mia vita.",
+      "La mia sicurezza oggi è così fragile come lo era quando ho cominciato, ma in modo diverso.",
+      "Decidere di studiare le lingue è la scelta migliore che io abbia mai fatto per la mia crescita personale.",
+      "Non c'è niente di meglio di guardare indietro e rendersi conto di quanta strada si è fatta."
     ],
     DE: [
-      "Früher habe ich ferngesehen, aber jetzt lese ich Bücher.",
-      "Früher habe ich in einem Dorf gewohnt, aber jetzt lebe ich in der Stadt.",
-      "Früher habe ich Fast Food gegessen, aber jetzt bevorzuge ich gesundes Essen.",
-      "Früher habe ich meine Freizeit verschwendet, aber jetzt lerne ich Fremdsprachen.",
-      "Früher habe ich auf Papier gezeichnet, aber jetzt mache ich alles auf dem Tablet."
+      "Ich gehe jetzt viel besser mit Unsicherheit um als noch vor fünf Jahren.",
+      "Die letzten zwei Jahre waren die prägendste Zeit meines Lebens.",
+      "Mein Selbstvertrauen heute ist genauso zerbrechlich wie damals, als ich anfing, aber auf eine andere Art.",
+      "Die Entscheidung, Sprachen zu lernen, ist die beste, die ich je für meine persönliche Entwicklung getroffen habe.",
+      "Nichts geht über den Moment, wenn man zurückblickt und merkt, wie weit man wirklich gekommen ist."
     ],
     JP: [
-      "前はテレビを見ていましたが、今は本を読んでいます。(Mae wa terebi o mite imashita ga, ima wa hon o yonde imasu.)",
-      "前は小さな村に住んでいましたが、今は都会に住んでいます。(Mae wa chiisana mura ni sunde imashita ga, ima wa tokai ni sunde imasu.)",
-      "以前はジャンクフードばかり食べていましたが、今は健康に気を使っています。(Izen wa jankufūdo bakari tabete imashita ga, ima wa kenkō ni ki o tsukatte imasu.)",
-      "昔は時間を無駄にしていましたが、今は毎日外国語の勉強をしています。(Mukashi wa jikan o muda ni shite imashita ga, ima wa mainichi gaikokugo no benkyō o shite imasu.)",
-      "以前は紙のノートに絵を描いていましたが、今はタブレットで全て描いています。(Izen wa kami no nōto ni e o kaite imashita ga, ima wa taburetto de subete kaite imasu.)"
+      "今のわたしは五年前よりずっと不確かさと上手く付き合えるようになりました。(Ima no watashi wa gonenmae yori zutto futashikasa to umaku tsukiaeru yō ni narimashita.)",
+      "この二年間はわたしの人生の中で一番自分を形成した時期でした。(Kono ninenkan wa watashi no jinsei no naka de ichiban jibun o keisei shita jiki deshita.)",
+      "今日の自分の自信は、始めた頃と同じくらい不安定ですが、違うかたちで。(Kyō no jibun no jishin wa, hajimeta koro to onaji kurai fuantei desu ga, chigau katachi de.)",
+      "語学を学ぶことにしたのは、今まで自分の成長のためにした中で一番良い選択です。(Gogaku o manabu koto ni shita no wa, ima made jibun no seichō no tame ni shita naka de ichiban yoi sentaku desu.)",
+      "やはり振り返って自分がどれだけ成長したかに気づく瞬間が一番ですね。(Yahari furikaette jibun ga dore dake seichō shita ka ni ki zuku shunkan ga ichiban desu ne.)"
     ]
   },
   23: {
+    // Tema: a melhor coisa da minha cidade
+    // L1: comparativo de superioridade — bigger than / più grande di / größer als / 〜より大きい
+    // L2: superlativo — the most… / il più… / der/die/das …ste / 一番〜
+    // L3: igualdade — as…as / così…come / so…wie / 〜と同じくらい
+    // L4: superlativo + relativa — the X-est I have ever… / il più X che abbia mai… (congiuntivo passato) / der/die/das X-ste, die/den ich je… / 今まで〜した中で一番〜
+    // L5: preferência implícita + registro nativo — Nothing beats… / non c'è niente di meglio di… / Nichts geht über… / 〜にはかないません
     EN: [
-      "The best thing about my city is the park.",
-      "The best thing about my city is the quiet beach.",
-      "The best thing about my city is the excellent food and cafes.",
-      "The best thing about my city is the convenient public transportation system.",
-      "The best thing about my city is the friendly people and rich cultural life."
+      "Our Sunday market is far busier than anything I have seen in the surrounding towns.",
+      "The park by the river is the most peaceful spot in the whole city.",
+      "The main square on a summer evening is just as lively as any piazza I have visited in Italy.",
+      "The old covered market is the most fascinating place I have ever explored on a quiet weekday morning.",
+      "Nothing beats grabbing a coffee at the corner bar and watching the city slowly wake up."
     ],
     IT: [
-      "La cosa migliore della mia città è il parco.",
-      "La cosa migliore della mia città è la spiaggia tranquilla.",
-      "La cosa migliore della mia città è il cibo ottimo e i bar.",
-      "La cosa migliore della mia città è l'ottimo sistema di trasporto pubblico.",
-      "La cosa migliore della mia città sono le persone accoglienti e la cultura."
+      "Il nostro mercato domenicale è molto più animato di qualsiasi cosa io abbia visto nelle città vicine.",
+      "Il parco lungo il fiume è il posto più tranquillo di tutta la città.",
+      "La piazza principale nelle serate estive è così vivace come qualsiasi piazza che abbia visitato in Italia.",
+      "Il vecchio mercato coperto è il posto più affascinante in cui mi sia mai avventurato in una mattina infrasettimanale.",
+      "Non c'è niente di meglio di prendere un caffè al bar all'angolo e guardare la città che si sveglia lentamente."
     ],
     DE: [
-      "Das Beste an meiner Stadt ist der Park.",
-      "Das Beste an meiner Stadt ist der ruhige Strand.",
-      "Das Beste an meiner Stadt sind die guten Restaurants und Cafés.",
-      "Das Beste an meiner Stadt ist das bequeme öffentliche Verkehrssystem.",
-      "Das Beste an meiner Stadt sind die freundlichen Menschen und die Kultur."
+      "Unser Sonntagsmarkt ist viel belebter als alles, was ich in den umliegenden Städten gesehen habe.",
+      "Der Park am Fluss ist der ruhigste Ort der ganzen Stadt.",
+      "Der Hauptplatz an einem Sommerabend ist genauso lebendig wie jede Piazza, die ich in Italien besucht habe.",
+      "Die alte überdachte Markthalle ist der faszinierendste Ort, den ich je an einem stillen Wochentagmorgen erkundet habe.",
+      "Nichts geht über einen Kaffee an der Eckkneipe, während man der Stadt beim langsamen Erwachen zuschaut."
     ],
     JP: [
-      "わたしの街で一番良いのはきれいな公園です。(Watashi no machi de ichiban ii no wa kirei na kouen desu.)",
-      "わたしの街の一番の魅力は、静かで美しいビーチです。(Watashi no machi no ichiban no miyoku wa, shizuka de utsukushii bīchi desu.)",
-      "わたしの街で最高な部分は、美味しい料理と素敵なカフェが多いことです。(Watashi no machi de saikou na bubun wa, oishii ryōri to suteki na kafe ga ooi koto desu.)",
-      "この街で一番良い点は、バスと地下鉄のアクセスが非常に便利なことです。(Kono machi de ichiban ii ten wa, basu to chikatetsu no akusesu ga hijou ni benri na koto desu.)",
-      "わたしの街の一番誇れる部分は、親切な人々や活発な文化イベントです。(Watashi no machi no ichiban hororeru bubun wa, shinsetsu na hitobito ya kappatsu na bunka ibento desu.)"
+      "わたしたちの日曜市は近くの街で見たどこよりもずっと賑わっています。(Watashitachi no nichiyōichi wa chikaku no machi de mita doko yori mo zutto nigiwatte imasu.)",
+      "川沿いの公園はこの街で一番落ち着ける場所です。(Kawazoi no kōen wa kono machi de ichiban ochitsukeru basho desu.)",
+      "夏の夜のメインの広場はわたしがイタリアで訪れたどの広場と同じくらい活気があります。(Natsu no yoru no mein no hiroba wa watashi ga Itaria de otozureta dono hiroba to onaji kurai kakki ga arimasu.)",
+      "古い屋根付き市場は、今まで静かな平日の朝に探索した中で一番魅力的な場所です。(Furui yanetsuki ichiba wa, ima made shizuka na heijitsu no asa ni tansakushita naka de ichiban miryokuteki na basho desu.)",
+      "街角のバーでコーヒーを飲みながら街がゆっくり目覚めるのを眺めることにはかないません。(Machikado no bā de kōhī o nominagara machi ga yukkuri mezameru no o nagameru koto ni wa kanaimasen.)"
     ]
   },
 
