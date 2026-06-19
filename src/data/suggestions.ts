@@ -9,122 +9,122 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
   // --- MÓDULO 1: ROTINA ---
   0: {
     EN: [
-      "Every morning, I usually wake up.",
-      "Every morning, I usually wake up at 7 AM.",
-      "Every morning, I usually wake up and make a fresh cup of coffee.",
-      "Every morning, I usually wake up early to work out before breakfast.",
-      "Every morning, I usually wake up feeling refreshed, although I sometimes stay in bed a bit longer."
+      "I wake up early.",
+      "I wake up at half past six.",
+      "Most mornings, I wake up before my alarm even goes off.",
+      "I wake up, make myself a coffee, and sit by the window for a few minutes.",
+      "Even though I'm really not a morning person, I always end up feeling so much better once I'm up."
     ],
     IT: [
-      "Ogni mattina, di solito mi sveglio.",
-      "Ogni mattina, di solito mi sveglio alle 7.",
-      "Ogni mattina, di solito mi sveglio e bevo subito un caffè.",
-      "Ogni mattina, di solito mi sveglio presto per fare una corsa nel parco.",
-      "Ogni mattina, di solito mi sveglio con calma per godermi il silenzio del mattino."
+      "Mi sveglio presto.",
+      "Mi sveglio alle sei e mezza.",
+      "Di solito mi sveglio prima che suoni la sveglia.",
+      "Mi sveglio, mi faccio un caffè e mi siedo vicino alla finestra.",
+      "Non sono proprio un tipo mattutino, eppure una volta alzato mi sento sempre molto meglio."
     ],
     DE: [
-      "Jeden Morgen stehe ich auf.",
-      "Jeden Morgen stehe ich um 7 Uhr auf.",
-      "Jeden Morgen stehe ich auf, trinke Kaffee und lese die Zeitung.",
-      "Jeden Morgen stehe ich früh auf, um vor der Arbeit Sport zu treiben.",
-      "Jeden Morgen stehe ich auf, obwohl ich noch müde bin und am liebsten weiterschlafen würde."
+      "Ich stehe früh auf.",
+      "Ich stehe um halb sieben auf.",
+      "Meistens stehe ich auf, bevor der Wecker klingelt.",
+      "Ich stehe auf, mache mir einen Kaffee und setze mich ans Fenster.",
+      "Obwohl ich ja kein Morgenmensch bin, geht es mir nach dem Aufstehen eigentlich immer besser."
     ],
     JP: [
-      "毎朝、わたしは起きます。(Maiasa, watashi wa okimasu.)",
-      "毎朝、わたしは７時に起きます。(Maiasa, watashi wa shichiji ni okimasu.)",
-      "毎朝、わたしは起きて、顔を洗います。(Maiasa, watashi wa okite, kao o arawaimasu.)",
-      "毎朝、わたしは早く起きて、仕事に行く準備をします。(Maiasa, watashi wa hayaku okite, shigoto ni iku junbi o shimasu.)",
-      "毎朝、わたしは朝ご飯を食べる前に起きて、静かに勉強します。(Maiasa, watashi wa asagohan o taberu mae ni okite, shizuka ni benkyō shimasu.)"
+      "早く起きます。(Hayaku okimasu.)",
+      "６時半に起きます。(Rokuji han ni okimasu.)",
+      "たいてい目覚ましが鳴る前に起きます。(Taitei mezamashi ga naru mae ni okimasu.)",
+      "起きて、コーヒーを淹れて、窓の外をしばらく眺めます。(Okite, kōhī o irete, mado no soto o shibaraku nagamemasu.)",
+      "朝が苦手なんですが、起き上がると不思議と気分がよくなってしまいます。(Asa ga nigate na n desu ga, okiagaru to fushigi to kibun ga yoku natte shimaimasu.)"
     ]
   },
   1: {
     EN: [
-      "I go to work by train.",
-      "I go to work by bus every single day.",
-      "I commute to work by subway, which takes thirty minutes.",
-      "I usually go to work by car, but today I decided to walk.",
-      "I commute to work by bicycle because it is healthier and faster than driving."
+      "I take the train to work.",
+      "I take the train to work at eight in the morning.",
+      "Most days, I catch the early train before the rush hour crowd arrives.",
+      "I leave the house, walk to the station, and read a bit on the platform while I wait.",
+      "Even though the commute's pretty long, I've started using that time to listen to podcasts and it doesn't feel so bad anymore."
     ],
     IT: [
-      "Vado al lavoro in treno.",
-      "Vado al lavoro in autobus tutti i giorni.",
-      "Vado al lavoro in metropolitana e ci metto trenta minuti.",
-      "Di solito vado al lavoro in macchina, ma oggi ho deciso di camminare.",
-      "Vado al lavoro in bicicletta perché è più salutare ed evita il traffico."
+      "Prendo il treno per andare al lavoro.",
+      "Prendo il treno per andare al lavoro alle otto.",
+      "Di solito prendo il primo treno, prima che i vagoni si riempiano.",
+      "Esco di casa, cammino fino alla fermata e aspetto l'autobus leggendo qualcosa.",
+      "Il tragitto è abbastanza lungo, eppure una volta messa la musica nelle orecchie il tempo vola."
     ],
     DE: [
-      "Ich fahre mit dem Auto zur Arbeit.",
-      "Ich fahre jeden Tag mit dem Bus zur Arbeit.",
-      "Ich pendle mit der U-Bahn zur Arbeit, was dreißig Minuten dauert.",
-      "Normalerweise fahre ich mit dem Auto, aber heute gehe ich zu Fuß.",
-      "Ich pendle mit dem Fahrrad zur Arbeit, weil es umweltfreundlicher und schneller ist."
+      "Ich fahre mit der U-Bahn zur Arbeit.",
+      "Ich fahre um acht Uhr mit der U-Bahn zur Arbeit.",
+      "Meistens fahre ich früh los, bevor die Stoßzeit beginnt.",
+      "Ich gehe aus dem Haus, laufe zur Haltestelle und lese kurz, während ich warte.",
+      "Obwohl die Fahrt ja ziemlich lang ist, höre ich eigentlich immer Podcasts und die Zeit vergeht viel schneller."
     ],
     JP: [
-      "電車で仕事に行きます。(Densha de shigoto ni ikimasu.)",
-      "わたしは毎日バス de gakkou ni ikimasu。(Watashi wa mainichi basu de gakkou ni ikimasu.)",
-      "地下鉄で通勤していますが、３０分かかります。(Chikatetsu de tsūkin shite imasu ga, sanjūpun kakarimasu.)",
-      "普段は車で行きますが、今日は歩くことにしました。(Fudan wa kuruma de ikimasu ga, kyō wa aruku koto ni shimashita.)",
-      "自転車で通勤するのは健康によく、交通渋滞も避けられます。(Jitensha de tsūkin suru no wa kenkō ni yoku, kōtsūjūtai mo sakeraremasu.)"
+      "電車で会社に行きます。(Densha de kaisha ni ikimasu.)",
+      "朝８時の電車で会社に行きます。(Asa hachiji no densha de kaisha ni ikimasu.)",
+      "たいてい混む前の早い時間の電車に乗ります。(Taitei komu mae no hayai jikan no densha ni norimasu.)",
+      "家を出て、駅まで歩いて、ホームでしばらく本を読んで待ちます。(Ie o dete, eki made aruite, hōmu de shibaraku hon o yonde machimasu.)",
+      "通勤時間が長いんですが、ポッドキャストを聞き始めてから苦にならなくなってしまいました。(Tsūkin jikan ga nagai n desu ga, poddokyasuto o kikihajimete kara ku ni naranaku natte shimaimashita.)"
     ]
   },
   2: {
     EN: [
-      "In the evening, I like to relax.",
-      "In the evening, I like to relax by watching TV.",
-      "In the evening, I like to relax and read an interesting book.",
-      "In the evening, I like to relax with a hot cup of tea after a long day.",
-      "In the evening, I like to relax by taking a long bath to release all my stress."
+      "I read before bed.",
+      "I read for half an hour before bed.",
+      "Usually, I turn off all my screens at least an hour before going to sleep.",
+      "I make some tea, dim the lights, and spend a quiet hour reading before I fall asleep.",
+      "Even though I'm often tempted to scroll through my phone, I've been trying to put it down early and I'm sleeping so much better."
     ],
     IT: [
-      "La sera mi piace rilassarmi.",
-      "La sera mi piace rilassarmi guardando la televisione.",
-      "La sera mi piace rilassarmi e leggere un libro interessante.",
-      "La sera mi piace rilassarmi con una tazza di tè caldo dopo il lavoro.",
-      "La sera mi piace rilassarmi facendo un bagno caldo per eliminare lo stress."
+      "Leggo prima di dormire.",
+      "Leggo per mezz'ora prima di addormentarmi.",
+      "Di solito spengo tutti gli schermi almeno un'ora prima di dormire.",
+      "Mi preparo una tisana, abbasso le luci e leggo in silenzio finché non ho sonno.",
+      "Ho ancora voglia di controllare il telefono, eppure una volta posato sul comodino mi addormento molto prima."
     ],
     DE: [
-      "Abends entspanne ich mich gern.",
-      "Abends entspanne ich mich vor dem Fernseher.",
-      "Abends entspanne ich mich und lese ein interessantes Buch.",
-      "Abends entspanne ich mich nach der Arbeit bei einer heißen Tasse Tee.",
-      "Abends entspanne ich mich durch ein langes Bad, um den Stress abzubauen."
+      "Ich lese vor dem Schlafen.",
+      "Ich lese eine halbe Stunde vor dem Einschlafen.",
+      "Meistens schalte ich alle Bildschirme mindestens eine Stunde vor dem Schlafen aus.",
+      "Ich koche mir einen Tee, dimme das Licht und lese ruhig, bis mir die Augen zufallen.",
+      "Obwohl ich ja oft versucht bin, noch auf dem Handy zu scrollen, lege ich es eigentlich immer früher weg und schlafe viel besser."
     ],
     JP: [
-      "夜、わたしはリラックスします。(Yoru, watashi wa rirakkusu shimasu.)",
-      "夜、テレビを見てリラックスするのが好きです。(Yoru, terebi o mite rirakkusu suru no ga suki desu.)",
-      "夜、お茶を hubby nagara hon o yomimasu。(Yoru, ocha o nominagara hon o yomimasu.)",
-      "仕事の後の夜は、音楽を聞いてリラックスします。(Shigoto no ato no yoru wa, ongaku o kiite rirakkusu shimasu.)",
-      "夜は、一日のストレスを解消するためにゆっくりお風呂に入ります。(Yoru wa, ichinichi no sutoresu o kaishou suru tame ni yukkuri ofuro ni hairimasu.)"
+      "寝る前に本を読みます。(Neru mae ni hon o yomimasu.)",
+      "寝る前に３０分本を読みます。(Neru mae ni sanjuppun hon o yomimasu.)",
+      "たいてい寝る一時間前には画面を全部消します。(Taitei neru ichijikan mae ni wa gamen o zenbu keshimasu.)",
+      "お茶を入れて、電気を少し暗くして、眠くなるまで静かに読書します。(Ocha o irete, denki o sukoshi kuraku shite, nemuku naru made shizuka ni dokusho shimasu.)",
+      "スマホをつい見てしまいたくなるんですが、早めに置くようにしたらぐっすり眠れるようになってしまいました。(Sumaho o tsui mite shimai taku naru n desu ga, hayame ni oku yō ni shitara gussuri nemureru yō ni natte shimaimashita.)"
     ]
   },
   3: {
     EN: [
-      "On Saturdays, I usually sleep in.",
-      "On Saturdays, I usually spend time on my hobbies.",
-      "On Saturdays, I usually clean my room and go grocery shopping.",
-      "On Saturdays, I usually hang out with my close friends in the city center.",
-      "On Saturdays, I usually wake up late, cook a big lunch, and enjoy my weekend."
+      "I sleep in on Saturdays.",
+      "I sleep in until nine or ten on Saturdays.",
+      "Most Saturdays, I spend the whole morning doing whatever I feel like.",
+      "I wake up late, make a big breakfast, and head out for a walk around the neighbourhood.",
+      "Even though I always tell myself I'll be productive, I end up just hanging out at home and honestly I don't mind at all."
     ],
     IT: [
-      "Il sabato di solito dormo fino a tardi.",
-      "Il sabato di solito mi dedico ai miei hobby preferiti.",
-      "Il sabato di solito pulisco la mia stanza e vado a fare la spesa.",
-      "Il sabato di solito esco con i miei amici più stretti in centro città.",
-      "Il sabato di solito mi sveglio tardi, preparo un pranzo abbondante e mi godo il weekend."
+      "Il sabato dormo fino a tardi.",
+      "Il sabato dormo fino alle nove o alle dieci.",
+      "Di solito il sabato mattina la passo tutta come mi pare e piace.",
+      "Mi sveglio tardi, preparo una colazione abbondante e faccio una passeggiata nel quartiere.",
+      "Mi riprometto sempre di fare cose utili, eppure una volta sul divano mi godo la pigrizia e non mi pento per niente."
     ],
     DE: [
-      "Am Samstag schlafe ich meistens aus.",
-      "Am Samstag widme ich mich meinen Hobbys.",
-      "Am Samstag putze ich mein Zimmer und gehe einkaufen.",
-      "Am Samstag treffe ich mich mit engen Freunden in der Innenstadt.",
-      "Am Samstag wache ich spät auf, koche ein großes Mittagessen und genieße das Wochenende."
+      "Am Samstag schlafe ich aus.",
+      "Am Samstag schlafe ich bis neun oder zehn Uhr.",
+      "Meistens verbringe ich den ganzen Samstagmorgen damit, einfach das zu tun, worauf ich Lust habe.",
+      "Ich stehe spät auf, mache ein großes Frühstück und gehe durch die Nachbarschaft spazieren.",
+      "Obwohl ich mir ja immer vornehme, produktiv zu sein, ende ich eigentlich immer auf dem Sofa — und bereue es kein bisschen."
     ],
     JP: [
-      "土曜日、たいてい遅くまで寝ます。(Doyōbi, taitei osoku made nemasu.)",
-      "土曜日はよく趣味の時間を過ごします。(Doyōbi wa yoku shumi no jikan o sugoshimasu.)",
-      "土曜日は部屋の掃除をして、スーパーへ買い物に行きます。(Doyōbi wa heya no souji o shite, sūpā e kaimono ni ikimasu.)",
-      "土曜日、わたしは街の中心で親しい友達と会って遊びます。(Doyōbi, watashi wa machi no chūshin de shitashii tomodachi to atte asobimasu.)",
-      "土曜日はゆっくり起きて、美味しい昼ご飯を作って週末を楽しみます。(Doyōbi wa yukkuri okite, oishii hirugohan o tsukutte shūmatsu o tanoshimimasu.)"
+      "土曜日は遅くまで寝ます。(Doyōbi wa osoku made nemasu.)",
+      "土曜日は９時か１０時まで寝ます。(Doyōbi wa kuji ka jūji made nemasu.)",
+      "たいてい土曜日の午前中はやりたいことをして過ごします。(Taitei doyōbi no gozenchū wa yaritai koto o shite sugoshimasu.)",
+      "ゆっくり起きて、たっぷり朝ご飯を作って、近所をのんびり散歩します。(Yukkuri okite, tappuri asagohan o tsukutte, kinjo o nonbiri sanpo shimasu.)",
+      "生産的なことをしようと思うんですが、結局ゴロゴロして一日が終わってしまいます。(Seisanteki na koto o shiyō to omou n desu ga, kekkyoku gorogoro shite ichinichi ga owatte shimaimasu.)"
     ]
   },
 
