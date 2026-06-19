@@ -256,7 +256,7 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
               fechar
             </button>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <div className="suggestions-list">
             {suggestions.map((item, idx) => {
               const levels = [
                 { name: 'Simples', color: '#10B981' },
