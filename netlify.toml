@@ -1,0 +1,12 @@
+# Configuração do Netlify para o Diário Poliglota
+# Define a compilação automática do Vite e a pasta de publicação do build final.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Redirecionamento SPA (Single Page Application) para evitar erros de rota
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

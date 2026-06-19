@@ -52,9 +52,15 @@ self.addEventListener('fetch', (e) => {
         if (cachedResponse) return cachedResponse;
         
         return fetch(e.request).then((networkResponse) => {
-          if (networkResponse.status === 200) {
-            const cacheCopy = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(e.request, cacheCopy));
+          if (networkResponse.status === 200 || networkResponse.status === 0) {
+            try {
+              const cacheCopy = networkResponse.clone();
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(e.request, cacheCopy).catch((err) => console.warn('Falha ao gravar fonte no cache:', err));
+              });
+            } catch (err) {
+              console.warn('Falha ao clonar fonte:', err);
+            }
           }
           return networkResponse;
         });
@@ -69,10 +75,16 @@ self.addEventListener('fetch', (e) => {
     e.respondWith(
       fetch(e.request)
         .then((networkResponse) => {
-          // Atualiza o cache dinamicamente se a resposta for bem sucedida (200) ou status 0 (no-cors)
-          if (networkResponse.status === 200 || networkResponse.status === 0) {
-            const cacheCopy = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(e.request, cacheCopy));
+          // Apenas tenta clonar e cachear se a resposta for 200 OK (evita 304, 206 e outros)
+          if (networkResponse.status === 200) {
+            try {
+              const cacheCopy = networkResponse.clone();
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(e.request, cacheCopy).catch((err) => console.warn('Falha ao gravar no cache:', err));
+              });
+            } catch (err) {
+              console.warn('Falha ao clonar resposta para cache:', err);
+            }
           }
           return networkResponse;
         })
