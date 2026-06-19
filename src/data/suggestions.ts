@@ -586,7 +586,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     JP: [
       "まず、家を出る前に自転車のタイヤが完全にパンクしているのに気づきました。(Mazu, ie o deru mae ni jitensha no taiya ga kanzen ni panku shite iru no ni kidzukimashita.)",
       "それから、台所の流し台の下からパンク修理キットを見つけて、床に広げました。(Sorekara, daidokoro no nagashidai no shita kara panku shūri kitto o mitsukete, yuka ni hirogemashita.)",
-      "最初はパッチがうまく貼れなかったから、表面をきれいに拭いてもう一度試しました。(Saisho wa patchi ga umaku harenakata kara, hyōmen o kirei ni fuite mō ichido tameshimashita.)",
+      "最初はパッチがうまく貼れなかったから、表面をきれいに拭いてもう一度試しました。(Saisho wa patchi ga umaku harenakatta kara, hyōmen o kirei ni fuite mō ichido tameshimashita.)",
       "一度も自分でパンク修理をしたことがなかったので、動画のチュートリアルを調べなければなりませんでした。(Ichido mo jibun de panku shūri o shita koto ga nakatta node, dōga no chūtoriaru o shirabenakereba narimasen deshita.)",
       "一時間近くかかってしまったけれど、自分で直せてしまいましたし、かなり達成感がありました。(Ichijikan chikaku kakatte shimatta keredo, jibun de naosete shimaimashita shi, kanari tasseikan ga arimashita.)"
     ]
