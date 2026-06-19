@@ -800,17 +800,20 @@ export function App() {
       <div
         className="diary-grid"
         style={{ flex: 1, minHeight: 0, gap: 12, padding: '0 20px 84px' }}
-        onTouchStart={(e) => {
-          swipeStart.current = e.touches[0].clientX;
+        onPointerDown={(e) => {
+          if (e.pointerType !== 'touch') return;
+          swipeStart.current = e.clientX;
         }}
-        onTouchEnd={(e) => {
+        onPointerUp={(e) => {
+          if (e.pointerType !== 'touch') return;
           if (swipeStart.current === null) return;
-          const dx = e.changedTouches[0].clientX - swipeStart.current;
+          const dx = e.clientX - swipeStart.current;
           if (Math.abs(dx) > 60) {
             dx < 0 ? goDay(1) : goDay(-1);
           }
           swipeStart.current = null;
         }}
+        onPointerCancel={() => { swipeStart.current = null; }}
       >
         {DS.LANGS.map((code) => (
           <WritingBox
