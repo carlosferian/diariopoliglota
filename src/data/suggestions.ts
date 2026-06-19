@@ -1103,124 +1103,134 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
   },
 
   // --- MÓDULO 9: CONTRASTE ---
+  // Ladder:
+  // L1: contraste simples — but / ma / aber / 〜が
+  // L2: contraste enfático — however / tuttavia / jedoch / しかし
+  // L3: concessão — even though / anche se / obwohl (verbo no fim) / 〜のに
+  // L4: contraste inesperado — despite / nonostante + subst./infinito / trotz + Genitiv / 〜にもかかわらず
+  // L5: contraste nativo sofisticado — Having said that… / eppure… / Und dennoch… + Konjunktiv II / 〜とはいえ、〜てしまいます
   32: {
+    // Tema: duas coisas que parecem opostas mas coexistem (personalidade)
     EN: [
-      "I like it, but it is expensive.",
-      "I like my job, however the commute is too long.",
-      "I want to go out, however the weather is too cold today.",
-      "I purchased the phone, however the battery life is not very good.",
-      "The layout looks beautiful, however we need to improve the responsiveness on mobile."
+      "I am quite shy, but I love meeting new people.",
+      "I tend to overthink everything; however, I also know how to act decisively when it matters.",
+      "Even though I can be quite harsh on myself, I genuinely try to be kind to everyone around me.",
+      "Despite my natural tendency towards pessimism, I manage to stay hopeful about the future.",
+      "I know I can be stubborn at times. Having said that, I think that same stubbornness is what keeps me going."
     ],
     IT: [
-      "Mi piace, ma è costoso.",
-      "Mi piace il mio lavoro, però il viaggio è troppo lungo.",
-      "Vorrei uscire, però oggi fa troppo freddo fuori.",
-      "Ho comprato il telefono, però la batteria dura poco.",
-      "Il design è bellissimo, però dobbiamo migliorare la responsività su cellulare."
+      "Sono abbastanza timido, ma adoro conoscere gente nuova.",
+      "Tendo a rimuginare su tutto; tuttavia, so anche agire con decisione quando conta.",
+      "Anche se sono molto severo con me stesso, cerco sinceramente di essere gentile con chi mi sta intorno.",
+      "Nonostante la mia tendenza al pessimismo, riesco a restare fiducioso riguardo al futuro.",
+      "So di poter essere testardo a volte, eppure è proprio quella testardaggine a farmi andare avanti."
     ],
     DE: [
-      "Ich mag es, aber es ist teuer.",
-      "Ich mag meinen Job, aber der Arbeitsweg ist zu lang.",
-      "Ich möchte ausgehen, aber das Wetter ist heute zu kalt.",
-      "Ich habe das Handy gekauft, aber die Akkulaufzeit ist nicht gut.",
-      "Das design sieht schön aus, jedoch müssen wir die mobile Responsivität verbessern."
+      "Ich bin ziemlich schüchtern, aber ich liebe es, neue Menschen kennenzulernen.",
+      "Ich neige dazu, alles zu überdenken; jedoch weiß ich auch, wie man entschlossen handelt, wenn es darauf ankommt.",
+      "Obwohl ich sehr streng mit mir selbst sein kann, versuche ich aufrichtig, zu allen um mich herum freundlich zu sein.",
+      "Trotz meiner natürlichen Neigung zum Pessimismus gelingt es mir, zuversichtlich in die Zukunft zu blicken.",
+      "Ich weiß, dass ich manchmal stur sein kann. Und dennoch wäre es wohl genau diese Sturheit, die mich weitermachen lässt."
     ],
     JP: [
-      "好きですが、高すぎます。(Suki desu ga, takasugimasu.)",
-      "今の仕事は好きですが、通勤時間が長すぎるのが難点です。(Ima no shigoto wa suki desu ga, tsūkinjikan ga nagasugiru no ga nanten desu.)",
-      "外出したいのですが、今日は外が寒すぎて行く気になれません。(Gaishutsu shitai no desu ga, kyō wa soto ga samusugite iku ki ni naremasen.)",
-      "新型スマホを買いましたが、バッテリーの持ちがあまり良くありません。(Shingata sumaho o kaimashita ga, battarī no mochi ga amari yoku arimasen.)",
-      "デザインは素晴らしいですが、モバイル端末でのレスポンシブ表示を改善する必要があります。(Dezain wa subarashii desu ga, mobairu tansu de no responshibu hyōji o kaizen suru hitsuyō ga arimassu.)"
+      "わたしはかなり内気ですが、新しい人に会うのが大好きです。(Watashi wa kanari uchiki desu ga, atarashii hito ni au no ga daisuki desu.)",
+      "何でも考えすぎてしまいます。しかし、いざというときは素早く決断することもできます。(Nandemo kangaesugite shimaimasu. Shikashi, iza to iu toki wa subayaku ketsudan suru koto mo dekimasu.)",
+      "自分に対してとても厳しいのに、周りの人にはできるだけ優しくしようとしています。(Jibun ni taishite totemo kibishii noni, mawari no hito ni wa dekiru dake yasashiku shiyō to shite imasu.)",
+      "悲観的になりやすい性格にもかかわらず、未来に対して希望を持ち続けることができています。(Hikanteki ni nari yasui seikaku ni mo kakawarazu, mirai ni taishite kibō o mochitsuzukeru koto ga dekite imasu.)",
+      "頑固な一面があるとはいえ、その粘り強さのおかげで諦めずに続けられてしまいます。(Ganko na ichimen ga aru to wa ie, sono nebari zuyosa no okage de akiramezu ni tsuzukerarete shimaimasu.)"
     ]
   },
   33: {
+    // Tema: uma expectativa vs. a realidade vivida
     EN: [
-      "Although I don't want to, I will go.",
-      "Although I don't want to, I must clean my room.",
-      "Although it was raining, we decided to walk in the forest.",
-      "Although I was extremely tired, I finished writing in my diary.",
-      "Although the database quota is limited, the app runs very fast online."
+      "I expected it to be easy, but the reality was quite different.",
+      "I thought I would feel relieved; however, I mostly felt exhausted.",
+      "Even though I had prepared carefully, things did not go the way I had imagined.",
+      "Despite months of anticipation, the experience felt surprisingly ordinary at first.",
+      "I had pictured it as a turning point. Having said that, the real change came much more quietly than I expected."
     ],
     IT: [
-      "Anche se non voglio, andrò.",
-      "Anche se non ho voglia, devo pulire la mia stanza.",
-      "Anche se pioveva, abbiamo deciso di passeggiare nel bosco.",
-      "Anche se ero stanchissimo, ho scritto la mia pagina di diario.",
-      "Anche se lo spazio del database è limitato, l'app funziona veloce."
+      "Mi aspettavo che fosse facile, ma la realtà era molto diversa.",
+      "Pensavo che mi sarei sentito sollevato; tuttavia, mi sono sentito soprattutto esausto.",
+      "Anche se mi ero preparato con cura, le cose non sono andate come immaginavo.",
+      "Nonostante mesi di attesa, l'esperienza sembrava sorprendentemente ordinaria all'inizio.",
+      "L'avevo immaginata come un punto di svolta, eppure il vero cambiamento è arrivato molto più piano di quanto mi aspettassi."
     ],
     DE: [
-      "Obwohl ich nicht will, werde ich gehen.",
-      "Obwohl ich keine Lust habe, muss ich mein Zimmer aufräumen.",
-      "Obwohl es regnete, sind wir im Wald spazieren gegangen.",
-      "Obwohl ich extrem müde war, habe ich in mein Tagebuch geschrieben.",
-      "Obwohl der Speicherplatz begrenzt ist, läuft die App online sehr schnell."
+      "Ich hatte erwartet, dass es einfach sein würde, aber die Realität war ganz anders.",
+      "Ich dachte, ich würde Erleichterung fühlen; jedoch fühlte ich mich vor allem erschöpft.",
+      "Obwohl ich mich sorgfältig vorbereitet hatte, liefen die Dinge nicht so, wie ich es mir vorgestellt hatte.",
+      "Trotz monatelanger Vorfreude wirkte das Erlebnis anfangs überraschend gewöhnlich.",
+      "Ich hatte es mir als Wendepunkt vorgestellt. Und dennoch wäre die eigentliche Veränderung viel leiser gekommen, als ich erwartet hatte."
     ],
     JP: [
-      "行きたくないけれど、行くことにします。(Ikitakunai keredo, iku koto ni shimasu.)",
-      "面倒くさいけれど、部屋の掃除を終わらせなければなりません。(Mendōkusai keredo, heya no souji o owarasenakeba narimasen.)",
-      "雨が降っていたけれど、わたしたちは森の中を散歩することにしました。(Ame ga futte ita keredo, watashitachi wa mori no naka o sanpo suru koto ni shimashita.)",
-      "非常に疲れていたけれど、今日の分の語学日記を最後まで書き上げました。(Hijou ni tsukarete ita keredo, kyō no bun no gogaku nikki o saigo made kakiagemashita.)",
-      "データベースの容量制限があるにもかかわらず、アプリはスムーズに動作しています。(Dētabēsu no yōryō seigen ga aru ni mo kakawarasu, apuri wa sumūzu ni dōsa shite imasu.)"
+      "簡単だと思っていましたが、現実はずいぶん違いました。(Kantan da to omotte imashita ga, genjitsu wa zuibun chigaimashita.)",
+      "ほっとするかと思ったのですが、しかし実際にはひどく疲れてしまいました。(Hotto suru ka to omotta no desu ga, shikashi jissai ni wa hidoku tsukarete shimaimashita.)",
+      "しっかり準備したのに、思い描いていたようにはうまくいきませんでした。(Shikkari junbi shita noni, omikaite ita yō ni wa umaku ikimasen deshita.)",
+      "何ヶ月も楽しみにしていたにもかかわらず、最初はその体験が意外なほど普通に感じられました。(Nankagetsu mo tanoshimi ni shite ita ni mo kakawarazu, saisho wa sono taiken ga igai na hodo futsū ni kanjiraremashita.)",
+      "ターニングポイントになると思っていたとはいえ、本当の変化はずっと静かなかたちでやってきてしまいました。(Tāningu pointo ni naru to omotte ita to wa ie, hontō no henka wa zutto shizuka na katachi de yatte kite shimaimashita.)"
     ]
   },
   34: {
+    // Tema: querer fazer algo vs. não conseguir (intenção vs. ação)
     EN: [
-      "On one hand I like it, on the other hand it is hard.",
-      "On one hand city life is exciting, on the other hand it is stressful.",
-      "On one hand tablets are light, on the other hand laptops are more powerful.",
-      "On one hand remote work is comfortable, on the other hand it can feel isolated.",
-      "On one hand IndexedDB has huge space, on the other hand it is harder to implement."
+      "I want to exercise every day, but I keep putting it off.",
+      "I intend to go to bed earlier; however, I always end up staying up too late.",
+      "Even though I tell myself to stop scrolling, I reach for my phone without thinking.",
+      "Despite my genuine desire to write more, weeks pass without a single line.",
+      "I know exactly what I should do. Having said that, knowing and actually doing it are two very different things."
     ],
     IT: [
-      "Da un lato mi piace, dall'altro è difficile.",
-      "Da un lato la città è emozionante, dall'altro è stressante.",
-      "Da un lato i tablet sono leggeri, dall'altro i computer sono più potenti.",
-      "Da un lato il lavoro da casa è comodo, dall'altro ci si può sentire soli.",
-      "Da un lato IndexedDB offre molto spazio, dall'altro è più complesso da usare."
+      "Voglio fare esercizio ogni giorno, ma continuo a rimandare.",
+      "Ho intenzione di andare a letto prima; tuttavia, finisco sempre per stare sveglio troppo tardi.",
+      "Anche se mi dico di smettere di scorrere il telefono, lo afferro senza nemmeno pensarci.",
+      "Nonostante il desiderio sincero di scrivere di più, passano settimane senza una riga.",
+      "So esattamente cosa dovrei fare, eppure sapere e farlo davvero sono due cose molto diverse."
     ],
     DE: [
-      "Einerseits mag ich es, andererseits ist es schwer.",
-      "Einerseits ist das Stadtleben aufregend, andererseits ist es stressig.",
-      "Einerseits sind Tablets leicht, andererseits sind Laptops leistungsstärker.",
-      "Einerseits ist Homeoffice bequem, andererseits kann man sich isoliert fühlen.",
-      "Einerseits bietet IndexedDB viel Speicher, andererseits ist es schwerer einzurichten."
+      "Ich möchte jeden Tag Sport treiben, aber ich schiebe es immer wieder auf.",
+      "Ich habe vor, früher ins Bett zu gehen; jedoch bleibe ich immer zu lange auf.",
+      "Obwohl ich mir sage, mit dem Scrollen aufzuhören, greife ich gedankenlos nach meinem Handy.",
+      "Trotz meines aufrichtigen Wunsches, mehr zu schreiben, vergehen Wochen ohne eine einzige Zeile.",
+      "Ich weiß genau, was ich tun sollte. Und dennoch wären Wissen und tatsächliches Handeln zwei sehr verschiedene Dinge."
     ],
     JP: [
-      "一方では好きですが、他方では難しいです。(Ippō de wa suki desu ga, tahō de wa muzukashii desu.)",
-      "都会での生活は刺激적である一方、ストレスが溜まりやすい側面もあります。(Tokai de no seikatsu wa shigekiteki dearu ippō, sutoresu ga tamariyasui sokumen mo arimasu.)",
-      "タブレットは軽くて持ち運びに便利な一方、ノートPCの方が処理能力が高いです。(Taburetto wa karukute mochihakobi ni benri na ippō, nōto PC no hō ga shorinōryoku ga takai desu.)",
-      "在宅勤務は快適である一方で、人との交流が減り孤独を感じることがあります。(Zaitaku kinmu wa kaiteki dearu ippō de, hito to no kōryū ga heri kodoku o kanjiru koto ga arimasu.)",
-      "IndexedDBは大容量のデータを保存できる一方、実装コードがやや複雑になります。(IndexedDB wa daiyōryō no dēta o hozon dekiru ippō, jissou kōdo ga yaya fukuzatsu ni narimasu.)"
+      "毎日運動したいのですが、ついつい後回しにしてしまいます。(Mainichi undō shitai no desu ga, tsui tsui atomawashi ni shite shimaimasu.)",
+      "早く寝るつもりなのですが、しかしいつも夜更かしをしてしまいます。(Hayaku neru tsumori na no desu ga, shikashi itsumo yofukashi o shite shimaimasu.)",
+      "スマホを見るのをやめようと思っているのに、考えなしに手が伸びてしまいます。(Sumaho o miru no o yameyō to omotte iru noni, kangae nashi ni te ga nobite shimaimasu.)",
+      "もっと書きたいという気持ちは本物にもかかわらず、一行も書かないまま何週間も過ぎてしまいます。(Motto kakitai to iu kimochi wa honmono ni mo kakawarazu, ichigyo mo kakanai mama nanshūkan mo sugite shimaimasu.)",
+      "何をすべきかはわかっているとはいえ、わかることと実際にやることは全然別のことになってしまいます。(Nani o subeki ka wa wakatte iru to wa ie, wakaru koto to jissai ni yaru koto wa zenzen betsu no koto ni natte shimaimasu.)"
     ]
   },
   35: {
+    // Tema: uma contradição que percebi em mim mesmo
     EN: [
-      "Despite the problems, I am happy.",
-      "Despite the cold weather, they went for a swim.",
-      "Despite the language barrier, they became close friends.",
-      "Despite the heavy rain, the football match was not canceled.",
-      "Despite the difficulties of vector drawing, the calligraphy looks amazing."
+      "I value silence, but I feel uneasy when things go too quiet.",
+      "I say I need alone time; however, loneliness hits me harder than I like to admit.",
+      "Even though I claim not to care what others think, I notice how much their words affect me.",
+      "Despite considering myself patient, I lose my temper over the smallest inconveniences.",
+      "I genuinely believe that progress matters more than perfection. That said, I still find myself paralysed by the fear of getting things wrong."
     ],
     IT: [
-      "Nonostante i problemi, sono felice.",
-      "Nonostante il freddo, hanno fatto il bagno.",
-      "Nonostante la barriera linguistica, sono diventati amici.",
-      "Nonostante la forte pioggia, la partita non è stata annullata.",
-      "Nonostante le difficoltà del disegno vettoriale, la scrittura è bellissima."
+      "Apprezzo il silenzio, ma mi sento a disagio quando le cose si fanno troppo silenziose.",
+      "Dico di aver bisogno di stare da solo; tuttavia, la solitudine mi pesa più di quanto voglia ammettere.",
+      "Anche se dico di non curarmi del giudizio degli altri, noto quanto le loro parole mi influenzino.",
+      "Nonostante il considerarmi una persona paziente, perdo la calma per le cose più banali.",
+      "Credo sinceramente che i progressi contino più della perfezione, eppure mi ritrovo ancora bloccato dalla paura di sbagliare."
     ],
     DE: [
-      "Trotz der Probleme bin ich glücklich.",
-      "Trotz des kalten Wetters gingen sie schwimmen.",
-      "Trotz der Sprachbarriere wurden sie enge Freunde.",
-      "Trotz des starken Regens wurde das Fußballspiel nicht abgesagt.",
-      "Trotz der Schwierigkeiten des Vektorzeichnens sieht die Schrift toll aus."
+      "Ich schätze die Stille, aber ich fühle mich unwohl, wenn es zu still wird.",
+      "Ich sage, ich brauche Zeit für mich; jedoch trifft mich Einsamkeit härter, als ich zugeben möchte.",
+      "Obwohl ich behaupte, mir nichts aus der Meinung anderer zu machen, merke ich, wie sehr mich ihre Worte beeinflussen.",
+      "Trotz meines Selbstbildes als geduldiger Mensch verliere ich wegen der kleinsten Unannehmlichkeiten die Beherrschung.",
+      "Ich glaube wirklich, dass Fortschritt wichtiger ist als Perfektion. Und dennoch würde ich mich immer noch von der Angst lähmen lassen, Fehler zu machen."
     ],
     JP: [
-      "大変なこともありますが、わたしは幸せです。(Taihen na koto mo arimasu ga, watashi wa shiawase desu.)",
-      "外がとても寒かったにもかかわらず、彼らは海に入って泳ぎました。(Soto ga totemo samukatta ni mo kakawarazu, karera wa umi ni haitte oyogimashita.)",
-      "言葉の壁があったのにもかかわらず、二人は大親友になりました。(Kotoba no kabe ga atta no ni mo kakawarazu, futari wa daishinyū ni narimashita.)",
-      "大雨が降っていたのにもかかわらず、サッカーの試合は中止されませんでした。(Ōame ga futte ita no ni mo kakawarazu, sakkā no shiai wa chūshi saremasen deshita.)",
-      "ベクター描画の実装には苦労しましたが、非常に美しい書体で描けて満足です。(Bekutā bygōa no jissou ni wa kurō shimashita ga, hijou ni utsukushii shotai de kakete manzoku desu.)"
+      "静けさを大切にしていますが、あまりに静かになると落ち着かなくなります。(Shizukesa o taisetsu ni shite imasu ga, amari ni shizuka ni naru to ochitsukanaku narimasu.)",
+      "一人の時間が必要だと言っているのですが、しかし孤独感は思っている以上に堪えてしまいます。(Hitori no jikan ga hitsuyō da to itte iru no desu ga, shikashi kodokukan wa omotte iru ijō ni kotaete shimaimasu.)",
+      "人の目を気にしないと言っているのに、他人の言葉がこんなに影響するとは気づいていませんでした。(Hito no me o ki ni shinai to itte iru noni, tanin no kotoba ga konna ni eikyō suru to wa kidzuite imasen deshita.)",
+      "自分は忍耐強いと思っているにもかかわらず、些細なことですぐに苛立ってしまいます。(Jibun wa nintaizuyoi to omotte iru ni mo kakawarazu, sasai na koto de sugu ni iradatte shimaimasu.)",
+      "完璧よりも成長が大切だと信じているとはいえ、失敗への恐れで動けなくなってしまいます。(Kanpeki yori mo seichō ga taisetsu da to shinjite iru to wa ie, shippai e no osore de ugokenaku natte shimaimasu.)"
     ]
   },
 
