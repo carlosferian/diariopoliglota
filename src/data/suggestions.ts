@@ -520,123 +520,147 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
 
   // --- MÓDULO 5: CONECTORES ---
   16: {
+    // Tema: manhã passo a passo (sequência de ações matinais)
+    // L1: sequência — primeiro (First / Prima / Zuerst / まず) — conector fronteado
+    // L2: sequência — depois (Then / Poi / Dann / それから)
+    // L3: consequência (so / quindi / also / 〜だから)
+    // L4: causa explícita (because / perché / weil + verbo no fim / 〜ので)
+    // L5: concessão narrativa + registro nativo
     EN: [
-      "First I woke up, then I ate breakfast.",
-      "First I prepared my things, then I went out to work.",
-      "First I read the instructions, then I started coding the application.",
-      "First I worked out at the gym, then I bought fresh groceries for dinner.",
-      "First we discussed the budget, then we decided on the project timeline."
+      "First, I made myself a strong coffee and sat by the kitchen window.",
+      "Then, I had a quick shower and got dressed before checking my phone.",
+      "I skipped breakfast at home, so I grabbed something at the café near the office.",
+      "I set three alarms because I had an early meeting and really couldn't afford to oversleep.",
+      "Even though I was barely awake, I ended up leaving the house on time and even catching an earlier train."
     ],
     IT: [
-      "Prima mi sono svegliato, poi ho fatto colazione.",
-      "Prima ho preparato le mie cose, poi sono uscito per andare al lavoro.",
-      "Prima ho letto le istruzioni, poi ho iniziato a programmare l'applicazione.",
-      "Prima ho fatto palestra, poi ho comprato le verdure fresche per la cena.",
-      "Prima abbiamo discusso del budget, poi abbiamo definito le date del progetto."
+      "Prima, mi sono fatto un caffè forte e mi sono seduto vicino alla finestra della cucina.",
+      "Poi, ho fatto una doccia veloce e mi sono vestito prima di controllare il telefono.",
+      "Non ho fatto colazione a casa, quindi ho preso qualcosa al bar vicino all'ufficio.",
+      "Ho messo tre sveglie perché avevo una riunione di buon mattino e non potevo permettermi di dormire troppo.",
+      "Anche se ero a malapena sveglio, mica ho fatto tardi — sono uscito in orario e ho pure preso il treno prima."
     ],
     DE: [
-      "Zuerst bin ich aufgewacht, dann habe ich gefrühstückt.",
-      "Zuerst habe ich meine Sachen gepackt, dann bin ich zur Arbeit gegangen.",
-      "Zuerst habe ich die Anleitung gelesen, dann habe ich die App programmiert.",
-      "Zuerst habe ich im Fitnessstudio trainiert, dann habe ich Lebensmittel gekauft.",
-      "Zuerst haben wir das Budget besprochen, dann haben wir den Zeitplan festgelegt."
+      "Zuerst habe ich mir einen starken Kaffee gemacht und mich ans Küchenfenster gesetzt.",
+      "Dann habe ich kurz geduscht und mich angezogen, bevor ich aufs Handy geschaut habe.",
+      "Zu Hause habe ich nichts gegessen, also habe ich mir im Café beim Büro schnell etwas geholt.",
+      "Ich habe drei Wecker gestellt, weil ich ein frühes Meeting hatte und es mir nicht leisten konnte, zu verschlafen.",
+      "Obwohl ich kaum wach war, habe ich's doch pünktlich aus dem Haus geschafft und sogar einen früheren Zug erwischt."
     ],
     JP: [
-      "まず起きて、それから朝ご飯を食べました。(Mazu okite, sorekara asagohan o tabemashita.)",
-      "まず荷物を準備して、それから仕事に出かけました。(Mazu nimotsu o junbi shite, sorekara shigoto ni dekakemashita.)",
-      "まず説明書を読み、それからアプリの開発を始めました。(Mazu setsumeisho o yomi, sorekara apuri no kaihatsu o hajimemashita.)",
-      "まずジムで運動をして、それから晩ご飯の食材を買いに行きました。(Mazu jimu de undou o shite, sorekara bangohan no shokuzai o kai ni ikimashita.)",
-      "まず予算について話し合い、それからプロジェクトの予定を決めました。(Mazu yosan ni tsuite hanashiai, sorekara purojekuto no yotei o kimemashita.)"
+      "まず、濃いコーヒーを入れてキッチンの窓の近くに座りました。(Mazu, koi kōhī o irete kitchin no mado no chikaku ni suwarimashita.)",
+      "それから、さっとシャワーを浴びて着替えてから、スマホを確認しました。(Sorekara, satto shawā o abite kigaete kara, sumaho o kakunin shimashita.)",
+      "家では何も食べなかったから、オフィスの近くのカフェで何か買いました。(Ie de wa nani mo tabenakatta kara, ofisu no chikaku no kafe de nanika kaimashita.)",
+      "早朝に会議があって寝坊できないので、アラームを三つかけました。(Sōchō ni kaigi ga atte nebō dekinai node, arāmu o mittsu kakemashita.)",
+      "ほとんど目が覚めていなかったけれど、時間通りに家を出て、早い電車にまで乗れてしまいました。(Hotondo me ga samete inakatta keredo, jikan dōri ni ie o dete, hayai densha ni made norete shimaimashita.)"
     ]
   },
   17: {
+    // Tema: um pequeno problema que resolvi
+    // L1: sequência — primeiro (First / Prima / Zuerst / まず) — conector fronteado
+    // L2: sequência — depois (Then / Poi / Dann / それから)
+    // L3: consequência (so / quindi / also / 〜だから)
+    // L4: causa explícita (because / perché / weil + verbo no fim / 〜ので)
+    // L5: concessão narrativa + registro nativo
     EN: [
-      "I had a problem, so I solved it.",
-      "I had a computer problem, so I restarted the system.",
-      "I had a difficult coding problem, so I searched for it online.",
-      "I had a misunderstanding with my client, so I called him to talk.",
-      "I had a problem with my database, so I wrote a script to clean the data."
+      "First, I noticed that my bike tyre was completely flat before I left the house.",
+      "Then, I found the puncture kit under the kitchen sink and laid everything out on the floor.",
+      "The patch didn't stick the first time, so I had to clean the surface properly and try again.",
+      "I had to look up a video tutorial because I had never fixed a puncture on my own before.",
+      "Even though it took me the better part of an hour, I ended up fixing it myself and felt pretty pleased about it."
     ],
     IT: [
-      "Ho avuto un problema, così l'ho risolto.",
-      "Ho avuto un problema al computer, così ho riavviato il sistema.",
-      "Ho avuto un problema difficile nel codice, così ho cercato online.",
-      "Ho avuto un malinteso con il cliente, così l'ho chiamato per chiarire.",
-      "Ho avuto un problema con il database, così ho creato uno script di pulizia."
+      "Prima, ho notato che la ruota della bici era completamente a terra prima di uscire.",
+      "Poi, ho trovato il kit per le forature sotto il lavandino e ho steso tutto per terra.",
+      "La toppa non ha attaccato al primo tentativo, quindi ho dovuto pulire bene la superficie e riprovare.",
+      "Ho dovuto guardare un tutorial perché non avevo mai riparato una foratura da solo prima d'ora.",
+      "Anche se ci ho messo quasi un'ora, mica ho chiamato il gommista — l'ho aggiustata da solo e mi sono sentito soddisfatto."
     ],
     DE: [
-      "Ich hatte ein Problem, also habe ich es gelöst.",
-      "Ich hatte ein Computerproblem, also habe ich das System neu gestartet.",
-      "Ich hatte ein schweres Code-Problem, also habe ich online nachgesehen.",
-      "Ich hatte ein Missverständnis mit dem Kunden, also habe ich ihn angerufen.",
-      "Ich hatte ein Problem mit der Datenbank, also habe ich ein Skript geschrieben."
+      "Zuerst habe ich gemerkt, dass mein Fahrradreifen völlig platt war, bevor ich das Haus verlassen habe.",
+      "Dann habe ich das Reifenflicken-Set unter der Spüle gefunden und alles auf dem Boden ausgebreitet.",
+      "Das Flicken hat beim ersten Versuch nicht gehalten, also habe ich die Stelle sauber gemacht und es nochmal versucht.",
+      "Ich musste mir ein Video-Tutorial ansehen, weil ich noch nie vorher alleine einen Reifen geflickt hatte.",
+      "Obwohl es mich fast eine Stunde gekostet hat, habe ich's doch selbst hinbekommen — und war ziemlich stolz darauf."
     ],
     JP: [
-      "問題がありましたが、解決しました。(Mondai ga arimashita ga, kaiketsu shimashita.)",
-      "パソコンの調子が悪かったので、システムを再起動して解決しました。(Pasokon no chōshi ga warukatta node, shisutemu o saikidō shite kaiketsu shimashita.)",
-      "プロgraミング no muzukashii bagu ni chokumen shi, netto de shirabete kaiketsu shimashita。(Puroguramingu no muzukashii bagu ni chokumen shi, netto de shirabete kaiketsu shimashita.)",
-      "クライアントとの間に誤解があったため、電話をして問題をクリアにしました。(Kurabianto to no ida ni gokai ga atta tame, denwa o shite mondai o kuria ni shimashita.)",
-      "データベースの容量不足が発生したため、古いデータを自動削除する処理を追加しました。(Dētabēsu no yōryōbusoku ga hassei shita tame, furui dēta o jidou sakujo suru shori o tsuika shimashita.)"
+      "まず、家を出る前に自転車のタイヤが完全にパンクしているのに気づきました。(Mazu, ie o deru mae ni jitensha no taiya ga kanzen ni panku shite iru no ni kidzukimashita.)",
+      "それから、台所の流し台の下からパンク修理キットを見つけて、床に広げました。(Sorekara, daidokoro no nagashidai no shita kara panku shūri kitto o mitsukete, yuka ni hirogemashita.)",
+      "最初はパッチがうまく貼れなかったから、表面をきれいに拭いてもう一度試しました。(Saisho wa patchi ga umaku harenakata kara, hyōmen o kirei ni fuite mō ichido tameshimashita.)",
+      "一度も自分でパンク修理をしたことがなかったので、動画のチュートリアルを調べなければなりませんでした。(Ichido mo jibun de panku shūri o shita koto ga nakatta node, dōga no chūtoriaru o shirabenakereba narimasen deshita.)",
+      "一時間近くかかってしまったけれど、自分で直せてしまいましたし、かなり達成感がありました。(Ichijikan chikaku kakatte shimatta keredo, jibun de naosete shimaimashita shi, kanari tasseikan ga arimashita.)"
     ]
   },
   18: {
+    // Tema: por que fiz algo recentemente (decisão explicada)
+    // L1: sequência — primeiro (First / Prima / Zuerst / まず) — conector fronteado
+    // L2: sequência — depois (Then / Poi / Dann / それから)
+    // L3: consequência (so / quindi / also / 〜だから)
+    // L4: causa explícita (because / perché / weil + verbo no fim / 〜ので)
+    // L5: concessão narrativa + registro nativo
     EN: [
-      "I did it because I was tired.",
-      "I went to bed early because I felt exhausted.",
-      "I started learning Japanese because I want to visit Japan.",
-      "I decided to buy a tablet because it is easier to draw.",
-      "I refactored the application code because we needed better database performance."
+      "First, I looked up several language courses online and made a shortlist of three.",
+      "Then, I signed up for a free trial to see which one actually suited the way I learn.",
+      "The first course felt too passive, so I switched to one with more speaking practice.",
+      "I chose to study in the evenings because my mornings are already too full to concentrate properly.",
+      "Even though I was sceptical about learning with an app at first, I ended up sticking with it and making real progress."
     ],
     IT: [
-      "L'ho fatto perché ero stanco.",
-      "Sono andato a dormire presto perché ero esausto.",
-      "Ho iniziato a studiare il giapponese perché voglio visitare Tokyo.",
-      "Ho deciso di comprare un tablet perché è più comodo per disegnare.",
-      "Ho rifatto il codice dell'applicazione perché servivano prestazioni migliori."
+      "Prima, ho cercato vari corsi di lingua online e ho fatto una lista dei migliori tre.",
+      "Poi, mi sono iscritto a una prova gratuita per vedere quale si adattava al mio modo di imparare.",
+      "Il primo corso mi sembrava troppo passivo, quindi sono passato a uno con più pratica orale.",
+      "Ho scelto di studiare la sera perché al mattino sono già troppo impegnato per concentrarmi bene.",
+      "Anche se all'inizio ero scettico sull'imparare con un'app, alla fine ci ho preso gusto e ho fatto progressi veri."
     ],
     DE: [
-      "Ich habe es gemacht, weil ich müde war.",
-      "Ich bin früh ins Bett gegangen, weil ich erschöpft war.",
-      "Ich lerne Japanisch, weil ich nach Japan reisen möchte.",
-      "Ich habe beschlossen, ein Tablet zu kaufen, weil es einfacher zum Zeichnen ist.",
-      "Ich habe den Code refaktoriert, weil wir eine bessere Datenbankleistung brauchten."
+      "Zuerst habe ich mehrere Sprachkurse online nachgeschaut und eine Auswahl von drei gemacht.",
+      "Dann habe ich mich für eine kostenlose Testversion angemeldet, um zu sehen, welche zu mir passt.",
+      "Der erste Kurs war mir zu passiv, also habe ich zu einem mit mehr Sprechübungen gewechselt.",
+      "Ich habe mich entschieden, abends zu lernen, weil meine Morgen schon zu voll sind, um mich richtig zu konzentrieren.",
+      "Obwohl ich anfangs skeptisch war, mit einer App zu lernen, habe ich's doch dabei gelassen — und echte Fortschritte gemacht."
     ],
     JP: [
-      "疲れていたから、そうしました。(Tsukarete ita kara, sō shimashita.)",
-      "とても疲れていたので、早く寝ることにしました。(Totemo tsukarete ita node, hayaku neru koto ni shimashita.)",
-      "日本を旅行したいから、日本語の勉強を始めました。(Nihon o ryokō shitai kara, Nihongo no benkyō o hajimemashita.)",
-      "絵を描くのがより簡単になるため、タブレットを購入することにしました。(E o kaku no ga yori kantan ni naru tame, taburetto o kōnyū suru koto ni shimasu.)",
-      "データベースの処理速度を向上させる必要があったため、コードを書き直しました。(Dētabēsu no shorikokudo o kōjō saseru hitsuyō ga atta tame, kōdo o kakinaoshimagita.)"
+      "まず、いくつかの語学コースをネットで調べて、三つに絞りました。(Mazu, ikutsuka no gogakukōsu o netto de shirabete, mittsu ni shiborimashita.)",
+      "それから、自分の学習スタイルに合うかどうか確かめるために、無料トライアルに申し込みました。(Sorekara, jibun no gakushū sutairu ni au ka dō ka tashikameru tame ni, muryō toraiaru ni mōshikomimashita.)",
+      "最初のコースは受け身すぎると感じたから、スピーキングの練習が多いものに替えました。(Saisho no kōsu wa ukemi sugiru to kanjita kara, supīkingu no renshū ga ōi mono ni kaemashita.)",
+      "朝はすでにやることが多くて集中できないので、夜に勉強することにしました。(Asa wa sude ni yaru koto ga ōkute shūchū dekinai node, yoru ni benkyō suru koto ni shimashita.)",
+      "最初はアプリで学ぶことに半信半疑でしたけれど、続けてしまったら本当に上達してしまいました。(Saisho wa apuri de manabu koto ni hanshinhangi deshita keredo, tsuzukete shimattara hontō ni jōtatsu shite shimaimashita.)"
     ]
   },
   19: {
+    // Tema: uma história curta que vivi (narrativa pessoal)
+    // L1: sequência — primeiro (First / Prima / Zuerst / まず) — conector fronteado
+    // L2: sequência — depois (Then / Poi / Dann / それから)
+    // L3: consequência (so / quindi / also / 〜だから)
+    // L4: causa explícita (because / perché / weil + verbo no fim / 〜ので)
+    // L5: concessão narrativa + registro nativo
     EN: [
-      "It all started when I was young.",
-      "It all started when I moved to a new apartment.",
-      "It all started when I met my college roommate at a cafe.",
-      "It all started when I downloaded a language learning app out of curiosity.",
-      "It all started when we lost the main database key and had to recover everything."
+      "First, I got on the wrong bus and ended up in a neighbourhood I had never been to before.",
+      "Then, I wandered around for a while and stumbled upon a tiny street market I never would have found otherwise.",
+      "I only had twenty minutes before the next bus, so I bought a couple of things and took a few photos.",
+      "I stayed longer than planned because the woman at the cheese stall told me the whole story of her family farm.",
+      "Even though it started as a mistake, I ended up having one of the best afternoons I've had in a long time."
     ],
     IT: [
-      "Tutto è cominciato quando ero giovane.",
-      "Tutto è cominciato quando mi sono trasferito nel nuovo appartamento.",
-      "Tutto è cominciato quando ho incontrato il mio compagno di stanza.",
-      "Tutto è cominciato quando ho scaricato un'app di lingue per curiosità.",
-      "Tutto è cominciato quando abbiamo perso la chiave del database."
+      "Prima, sono salito sull'autobus sbagliato e mi sono ritrovato in un quartiere che non conoscevo.",
+      "Poi, ho girovagato un po' e ho scoperto per caso un piccolo mercatino di strada che non avrei mai trovato altrimenti.",
+      "Avevo solo venti minuti prima del prossimo autobus, quindi ho comprato un paio di cose e ho scattato qualche foto.",
+      "Sono rimasto più a lungo del previsto perché la signora al banco dei formaggi mi ha raccontato tutta la storia della sua fattoria di famiglia.",
+      "Anche se era partito tutto da un errore, alla fine ho trascorso uno dei pomeriggi più belli degli ultimi tempi."
     ],
     DE: [
-      "Alles begann, als ich jung war.",
-      "Alles begann, als ich in eine neue Wohnung gezogen bin.",
-      "Alles begann, als ich meinen Mitbewohner in einem Café traf.",
-      "Alles begann, als ich aus Neugier eine Sprachlern-App heruntergeladen habe.",
-      "Alles begann, als wir den Hauptschlüssel der Datenbank verloren haben."
+      "Zuerst habe ich den falschen Bus genommen und bin in einem Viertel gelandet, das ich noch nie gesehen hatte.",
+      "Dann bin ich eine Weile umhergeirrt und habe zufällig einen kleinen Straßenmarkt entdeckt, den ich sonst nie gefunden hätte.",
+      "Ich hatte nur zwanzig Minuten bis zum nächsten Bus, also habe ich ein paar Sachen gekauft und Fotos gemacht.",
+      "Ich bin länger geblieben als geplant, weil mir die Frau am Käsestand die ganze Geschichte ihres Familienhofs erzählt hatte.",
+      "Obwohl alles mit einem Fehler angefangen hatte, habe ich's doch zu einem der schönsten Nachmittage seit Langem gemacht."
     ],
     JP: [
-      "ある日、それが始まりました。(Aru hi, sore ga hajimarimashita.)",
-      "新しいアパートに引っ越したとき、すべてが始まりました。(Atarashii apāto ni hikkoshita toki, subete ga hajimarimashita.)",
-      "大学の同級生とカフェで偶然会ったときから、この物語が始まりました。(Daigaku no dōkyūsei to kafe de gūzen atta toki kara, kono monogatari ga hajimarimashita.)",
-      "好奇心で外国語学習アプリをダウンロードしたとき、すべての物語が始まりました。(Kōkishin de gaikokugo gakushū apuri o daunrōdo shita toki, subete no monogatari ga hajimarimashita.)",
-      "メインサーバーのデータが突然消え、手動で復旧せねばならなくなった日からすべてが始まりました。(Mein sābā no dēta ga totsuzen kie, shudou de fukkyū seneba naranaku natta hi kara subete ga hajimarimashita.)"
+      "まず、間違ったバスに乗ってしまい、見知らぬ住宅街に着いてしまいました。(Mazu, machigatta basu ni notte shimai, mishiranu jūtakugai ni tsuite shimaimashita.)",
+      "それから、しばらくうろうろしていたら、偶然小さな路上マーケットを見つけました。(Sorekara, shibaraku urouro shite itara, gūzen chiisana rojō māketto o mitsukemashita.)",
+      "次のバスまで二十分しかなかったから、いくつか買い物をして写真を撮りました。(Tsugi no basu made nijuppun shika nakatta kara, ikutsuka kaimono o shite shashin o torimashita.)",
+      "チーズのお店のおばさんが家族の農場の話を全部してくれたので、予定より長く居てしまいました。(Chīzu no omise no obasan ga kazoku no nōjō no hanashi o zenbu shite kureta node, yotei yori nagaku ite shimaimashita.)",
+      "最初は間違いから始まったのですけれど、結局ここ最近で一番楽しい午後になってしまいました。(Saisho wa machigai kara hajimatta no desu keredo, kekkyoku koko saikin de ichiban tanoshii gogo ni natte shimaimashita.)"
     ]
   },
 
