@@ -1502,123 +1502,131 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     ]
   },
 
-  // --- MÓDULO 12: REFLEXÕES ---
+  // --- MÓDULO 12: REFLEXÃO ANUAL ---
   44: {
+    // Tema: o que aprendi sobre mim mesmo este ano
+    // L1: reflexão simples | L2: reflexão com adjunto temporal | L3: reflexão comparativa
+    // L4: reflexão aspiracional | L5: reflexão profunda + registro nativo
     EN: [
-      "This year was good. I learned that consistency works.",
-      "This year was full of challenges. I learned that patience is key.",
-      "This year was very positive because I developed my programming skills.",
-      "This year was amazing, although we had to work hard to achieve our goals.",
-      "This year taught me that studying a little bit every day leads to great progress."
+      "I realized that I need more time alone to recharge.",
+      "Looking back, I learned that I am more resilient than I thought.",
+      "I am more patient than I used to be, but I still struggle with uncertainty.",
+      "I hope that next year I will understand myself even better and act on what I value.",
+      "The older I get, the more I realize how little I truly know about my own patterns."
     ],
     IT: [
-      "Quest'anno è stato bello. Ho imparato che la costanza ripaga.",
-      "Quest'anno è stato pieno di sfide. Ho imparato ad avere pazienza.",
-      "Quest'anno è stato positivo perché ho migliorato la programmazione.",
-      "Quest'anno è stato fantastico, anche se abbiamo lavorato duramente.",
-      "Quest'anno mi ha insegnato che studiare poco ogni giorno fa fare grandi progressi."
+      "Ho capito che ho bisogno di più tempo per me stesso.",
+      "Guardando indietro, ho imparato che sono più forte di quanto credessi.",
+      "Sono più paziente di quanto non fossi, anche se faccio ancora fatica con l'incertezza.",
+      "Spero che il prossimo anno riesca a capirmi ancora meglio e ad agire secondo i miei valori.",
+      "Man mano che il tempo passa, mi rendo conto di quanto poco conosca davvero me stesso."
     ],
     DE: [
-      "Dieses Jahr war gut. Ich habe gelernt, dass Beständigkeit wichtig ist.",
-      "Dieses Jahr war voller Herausforderungen. Ich habe gelernt, geduldig zu sein.",
-      "Dieses Jahr war sehr positiv, da ich meine Programmierkenntnisse verbessert habe.",
-      "Dieses Jahr war fantastisch, obwohl wir hart arbeiten mussten.",
-      "Dieses Jahr hat mich gelehrt, dass täglich kleine Schritte zu großem Erfolg führen."
+      "Ich habe festgestellt, dass ich mehr Zeit für mich allein brauche.",
+      "Rückblickend habe ich gelernt, dass ich belastbarer bin, als ich dachte.",
+      "Ich bin geduldiger als früher, obwohl ich mit Unsicherheit immer noch zu kämpfen habe.",
+      "Ich hoffe, dass ich nächstes Jahr mich selbst noch besser verstehen möge.",
+      "Je älter ich werde, desto mehr merke ich, wie wenig ich über meine eigenen Muster weiß."
     ],
     JP: [
-      "今年は良い年でした。継続は力なりだと学びました。(Kotoshi wa yoi toshi deshita. Keizoku wa chikara nari da to manabimashita.)",
-      "今年は多くの挑戦がありました。忍耐強さがいかに重要かを学びました。(Kotoshi wa ōku no chōsen ga arimashita. Nintaizuyosa ga ika ni jūyou ka o manabimashita.)",
-      "今年はプログラミングスキルを大きく向上させることができたので、とても有意義でした。(Kotoshi wa purogramingu sukiru o ōkiku kōjō saseru koto ga dekita node, totemo yūigi deshita.)",
-      "今年は目標を達成するために非常に忙しかったですが、素晴らしい一年でした。(Kotoshi wa mokuhyō o tassei suru tame ni hijou ni isogashikatta desu ga, subarashii ichinen deshita.)",
-      "毎日少しずつでもコツコツと勉強を積み重ねることが、大きな成果に繋がると実感しました。(Mainichi sukoshizutsu demo kotsukotsu to benkyō o tsumikasaneru koto ga, ōkina seika ni tsunagaru to jikkan shimashita.)"
+      "自分には一人の時間がもっと必要だということに気づきました。(Jibun ni wa hitori no jikan ga motto hitsuyō da to iu koto ni ki-dzukimashita.)",
+      "振り返ってみると、自分が思っていたよりずっと強いということを学びました。(Furikaette miru to, jibun ga omotte ita yori zutto tsuyoi to iu koto o manabimashita.)",
+      "以前より辛抱強くなりましたが、不確かさにはまだ苦労しています。(Izen yori shinbōzuyoku narimashita ga, futashikasa ni wa mada kurō shite imasu.)",
+      "来年は自分自身をさらによく理解して、大切にしていることを行動に移したいと思っています。(Rainen wa jibun jishin o sara ni yoku rikai shite, taisetsu ni shite iru koto o kōdō ni utsushitai to omotte imasu.)",
+      "年を重ねれば重ねるほど、自分自身のことをいかに知らないかということがわかってきます。(Toshi o kasanereba kasaneru hodo, jibun jishin no koto o ika ni shiranai ka to iu koto ga wakatte kimasu.)"
     ]
   },
   45: {
+    // Tema: como minhas relações mudaram
     EN: [
-      "I'm proud that I studied languages.",
-      "I'm proud that I wrote in this hand-drawn diary.",
-      "I'm proud that I completed the full programming course this year.",
-      "I'm proud that I established a healthy daily exercise routine.",
-      "I'm proud that I stayed disciplined and did not quit when things were hard."
+      "I realized that some friendships need more care and attention.",
+      "Looking back, I noticed that I became closer to the people who truly matter.",
+      "I am more open than I used to be when it comes to asking for help.",
+      "I hope that next year I will invest more time in the relationships I care about.",
+      "The older I get, the more I appreciate the few deep connections I have built over the years."
     ],
     IT: [
-      "Sono fiero di aver studiato le lingue.",
-      "Sono fiero di aver scritto su questo diario a mano.",
-      "Sono fiero di aver completato il corso di programmazione quest'anno.",
-      "Sono fiero di aver creato una routine sana di allenamento quotidiano.",
-      "Sono fiero di essere rimasto disciplinato senza arrendermi nei momenti difficili."
+      "Ho capito che alcune amicizie hanno bisogno di più cura e attenzione.",
+      "Guardando indietro, ho notato che mi sono avvicinato alle persone che contano davvero.",
+      "Sono più aperto di quanto non fossi quando si tratta di chiedere aiuto.",
+      "Spero che il prossimo anno possa dedicare più tempo alle relazioni a cui tengo.",
+      "Man mano che gli anni passano, mi rendo conto di quanto siano preziosi i legami profondi che ho costruito."
     ],
     DE: [
-      "Ich bin stolz, dass ich Sprachen gelernt habe.",
-      "Ich bin stolz, dass ich in dieses handgeschriebene Tagebuch geschrieben habe.",
-      "Ich bin stolz, dass ich den Programmierkurs dieses Jahr abgeschlossen habe.",
-      "Ich bin stolz, dass ich eine gesunde tägliche Sportroutine aufgebaut habe.",
-      "Ich bin stolz, dass ich diszipliniert geblieben bin und nicht aufgegeben habe."
+      "Ich habe festgestellt, dass manche Freundschaften mehr Pflege und Aufmerksamkeit brauchen.",
+      "Rückblickend habe ich bemerkt, dass ich den Menschen, die wirklich wichtig sind, nähergekommen bin.",
+      "Ich bin offener als früher, wenn es darum geht, um Hilfe zu bitten.",
+      "Ich hoffe, dass ich nächstes Jahr mehr Zeit in die Beziehungen investieren möge, die mir wichtig sind.",
+      "Je älter ich werde, desto mehr schätze ich die wenigen tiefen Verbindungen, die ich aufgebaut habe."
     ],
     JP: [
-      "外国語の勉強を継続できたことを誇りに思います。(Gaikokugo no benkyō o keizoku dekita koto o hokori ni omoimasu.)",
-      "この手書きの日記を毎日書き続けることができた自分を誇らしく思います。(Kono tegaki no nikki o mainichi kakitsuzukeru koto ga dekita jibun o hororashiku omoimasu.)",
-      "今年、プログラミング開発の全カリキュラムを修了できたことを誇りに思います。(Kotoshi, purogramingu kaihatsu no zen karikyuramu o shūryou dekita koto o hokori ni omoimasu.)",
-      "健康的な毎日の運動習慣をしっかりと定着させられたことに満足しています。(Kenkōteki na mainichi no undou shūkan o shikari to teichaku saserareta koto ni manzoku shite imasu.)",
-      "どんなに困難な状況下でも、途中で投げ出asazu kiritsu o mamorinuta jibun o hokori ni omoimasu。(Donna ni konnan na jōkyōka demo, tochū de nagedasazu kiritsu o mamorinuta jibun o hokori ni omoimasu.)"
+      "いくつかの友情にはもっと気遣いが必要だということに気づきました。(Ikutsu ka no yūjō ni wa motto kidzukai ga hitsuyō da to iu koto ni ki-dzukimashita.)",
+      "振り返ってみると、本当に大切な人たちとより近くなれたことに気がつきました。(Furikaette miru to, hontō ni taisetsu na hitotachi to yori chikaku nareta koto ni ki ga tsukimashita.)",
+      "以前より、助けを求めることに対してオープンになりました。(Izen yori, tasuke o motomeru koto ni taishite ōpun ni narimashita.)",
+      "来年は大切にしている関係にもっと時間を注ぎたいと思っています。(Rainen wa taisetsu ni shite iru kankei ni motto jikan o sosogiitai to omotte imasu.)",
+      "年を重ねれば重ねるほど、長年かけて築いてきた深いつながりがいかに貴重かということがわかってきます。(Toshi o kasanereba kasaneru hodo, naganen kakete kizuite kita fukai tsunagari ga ika ni kichō ka to iu koto ga wakatte kimasu.)"
     ]
   },
   46: {
+    // Tema: meu crescimento no idioma
     EN: [
-      "Next year I hope to travel more.",
-      "Next year I hope to speak Italian and German fluently.",
-      "Next year I hope to build my own personal web application.",
-      "Next year I hope to read at least twenty books and learn new skills.",
-      "Next year I hope to keep drawing every day and improve my health further."
+      "I realized that my vocabulary has grown a lot this year.",
+      "Looking back, I noticed that I can now express ideas I could not before.",
+      "I am more comfortable speaking than I used to be, even when I make mistakes.",
+      "I hope that next year I will reach a level where conversations feel truly natural.",
+      "The older my study habit gets, the more I notice how language shapes the way I think."
     ],
     IT: [
-      "L'anno prossimo spero di viaggiare di più.",
-      "L'anno prossimo spero di parlare l'italiano e il tedesco correntemente.",
-      "L'anno prossimo spero di creare la mia applicazione web personale.",
-      "L'anno prossimo spero di leggere almeno venti libri e imparare cose nuove.",
-      "L'anno prossimo spero di continuare a disegnare ogni giorno e stare bene."
+      "Ho capito che il mio vocabolario è cresciuto moltissimo quest'anno.",
+      "Guardando indietro, ho notato che ora riesco ad esprimere idee che prima non sapevo dire.",
+      "Sono più a mio agio nel parlare di quanto non fossi, anche quando sbaglio.",
+      "Spero che il prossimo anno raggiunga un livello in cui le conversazioni sembrino davvero naturali.",
+      "Man mano che coltivo questa abitudine di studio, mi rendo conto di quanto la lingua plasmi il mio modo di pensare."
     ],
     DE: [
-      "Nächstes Jahr hoffe ich, mehr zu reisen.",
-      "Nächstes Jahr hoffe ich, fließend Italienisch und Deutsch zu sprechen.",
-      "Nächstes Jahr hoffe ich, meine eigene Webanwendung zu entwickeln.",
-      "Nächstes Jahr hoffe ich, mindestens zwanzig Bücher zu lesen und Neues zu lernen.",
-      "Nächstes Jahr hoffe ich, jeden Tag zu zeichnen und gesünder zu leben."
+      "Ich habe festgestellt, dass mein Wortschatz in diesem Jahr sehr gewachsen ist.",
+      "Rückblickend habe ich bemerkt, dass ich jetzt Ideen ausdrücken kann, die mir früher fehlten.",
+      "Ich bin selbstsicherer beim Sprechen als früher, auch wenn ich Fehler mache.",
+      "Ich hoffe, dass ich nächstes Jahr ein Niveau erreichen möge, auf dem sich Gespräche wirklich natürlich anfühlen.",
+      "Je länger ich diese Lerngewohnheit pflege, desto mehr merke ich, wie die Sprache mein Denken verändert."
     ],
     JP: [
-      "来年はもっとたくさん旅行に行きたいです。(Rainen wa motto takasan ryokō ni ikitai desu.)",
-      "来年はイタリア語とドイツ語を流暢に話せるようになることを願っています。(Rainen wa Itariago to Doitsugo o ryūchō ni hanaseru yō ni naru koto o negatte imasu.)",
-      "来年は自分のアイdeia o katachi ni shita, orijinaru no webuapuri o koukai shitai desu。(来年は自分のアイデアを形にした、オリジナルのウェブアプリを公開したいです。)"
+      "今年は語彙がとても増えたということに気づきました。(Kotoshi wa goi ga totemo fueta to iu koto ni ki-dzukimashita.)",
+      "振り返ってみると、以前は言えなかったことを今では表現できるようになっていました。(Furikaette miru to, izen wa ienakatta koto o ima de wa hyōgen dekiru yō ni natte imashita.)",
+      "以前よりも話すことに自信が持てるようになりました。間違えても気にならなくなってきました。(Izen yori mo hanasu koto ni jishin ga moteru yō ni narimashita. Machigaete mo ki ni naranaku natte kimashita.)",
+      "来年は会話が本当に自然に感じられるレベルに達したいと思っています。(Rainen wa kaiwa ga hontō ni shizen ni kanji rareru reberu ni tashitai to omotte imasu.)",
+      "学習習慣を続ければ続けるほど、言語が自分の思考をいかに形作っているかということがわかってきます。(Gakushū shūkan o tsuzukereba tsuzukeru hodo, gengo ga jibun no shikō o ika ni katachizukutte iru ka to iu koto ga wakatte kimasu.)"
     ]
   },
   47: {
+    // Tema: o que quero levar para o próximo ano
     EN: [
-      "Dear me, I hope you achieved your goals.",
-      "Dear me, I hope you traveled to the places you wanted.",
-      "Dear me, I hope you kept writing in this diary and drawing every day.",
-      "Dear me, I hope you are speaking languages fluently and coding every day.",
-      "Dear me, I hope you stayed healthy, happy, and never stopped learning new things."
+      "I realized that the habits I built this year are worth keeping.",
+      "Looking back, I want to carry forward the curiosity that kept me going.",
+      "I am more intentional than I used to be about how I spend my time.",
+      "I hope that next year I will hold on to this sense of growth and keep building on it.",
+      "The older I get, the more I understand that small, consistent efforts matter more than grand gestures."
     ],
     IT: [
-      "Caro me, spero che tu abbia raggiunto i tuoi obiettivi.",
-      "Caro me, spero che tu abbia viaggiato nei posti che desideravi.",
-      "Caro me, spero che tu abbia continuato a scrivere su questo diario.",
-      "Caro me, spero che tu parli le lingue fluentemente e programmi ogni giorno.",
-      "Caro me, spero che tu sia in salute, felice e non abbia mai smesso di imparare."
+      "Ho capito che le abitudini che ho costruito quest'anno vale la pena mantenere.",
+      "Guardando indietro, voglio portare con me la curiosità che mi ha tenuto in movimento.",
+      "Sono più intenzionale di quanto non fossi riguardo a come impiego il mio tempo.",
+      "Spero che il prossimo anno riesca a tenere vivo questo senso di crescita e a continuare a costruire su di esso.",
+      "Man mano che gli anni passano, mi rendo conto che i piccoli sforzi costanti contano più dei grandi gesti."
     ],
     DE: [
-      "Liebes Ich, ich hoffe, du hast deine Ziele erreicht.",
-      "Liebes Ich, ich hoffe, du bist an die Orte gereist, die du woltest.",
-      "Liebes Ich, ich hoffe, du hast weiter in dieses Tagebuch geschrieben.",
-      "Liebes Ich, ich hoffe, du sprichst Sprachen fließend und programmierst täglich.",
-      "Liebes Ich, ich hoffe, du bist gesund, glücklich und lernst immer noch Neues."
+      "Ich habe festgestellt, dass die Gewohnheiten, die ich dieses Jahr aufgebaut habe, es wert sind, beizubehalten.",
+      "Rückblickend möchte ich die Neugier mitnehmen, die mich am Laufen gehalten hat.",
+      "Ich bin bewusster als früher, wenn es darum geht, wie ich meine Zeit einsetze.",
+      "Ich hoffe, dass ich nächstes Jahr dieses Gefühl des Wachstums bewahren und weiter daran aufbauen möge.",
+      "Je älter ich werde, desto mehr verstehe ich, dass kleine, beständige Bemühungen mehr bewirken als große Gesten."
     ],
     JP: [
-      "未来のわたしへ、すべての目標を達成できているといいですね。(Mirai no watashi e, subete no mokuhyō o tassei dekite iru to ii desu ne.)",
-      "未来のわたしへ、自分が行きたかった美しい国々へ旅できていることを願います。(Mirai no watashi e, jibun ga ikitakatta utsukushii kuniguni e tabi dekite iru koto o negaimasu.)",
-      "未来のわたしへ、毎日この日記帳に手書きで絵や文字を書き続けていますか。(Mirai no watashi e, mainichi kono nikkichō ni tegaki de e ya moji o kakitsuzukete imasu ka.)",
-      "未来のわたしへ、外国語を流暢に話し、毎日ワクワクしながら開発を行っていますか。(Mirai no watashi e, gaikokugo o ryūchō ni hanashi, mainichi wakuwaku shinagara kaihatsu o okonavte imasu ka.)",
-      "未来のわたしへ、健康で充実した毎日を送り、新しい挑戦をずっと楽しんでいると信じています。(Mirai no watashi e, kenkō de jūjitsu shita mainichi o okuri, atarashii chōsen o zutto tanoshinde iru to shinjite imasu.)"
+      "今年築いた習慣は続ける価値があるということに気づきました。(Kotoshi kizuita shūkan wa tsuzukeru kachi ga aru to iu koto ni ki-dzukimashita.)",
+      "振り返ってみると、自分を前進させてくれた好奇心を来年も持ち続けたいと思います。(Furikaette miru to, jibun o zenshin sasete kureta kōkishin o rainen mo mochitsuzuketai to omoimasu.)",
+      "以前より、自分の時間の使い方に対して意識的になりました。(Izen yori, jibun no jikan no tsukaikata ni taishite ishikiteki ni narimashita.)",
+      "来年はこの成長の感覚を持ち続けて、さらに積み上げていきたいと思っています。(Rainen wa kono seichō no kankaku o mochitsuzukete, sara ni tsumiagate ikitai to omotte imasu.)",
+      "年を重ねれば重ねるほど、小さくて継続的な努力が大きな身振りよりもずっと大切だということがわかってきます。(Toshi o kasanereba kasaneru hodo, chiisakute keizokuteki na doryoku ga ōkina miburishigusa yori mo zutto taisetsu da to iu koto ga wakatte kimasu.)"
     ]
   }
 };
