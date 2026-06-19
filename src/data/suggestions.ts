@@ -1529,7 +1529,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Je älter ich werde, desto mehr merke ich, wie wenig ich über meine eigenen Muster weiß."
     ],
     JP: [
-      "自分には一人の時間がもっと必要だということに気づきました。(Jibun ni wa hitori no jikan ga motto hitsuyō da to iu koto ni ki-dzukimashita.)",
+      "自分には一人の時間がもっと必要だということに気づきました。(Jibun ni wa hitori no jikan ga motto hitsuyō da to iu koto ni kizukimashita.)",
       "振り返ってみると、自分が思っていたよりずっと強いということを学びました。(Furikaette miru to, jibun ga omotte ita yori zutto tsuyoi to iu koto o manabimashita.)",
       "以前より辛抱強くなりましたが、不確かさにはまだ苦労しています。(Izen yori shinbōzuyoku narimashita ga, futashikasa ni wa mada kurō shite imasu.)",
       "来年は自分自身をさらによく理解して、大切にしていることを行動に移したいと思っています。(Rainen wa jibun jishin o sara ni yoku rikai shite, taisetsu ni shite iru koto o kōdō ni utsushitai to omotte imasu.)",
@@ -1560,10 +1560,10 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Je älter ich werde, desto mehr schätze ich die wenigen tiefen Verbindungen, die ich aufgebaut habe."
     ],
     JP: [
-      "いくつかの友情にはもっと気遣いが必要だということに気づきました。(Ikutsu ka no yūjō ni wa motto kidzukai ga hitsuyō da to iu koto ni ki-dzukimashita.)",
+      "いくつかの友情にはもっと気遣いが必要だということに気づきました。(Ikutsu ka no yūjō ni wa motto kidzukai ga hitsuyō da to iu koto ni kizukimashita.)",
       "振り返ってみると、本当に大切な人たちとより近くなれたことに気がつきました。(Furikaette miru to, hontō ni taisetsu na hitotachi to yori chikaku nareta koto ni ki ga tsukimashita.)",
       "以前より、助けを求めることに対してオープンになりました。(Izen yori, tasuke o motomeru koto ni taishite ōpun ni narimashita.)",
-      "来年は大切にしている関係にもっと時間を注ぎたいと思っています。(Rainen wa taisetsu ni shite iru kankei ni motto jikan o sosogiitai to omotte imasu.)",
+      "来年は大切にしている関係にもっと時間を注ぎたいと思っています。(Rainen wa taisetsu ni shite iru kankei ni motto jikan o sosogitai to omotte imasu.)",
       "年を重ねれば重ねるほど、長年かけて築いてきた深いつながりがいかに貴重かということがわかってきます。(Toshi o kasanereba kasaneru hodo, naganen kakete kizuite kita fukai tsunagari ga ika ni kichō ka to iu koto ga wakatte kimasu.)"
     ]
   },
@@ -1591,7 +1591,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Je länger ich diese Lerngewohnheit pflege, desto mehr merke ich, wie die Sprache mein Denken verändert."
     ],
     JP: [
-      "今年は語彙がとても増えたということに気づきました。(Kotoshi wa goi ga totemo fueta to iu koto ni ki-dzukimashita.)",
+      "今年は語彙がとても増えたということに気づきました。(Kotoshi wa goi ga totemo fueta to iu koto ni kizukimashita.)",
       "振り返ってみると、以前は言えなかったことを今では表現できるようになっていました。(Furikaette miru to, izen wa ienakatta koto o ima de wa hyōgen dekiru yō ni natte imashita.)",
       "以前よりも話すことに自信が持てるようになりました。間違えても気にならなくなってきました。(Izen yori mo hanasu koto ni jishin ga moteru yō ni narimashita. Machigaete mo ki ni naranaku natte kimashita.)",
       "来年は会話が本当に自然に感じられるレベルに達したいと思っています。(Rainen wa kaiwa ga hontō ni shizen ni kanji rareru reberu ni tashitai to omotte imasu.)",
@@ -1622,7 +1622,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Je älter ich werde, desto mehr verstehe ich, dass kleine, beständige Bemühungen mehr bewirken als große Gesten."
     ],
     JP: [
-      "今年築いた習慣は続ける価値があるということに気づきました。(Kotoshi kizuita shūkan wa tsuzukeru kachi ga aru to iu koto ni ki-dzukimashita.)",
+      "今年築いた習慣は続ける価値があるということに気づきました。(Kotoshi kizuita shūkan wa tsuzukeru kachi ga aru to iu koto ni kizukimashita.)",
       "振り返ってみると、自分を前進させてくれた好奇心を来年も持ち続けたいと思います。(Furikaette miru to, jibun o zenshin sasete kureta kōkishin o rainen mo mochitsuzuketai to omoimasu.)",
       "以前より、自分の時間の使い方に対して意識的になりました。(Izen yori, jibun no jikan no tsukaikata ni taishite ishikiteki ni narimashita.)",
       "来年はこの成長の感覚を持ち続けて、さらに積み上げていきたいと思っています。(Rainen wa kono seichō no kankaku o mochitsuzukete, sara ni tsumiagate ikitai to omotte imasu.)",
