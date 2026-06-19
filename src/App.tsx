@@ -101,6 +101,29 @@ export function App() {
     }
   }, [gdriveClientId]);
 
+  // Screen Wake Lock — mantém a tela acesa enquanto o app está em uso
+  useEffect(() => {
+    let sentinel: WakeLockSentinel | null = null;
+
+    const acquire = async () => {
+      if ('wakeLock' in navigator && document.visibilityState === 'visible') {
+        try {
+          sentinel = await navigator.wakeLock.request('screen');
+        } catch {
+          // API indisponível ou permissão negada — degradação silenciosa
+        }
+      }
+    };
+
+    acquire();
+    document.addEventListener('visibilitychange', acquire);
+
+    return () => {
+      document.removeEventListener('visibilitychange', acquire);
+      sentinel?.release();
+    };
+  }, []);
+
   // Salva Lembretes
   useEffect(() => {
     localStorage.setItem('diary_reminderTime', reminderTime);
