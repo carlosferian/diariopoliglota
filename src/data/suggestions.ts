@@ -238,14 +238,14 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "Ich mag lauten Lärm nicht.",
       "Ich mag es nicht, stundenlang im Stau zu stehen.",
       "Ich kann den Baulärm früh am Morgen überhaupt nicht ausstehen.",
-      "Im Stau zu sitzen nervt mich mehr als in jeder anderen Warteschlange.",
+      "Ich stehe lieber in einer Schlange als im Stau.",
       "Nichts nervt mich mehr als ein Autoalarm, der um zwei Uhr nachts losgeht."
     ],
     JP: [
       "騒音が嫌いです。(Sōon ga kirai desu.)",
       "何時間も渋滞にはまるのが嫌いです。(Nanjikan mo jūtai ni hamaru no ga kirai desu.)",
       "朝早くから始まる工事の音が大嫌いです。(Asa hayaku kara hajimaru kōji no oto ga daikirai desu.)",
-      "どんな列に並ぶよりも、渋滞の中に座っている方が嫌いです。(Donna retsu ni narabu yori mo, jūtai no naka ni suwatte iru hō ga kirai desu.)",
+      "渋滞にはまっている方が嫌いです。(Jūtai ni hamatte iru hō ga kirai desu.)",
       "夜中の二時に鳴り出す車のアラームほど嫌いなものはない。(Yonaka no niji ni nari dasu kuruma no arāmu hodo kirai na mono wa nai.)"
     ]
   },
