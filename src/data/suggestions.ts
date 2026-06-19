@@ -1276,14 +1276,14 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     IT: [
       "Se mi trasferisco all'estero il prossimo anno, farò subito un corso di lingua.",
       "Se vivessi in un altro paese, imparerei la lingua molto più in fretta.",
-      "Se mi fossi trasferito all'estero cinque anni fa, a quest'ora sarei davvero bilingue.",
+      "Se mi fossi trasferito all'estero cinque anni fa, sarei diventato davvero bilingue.",
       "Se vivessi all'estero, mi immergerei nella cultura ogni giorno, il che significherebbe perdere l'accento in poco tempo.",
       "Ogni tanto mi chiedo cosa sarebbe successo se avessi accettato quell'offerta di lavoro in un'altra città."
     ],
     DE: [
       "Wenn ich nächstes Jahr ins Ausland ziehe, werde ich sofort einen Sprachkurs belegen.",
       "Wenn ich in einem anderen Land leben würde, würde ich die Sprache viel schneller lernen.",
-      "Wenn ich vor fünf Jahren ins Ausland gezogen wäre, wäre ich inzwischen wirklich zweisprachig.",
+      "Wenn ich vor fünf Jahren ins Ausland gezogen wäre, wäre ich inzwischen wirklich zweisprachig geworden.",
       "Wenn ich im Ausland lebte, würde ich mich jeden Tag in die Kultur vertiefen, was bedeuten würde, dass mein Akzent schnell verschwinden würde.",
       "Ich frage mich manchmal, was passiert wäre, wenn ich dieses Jobangebot in einer anderen Stadt angenommen hätte."
     ],
@@ -1305,14 +1305,14 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     ],
     IT: [
       "Se scelgo una strada diversa, dovrò affrontare nuove sfide.",
-      "Se avessi fatto una scelta diversa, vivrei una vita molto diversa.",
+      "Se facessi una scelta diversa, vivrei una vita molto diversa.",
       "Se avessi studiato qualcos'altro all'università, avrei finito per fare un lavoro completamente diverso.",
       "Se avessi colto quell'opportunità, avrei fatto esperienza all'estero, il che significherebbe che la mia vita oggi sarebbe del tutto diversa.",
       "Ogni tanto mi chiedo cosa sarebbe successo se avessi seguito il sogno che avevo da bambino."
     ],
     DE: [
       "Wenn ich einen anderen Weg einschlage, werde ich neuen Herausforderungen begegnen.",
-      "Wenn ich eine andere Entscheidung getroffen hätte, würde ich ein ganz anderes Leben führen.",
+      "Wenn ich eine andere Entscheidung träfe, würde ich ein ganz anderes Leben führen.",
       "Wenn ich an der Universität etwas anderes studiert hätte, hätte ich eine völlig andere Karriere eingeschlagen.",
       "Wenn ich diese Chance ergriffen hätte, hätte ich Auslandserfahrung gesammelt, was bedeuten würde, dass mein Leben heute ganz anders aussähe.",
       "Ich frage mich manchmal, was passiert wäre, wenn ich meinem Kindheitstraum gefolgt wäre."
@@ -1334,7 +1334,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "I sometimes wonder what would have happened if I had been brave enough to share my real opinions back then."
     ],
     IT: [
-      "Se diventassi più paziente, gestirei lo stress molto meglio.",
+      "Se divento più paziente, gestirò lo stress molto meglio.",
       "Se fossi una persona diversa, affronterei i problemi in modo molto diverso.",
       "Se fossi stato più sicuro di me quando ero giovane, avrei parlato più spesso.",
       "Se fossi più estroverso, farei amicizia facilmente, il che significherebbe non sentirsi mai soli in un posto nuovo.",
