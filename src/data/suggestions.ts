@@ -1367,7 +1367,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     EN: [
       "She is the person who understands me best.",
       "He is the friend that I grew up with.",
-      "My mentor, who guided me through my hardest years, still checks in on me regularly.",
+      "The guidance my mentor gave me through my hardest years, which I carry with me still, shaped who I am today.",
       "She is one of the few people who have ever truly believed in me.",
       "He is the kind of person that makes you feel heard, which is why I always turn to him when I need advice."
     ],
@@ -1381,7 +1381,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     DE: [
       "Sie ist die Person, die mich am besten versteht.",
       "Er ist der Freund, mit dem ich aufgewachsen bin.",
-      "Mein Mentor, der mich durch meine schwierigsten Jahre begleitet hat, meldet sich noch immer regelmäßig bei mir.",
+      "Mein Mentor hat mich durch meine schwierigsten Jahre begleitet, was ich nie vergessen werde.",
       "Sie ist eine der wenigen Menschen, die jemals wirklich an mich geglaubt haben.",
       "Er ist die Art von Mensch, der einen wirklich zuhören lässt, weshalb ich mich immer an ihn wende, wenn ich einen Rat brauche."
     ],
@@ -1389,7 +1389,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "彼女はわたしのことを一番わかってくれる人です。(Kanojo wa watashi no koto o ichiban wakatte kureru hito desu.)",
       "彼はわたしが一緒に育った友達です。(Kare wa watashi ga issho ni sodatta tomodachi desu.)",
       "わたしの恩師、それは一番つらい時期にずっと支えてくれた人で、今も定期的に連絡をくれます。(Watashi no onshi, sore wa ichiban tsurai jiki ni zutto sasaete kureta hito de, ima mo teikiteki ni renraku o kuremasu.)",
-      "彼女はわたしのことを心から信じてくれた数少ない人の一人です。(Kanojo wa watashi no koto o kokoro kara shinjite kureta kazuskunai hito no hitori desu.)",
+      "彼女はわたしのことを心から信じてくれた数少ない人の一人です。(Kanojo wa watashi no koto o kokoro kara shinjite kureta kazusukunai hito no hitori desu.)",
       "彼はこちらの話をちゃんと聞いてくれるような人で、だからこそ困ったときにいつも頼りにしています。(Kare wa kochira no hanashi o chanto kiite kureru yō na hito de, dakara koso komatta toki ni itsumo tayori ni shite imasu.)"
     ]
   },
@@ -1417,7 +1417,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     DE: [
       "Das ist der Park, der meine Kindheit geprägt hat.",
       "Das ist das Café, in das ich jedes Mal zurückkehre, wenn ich die Stadt besuche.",
-      "Die alte Bibliothek an der Ecke, die letztes Jahr geschlossen hat, war der Ort, an dem ich jeden Samstag verbracht habe.",
+      "Die alte Bibliothek an der Ecke hat letztes Jahr geschlossen, was mich wirklich traurig gemacht hat.",
       "Es ist einer der wenigen Orte, der sich noch genauso anfühlt wie damals, als ich jung war.",
       "Es ist die Art von Ort, der einen verlangsamt und atmen lässt, weshalb ich dorthin zurückgehe, wann immer ich mich überfordert fühle."
     ],
@@ -1426,7 +1426,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "あそこはこの街を訪れるたびに戻ってくるカフェです。(Asoko wa kono machi o otozureru tabi ni modotte kuru kafe desu.)",
       "角にある古い図書館、それは去年閉館してしまいましたが、毎週土曜日を過ごした場所でした。(Kado ni aru furui toshokan, sore wa kyonen heikan shite shimaimashita ga, maishū doyōbi o sugoshita basho deshita.)",
       "あの頃と変わらない雰囲気を持つ場所の一つです。(Ano koro to kawaranai fun'iki o motsu basho no hitotsu desu.)",
-      "気持ちをゆったりさせてくれるような場所で、だからこそ追い詰められたときにいつもそこへ戻ります。(Kimochi o yuttari sasete kureru yō na basho de, dakara koso oitsumeurareta toki ni itsumo soko e modorimasu.)"
+      "気持ちをゆったりさせてくれるような場所で、だからこそ追い詰められたときにいつもそこへ戻ります。(Kimochi o yuttari sasete kureru yō na basho de, dakara koso oitsumerareta toki ni itsumo soko e modorimasu.)"
     ]
   },
   42: {
@@ -1453,15 +1453,15 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     DE: [
       "Das ist das Buch, das meine Sichtweise auf die Welt verändert hat.",
       "Es ist ein Film, den ich mehr als zehnmal gesehen habe.",
-      "Das letzte Kapitel, das ich in einem Zug gelesen habe, hat mich völlig sprachlos zurückgelassen.",
-      "Es ist eines der wenigen Bücher, das mich noch lange nach dem Lesen begleitet hat.",
+      "Das letzte Kapitel habe ich in einem Zug gelesen, was mich völlig sprachlos zurückgelassen hat.",
+      "Es ist eines der wenigen Bücher, die mich noch lange nach dem Lesen begleitet haben.",
       "Es ist die Art von Buch, die einem auch nach dem Zuklappen noch Fragen stellt, weshalb ich noch Jahre später daran denke."
     ],
     JP: [
       "あれは世界の見方を変えてくれた本です。(Are wa sekai no mikata o kaete kureta hon desu.)",
       "それは十回以上観た映画です。(Sore wa jukkai ijō mita eiga desu.)",
       "最後の章、それは一気に読んでしまいましたが、読み終えた後にしばらく言葉が出ませんでした。(Saigo no shō, sore wa ikki ni yonde shimaimashita ga, yomiowatta ato ni shibaraku kotoba ga demasen deshita.)",
-      "読み終えてからもずっと心に残った数少ない物語の一つです。(Yomiowatte kara mo zutto kokoro ni nokotta kazuskunai monogatari no hitotsu desu.)",
+      "読み終えてからもずっと心に残った数少ない物語の一つです。(Yomiowatte kara mo zutto kokoro ni nokotta kazusukunai monogatari no hitotsu desu.)",
       "本を閉じた後も問いかけ続けてくれるような本で、だからこそ何年も経った今でも思い出します。(Hon o tojita ato mo toikake tsuzukete kureru yō na hon de, dakara koso nannen mo tatta ima demo omoidashimasu.)"
     ]
   },
@@ -1482,7 +1482,7 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
     IT: [
       "È stata un'esperienza che ha cambiato tutto per me.",
       "È stato un viaggio per cui non ero mai davvero preparato.",
-      "Vivere all'estero per un anno, il che quasi non ho fatto, si è rivelata la decisione più importante della mia vita.",
+      "Quell'anno all'estero, il quale quasi non ho vissuto, si è rivelato la decisione più importante della mia vita.",
       "È stato uno di quei momenti che abbiano mai ridefinito il modo in cui mi vedo.",
       "È stato il tipo di esperienza che ti costringe a mettere in discussione tutto ciò che credevi di sapere, il che spiega perché sono tornato una persona completamente diversa."
     ],
