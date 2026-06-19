@@ -958,123 +958,147 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
 
   // --- MÓDULO 8: CAUSA/CONSEQUÊNCIA ---
   28: {
+    // Tema: por que não dormi bem (causa e efeito do sono)
+    // L1: causa simples — because / perché / weil (verbo no fim) / 〜から
+    // L2: consequência — so…that / così…che / so…dass / 〜ので
+    // L3: causa + resultado — …, which is why… / …, per cui… / …, weshalb… / …、だから…
+    // L4: causa dupla — not only…but also… / non solo…ma anche… / nicht nur…sondern auch… / 〜だけでなく〜も
+    // L5: causa encadeada — One thing leads to another… / A forza di… / Je mehr…, desto mehr… / 〜すれば〜するほど〜
     EN: [
-      "I was tired, so I went to sleep.",
-      "I was tired, so I decided to skip my evening gym session.",
-      "I was extremely tired, therefore I couldn't focus on the lecture.",
-      "I had worked all night on the code, therefore I slept until afternoon.",
-      "The database migration failed, therefore we had to restore the backup data."
+      "I slept badly last night because I drank coffee too late in the evening.",
+      "I was so tired this morning that I could barely get out of bed.",
+      "I had been staring at my phone for hours before bed, which is why I couldn't fall asleep.",
+      "Last night I not only went to bed late, but also kept waking up every hour.",
+      "One thing leads to another — I stayed up scrolling, so I barely slept, and now I can't focus on anything."
     ],
     IT: [
-      "Ero stanco, quindi sono andato a letto.",
-      "Ero stanco, quindi ho deciso di non andare in palestra stasera.",
-      "Ero stanco morto, quindi non riuscivo a seguire la lezione.",
-      "Avevo lavorato tutta la notte al codice, quindi ho dormito fino a tardi.",
-      "La migrazione del database è fallita, quindi abbiamo ripristinato il backup."
+      "Ho dormito male stanotte perché ho bevuto il caffè troppo tardi.",
+      "Stamattina ero così stanco che riuscivo a malapena ad alzarmi.",
+      "Ho fissato lo schermo per ore prima di dormire, per cui non riuscivo ad addormentarmi.",
+      "Ieri sera non solo sono andato a letto tardi, ma mi sono svegliato ogni ora.",
+      "A forza di restare sveglio a scorrere il telefono, finisce che non dormo e non riesco a combinare niente il giorno dopo."
     ],
     DE: [
-      "Ich war müde, deshalb bin ich schlafen gegangen.",
-      "Ich war müde, deshalb habe ich beschlossen, den Sport ausfallen zu lassen.",
-      "Ich war extrem müde, deshalb konnte ich mich nicht konzentrieren.",
-      "Ich hatte die ganze Nacht programmiert, deshalb habe ich bis mittags geschlafen.",
-      "Das Datenbank-Update ist fehlgeschlagen, deshalb mussten wir das Backup nutzen."
+      "Ich habe letzte Nacht schlecht geschlafen, weil ich abends zu spät Kaffee getrunken habe.",
+      "Heute Morgen war ich so müde, dass ich kaum aufstehen konnte.",
+      "Ich hatte stundenlang aufs Handy gestarrt, bevor ich ins Bett gegangen bin, weshalb ich nicht einschlafen konnte.",
+      "Gestern Nacht bin ich nicht nur spät ins Bett gegangen, sondern auch jede Stunde aufgewacht.",
+      "Je mehr ich abends auf dem Handy scrolle, desto schlechter schlafe ich und desto schwerer kann ich mich am nächsten Tag konzentrieren."
     ],
     JP: [
-      "疲れていたので、早く寝ました。(Tsukarete ita node, hayaku nemashita.)",
-      "今日はとても疲れていたので、ジムに行くのを休むことにしました。(Kyō wa totemo tsukarete ita node, jimu ni iku no o yasumu koto ni shimashita.)",
-      "極度に疲労していたため、講義の内容に全く集中できませんでした。(Kyokudo ni hirō shite ita tame, kōgi no naiyō ni mattaku shūchū dekimasen deshita.)",
-      "夜通しコードを書いていたため、結果的にお昼過ぎまで寝てしまいました。(Yodōshi kōdo o kaite ita tame, kekkateki ni ohirusugi made nete shimaimashita.)",
-      "データベースの移行処理が失敗したため、バックアップを復元せねばなりませんでした。(Dētabēsu no ikoushori ga shippai shita tame, bakkuappu o fukugen seneba narimasen deshita.)"
+      "夜遅くにコーヒーを飲んだから、昨夜はよく眠れませんでした。(Yoru osoku ni kōhī o nonda kara, sakuya wa yoku nemurenakatta.)",
+      "今朝はひどく眠かったので、ベッドからほとんど出られませんでした。(Kesa wa hidoku nemukatta node, beddo kara hotondo deraremasen deshita.)",
+      "寝る前に何時間もスマホの画面を見ていた、だからなかなか眠れませんでした。(Neru mae ni nanjikan mo sumaho no gamen o mite ita, dakara nakanaka nemurenakatta.)",
+      "昨夜は寝るのが遅かっただけでなく、何度も目が覚めてしまいました。(Sakuya wa neru no ga osokatta dake de naku, nandomo me ga samete shimaimashita.)",
+      "スマホを見れば見るほど眠れなくなり、眠れなければ翌朝がつらくなります。(Sumaho o mireba miru hodo nemurenaku nari, nemurenakere ba yokuasa ga tsuraku narimasu.)"
     ]
   },
   29: {
+    // Tema: por que mudei um hábito
+    // L1: causa simples — because / perché / weil (verbo no fim) / 〜から
+    // L2: consequência — so…that / così…che / so…dass / 〜ので
+    // L3: causa + resultado — …, which is why… / …, per cui… / …, weshalb… / …、だから…
+    // L4: causa dupla — not only…but also… / non solo…ma anche… / nicht nur…sondern auch… / 〜だけでなく〜も
+    // L5: causa encadeada — One thing leads to another… / A forza di… / Je mehr…, desto mehr… / 〜すれば〜するほど〜
     EN: [
-      "I decided to go because I wanted to.",
-      "I decided to learn German because I want to work in Vienna.",
-      "I decided to buy a new computer because my old laptop broke.",
-      "I decided to change my career path because I needed a new challenge.",
-      "I decided to wake up early every day because I wanted to improve my routine."
+      "I stopped eating fast food because I wanted to feel healthier.",
+      "I felt so sluggish every afternoon that I decided to cut out sugar at lunch.",
+      "My energy was always crashing by midday, which is why I started preparing meals at home.",
+      "I not only changed what I eat, but also started going to bed an hour earlier.",
+      "One thing leads to another — once I started sleeping better, I had more energy to exercise, and gradually everything else fell into place."
     ],
     IT: [
-      "Ho deciso di andare perché volevo.",
-      "Ho deciso di studiare il tedesco perché vorrei lavorare a Vienna.",
-      "Ho deciso di comprare un computer nuovo perché il vecchio si è rotto.",
-      "Ho deciso di cambiare carriera perché avevo bisogno di nuovi stimoli.",
-      "Ho deciso di svegliarmi presto ogni giorno perché volevo migliorare la routine."
+      "Ho smesso di mangiare cibo spazzatura perché volevo sentirmi più in forma.",
+      "Ogni pomeriggio mi sentivo così spossato che ho deciso di eliminare lo zucchero a pranzo.",
+      "La mia energia crollava sempre verso mezzogiorno, per cui ho iniziato a prepararmi i pasti a casa.",
+      "Non solo ho cambiato quello che mangio, ma ho anche iniziato ad andare a letto un'ora prima.",
+      "A forza di dormire meglio e mangiare in modo più sano, finisce che hai voglia di muoverti e tutto il resto segue da solo."
     ],
     DE: [
-      "Ich habe beschlossen zu gehen, weil ich wollte.",
-      "Ich habe beschlossen, Deutsch zu lernen, weil ich in Wien arbeiten möchte.",
-      "Ich habe beschlossen, einen neuen PC zu kaufen, weil mein Laptop kaputt ging.",
-      "Ich habe beschlossen, den Job zu wechseln, weil ich eine Herausforderung brauchte.",
-      "Ich habe beschlossen, früh aufzustehen, weil ich meine routine verbessern wollte."
+      "Ich habe aufgehört, Fast Food zu essen, weil ich mich gesünder fühlen wollte.",
+      "Ich war jeden Nachmittag so schlapp, dass ich beschlossen habe, mittags keinen Zucker mehr zu essen.",
+      "Meine Energie brach immer gegen Mittag ein, weshalb ich begann, meine Mahlzeiten zu Hause vorzubereiten.",
+      "Ich habe nicht nur meine Ernährung umgestellt, sondern auch angefangen, eine Stunde früher schlafen zu gehen.",
+      "Je gesünder ich aß, desto mehr Energie hatte ich, und desto leichter fiel es mir, auch andere Gewohnheiten zu ändern."
     ],
     JP: [
-      "行きたかったので、行くことに決めました。(Ikitakatta node, iku koto ni kimemashita.)",
-      "ウィーンで働きたいという目標があるため、ドイツ語の習得を決めました。(Wīn de hatarakitai to iu mokuhyō ga aru tame, Doitsugo no shūtoku o kimemashita.)",
-      "古いパソコンが壊れてしまったので、新しいものを購入することにしました。(Furui pasokon ga kowarete shimatta node, atarashii mono o kōnyū suru koto ni shimashita.)",
-      "現状に満足せず新しい挑戦を求めて、自分のキャリアを変更することに決めました。(Genjou ni manzoku sezu atarashii chōsen o motomete, jibun no kyaria o henkou suru koto ni kimemashita.)",
-      "朝の時間を有効活用して生活リズムを整えるために、毎朝早起きすると決めました。(Asa no jikan o yūkō katsuyō shite seikatsurizumu o totonoeru tame ni, maiasa hayaoki suru to kimemashita.)"
+      "もっと健康になりたかったから、ジャンクフードをやめました。(Motto kenkō ni naritakatta kara, jankufūdo o yamemashita.)",
+      "毎日午後になるとひどく眠くなるので、昼食後の砂糖をやめることにしました。(Mainichi gogo ni naru to hidoku nemuku naru node, chūshoku go no satō o yameru koto ni shimashita.)",
+      "いつも昼ごろにエネルギーが切れてしまう、だから自炊を始めることにしました。(Itsumo hirogoro ni enerugī ga kirete shimau, dakara jisui o hajimeru koto ni shimashita.)",
+      "食事を変えただけでなく、毎晩一時間早く寝るようにもしました。(Shokuji o kaeta dake de naku, maiban ichijikan hayaku neru yō ni mo shimashita.)",
+      "よく眠れば眠るほど体が軽くなり、体が軽くなれば運動も続けやすくなります。(Yoku nemurebanemurun hodo karada ga karuku nari, karada ga karuku nareba undō mo tsuzukeyasuku narimasu.)"
     ]
   },
   30: {
+    // Tema: efeito de uma decisão no trabalho/estudos
+    // L1: causa simples — because / perché / weil (verbo no fim) / 〜から
+    // L2: consequência — so…that / così…che / so…dass / 〜ので
+    // L3: causa + resultado — …, which is why… / …, per cui… / …, weshalb… / …、だから…
+    // L4: causa dupla — not only…but also… / non solo…ma anche… / nicht nur…sondern auch… / 〜だけでなく〜も
+    // L5: causa encadeada — One thing leads to another… / A forza di… / Je mehr…, desto mehr… / 〜すれば〜するほど〜
     EN: [
-      "When I don't sleep well, I feel tired.",
-      "When I don't sleep well, I cannot concentrate on studying.",
-      "When I don't sleep well, I feel anxious and need extra coffee.",
-      "When I don't sleep well, my productivity drops significantly.",
-      "When I don't sleep well, I feel irritable throughout the entire day."
+      "I started studying in the mornings because I concentrate better before midday.",
+      "I took on an extra project at work, so I had so much to manage that I had to reorganise my whole schedule.",
+      "I decided to study a little every day rather than cramming, which is why my test results have improved steadily.",
+      "I not only set aside time to review my notes each evening, but also started recording short voice memos to reinforce what I had learned.",
+      "One thing leads to another — the more consistently I studied, the more confident I became, and that confidence made me want to study even more."
     ],
     IT: [
-      "Quando non dormo bene, mi sento stanco.",
-      "Quando non dormo bene, non riesco a concentrarmi sullo studio.",
-      "Quando non dormo bene, mi sento ansioso e ho bisogno di più caffè.",
-      "Quando non dormo bene, la mia produttività cala moltissimo.",
-      "Quando non dormo bene, mi sento irritabile per tutto il giorno."
+      "Ho iniziato a studiare la mattina perché mi concentro meglio prima di mezzogiorno.",
+      "Ho preso un progetto in più al lavoro, così avevo così tanto da gestire che ho dovuto riorganizzare tutto l'orario.",
+      "Ho deciso di studiare un po' ogni giorno invece di fare tutto all'ultimo, per cui i miei risultati sono migliorati con costanza.",
+      "Non solo ho riservato del tempo per ripassare gli appunti la sera, ma ho anche iniziato a registrare dei brevi memo vocali per fissare meglio quello che avevo imparato.",
+      "A forza di studiare con regolarità, finisce che acquisti fiducia in te stesso, e quella fiducia ti spinge a fare ancora di più."
     ],
     DE: [
-      "Wenn ich schlecht schlafe, fühle ich mich müde.",
-      "Wenn ich schlecht schlafe, kann ich mich nicht auf das Lernen konzentrieren.",
-      "Wenn ich schlecht schlafe, bin ich nervös und brauche extra Kaffee.",
-      "Wenn ich schlecht schlafe, sinkt meine Produktivität erheblich.",
-      "Wenn ich schlecht schlafe, bin ich den ganzen Tag über leicht gereizt."
+      "Ich habe angefangen, morgens zu lernen, weil ich mich vor dem Mittag besser konzentrieren kann.",
+      "Ich habe bei der Arbeit ein zusätzliches Projekt übernommen, so dass ich so viel zu managen hatte, dass ich meinen ganzen Zeitplan neu organisieren musste.",
+      "Ich habe mich entschieden, jeden Tag ein bisschen zu lernen statt alles auf einmal, weshalb meine Testergebnisse sich stetig verbessert haben.",
+      "Ich habe nicht nur jeden Abend Zeit zum Wiederholen meiner Notizen eingeplant, sondern auch kurze Sprachmemos aufgenommen, um das Gelernte zu festigen.",
+      "Je regelmäßiger ich lernte, desto selbstsicherer wurde ich, und desto mehr Lust hatte ich, noch mehr zu lernen."
     ],
     JP: [
-      "よく眠れないと、体がだるいです。(Yoku nemurenai to, karada ga darui desu.)",
-      "十分に睡眠を取れないと、勉強に全く集中することができません。(Jūbun ni suimin o torenai to, benkyō ni mattaku shūchū suru koto ga dekimasen.)",
-      "睡眠不足だと頭がぼーっとしてしまい、余計にコーヒーが必要です。(Suiminbusoku dato atama ga bōto shite shimai, yokei ni kōhī ga hitsuyō desu.)",
-      "夜しっかりと眠れないと、翌日の作業効率が大幅に低下してしまいます。(Yoru shikari to nemurenai to, yokujitsu no sagyou kōritsu ga ōhaba ni teika shite shimaimasu.)",
-      "睡眠の質が悪い日は、一日中ささいなことに対してイライラしてしまいます。(Suimin no shitsu ga warui hi wa, ichinichijū sasai na koto ni taishite iraira shite shimaimasu.)"
+      "午前中の方が集中できるから、朝に勉強するようにしました。(Gozenchū no hō ga shūchū dekiru kara, asa ni benkyō suru yō ni shimashita.)",
+      "仕事で追加のプロジェクトを引き受けたので、こなすことが多くなりスケジュール全体を見直さなければなりませんでした。(Shigoto de tsuika no purojekuto o hikiuketa node, konasu koto ga ōku nari sukejūru zentai o minaotsanakereba narimasen deshita.)",
+      "一夜漬けをやめて毎日少しずつ勉強することにした、だからテストの結果が少しずつ上がっています。(Ichiyazuke o yamete mainichi sukoshi zutsu benkyō suru koto ni shita, dakara tesuto no kekka ga sukoshi zutsu agatte imasu.)",
+      "毎晩ノートを見直す時間を作っただけでなく、覚えたことを定着させるために短い音声メモも録るようにしました。(Maiban nōto o minaosu jikan o tsukutta dake de naku, oboeta koto o teichaku saseru tame ni mijikai onsei memo mo toru yō ni shimashita.)",
+      "コツコツ勉強すればするほど自信がつき、自信がつけばつくほどもっと学びたくなります。(Kotsukotsu benkyō sureba suru hodo jishin ga tsuki, jishin ga tsukeba tsuku hodo motto manabi taku narimasu.)"
     ]
   },
   31: {
+    // Tema: causa e efeito de uma emoção
+    // L1: causa simples — because / perché / weil (verbo no fim) / 〜から
+    // L2: consequência — so…that / così…che / so…dass / 〜ので
+    // L3: causa + resultado — …, which is why… / …, per cui… / …, weshalb… / …、だから…
+    // L4: causa dupla — not only…but also… / non solo…ma anche… / nicht nur…sondern auch… / 〜だけでなく〜も
+    // L5: causa encadeada — One thing leads to another… / A forza di… / Je mehr…, desto mehr… / 〜すれば〜するほど〜
     EN: [
-      "It was hard, but it was worth it.",
-      "It was hard, but it was worth it because I passed the exam.",
-      "It was hard, but it was worth it because I finished the application.",
-      "It was hard, but it was worth it because my skills improved a lot.",
-      "It was hard, but it was worth it because the client was extremely satisfied."
+      "I felt anxious because I had an important presentation the next morning.",
+      "I was so nervous before the interview that I could barely eat anything.",
+      "A close friend moved abroad last month, which is why I have been feeling a bit lonely lately.",
+      "I not only felt relieved when the project was finally done, but also deeply proud of what I had managed to pull off.",
+      "One thing leads to another — once I started sharing my progress with others, I felt more motivated, and that motivation made the whole experience far more enjoyable."
     ],
     IT: [
-      "È stato difficile, ma ne è valsa la pena.",
-      "È stato difficile, ma ne è valsa la pena perché ho passato l'esame.",
-      "È stato difficile, ma ne è valsa la pena perché ho finito l'app.",
-      "È stato difficile, ma ne è valsa la pena perché ho imparato moltissimo.",
-      "È stato difficile, ma ne è valsa la pena perché il cliente è rimasto soddisfatto."
+      "Mi sentivo ansioso perché il mattino dopo avevo una presentazione importante.",
+      "Ero così nervoso prima del colloquio che riuscivo a malapena a mangiare qualcosa.",
+      "Un caro amico si è trasferito all'estero il mese scorso, per cui ultimamente mi sento un po' solo.",
+      "Non solo mi sono sentito sollevato quando il progetto era finalmente concluso, ma anche profondamente orgoglioso di quello che ero riuscito a fare.",
+      "A forza di condividere i miei progressi con gli altri, finisce che ti senti più motivato, e quella motivazione rende tutto molto più piacevole."
     ],
     DE: [
-      "Es war schwer, aber es hat sich gelohnt.",
-      "Es war schwer, aber es hat sich gelohnt, weil ich die Prüfung bestanden habe.",
-      "Es war schwer, aber es hat sich gelohnt, weil ich die App fertiggestellt habe.",
-      "Es war schwer, aber es hat sich gelohnt, weil sich meine Fähigkeiten verbessert haben.",
-      "Es war schwer, aber es hat sich gelohnt, weil der Kunde sehr zufrieden war."
+      "Ich war nervös, weil ich am nächsten Morgen eine wichtige Präsentation hatte.",
+      "Ich war vor dem Vorstellungsgespräch so aufgeregt, dass ich kaum etwas essen konnte.",
+      "Ein enger Freund ist letzten Monat ins Ausland gezogen, weshalb ich mich in letzter Zeit etwas einsam fühle.",
+      "Ich habe mich nicht nur erleichtert gefühlt, als das Projekt endlich fertig war, sondern auch tief stolz auf das, was ich geschafft hatte.",
+      "Je mehr ich meinen Fortschritt mit anderen teilte, desto motivierter fühlte ich mich, und desto mehr Freude machte mir das Ganze."
     ],
     JP: [
-      "大変でしたが、やってよかったです。(Taihen deshita ga, yatte yokatta desu.)",
-      "試験勉強は大変でしたが、合格できたので努力の価値がありました。(Shiken benkyō wa taihen deshita ga, gōkaku dekita node doryoku no kachi ga arimashita.)",
-      "アプリケーションの開発は大変でしたが、無事に完成して良かったです。(Apurikēshon no kaihatsu wa taihen deshita ga, buji ni kansei shite yokatta desu.)",
-      "語学の学習は大変でしたが、流暢に話せるようになって本当に価値がありました。(Gogaku no gakushū wa taihen deshita ga, ryūchō ni hanaseru yō ni natte hontō ni kachi ga arimashita.)",
-      "システム障害の対応は非常に過酷でしたが、顧客に感謝されたので報われました。(Shisutemu shōgai no taiō wa hijou ni kakoku deshita ga, kokyaku ni kansha sareta node mukuwaremashita.)"
+      "翌朝に大事な発表があったから、不安でいっぱいでした。(Yokuasa ni daiji na happyō ga atta kara, fuan de ippai deshita.)",
+      "面接の前がとても緊張していたので、ほとんど何も食べられませんでした。(Mensetsu no mae ga totemo kinchō shite ita node, hotondo nani mo taberaremasen deshita.)",
+      "先月、親しい友人が海外に引っ越してしまった、だから最近少し寂しく感じています。(Sengetsu, shitashii yūjin ga kaigai ni hikkoshite shimatta, dakara saikin sukoshi sabishiku kanjite imasu.)",
+      "プロジェクトがようやく終わったとき、ほっとしただけでなく、自分がやり遂げたことに深い誇りも感じました。(Purojekuto ga yōyaku owatta toki, hotto shita dake de naku, jibun ga yaritage ta koto ni fukai hokori mo kanjimashita.)",
+      "自分の成長を人と分かち合えば分かち合うほどやる気が高まり、やる気が高まれば高まるほど毎日が楽しくなります。(Jibun no seichō o hito to wakachiaeba wakachiau hodo yaruki ga takamari, yaruki ga tamarereba takamaru hodo mainichi ga tanoshiku narimasu.)"
     ]
   },
 
