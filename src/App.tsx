@@ -374,15 +374,31 @@ export function App() {
         if (v !== null) settings[k] = v;
       });
       const strokes = await DS.dbGetAll();
-      const backupData = {
-        meta: metaObj,
-        strokes: strokes,
-        settings: settings
-      };
-      const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
+      const backupData = { meta: metaObj, strokes, settings };
+      const json = JSON.stringify(backupData, null, 2);
+      const filename = `diario-poliglota-backup-${DS.iso(DS.today())}.json`;
+
+      if ('showSaveFilePicker' in window) {
+        try {
+          const handle = await (window as any).showSaveFilePicker({
+            suggestedName: filename,
+            types: [{ description: 'JSON Backup', accept: { 'application/json': ['.json'] } }],
+          });
+          const writable = await handle.createWritable();
+          await writable.write(json);
+          await writable.close();
+          return;
+        } catch (err) {
+          if ((err as DOMException).name === 'AbortError') return;
+          // outro erro — fallback para download
+        }
+      }
+
+      // Fallback: download automático
+      const blob = new Blob([json], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = `diario-poliglota-backup-${DS.iso(DS.today())}.json`;
+      a.download = filename;
       a.click();
       URL.revokeObjectURL(a.href);
     } catch (err) {
