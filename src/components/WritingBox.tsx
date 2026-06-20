@@ -10,7 +10,7 @@ const LANG_BCP47: Record<string, string> = {
   JP: 'ja-JP',
 };
 
-const SpeechRec: (new () => SpeechRecognition) | null =
+const SpeechRec: (new () => any) | null =
   typeof window !== 'undefined'
     ? ((window as any).SpeechRecognition ?? (window as any).webkitSpeechRecognition ?? null)
     : null;
@@ -111,7 +111,7 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
 }) => {
   const [showHelp, setShowHelp] = useState(false);
   const [isListening, setIsListening] = useState(false);
-  const recogRef = useRef<SpeechRecognition | null>(null);
+  const recogRef = useRef<any>(null);
   const typedTextRef = useRef(typedText);
   useEffect(() => { typedTextRef.current = typedText; }, [typedText]);
 
