@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
-import { Trash2, HelpCircle, Volume2 } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Trash2, HelpCircle, Volume2, Mic, MicOff } from 'lucide-react';
 import type { LanguagePrompt } from '../data/prompts';
 import { speakText } from '../utils/speech';
+
+const LANG_BCP47: Record<string, string> = {
+  EN: 'en-US',
+  IT: 'it-IT',
+  DE: 'de-DE',
+  JP: 'ja-JP',
+};
+
+const SpeechRec =
+  typeof window !== 'undefined'
+    ? (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+    : null;
 
 export interface LanguageTheme {
   primary: string;
@@ -98,8 +110,44 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
   onTextChange,
 }) => {
   const [showHelp, setShowHelp] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const recogRef = useRef<any>(null);
+  const typedTextRef = useRef(typedText);
+  useEffect(() => { typedTextRef.current = typedText; }, [typedText]);
   const t = LANG_THEME[code];
   const jp = code === 'JP';
+
+  const startDictation = () => {
+    if (!SpeechRec) return;
+    const recognition = new SpeechRec() as any;
+    recognition.lang = LANG_BCP47[code] ?? 'en-US';
+    recognition.continuous = true;
+    recognition.interimResults = false;
+
+    recognition.onresult = (e: SpeechRecognitionEvent) => {
+      const result = e.results[e.resultIndex];
+      if (result?.isFinal) {
+        const transcript = result[0].transcript.trim();
+        if (transcript) {
+          const cur = typedTextRef.current;
+          onTextChange(cur + (cur ? ' ' : '') + transcript);
+        }
+      }
+    };
+
+    recognition.onerror = () => setIsListening(false);
+    recognition.onend = () => setIsListening(false);
+
+    recogRef.current = recognition;
+    recognition.start();
+    setIsListening(true);
+  };
+
+  const stopDictation = () => {
+    recogRef.current?.stop();
+    recogRef.current = null;
+    setIsListening(false);
+  };
 
   return (
     <div
@@ -203,6 +251,30 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
             onMouseLeave={(e) => !showHelp && (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)')}
           >
             <HelpCircle size={14} />
+          </button>
+        )}
+
+        {/* Botão de Ditado por Voz */}
+        {inputMode === 'type' && SpeechRec && (
+          <button
+            onClick={isListening ? stopDictation : startDictation}
+            title={isListening ? 'Parar ditado' : 'Ditar por voz'}
+            style={{
+              flex: '0 0 auto',
+              background: isListening ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.15)',
+              border: 'none',
+              color: '#fff',
+              borderRadius: 8,
+              width: 28,
+              height: 28,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'background 0.2s',
+            }}
+          >
+            {isListening ? <MicOff size={14} /> : <Mic size={14} />}
           </button>
         )}
 
