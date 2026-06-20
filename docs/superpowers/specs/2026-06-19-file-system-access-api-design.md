@@ -126,7 +126,7 @@ const handleRestoreClick = async () => {
 />
 ```
 
-O `useRef` requer `import { useRef } from 'react'` — verificar se já está importado no arquivo.
+O arquivo atualmente importa apenas `{ useState }` de `'react'`. Adicionar `useRef` à mesma linha: `import React, { useState, useRef } from 'react'`.
 
 ---
 
