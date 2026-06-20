@@ -176,15 +176,22 @@ export class InkPad {
     c.addEventListener('pointermove', (e: PointerEvent) => {
       if (!this.cur) return;
       if (this.penOnlyGetter() && e.pointerType === 'touch') return;
-      
-      const pt = norm(e);
+
       if (this.cur.erase) {
-        this._eraseStrokeAt(pt);
+        this._eraseStrokeAt(norm(e));
       } else {
         const evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+        // Cache getBoundingClientRect once per event instead of once per coalesced point.
+        // Calling it inside the loop forces a sync reflow on every point, which slows the
+        // handler enough that the browser drops pointermove events at high pen speeds.
+        const r = c.getBoundingClientRect();
         for (const ev of evs) {
-          const ptCoalesced = norm(ev);
-          this.cur.pts.push(ptCoalesced);
+          const pt: Point = {
+            x: (ev.clientX - r.left) / r.width,
+            y: (ev.clientY - r.top) / r.height,
+            p: ev.pressure && ev.pressure > 0 ? ev.pressure : 0.5,
+          };
+          this.cur.pts.push(pt);
           this._drawSeg(this.cur, this.cur.pts.length - 1);
         }
       }
