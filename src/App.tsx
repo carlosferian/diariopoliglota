@@ -17,7 +17,7 @@ const INK_COLORS = [
   { id: 'ink',    label: 'Tinta (1)',    v: '#1b2030' },
   { id: 'blue',   label: 'Azul (2)',     v: '#2563EB' },
   { id: 'red',    label: 'Vermelho (3)', v: '#E11D48' },
-  { id: 'pencil', label: 'Lápis (4)',   v: '#7c8597' },
+  { id: 'green',  label: 'Verde (4)',   v: '#4a5e2a' },
 ];
 
 const DIA_PT = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
