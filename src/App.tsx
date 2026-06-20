@@ -13,12 +13,22 @@ import type { ThemeColors } from './components/WritingBox';
 import { ProgressModal, MEDALS } from './components/ProgressModal';
 import { MedalToast } from './components/MedalToast';
 
-const INK_COLORS = [
-  { id: 'ink',    label: 'Tinta (1)',    v: '#1b2030' },
-  { id: 'blue',   label: 'Azul (2)',     v: '#2563EB' },
-  { id: 'red',    label: 'Vermelho (3)', v: '#E11D48' },
-  { id: 'green',  label: 'Verde (4)',   v: '#5a7a2e' },
-];
+const getInkColors = (mode: 'light' | 'dark' | 'sepia') => {
+  if (mode === 'dark') {
+    return [
+      { id: 'ink',    label: 'Tinta (1)',    v: '#F1F5F9' },
+      { id: 'blue',   label: 'Azul (2)',     v: '#60A5FA' },
+      { id: 'red',    label: 'Vermelho (3)', v: '#FB7185' },
+      { id: 'green',  label: 'Verde (4)',   v: '#34D399' },
+    ];
+  }
+  return [
+    { id: 'ink',    label: 'Tinta (1)',    v: '#1b2030' },
+    { id: 'blue',   label: 'Azul (2)',     v: '#2563EB' },
+    { id: 'red',    label: 'Vermelho (3)', v: '#E11D48' },
+    { id: 'green',  label: 'Verde (4)',   v: '#5a7a2e' },
+  ];
+};
 
 const DIA_PT = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
 const MES_PT = [
@@ -51,7 +61,7 @@ export function makeTheme(mode: 'light' | 'dark' | 'sepia'): ThemeColors {
     border: '#2a3358', borderStrong: '#38426e',
     text: '#ffffff', text2: '#cfd6ea', dim: '#8b93b0', faint: '#6b739a',
     ctrlBg: '#232c50', ctrlHover: '#2e3a66',
-    cream: '#FBFAF5', modalOverlay: 'rgba(6,9,16,0.72)', modalBg: '#141A30', cellBg: '#1b2240',
+    cream: '#0B0F19', modalOverlay: 'rgba(6,9,16,0.72)', modalBg: '#141A30', cellBg: '#1b2240',
     accent: '#6EE7B7', flame: '#FBBF24', shadow: '0 8px 32px rgba(0,0,0,0.3)',
   };
 }
@@ -59,7 +69,7 @@ export function makeTheme(mode: 'light' | 'dark' | 'sepia'): ThemeColors {
 export function App() {
   const [meta, setMeta] = useState<DS.DiaryMeta>(() => DS.getMeta());
   const [viewDate, setViewDate] = useState<Date>(() => DS.today());
-  const [tool, setTool] = useState<InkPadTool>({ mode: 'pen', color: INK_COLORS[0].v, width: 'grossa' });
+  const [tool, setTool] = useState<InkPadTool>({ mode: 'pen', color: '#1b2030', width: 'grossa' });
   const [penOnly, setPenOnly] = useState<boolean>(() => localStorage.getItem('diary_penOnly') === 'true');
   const [paper, setPaper] = useState<string>(() => localStorage.getItem('diary_paper') || 'pautado');
   const [showCal, setShowCal] = useState<boolean>(false);
@@ -87,8 +97,12 @@ export function App() {
     const h = new Date().getHours();
     return (h >= 7 && h < 19) ? 'light' : 'dark';
   };
-  const effMode = mode === 'auto' ? dayNight() : (mode === 'light' ? 'light' : (mode === 'sepia' ? 'sepia' : 'dark'));
+  const effMode = (mode === 'auto' ? dayNight() : (mode === 'light' ? 'light' : (mode === 'sepia' ? 'sepia' : 'dark'))) as 'light' | 'dark' | 'sepia';
   const T = makeTheme(effMode);
+  const INK_COLORS = getInkColors(effMode);
+
+  const effModeRef = useRef(effMode);
+  useEffect(() => { effModeRef.current = effMode; }, [effMode]);
 
   // Inicializa Google Drive Identity
   useEffect(() => {
@@ -279,6 +293,25 @@ export function App() {
   useEffect(() => { inputModeRef.current = inputMode; }, [inputMode]);
   useEffect(() => { localStorage.setItem('diary_inputMode', inputMode); }, [inputMode]);
 
+  // Synchronize selected tool color when theme changes, so that e.g. dark pen becomes light pen.
+  useEffect(() => {
+    Object.values(pads.current).forEach((p) => {
+      if (p) p.redraw();
+    });
+
+    const oldColors = getInkColors(effMode === 'dark' ? 'light' : 'dark');
+    const newColors = getInkColors(effMode);
+    const idx = oldColors.findIndex((c) => c.v === tool.color);
+    if (idx !== -1) {
+      setTool((t) => ({ ...t, color: newColors[idx].v }));
+    } else {
+      const curIdx = newColors.findIndex((c) => c.v === tool.color);
+      if (curIdx === -1) {
+        setTool((t) => ({ ...t, color: newColors[0].v }));
+      }
+    }
+  }, [effMode]);
+
   useEffect(() => {
     const id = setInterval(() => setTick((n) => n + 1), 60000);
     return () => clearInterval(id);
@@ -318,6 +351,7 @@ export function App() {
         onChange: (s) => handleInk(code, s),
         penOnly: () => penOnlyRef.current,
         onActive: (active) => setActiveCanvas(active ? code : null),
+        mode: () => effModeRef.current,
       });
       pads.current[code]!.setTool(toolRef.current);
       DS.loadInk(DS.iso(viewRef.current), code).then((s) => pads.current[code]?.load(s));
@@ -637,7 +671,7 @@ export function App() {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [showCal]);
+  }, [showCal, effMode]);
 
   const dateLabel = `${DIA_PT[viewDate.getDay()]}, ${viewDate.getDate()} de ${MES_PT[viewDate.getMonth()]}`;
 

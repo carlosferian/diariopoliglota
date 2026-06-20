@@ -21,6 +21,7 @@ export interface InkPadOptions {
   onChange?: (strokes: Stroke[]) => void;
   onActive?: (active: boolean) => void;
   penOnly?: () => boolean;
+  mode?: () => 'light' | 'dark' | 'sepia';
 }
 
 const WIDTHS = { fina: 0.012, grossa: 0.026 };
@@ -31,6 +32,7 @@ export class InkPad {
   private onChange: (strokes: Stroke[]) => void;
   private onActive: (active: boolean) => void;
   private penOnlyGetter: () => boolean;
+  private modeGetter: () => 'light' | 'dark' | 'sepia';
 
   private strokes: Stroke[] = [];
   private redoStack: Stroke[] = [];
@@ -56,11 +58,28 @@ export class InkPad {
     this.onChange = opts.onChange || (() => {});
     this.onActive = opts.onActive || (() => {});
     this.penOnlyGetter = opts.penOnly || (() => false);
+    this.modeGetter = opts.mode || (() => 'light');
 
     this._resize();
     this._bind();
     this._ro = new ResizeObserver(() => this._resize());
     this._ro.observe(canvas);
+  }
+
+  private _mapColor(color: string): string {
+    const mode = this.modeGetter();
+    if (mode === 'dark') {
+      if (color === '#1b2030') return '#F1F5F9';
+      if (color === '#2563EB') return '#60A5FA';
+      if (color === '#E11D48') return '#FB7185';
+      if (color === '#5a7a2e') return '#34D399';
+    } else {
+      if (color === '#F1F5F9') return '#1b2030';
+      if (color === '#60A5FA') return '#2563EB';
+      if (color === '#FB7185') return '#E11D48';
+      if (color === '#34D399') return '#5a7a2e';
+    }
+    return color;
   }
 
   setTool(t: Partial<InkPadTool>) {
@@ -268,7 +287,7 @@ export class InkPad {
 
     // Set canvas style ONCE for the whole batch (not per segment).
     ctx.globalCompositeOperation = 'source-over';
-    ctx.strokeStyle = s.color;
+    ctx.strokeStyle = this._mapColor(s.color);
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
 
@@ -285,7 +304,7 @@ export class InkPad {
     const ctx = this.ctx;
     const pt = s.pts[i];
     ctx.globalCompositeOperation = 'source-over';
-    ctx.fillStyle = s.color;
+    ctx.fillStyle = this._mapColor(s.color);
     ctx.beginPath();
     ctx.arc(pt.x * this.cssW, pt.y * this.cssH, this._w(s, pt.p) / 2, 0, Math.PI * 2);
     ctx.fill();
@@ -327,7 +346,7 @@ export class InkPad {
       if (s.pts.length === 1) { this._drawDab(s, 0); continue; }
       // Set style once per stroke, not per segment.
       ctx.globalCompositeOperation = 'source-over';
-      ctx.strokeStyle = s.color;
+      ctx.strokeStyle = this._mapColor(s.color);
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
       for (let i = 1; i < s.pts.length; i++) this._seg(s, i, ctx);

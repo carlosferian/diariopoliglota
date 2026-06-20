@@ -523,7 +523,7 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
               fontFamily: jp ? "'Zen Maru Gothic', sans-serif" : "'Nunito', sans-serif",
               fontSize: 16,
               fontWeight: 600,
-              color: t.ink,
+              color: T.mode === 'dark' ? T.text2 : t.ink,
               lineHeight: 1.6,
               boxSizing: 'border-box',
             }}
