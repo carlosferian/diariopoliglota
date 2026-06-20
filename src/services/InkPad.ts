@@ -22,6 +22,7 @@ export interface InkPadOptions {
   onActive?: (active: boolean) => void;
   penOnly?: () => boolean;
   mode?: () => 'light' | 'dark' | 'sepia';
+  onPenDetected?: () => void;
 }
 
 const WIDTHS = { fina: 0.012, grossa: 0.026 };
@@ -61,7 +62,7 @@ export class InkPad {
     this.modeGetter = opts.mode || (() => 'light');
 
     this._resize();
-    this._bind();
+    this._bind(opts);
     this._ro = new ResizeObserver(() => this._resize());
     this._ro.observe(canvas);
   }
@@ -153,7 +154,7 @@ export class InkPad {
     }
   }
 
-  private _bind() {
+  private _bind(opts: InkPadOptions) {
     const c = this.canvas;
     c.style.touchAction = this.penOnlyGetter() ? 'pan-y' : 'none';
 
@@ -166,6 +167,7 @@ export class InkPad {
     const updateTouchAction = (pointerType: string) => {
       if (pointerType === 'pen') {
         c.style.touchAction = 'none';
+        if (opts.onPenDetected) opts.onPenDetected();
       } else {
         c.style.touchAction = this.penOnlyGetter() ? 'pan-y' : 'none';
       }

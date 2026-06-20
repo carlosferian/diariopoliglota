@@ -352,6 +352,7 @@ export function App() {
         penOnly: () => penOnlyRef.current,
         onActive: (active) => setActiveCanvas(active ? code : null),
         mode: () => effModeRef.current,
+        onPenDetected: () => setPenOnly(true),
       });
       pads.current[code]!.setTool(toolRef.current);
       DS.loadInk(DS.iso(viewRef.current), code).then((s) => pads.current[code]?.load(s));
