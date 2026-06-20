@@ -10,9 +10,9 @@ const LANG_BCP47: Record<string, string> = {
   JP: 'ja-JP',
 };
 
-const SpeechRec =
+const SpeechRec: (new () => SpeechRecognition) | null =
   typeof window !== 'undefined'
-    ? (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+    ? ((window as any).SpeechRecognition ?? (window as any).webkitSpeechRecognition ?? null)
     : null;
 
 export interface LanguageTheme {
@@ -111,15 +111,32 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
 }) => {
   const [showHelp, setShowHelp] = useState(false);
   const [isListening, setIsListening] = useState(false);
-  const recogRef = useRef<any>(null);
+  const recogRef = useRef<SpeechRecognition | null>(null);
   const typedTextRef = useRef(typedText);
   useEffect(() => { typedTextRef.current = typedText; }, [typedText]);
+
+  // Fix 1: Unmount cleanup
+  useEffect(() => {
+    return () => {
+      recogRef.current?.stop();
+      recogRef.current = null;
+    };
+  }, []);
+
+  // Fix 2: Stop recognition when inputMode changes to 'draw'
+  useEffect(() => {
+    if (inputMode !== 'type' && recogRef.current) {
+      recogRef.current.stop();
+      recogRef.current = null;
+      setIsListening(false);
+    }
+  }, [inputMode]);
   const t = LANG_THEME[code];
   const jp = code === 'JP';
 
   const startDictation = () => {
     if (!SpeechRec) return;
-    const recognition = new SpeechRec() as any;
+    const recognition = new SpeechRec();
     recognition.lang = LANG_BCP47[code] ?? 'en-US';
     recognition.continuous = true;
     recognition.interimResults = false;
@@ -135,7 +152,12 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
       }
     };
 
-    recognition.onerror = () => setIsListening(false);
+    recognition.onerror = (e: SpeechRecognitionErrorEvent) => {
+      if ((e as any).error === 'not-allowed') {
+        console.warn('Microphone permission denied');
+      }
+      setIsListening(false);
+    };
     recognition.onend = () => setIsListening(false);
 
     recogRef.current = recognition;
