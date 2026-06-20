@@ -144,7 +144,28 @@ export class InkPad {
       p: ev.pressure > 0 ? ev.pressure : 0.5,
     });
 
+    const updateTouchAction = (pointerType: string) => {
+      if (pointerType === 'pen') {
+        c.style.touchAction = 'none';
+      } else {
+        c.style.touchAction = this.penOnlyGetter() ? 'pan-y' : 'none';
+      }
+    };
+
+    const resetTouchAction = () => {
+      c.style.touchAction = this.penOnlyGetter() ? 'pan-y' : 'none';
+    };
+
+    c.addEventListener('pointerover', (e: PointerEvent) => {
+      updateTouchAction(e.pointerType);
+    });
+
+    c.addEventListener('pointerenter', (e: PointerEvent) => {
+      updateTouchAction(e.pointerType);
+    });
+
     c.addEventListener('pointerdown', (e: PointerEvent) => {
+      updateTouchAction(e.pointerType);
       if (this.penOnlyGetter() && e.pointerType === 'touch') return;
       e.preventDefault();
       c.setPointerCapture(e.pointerId);
@@ -168,7 +189,10 @@ export class InkPad {
     });
 
     c.addEventListener('pointermove', (e: PointerEvent) => {
-      if (!this.cur) return;
+      if (!this.cur) {
+        updateTouchAction(e.pointerType);
+        return;
+      }
       if (this.penOnlyGetter() && e.pointerType === 'touch') return;
 
       const r = c.getBoundingClientRect();
@@ -213,12 +237,17 @@ export class InkPad {
       this.cur = null;
       this.onActive(false);
       this.onChange(this.strokes);
+      resetTouchAction();
     };
 
     c.addEventListener('pointerup', end);
     c.addEventListener('pointercancel', end);
     c.addEventListener('pointerleave', (e: PointerEvent) => {
       if (this.cur && e.buttons === 0) end(e);
+      resetTouchAction();
+    });
+    c.addEventListener('pointerout', () => {
+      resetTouchAction();
     });
   }
 
