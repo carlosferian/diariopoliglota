@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Trash2, HelpCircle, Volume2, Mic, MicOff } from 'lucide-react';
 import type { LanguagePrompt } from '../data/prompts';
 import { speakText } from '../utils/speech';
@@ -114,6 +114,13 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
   const recogRef = useRef<SpeechRecognition | null>(null);
   const typedTextRef = useRef(typedText);
   useEffect(() => { typedTextRef.current = typedText; }, [typedText]);
+
+  // Stable ref callback: prevents InkPad from being destroyed/recreated on every re-render.
+  // An inline arrow `ref={(el) => registerCanvas(code, el)}` is a new function identity each
+  // render, so React calls ref(null)+ref(el) on every re-render, clearing the canvas mid-stroke.
+  const stableCanvasRef = useCallback((el: HTMLCanvasElement | null) => {
+    registerCanvas(code, el);
+  }, [registerCanvas, code]);
 
   // Fix 1: Unmount cleanup
   useEffect(() => {
@@ -490,7 +497,7 @@ export const WritingBox: React.FC<WritingBoxProps> = ({
       >
         {inputMode === 'draw' ? (
           <canvas
-            ref={(el) => registerCanvas(code, el)}
+            ref={stableCanvasRef}
             style={{
               position: 'absolute',
               inset: 0,
