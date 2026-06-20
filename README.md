@@ -2,16 +2,19 @@
 
 O **Diário Poliglota** é uma aplicação web progressiva projetada para ajudar no aprendizado e prática de múltiplos idiomas simultaneamente (Inglês, Italiano, Alemão e Japonês). Utilizando escrita manual (desenho no canvas) e sugestões de frases interativas, o projeto oferece uma experiência rica e imersiva para consolidar vocabulário diário.
 
+🚀 **Hospedado para testes em**: [diariopoliglota.netlify.app](https://diariopoliglota.netlify.app)
+
 ---
 
 ## 🚀 Principais Funcionalidades
 
 ### 📝 Prática de Escrita à Mão (Canvas)
 * **Desenho de alta precisão**: Desenhe com o dedo ou caneta stylus em cada idioma.
-* **Ferramentas de desenho**: Ajuste a espessura da ponta (fina, média, grossa) e altere a cor da tinta (Tinta clássica, Azul, Vermelho, Lápis).
+* **Ferramentas de desenho**: Ajuste a espessura da ponta (fina, grossa) e altere a cor da tinta (Tinta clássica, Azul, Vermelho, Verde).
 * **Desfazer & Refazer (Undo/Redo)**: Suporte completo para navegar pelo histórico de traços.
 * **Limpeza rápida**: Limpe o quadro instantaneamente com um botão dedicado.
-* **Modo "Só Caneta"**: Bloqueia o desenho apenas para canetas stylus, permitindo que gestos com a mão rolem a tela livremente (ideal para iPads e tablets Android).
+* **Modo "Só Caneta" Automático**: Bloqueia o desenho para canetas stylus, permitindo que gestos com o dedo rolem a tela livremente. O recurso ativa-se de forma inteligente e automática assim que o primeiro traço com caneta é detectado (ideal para iPads e tablets).
+* **Otimização de Escrita em Letra de Forma**: Evita cancelamentos de traço inesperados em movimentos verticais rápidos da caneta.
 
 ### 📖 Estilos de Papel Personalizados
 Alterne o fundo do canvas para simular cadernos reais:
@@ -28,8 +31,9 @@ Alterne o fundo do canvas para simular cadernos reais:
 * **Palavra do Dia**: Cada idioma exibe um termo em destaque com sua tradução e uma frase de exemplo inicial.
 
 ### 🌓 Temas Dinâmicos e Cores Harmoniosas
-* Temas dedicados com contraste refinado: **Claro**, **Escuro** e **Sépia** (confortável para leitura noturna).
+* Temas dedicados com contraste refinado: **Claro**, **Escuro** (fundo de papel escuro de alto contraste) e **Sépia** (confortável para leitura noturna).
 * Modo **Automático**: Ajusta o tema de acordo com o horário do dia.
+* **Canetas e Tintas Adaptativas**: Cores e escritas antigas convertem-se de forma transparente entre temas claro/escuro para legibilidade contínua.
 * Cores com identidade visual exclusiva para cada idioma.
 
 ### 🔄 Sincronização e Produtividade
