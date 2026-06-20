@@ -902,7 +902,11 @@ export function App() {
           if (swipeStart.current === null) return;
           const dx = e.clientX - swipeStart.current;
           if (Math.abs(dx) > 60) {
-            dx < 0 ? goDay(1) : goDay(-1);
+            if (dx < 0) {
+              goDay(1);
+            } else {
+              goDay(-1);
+            }
           }
           swipeStart.current = null;
         }}

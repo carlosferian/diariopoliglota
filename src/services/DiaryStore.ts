@@ -215,10 +215,10 @@ export async function saveText(isoStr: string, lang: string, text: string): Prom
 }
 
 export function getMeta(): DiaryMeta {
-  let m: DiaryMeta | null = null;
+  let m: DiaryMeta | null;
   try {
     m = JSON.parse(localStorage.getItem(META_KEY) || 'null');
-  } catch (e) {
+  } catch {
     m = null;
   }
   if (!m) {
@@ -247,7 +247,7 @@ export function currentStreak(m: DiaryMeta): number {
   const t = today();
   const todayIso = iso(t);
   const prevIso = iso(addDays(t, -1));
-  let anchor = m.days[todayIso] ? t : (m.days[prevIso] ? addDays(t, -1) : null);
+  const anchor = m.days[todayIso] ? t : (m.days[prevIso] ? addDays(t, -1) : null);
   if (!anchor) return 0;
   let n = 0, cur = anchor;
   while (m.days[iso(cur)]) {
