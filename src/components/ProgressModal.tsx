@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { 
   X, Trophy, Flame, BookOpen, ChevronLeft, ChevronRight, 
   Download, Upload, Trash2, ShieldAlert
@@ -72,6 +72,29 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
   const [currentMonthDate, setCurrentMonthDate] = useState(() => new Date(viewDate.getFullYear(), viewDate.getMonth(), 1));
   const [confirmDelIso, setConfirmDelIso] = useState<string | null>(null);
   const [clientIdInput, setClientIdInput] = useState(gdriveClientId);
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleRestoreClick = async () => {
+    if ('showOpenFilePicker' in window) {
+      try {
+        const [handle] = await (window as any).showOpenFilePicker({
+          types: [{ description: 'JSON Backup', accept: { 'application/json': ['.json'] } }],
+          multiple: false,
+        });
+        const file = await (handle as any).getFile();
+        onImport(file);
+        onClose();
+      } catch (err) {
+        if ((err as DOMException).name !== 'AbortError') {
+          fileInputRef.current?.click();
+        }
+        // AbortError: usuário cancelou — não faz nada
+      }
+      return;
+    }
+    fileInputRef.current?.click();
+  };
 
   const stats = DS.stats(meta);
   const t0 = DS.today();
@@ -575,7 +598,8 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
             >
               <Download size={14} /> Backup
             </button>
-            <label
+            <button
+              onClick={handleRestoreClick}
               style={{
                 flex: 1,
                 background: T.ctrlBg,
@@ -587,7 +611,7 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
                 cursor: 'pointer',
                 fontFamily: "'Nunito', sans-serif",
                 fontSize: 13,
-                textAlign: 'center',
+                textAlign: 'center' as const,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -595,18 +619,19 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
               }}
             >
               <Upload size={14} /> Restaurar
-              <input
-                type="file"
-                accept=".json"
-                style={{ display: 'none' }}
-                onChange={(e) => {
-                  if (e.target.files && e.target.files[0]) {
-                    onImport(e.target.files[0]);
-                    onClose();
-                  }
-                }}
-              />
-            </label>
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".json"
+              style={{ display: 'none' }}
+              onChange={(e) => {
+                if (e.target.files && e.target.files[0]) {
+                  onImport(e.target.files[0]);
+                  onClose();
+                }
+              }}
+            />
           </div>
 
           {/* Botão de Limpeza Completa */}
