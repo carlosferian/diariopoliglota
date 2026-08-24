@@ -45,9 +45,26 @@ button {
 
 @media (min-width: 1024px) {
   .diary-grid {
+    overflow-y: hidden;
+    /* Padrão (4 idiomas): grade 2×2 */
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    overflow-y: hidden;
+  }
+  .diary-grid[data-count="1"] {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .diary-grid[data-count="2"] {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .diary-grid[data-count="3"] {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .diary-grid[data-count="4"] {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
   .diary-card {
     height: 100%;

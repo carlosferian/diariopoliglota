@@ -81,9 +81,14 @@ export function App() {
     () => (localStorage.getItem('diary_inputMode') as 'draw' | 'type') || 'draw'
   );
   const [typedTexts, setTypedTexts] = useState<Record<string, string>>(
-    { EN: '', IT: '', DE: '', JP: '' }
+    { EN: '', IT: '', DE: '', JP: '', FR: '' }
   );
+  const [activeLangs, setActiveLangsState] = useState<string[]>(() => DS.getActiveLangs());
   const [, setTick] = useState<number>(0);
+
+  const changeActiveLangs = useCallback((langs: string[]) => {
+    setActiveLangsState(DS.setActiveLangs(langs));
+  }, []);
 
   // Google Drive Sync States
   const [gdriveClientId, setGdriveClientId] = useState<string>(() => localStorage.getItem('diary_gdriveClientId') || '');
@@ -103,6 +108,9 @@ export function App() {
 
   const effModeRef = useRef(effMode);
   useEffect(() => { effModeRef.current = effMode; }, [effMode]);
+
+  const activeLangsRef = useRef(activeLangs);
+  useEffect(() => { activeLangsRef.current = activeLangs; }, [activeLangs]);
 
   // Inicializa Google Drive Identity
   useEffect(() => {
@@ -394,7 +402,7 @@ export function App() {
         const p = pads.current[code];
         if (p) p.load([]);
       });
-      setTypedTexts({ EN: '', IT: '', DE: '', JP: '' });
+      setTypedTexts({ EN: '', IT: '', DE: '', JP: '', FR: '' });
     }
     setMeta({ ...m });
   }, []);
@@ -497,21 +505,26 @@ export function App() {
   }, []);
 
   const exportPNG = useCallback(async () => {
-    const firstEl = canvasEls.current['EN'];
+    const langs = activeLangsRef.current;
+    const firstEl = langs.map((c) => canvasEls.current[c]).find((el) => !!el);
     if (!firstEl) return;
     const cw = firstEl.width, ch = firstEl.height;
     const pad = 20;
+    // Grade adaptável ao número de idiomas visíveis (1–4).
+    const colsMap: { [n: number]: number } = { 1: 1, 2: 2, 3: 3, 4: 2 };
+    const cols = colsMap[langs.length] || Math.min(langs.length, 2);
+    const rows = Math.ceil(langs.length / cols);
     const off = document.createElement('canvas');
-    off.width = cw * 2 + pad * 3;
-    off.height = ch * 2 + pad * 3;
+    off.width = cw * cols + pad * (cols + 1);
+    off.height = ch * rows + pad * (rows + 1);
     const ctx = off.getContext('2d');
     if (!ctx) return;
     ctx.fillStyle = T.mode === 'dark' ? '#0E1326' : '#E9EEF7';
     ctx.fillRect(0, 0, off.width, off.height);
-    DS.LANGS.forEach((code, i) => {
+    langs.forEach((code, i) => {
       const el = canvasEls.current[code];
       if (!el) return;
-      const col = i % 2, row = Math.floor(i / 2);
+      const col = i % cols, row = Math.floor(i / cols);
       const x = pad + col * (cw + pad);
       const y = pad + row * (ch + pad);
       ctx.fillStyle = T.cream;
@@ -892,6 +905,7 @@ export function App() {
       {/* GRADE DE QUADROS RESPONSIVA */}
       <div
         className="diary-grid"
+        data-count={activeLangs.length}
         style={{ flex: 1, minHeight: 0, gap: 12, padding: '0 20px 84px' }}
         onPointerDown={(e) => {
           if (e.pointerType !== 'touch') return;
@@ -912,17 +926,17 @@ export function App() {
         }}
         onPointerCancel={() => { swipeStart.current = null; }}
       >
-        {DS.LANGS.map((code) => (
+        {activeLangs.map((code) => (
           <WritingBox
             key={code}
             code={code}
-            data={W.L[code as 'EN' | 'IT' | 'DE' | 'JP']}
+            data={W.L[code as 'EN' | 'IT' | 'DE' | 'JP' | 'FR']!}
             T={T}
             paper={paper}
             registerCanvas={registerCanvas}
             onClearBox={clearBox}
             isActive={activeCanvas === code}
-            suggestions={SUGGESTIONS[flat]?.[code as 'EN' | 'IT' | 'DE' | 'JP'] || []}
+            suggestions={SUGGESTIONS[flat]?.[code as 'EN' | 'IT' | 'DE' | 'JP' | 'FR'] || []}
             inputMode={inputMode}
             typedText={typedTexts[code] || ''}
             onTextChange={(text) => {
@@ -1171,6 +1185,8 @@ export function App() {
           }}
           onClose={() => setShowCal(false)}
           onDeleteDay={deleteDay}
+          activeLangs={activeLangs}
+          onChangeActiveLangs={changeActiveLangs}
           onExport={exportBackup}
           onImport={handleImport}
           onClearHistory={clearAllHistory}

@@ -1,6 +1,36 @@
-export const LANGS = ['EN', 'IT', 'DE', 'JP'];
+// Rol completo de idiomas disponíveis (dados existem para todos).
+export const ALL_LANGS = ['EN', 'IT', 'DE', 'JP', 'FR'];
+// Alias mantido para iteração sobre dados (carregar/salvar/apagar/backup) —
+// percorre TODOS os idiomas para nunca perder dados de um idioma oculto.
+export const LANGS = ALL_LANGS;
+
 const META_KEY = 'diary_meta_v1';
+const ACTIVE_KEY = 'diary_activeLangs';
+const DEFAULT_ACTIVE = ['EN', 'IT', 'DE', 'JP'];
+const MAX_ACTIVE = 4;
 const DAY = 86400000;
+
+// Idiomas visíveis escolhidos pelo usuário (mínimo 1, máximo 4).
+export function getActiveLangs(): string[] {
+  try {
+    const raw = JSON.parse(localStorage.getItem(ACTIVE_KEY) || 'null');
+    if (Array.isArray(raw)) {
+      const clean = ALL_LANGS.filter((l) => raw.includes(l)).slice(0, MAX_ACTIVE);
+      if (clean.length >= 1) return clean;
+    }
+  } catch {
+    // valor inválido — usa o padrão
+  }
+  return [...DEFAULT_ACTIVE];
+}
+
+export function setActiveLangs(langs: string[]): string[] {
+  // Preserva a ordem canônica de ALL_LANGS e respeita os limites 1–4.
+  const clean = ALL_LANGS.filter((l) => langs.includes(l)).slice(0, MAX_ACTIVE);
+  const final = clean.length >= 1 ? clean : [...DEFAULT_ACTIVE];
+  localStorage.setItem(ACTIVE_KEY, JSON.stringify(final));
+  return final;
+}
 
 export interface DiaryMeta {
   start: string;
@@ -238,9 +268,9 @@ export function dayHasInk(m: DiaryMeta, isoStr: string): boolean {
   return !!(val && Array.isArray(val) && val.length > 0);
 }
 
-export function dayHasAllLangs(m: DiaryMeta, isoStr: string): boolean {
+export function dayHasAllLangs(m: DiaryMeta, isoStr: string, active: string[] = getActiveLangs()): boolean {
   const val = m.days[isoStr];
-  return !!(val && Array.isArray(val) && LANGS.every((l) => (val as string[]).includes(l)));
+  return !!(val && Array.isArray(val) && active.every((l) => (val as string[]).includes(l)));
 }
 
 export function currentStreak(m: DiaryMeta): number {
@@ -286,12 +316,12 @@ export function dayNumber(m: DiaryMeta, date: Date): number {
   return Math.floor((today0(date).getTime() - fromIso(m.start).getTime()) / DAY) + 1;
 }
 
-export function stats(m: DiaryMeta): Stats {
+export function stats(m: DiaryMeta, active: string[] = getActiveLangs()): Stats {
   const keys = Object.keys(m.days);
   let allLangs = false;
   let maxWeek = 0;
   for (const k of keys) {
-    if (!allLangs && dayHasAllLangs(m, k)) allLangs = true;
+    if (!allLangs && dayHasAllLangs(m, k, active)) allLangs = true;
     maxWeek = Math.max(maxWeek, weekFlatForDate(m, fromIso(k)) + 1);
   }
   return {

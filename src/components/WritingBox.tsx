@@ -8,6 +8,7 @@ const LANG_BCP47: Record<string, string> = {
   IT: 'it-IT',
   DE: 'de-DE',
   JP: 'ja-JP',
+  FR: 'fr-FR',
 };
 
 const SpeechRec: (new () => any) | null =
@@ -27,6 +28,7 @@ export const LANG_THEME: { [key: string]: LanguageTheme } = {
   IT: { primary: '#15A34A', soft: '#E7F8EC', ink: '#0C5C2C', name: 'Italiano' },
   DE: { primary: '#D9A21A', soft: '#FBF1DA', ink: '#6E4F0C', name: 'Alemão' },
   JP: { primary: '#E11D48', soft: '#FCE7EC', ink: '#8A1733', name: 'Japonês' },
+  FR: { primary: '#7C3AED', soft: '#F1EAFE', ink: '#4A1D96', name: 'Francês' },
 };
 
 export interface ThemeColors {

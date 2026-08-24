@@ -1,13 +1,14 @@
 // Utilitário para Síntese de Voz (TTS)
 // Lê frases e palavras com as vozes nativas de cada idioma usando o motor do navegador.
 
-type LangKey = 'EN' | 'IT' | 'DE' | 'JP';
+type LangKey = 'EN' | 'IT' | 'DE' | 'JP' | 'FR';
 
 const LANG_VOICE_MAP: Record<LangKey, string> = {
   EN: 'en-US',
   IT: 'it-IT',
   DE: 'de-DE',
   JP: 'ja-JP',
+  FR: 'fr-FR',
 };
 
 const LANG_NAME: Record<LangKey, string> = {
@@ -15,6 +16,7 @@ const LANG_NAME: Record<LangKey, string> = {
   IT: 'Italiano',
   DE: 'Deutsch',
   JP: '日本語',
+  FR: 'Français',
 };
 
 let currentUtterance: SpeechSynthesisUtterance | null = null;

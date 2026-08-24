@@ -4,6 +4,7 @@ import {
   Download, Upload, Trash2, ShieldAlert
 } from 'lucide-react';
 import * as DS from '../services/DiaryStore';
+import { LANG_THEME } from './WritingBox';
 
 interface ProgressModalProps {
   meta: DS.DiaryMeta;
@@ -12,6 +13,11 @@ interface ProgressModalProps {
   onPick: (date: Date) => void;
   onClose: () => void;
   onDeleteDay: (date: Date) => void;
+
+  // Seleção de idiomas visíveis (1–4)
+  activeLangs: string[];
+  onChangeActiveLangs: (langs: string[]) => void;
+
   onExport: () => void;
   onImport: (file: File) => void;
   onClearHistory: () => void;
@@ -43,7 +49,7 @@ export const MEDALS = [
   { id: 's7',    icon: '🔥', name: 'Semana de fogo',  desc: '7 dias seguidos',         test: (s: DS.Stats) => s.best >= 7 },
   { id: 't25',   icon: '📚', name: 'Colecionador',    desc: '25 dias escritos',        test: (s: DS.Stats) => s.total >= 25 },
   { id: 's30',   icon: '🚀', name: 'Mês imparável',   desc: '30 dias seguidos',        test: (s: DS.Stats) => s.best >= 30 },
-  { id: 'poly',  icon: '🌍', name: 'Poliglota',       desc: 'As 4 línguas num só dia', test: (s: DS.Stats) => s.allLangs },
+  { id: 'poly',  icon: '🌍', name: 'Poliglota',       desc: 'Todas as línguas num só dia', test: (s: DS.Stats) => s.allLangs },
   { id: 'b1',    icon: '🎓', name: 'Rumo ao B1',      desc: 'Chegue ao Módulo 5',      test: (s: DS.Stats) => s.maxWeek >= 17 },
   { id: 's100',  icon: '👑', name: 'Centurião',       desc: '100 dias seguidos',       test: (s: DS.Stats) => s.best >= 100 },
 ];
@@ -55,6 +61,8 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
   onPick,
   onClose,
   onDeleteDay,
+  activeLangs,
+  onChangeActiveLangs,
   onExport,
   onImport,
   onClearHistory,
@@ -419,6 +427,85 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
                 </div>
               );
             })}
+          </div>
+
+          {/* Seleção de Idiomas Visíveis (1–4) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, background: T.cellBg, padding: 14, borderRadius: 16, border: `1px solid ${T.border}` }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 800, fontSize: 13.5, color: T.text }}>
+                <span>🌐 Idiomas na tela</span>
+              </div>
+              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: T.dim, fontWeight: 700 }}>
+                {activeLangs.length}/4
+              </span>
+            </div>
+            <span style={{ fontSize: 11, color: T.dim, lineHeight: 1.3 }}>
+              Escolha de 1 a 4 idiomas para praticar. Trocar não apaga o que você já escreveu.
+            </span>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 2 }}>
+              {DS.ALL_LANGS.map((code) => {
+                const theme = LANG_THEME[code];
+                const selected = activeLangs.includes(code);
+                const atMax = activeLangs.length >= 4;
+                const isLast = selected && activeLangs.length <= 1;
+                const disabled = (!selected && atMax) || isLast;
+                const toggle = () => {
+                  if (disabled) return;
+                  if (selected) {
+                    onChangeActiveLangs(activeLangs.filter((l) => l !== code));
+                  } else {
+                    onChangeActiveLangs([...activeLangs, code]);
+                  }
+                };
+                return (
+                  <button
+                    key={code}
+                    onClick={toggle}
+                    disabled={disabled}
+                    title={
+                      isLast
+                        ? 'É necessário manter pelo menos um idioma'
+                        : (!selected && atMax)
+                        ? 'Máximo de 4 idiomas na tela'
+                        : selected
+                        ? `Ocultar ${theme.name}`
+                        : `Mostrar ${theme.name}`
+                    }
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 7,
+                      background: selected ? theme.primary : T.card,
+                      border: `2px solid ${selected ? theme.primary : T.border}`,
+                      color: selected ? '#fff' : T.text2,
+                      borderRadius: 10,
+                      padding: '6px 11px',
+                      fontFamily: "'Nunito', sans-serif",
+                      fontWeight: 800,
+                      fontSize: 12.5,
+                      cursor: disabled ? 'not-allowed' : 'pointer',
+                      opacity: disabled && !selected ? 0.4 : 1,
+                      transition: 'background 0.15s, border-color 0.15s',
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "'Space Mono', monospace",
+                        fontWeight: 700,
+                        fontSize: 10,
+                        background: selected ? 'rgba(255,255,255,0.25)' : theme.primary,
+                        color: '#fff',
+                        borderRadius: 5,
+                        padding: '1px 5px',
+                      }}
+                    >
+                      {code}
+                    </span>
+                    {theme.name}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Sincronização Google Drive (Privado) */}
