@@ -211,22 +211,23 @@ export function App() {
     });
   };
 
+  // Monta o objeto que serve de "base de dados" na nuvem: meta + traços + textos + preferências.
+  const buildBackupData = async () => {
+    const metaStr = localStorage.getItem('diary_meta_v1');
+    const metaObj = metaStr ? JSON.parse(metaStr) : DS.getMeta();
+    const settings: { [key: string]: string } = {};
+    ['diary_mode', 'diary_paper', 'diary_penOnly', 'diary_inputMode', 'diary_activeLangs', 'diary_gdriveClientId', 'diary_reminderTime', 'diary_reminderEnabled'].forEach((k) => {
+      const v = localStorage.getItem(k);
+      if (v !== null) settings[k] = v;
+    });
+    const strokes = await DS.dbGetAll();
+    return { meta: metaObj, strokes, settings };
+  };
+
   const syncGDrive = async () => {
     if (!gdriveToken) return;
     try {
-      const metaStr = localStorage.getItem('diary_meta_v1');
-      const metaObj = metaStr ? JSON.parse(metaStr) : null;
-      const settings: { [key: string]: string } = {};
-      ['diary_mode', 'diary_paper', 'diary_penOnly', 'diary_gdriveClientId', 'diary_reminderTime', 'diary_reminderEnabled'].forEach((k) => {
-        const v = localStorage.getItem(k);
-        if (v !== null) settings[k] = v;
-      });
-      const strokes = await DS.dbGetAll();
-      const backupData = {
-        meta: metaObj,
-        strokes,
-        settings
-      };
+      const backupData = await buildBackupData();
       const GDS = await import('./services/GoogleDriveSync');
       const fileId = await GDS.findBackupFile(gdriveToken);
       await GDS.uploadBackupFile(gdriveToken, fileId, backupData);
@@ -239,14 +240,26 @@ export function App() {
 
   const loadGDrive = async () => {
     if (!gdriveToken) return;
-    if (!confirm('Deseja carregar o backup do Drive? Seus desenhos locais atuais serão substituídos!')) return;
     try {
       const GDS = await import('./services/GoogleDriveSync');
       const fileId = await GDS.findBackupFile(gdriveToken);
+
+      // Nenhum arquivo ainda: cria a base de dados na nuvem a partir dos dados locais.
       if (!fileId) {
-        alert('Nenhum backup encontrado no Google Drive.');
+        const backupData = await buildBackupData();
+        await GDS.uploadBackupFile(gdriveToken, null, backupData);
+        alert(
+          'Nenhum backup foi encontrado, então criamos um novo no seu Google Drive '
+          + '(arquivo "diario-poliglota-backup.json") com os seus dados atuais. '
+          + 'A partir de agora ele será a sua base de dados na nuvem — use "Salvar Nuvem" '
+          + 'para atualizá-lo e "Ler Nuvem" para restaurá-lo em outro dispositivo.'
+        );
         return;
       }
+
+      // Já existe um backup: confirmar antes de sobrescrever os dados locais.
+      if (!confirm('Deseja carregar o backup do Drive? Seus desenhos locais atuais serão substituídos!')) return;
+
       const data = await GDS.downloadBackupFile(gdriveToken, fileId);
       
       let metaObj = null;
