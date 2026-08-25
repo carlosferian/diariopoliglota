@@ -78,12 +78,16 @@ button {
   .pan-fab { display: none !important; }
 }
 
+/* O botão de recolher/expandir a faixa de tema só aparece no celular. */
+.band-toggle { display: none; }
+
 /* ===== Ajustes de layout para celular ===== */
 @media (max-width: 640px) {
-  /* TOP BAR: ações no topo, data em linha própria (evita a data espremida) */
+  /* TOP BAR compacto: ações no topo, data em linha própria, menos altura */
   .top-bar {
     flex-wrap: wrap;
-    gap: 8px !important;
+    gap: 6px 8px !important;
+    padding: 8px 14px 2px !important;
   }
   .top-bar .top-nav { order: 1; }
   .top-bar .top-actions { order: 2; margin-left: auto !important; }
@@ -92,13 +96,17 @@ button {
     flex: 1 1 100% !important;
     margin-left: 0 !important;
   }
+  .top-bar .date-label { font-size: 19px !important; }
+  .top-bar .date-meta { margin-top: 1px !important; font-size: 10px !important; }
 
-  /* THEME BAND: empilha os blocos para o texto da dica nunca ser cortado */
+  /* THEME BAND compacta: mostra só semana + tema + pergunta por padrão.
+     Concept do módulo e dica ficam ocultos até tocar no botão de expandir. */
   .theme-band {
     flex-wrap: wrap;
     align-items: flex-start !important;
-    gap: 8px 12px !important;
-    padding: 10px 14px !important;
+    gap: 4px 12px !important;
+    padding: 8px 12px !important;
+    margin: 2px 14px 8px !important;
   }
   .theme-band .band-week {
     flex-direction: row !important;
@@ -106,14 +114,22 @@ button {
     gap: 6px;
     border-right: none !important;
     padding-right: 0 !important;
-    width: 100%;
+    width: auto;
   }
+  .theme-band .band-week span:last-child { font-size: 20px !important; }
   .theme-band .band-main { flex: 1 1 100% !important; }
+  .theme-band .band-title { font-size: 17px !important; }
   .theme-band .band-tip {
     flex: 1 1 100% !important;
     max-width: 100% !important;
     text-align: left !important;
   }
+
+  /* Botão de expandir/recolher visível só no celular */
+  .band-toggle { display: inline-flex; }
+  /* Conteúdo extra (conceito + dica) oculto quando recolhido */
+  .theme-band .band-extra { display: none; }
+  .theme-band.band-open .band-extra { display: block; }
 }
 
 .suggestions-list {
