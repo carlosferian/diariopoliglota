@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import {
   ChevronLeft, ChevronRight, Camera, Sun, Moon, Coffee, Columns, MoreHorizontal,
   Undo2, Redo2, AlignJustify, Square, Grid3X3, PenTool, Smartphone, Eraser, Keyboard,
-  Settings, Hand
+  Settings, Hand, ChevronDown
 } from 'lucide-react';
 import * as DS from './services/DiaryStore';
 import { InkPad } from './services/InkPad';
@@ -77,6 +77,8 @@ export function App() {
   const [calFocusSettings, setCalFocusSettings] = useState<boolean>(false);
   // Modo rolagem (mobile): quando ativo, o dedo rola a tela em vez de desenhar.
   const [panMode, setPanMode] = useState<boolean>(false);
+  // Faixa de tema expandida no celular (concept do módulo + dica). Colapsada por padrão.
+  const [bandOpen, setBandOpen] = useState<boolean>(false);
   const [quota, setQuota] = useState<boolean>(false);
   const [mode, setMode] = useState<string>(() => localStorage.getItem('diary_mode') || 'auto');
   const [toast, setToast] = useState<any | null>(null);
@@ -739,6 +741,7 @@ export function App() {
         <div className="date-block" style={{ minWidth: 0, flex: '1 1 auto', marginLeft: 4 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
             <span
+              className="date-label"
               style={{
                 fontFamily: "'Fredoka', sans-serif",
                 fontWeight: 600,
@@ -767,7 +770,7 @@ export function App() {
               </button>
             )}
           </div>
-          <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: T.dim, marginTop: 4 }}>
+          <div className="date-meta" style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: T.dim, marginTop: 4 }}>
             DIA {dayN} · MÓDULO {M.n}/12 · LVL {M.lv}
           </div>
         </div>
@@ -859,7 +862,7 @@ export function App() {
 
       {/* THEME BAND */}
       <div
-        className="theme-band"
+        className={'theme-band' + (bandOpen ? ' band-open' : '')}
         style={{
           margin: '4px 20px 10px',
           background: T.band,
@@ -870,8 +873,32 @@ export function App() {
           alignItems: 'center',
           gap: 18,
           flex: '0 0 auto',
+          position: 'relative',
         }}
       >
+        {/* Botão de expandir/recolher (apenas celular) */}
+        <button
+          className="band-toggle"
+          onClick={() => setBandOpen((o) => !o)}
+          title={bandOpen ? 'Recolher detalhes' : 'Ver conceito e dica'}
+          style={{
+            position: 'absolute',
+            top: 6,
+            right: 8,
+            background: T.ctrlBg,
+            border: `1px solid ${T.border}`,
+            color: T.dim,
+            borderRadius: 8,
+            width: 26,
+            height: 26,
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            padding: 0,
+          }}
+        >
+          <ChevronDown size={15} style={{ transform: bandOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+        </button>
         <div
           className="band-week"
           style={{
@@ -901,10 +928,10 @@ export function App() {
         </div>
         <div className="band-main" style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
-            <span style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: 22, color: T.text }}>
+            <span className="band-title" style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: 22, color: T.text }}>
               "{W.t}"
             </span>
-            <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: T.dim }}>{M.c}</span>
+            <span className="band-extra" style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: T.dim }}>{M.c}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 9, marginTop: 2 }}>
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: T.accent, letterSpacing: 0.5, whiteSpace: 'nowrap' }}>
@@ -913,7 +940,7 @@ export function App() {
             <span style={{ fontSize: 16, fontWeight: 700, color: T.text2 }}>{W.q}</span>
           </div>
         </div>
-        <div className="band-tip" style={{ flex: '0 0 auto', maxWidth: 260, fontSize: 11.5, color: T.dim, fontWeight: 600, lineHeight: 1.3, textAlign: 'right' }}>
+        <div className="band-tip band-extra" style={{ flex: '0 0 auto', maxWidth: 260, fontSize: 11.5, color: T.dim, fontWeight: 600, lineHeight: 1.3, textAlign: 'right' }}>
           💡 {M.g}
         </div>
       </div>
