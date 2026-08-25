@@ -31,6 +31,13 @@ const getInkColors = (mode: 'light' | 'dark' | 'sepia') => {
   ];
 };
 
+// Client ID OAuth padrão do app (público por natureza — identifica o app, não é segredo).
+// Vem do ambiente (VITE_GOOGLE_CLIENT_ID, definido no Netlify) e cai num valor embutido
+// para funcionar por padrão. O usuário ainda pode sobrescrever nas configurações.
+const DEFAULT_GDRIVE_CLIENT_ID: string =
+  (import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined) ||
+  '375413872126-uudbdp04jqkoaf0nr356n7846nlpk8qi.apps.googleusercontent.com';
+
 const DIA_PT = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
 const MES_PT = [
   'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
@@ -84,7 +91,7 @@ export function App() {
   const [toast, setToast] = useState<any | null>(null);
   const [activeCanvas, setActiveCanvas] = useState<string | null>(null);
   const [inputMode, setInputMode] = useState<'draw' | 'type'>(
-    () => (localStorage.getItem('diary_inputMode') as 'draw' | 'type') || 'draw'
+    () => (localStorage.getItem('diary_inputMode') as 'draw' | 'type') || 'type'
   );
   const [typedTexts, setTypedTexts] = useState<Record<string, string>>(
     { EN: '', IT: '', DE: '', JP: '', FR: '', ES: '' }
@@ -97,7 +104,7 @@ export function App() {
   }, []);
 
   // Google Drive Sync States
-  const [gdriveClientId, setGdriveClientId] = useState<string>(() => localStorage.getItem('diary_gdriveClientId') || '');
+  const [gdriveClientId, setGdriveClientId] = useState<string>(() => localStorage.getItem('diary_gdriveClientId') || DEFAULT_GDRIVE_CLIENT_ID);
   const [gdriveToken, setGdriveToken] = useState<string | null>(null);
 
   // Lembrete States

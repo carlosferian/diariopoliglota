@@ -10,7 +10,7 @@ O **Diário Poliglota** é uma aplicação web progressiva (PWA) projetada para 
 
 ### ✍️ Dois Modos de Entrada: Caneta e Teclado
 * **Modo Desenho (Canvas)**: Escreva à mão com o dedo ou caneta stylus em cada idioma.
-* **Modo Teclado**: Alterne para digitação por teclado físico ou virtual — ideal para celular ou uso rápido. O modo é global (todos os idiomas trocam juntos) e os dois tipos de entrada coexistem: traços e texto são armazenados de forma independente por dia/idioma, então **trocar de modo nunca apaga nada**.
+* **Modo Teclado (padrão)**: Digitação por teclado físico ou virtual — é o modo inicial, ideal para celular e uso rápido. O modo é global (todos os idiomas trocam juntos) e os dois tipos de entrada coexistem: traços e texto são armazenados de forma independente por dia/idioma, então **trocar de modo nunca apaga nada**.
 * **Atalho rápido**: `Ctrl+M` / `⌘+M` alterna entre caneta e teclado em qualquer contexto.
 
 ### 🌐 Idiomas Selecionáveis
@@ -153,12 +153,32 @@ diariopoliglota/
 
 ## 💡 Como Configurar o Google Drive Sync
 
-Para sincronizar o progresso no Google Drive, insira um **Google Client ID** nas configurações avançadas do app.
-1. Vá até o [Google Cloud Console](https://console.cloud.google.com/).
-2. Crie um projeto, ative a **Google Drive API** e configure a tela de consentimento OAuth.
-3. Crie uma credencial de **ID do cliente OAuth** do tipo "Aplicativo da Web".
-4. Adicione a URL do seu app (ex: `https://seu-site.netlify.app` ou `http://localhost:5173`) na lista de **Origens JavaScript autorizadas**.
-5. Copie o Client ID gerado, cole-o no menu de configurações do Diário Poliglota e clique em **Conectar**.
+O app já vem com um **Client ID OAuth padrão**, então o usuário final só precisa abrir as
+configurações (⚙️) e clicar em **Conectar Drive** — nada para colar. Cada pessoa autentica
+com a própria conta Google e o app acessa apenas os arquivos que ele cria (escopo `drive.file`).
+
+> **Observação sobre o Client ID:** um Client ID OAuth é **público por natureza** (fica
+> exposto no navegador) e **não é segredo** — ele identifica o app, não os dados do usuário.
+> Este projeto **não usa client secret** (o fluxo é 100% no navegador, via Google Identity
+> Services), então não há credencial sigilosa embarcada.
+
+### Usar o seu próprio Client ID (recomendado para produção)
+
+1. Defina a variável de ambiente **`VITE_GOOGLE_CLIENT_ID`** no build. No Netlify:
+   *Site settings → Environment variables → Add*, com a chave `VITE_GOOGLE_CLIENT_ID` e o valor
+   do seu Client ID; depois refaça o deploy. Localmente, crie um `.env` com
+   `VITE_GOOGLE_CLIENT_ID=...`. Se a variável não existir, o app cai no ID padrão embutido.
+2. Para criar o Client ID: no [Google Cloud Console](https://console.cloud.google.com/), crie
+   um projeto, ative a **Google Drive API** e configure a **tela de consentimento OAuth**.
+3. Crie uma credencial de **ID do cliente OAuth** do tipo **"Aplicativo da Web"**.
+4. Em **Origens JavaScript autorizadas**, adicione as URLs do app (sem barra final), ex.:
+   `https://diariopoliglota.netlify.app` e `http://localhost:5173`.
+5. **Para liberar para qualquer usuário**, publique a tela de consentimento (**"Em produção"**).
+   Enquanto estiver em *Testing*, só os e-mails adicionados como *test users* conseguem logar.
+   Como o app usa apenas o escopo não-sensível `drive.file`, normalmente não é preciso passar
+   pela verificação completa do Google (os usuários podem ver um aviso de "app não verificado").
+6. Alternativamente, cada usuário pode colar o próprio Client ID no campo das configurações —
+   isso sobrescreve o padrão apenas naquele navegador.
 
 ---
 
