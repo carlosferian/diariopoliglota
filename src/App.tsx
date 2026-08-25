@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import {
   ChevronLeft, ChevronRight, Camera, Sun, Moon, Coffee, Columns, MoreHorizontal,
-  Undo2, Redo2, AlignJustify, Square, Grid3X3, PenTool, Smartphone, Eraser, Keyboard
+  Undo2, Redo2, AlignJustify, Square, Grid3X3, PenTool, Smartphone, Eraser, Keyboard,
+  Settings, Hand
 } from 'lucide-react';
 import * as DS from './services/DiaryStore';
 import { InkPad } from './services/InkPad';
@@ -73,6 +74,9 @@ export function App() {
   const [penOnly, setPenOnly] = useState<boolean>(() => localStorage.getItem('diary_penOnly') === 'true');
   const [paper, setPaper] = useState<string>(() => localStorage.getItem('diary_paper') || 'pautado');
   const [showCal, setShowCal] = useState<boolean>(false);
+  const [calFocusSettings, setCalFocusSettings] = useState<boolean>(false);
+  // Modo rolagem (mobile): quando ativo, o dedo rola a tela em vez de desenhar.
+  const [panMode, setPanMode] = useState<boolean>(false);
   const [quota, setQuota] = useState<boolean>(false);
   const [mode, setMode] = useState<string>(() => localStorage.getItem('diary_mode') || 'auto');
   const [toast, setToast] = useState<any | null>(null);
@@ -81,9 +85,14 @@ export function App() {
     () => (localStorage.getItem('diary_inputMode') as 'draw' | 'type') || 'draw'
   );
   const [typedTexts, setTypedTexts] = useState<Record<string, string>>(
-    { EN: '', IT: '', DE: '', JP: '' }
+    { EN: '', IT: '', DE: '', JP: '', FR: '', ES: '' }
   );
+  const [activeLangs, setActiveLangsState] = useState<string[]>(() => DS.getActiveLangs());
   const [, setTick] = useState<number>(0);
+
+  const changeActiveLangs = useCallback((langs: string[]) => {
+    setActiveLangsState(DS.setActiveLangs(langs));
+  }, []);
 
   // Google Drive Sync States
   const [gdriveClientId, setGdriveClientId] = useState<string>(() => localStorage.getItem('diary_gdriveClientId') || '');
@@ -103,6 +112,9 @@ export function App() {
 
   const effModeRef = useRef(effMode);
   useEffect(() => { effModeRef.current = effMode; }, [effMode]);
+
+  const activeLangsRef = useRef(activeLangs);
+  useEffect(() => { activeLangsRef.current = activeLangs; }, [activeLangs]);
 
   // Inicializa Google Drive Identity
   useEffect(() => {
@@ -279,6 +291,7 @@ export function App() {
   const pads = useRef<{ [code: string]: InkPad | null }>({});
   const viewRef = useRef(viewDate);
   const penOnlyRef = useRef(penOnly);
+  const panModeRef = useRef(panMode);
   const toolRef = useRef(tool);
   const inputModeRef = useRef(inputMode);
   const lastLang = useRef('EN');
@@ -286,6 +299,7 @@ export function App() {
 
   useEffect(() => { viewRef.current = viewDate; }, [viewDate]);
   useEffect(() => { penOnlyRef.current = penOnly; }, [penOnly]);
+  useEffect(() => { panModeRef.current = panMode; }, [panMode]);
   useEffect(() => { localStorage.setItem('diary_mode', mode); }, [mode]);
   useEffect(() => { localStorage.setItem('diary_paper', paper); }, [paper]);
   useEffect(() => { localStorage.setItem('diary_penOnly', String(penOnly)); }, [penOnly]);
@@ -349,7 +363,7 @@ export function App() {
       if (pads.current[code]) pads.current[code]!.destroy();
       pads.current[code] = new InkPad(el, {
         onChange: (s) => handleInk(code, s),
-        penOnly: () => penOnlyRef.current,
+        penOnly: () => penOnlyRef.current || panModeRef.current,
         onActive: (active) => setActiveCanvas(active ? code : null),
         mode: () => effModeRef.current,
         onPenDetected: () => setPenOnly(true),
@@ -394,7 +408,7 @@ export function App() {
         const p = pads.current[code];
         if (p) p.load([]);
       });
-      setTypedTexts({ EN: '', IT: '', DE: '', JP: '' });
+      setTypedTexts({ EN: '', IT: '', DE: '', JP: '', FR: '', ES: '' });
     }
     setMeta({ ...m });
   }, []);
@@ -497,21 +511,26 @@ export function App() {
   }, []);
 
   const exportPNG = useCallback(async () => {
-    const firstEl = canvasEls.current['EN'];
+    const langs = activeLangsRef.current;
+    const firstEl = langs.map((c) => canvasEls.current[c]).find((el) => !!el);
     if (!firstEl) return;
     const cw = firstEl.width, ch = firstEl.height;
     const pad = 20;
+    // Grade adaptável ao número de idiomas visíveis (1–4).
+    const colsMap: { [n: number]: number } = { 1: 1, 2: 2, 3: 3, 4: 2 };
+    const cols = colsMap[langs.length] || Math.min(langs.length, 2);
+    const rows = Math.ceil(langs.length / cols);
     const off = document.createElement('canvas');
-    off.width = cw * 2 + pad * 3;
-    off.height = ch * 2 + pad * 3;
+    off.width = cw * cols + pad * (cols + 1);
+    off.height = ch * rows + pad * (rows + 1);
     const ctx = off.getContext('2d');
     if (!ctx) return;
     ctx.fillStyle = T.mode === 'dark' ? '#0E1326' : '#E9EEF7';
     ctx.fillRect(0, 0, off.width, off.height);
-    DS.LANGS.forEach((code, i) => {
+    langs.forEach((code, i) => {
       const el = canvasEls.current[code];
       if (!el) return;
-      const col = i % 2, row = Math.floor(i / 2);
+      const col = i % cols, row = Math.floor(i / cols);
       const x = pad + col * (cw + pad);
       const y = pad + row * (ch + pad);
       ctx.fillStyle = T.cream;
@@ -604,16 +623,17 @@ export function App() {
   }, [tool]);
 
   useEffect(() => {
+    const allowScroll = penOnly || panMode;
     Object.values(pads.current).forEach((p) => {
       if (p) {
         // @ts-ignore
         if (p.canvas) {
           // @ts-ignore
-          p.canvas.style.touchAction = penOnly ? 'pan-y' : 'none';
+          p.canvas.style.touchAction = allowScroll ? 'pan-y' : 'none';
         }
       }
     });
-  }, [penOnly]);
+  }, [penOnly, panMode]);
 
   const flat = DS.weekFlatForDate(meta, viewDate);
   const M = YEAR[Math.floor(flat / 4)], W = M.w[flat % 4];
@@ -706,8 +726,8 @@ export function App() {
       }}
     >
       {/* TOP BAR */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '12px 20px 6px', flex: '0 0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: '0 0 auto' }}>
+      <div className="top-bar" style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '12px 20px 6px', flex: '0 0 auto' }}>
+        <div className="top-nav" style={{ display: 'flex', alignItems: 'center', gap: 8, flex: '0 0 auto' }}>
           <button onClick={() => goDay(-1)} style={headerBtnStyle} title="Dia anterior (←)">
             <ChevronLeft size={20} />
           </button>
@@ -716,7 +736,7 @@ export function App() {
           </button>
         </div>
 
-        <div style={{ minWidth: 0, flex: '1 1 auto', marginLeft: 4 }}>
+        <div className="date-block" style={{ minWidth: 0, flex: '1 1 auto', marginLeft: 4 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
             <span
               style={{
@@ -753,7 +773,14 @@ export function App() {
         </div>
 
         {/* Botões do Topo à Direita */}
-        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div className="top-actions" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <button
+            onClick={() => { setCalFocusSettings(true); setShowCal(true); }}
+            style={headerBtnStyle}
+            title="Configurações (idiomas, sincronização, lembretes)"
+          >
+            <Settings size={18} />
+          </button>
           <button onClick={exportPNG} style={headerBtnStyle} title="Exportar dia como imagem (PNG)">
             <Camera size={18} />
           </button>
@@ -792,7 +819,7 @@ export function App() {
             )}
           </button>
           <button
-            onClick={() => setShowCal(true)}
+            onClick={() => { setCalFocusSettings(false); setShowCal(true); }}
             title="Calendário, medalhas e progresso"
             style={{
               display: 'flex',
@@ -832,6 +859,7 @@ export function App() {
 
       {/* THEME BAND */}
       <div
+        className="theme-band"
         style={{
           margin: '4px 20px 10px',
           background: T.band,
@@ -845,6 +873,7 @@ export function App() {
         }}
       >
         <div
+          className="band-week"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -870,7 +899,7 @@ export function App() {
             <span style={{ fontSize: 13, color: T.faint }}>/48</span>
           </span>
         </div>
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="band-main" style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
             <span style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: 22, color: T.text }}>
               "{W.t}"
@@ -884,7 +913,7 @@ export function App() {
             <span style={{ fontSize: 16, fontWeight: 700, color: T.text2 }}>{W.q}</span>
           </div>
         </div>
-        <div style={{ flex: '0 0 auto', maxWidth: 260, fontSize: 11.5, color: T.dim, fontWeight: 600, lineHeight: 1.3, textAlign: 'right' }}>
+        <div className="band-tip" style={{ flex: '0 0 auto', maxWidth: 260, fontSize: 11.5, color: T.dim, fontWeight: 600, lineHeight: 1.3, textAlign: 'right' }}>
           💡 {M.g}
         </div>
       </div>
@@ -892,6 +921,7 @@ export function App() {
       {/* GRADE DE QUADROS RESPONSIVA */}
       <div
         className="diary-grid"
+        data-count={activeLangs.length}
         style={{ flex: 1, minHeight: 0, gap: 12, padding: '0 20px 84px' }}
         onPointerDown={(e) => {
           if (e.pointerType !== 'touch') return;
@@ -912,17 +942,17 @@ export function App() {
         }}
         onPointerCancel={() => { swipeStart.current = null; }}
       >
-        {DS.LANGS.map((code) => (
+        {activeLangs.map((code) => (
           <WritingBox
             key={code}
             code={code}
-            data={W.L[code as 'EN' | 'IT' | 'DE' | 'JP']}
+            data={W.L[code as 'EN' | 'IT' | 'DE' | 'JP' | 'FR' | 'ES']!}
             T={T}
             paper={paper}
             registerCanvas={registerCanvas}
             onClearBox={clearBox}
             isActive={activeCanvas === code}
-            suggestions={SUGGESTIONS[flat]?.[code as 'EN' | 'IT' | 'DE' | 'JP'] || []}
+            suggestions={SUGGESTIONS[flat]?.[code as 'EN' | 'IT' | 'DE' | 'JP' | 'FR' | 'ES'] || []}
             inputMode={inputMode}
             typedText={typedTexts[code] || ''}
             onTextChange={(text) => {
@@ -1137,6 +1167,42 @@ export function App() {
         </button>
       </div>
 
+      {/* Botão flutuante: alterna entre rolar e desenhar (essencial no celular) */}
+      {inputMode === 'draw' && (
+        <button
+          className="pan-fab"
+          onClick={() => setPanMode((v) => !v)}
+          title={
+            panMode
+              ? 'Modo rolagem ativo — toque para voltar a desenhar'
+              : 'Ativar modo rolagem para subir/descer a tela com o dedo'
+          }
+          style={{
+            position: 'fixed',
+            right: 14,
+            bottom: 84,
+            zIndex: 101,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 7,
+            background: panMode ? T.accent : (T.mode === 'light' ? 'rgba(255,255,255,0.97)' : 'rgba(20,26,48,0.95)'),
+            color: panMode ? '#0E1326' : T.text,
+            border: `1px solid ${panMode ? T.accent : T.border}`,
+            borderRadius: 999,
+            padding: '10px 16px',
+            fontFamily: "'Nunito', sans-serif",
+            fontWeight: 800,
+            fontSize: 13,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.35)',
+            backdropFilter: 'blur(6px)',
+            cursor: 'pointer',
+          }}
+        >
+          {panMode ? <PenTool size={16} /> : <Hand size={16} />}
+          {panMode ? 'Desenhar' : 'Rolar'}
+        </button>
+      )}
+
       {quota && (
         <div
           style={{
@@ -1171,6 +1237,9 @@ export function App() {
           }}
           onClose={() => setShowCal(false)}
           onDeleteDay={deleteDay}
+          focusSettings={calFocusSettings}
+          activeLangs={activeLangs}
+          onChangeActiveLangs={changeActiveLangs}
           onExport={exportBackup}
           onImport={handleImport}
           onClearHistory={clearAllHistory}

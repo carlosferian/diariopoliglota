@@ -3,6 +3,8 @@ export interface GradedSuggestions {
   IT: string[];
   DE: string[];
   JP: string[];
+  FR: string[];
+  ES: string[];
 }
 
 export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
@@ -35,6 +37,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "たいてい目覚ましが鳴る前に起きます。(Taitei mezamashi ga naru mae ni okimasu.)",
       "起きて、コーヒーを淹れて、窓の外をしばらく眺めます。(Okite, kōhī o irete, mado no soto o shibaraku nagamemasu.)",
       "朝が苦手なんですが、起き上がると不思議と気分がよくなってしまいます。(Asa ga nigate na n desu ga, okiagaru to fushigi to kibun ga yoku natte shimaimasu.)"
+    ],
+    FR: [
+      "Je me réveille tôt.",
+      "Je me réveille à six heures et demie.",
+      "La plupart du temps, je me réveille avant même que mon réveil ne sonne.",
+      "Je me réveille, je me prépare un café et je m'assois près de la fenêtre quelques minutes.",
+      "Même si je ne suis vraiment pas du matin, je finis toujours par me sentir bien mieux une fois debout."
+    ],
+    ES: [
+      "Me despierto temprano.",
+      "Me despierto a las seis y media.",
+      "La mayoría de las mañanas me despierto antes incluso de que suene el despertador.",
+      "Me despierto, me preparo un café y me siento junto a la ventana unos minutos.",
+      "Aunque no soy nada madrugador, siempre acabo sintiéndome mucho mejor una vez que estoy en pie."
     ]
   },
   1: {
@@ -65,6 +81,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "たいてい混む前の早い時間の電車に乗ります。(Taitei komu mae no hayai jikan no densha ni norimasu.)",
       "家を出て、駅まで歩いて、ホームでしばらく本を読んで待ちます。(Ie o dete, eki made aruite, hōmu de shibaraku hon o yonde machimasu.)",
       "通勤時間が長いんですが、ポッドキャストを聞き始めてから苦にならなくなってしまいました。(Tsūkin jikan ga nagai n desu ga, poddokyasuto o kikihajimete kara ku ni naranaku natte shimaimashita.)"
+    ],
+    FR: [
+      "Je prends le train pour aller au travail.",
+      "Je prends le train pour aller au travail à huit heures du matin.",
+      "La plupart du temps, je prends le train tôt, avant l'heure de pointe.",
+      "Je sors de chez moi, je marche jusqu'à la gare et je lis un peu sur le quai en attendant.",
+      "Même si le trajet est plutôt long, je me suis mis à écouter des podcasts et il ne me pèse plus autant."
+    ],
+    ES: [
+      "Cojo el tren para ir al trabajo.",
+      "Cojo el tren para ir al trabajo a las ocho de la mañana.",
+      "La mayoría de los días cojo el tren temprano, antes de la hora punta.",
+      "Salgo de casa, camino hasta la estación y leo un rato en el andén mientras espero.",
+      "Aunque el trayecto es bastante largo, he empezado a escuchar pódcast y ya no se me hace tan pesado."
     ]
   },
   2: {
@@ -95,6 +125,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "たいてい寝る一時間前には画面を全部消します。(Taitei neru ichijikan mae ni wa gamen o zenbu keshimasu.)",
       "お茶を入れて、電気を少し暗くして、眠くなるまで静かに読書します。(Ocha o irete, denki o sukoshi kuraku shite, nemuku naru made shizuka ni dokusho shimasu.)",
       "スマホをつい見てしまうんですが、早めに置くようにしたらぐっすり眠れるようになりました。(Sumaho o tsui mite shimau n desu ga, hayame ni oku yō ni shitara gussuri nemureru yō ni narimashita.)"
+    ],
+    FR: [
+      "Je lis avant de dormir.",
+      "Je lis une demi-heure avant de m'endormir.",
+      "D'habitude, j'éteins tous les écrans au moins une heure avant d'aller me coucher.",
+      "Je me prépare une tisane, je baisse la lumière et je passe une heure tranquille à lire avant de m'endormir.",
+      "Même si je suis souvent tenté de faire défiler mon téléphone, j'essaie de le poser tôt et je dors tellement mieux."
+    ],
+    ES: [
+      "Leo antes de dormir.",
+      "Leo media hora antes de dormirme.",
+      "Normalmente apago todas las pantallas al menos una hora antes de acostarme.",
+      "Me preparo una infusión, bajo las luces y paso una hora tranquila leyendo antes de quedarme dormido.",
+      "Aunque a menudo me tienta mirar el móvil, intento dejarlo pronto y duermo muchísimo mejor."
     ]
   },
   3: {
@@ -125,6 +169,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "たいてい土曜日の午前中はやりたいことをして過ごします。(Taitei doyōbi no gozenchū wa yaritai koto o shite sugoshimasu.)",
       "ゆっくり起きて、たっぷり朝ご飯を作って、近所をのんびり散歩します。(Yukkuri okite, tappuri asagohan o tsukutte, kinjo o nonbiri sanpo shimasu.)",
       "生産的なことをしようと思うんですが、結局ゴロゴロして一日が終わってしまいます。(Seisanteki na koto o shiyō to omou n desu ga, kekkyoku gorogoro shite ichinichi ga owatte shimaimasu.)"
+    ],
+    FR: [
+      "Le samedi, je fais la grasse matinée.",
+      "Le samedi, je dors jusqu'à neuf ou dix heures.",
+      "La plupart des samedis, je passe toute la matinée à faire ce qui me plaît.",
+      "Je me lève tard, je prépare un grand petit-déjeuner et je pars marcher dans le quartier.",
+      "Même si je me promets toujours d'être productif, je finis simplement par traîner à la maison et, honnêtement, ça ne me dérange pas du tout."
+    ],
+    ES: [
+      "Los sábados duermo hasta tarde.",
+      "Los sábados duermo hasta las nueve o las diez.",
+      "La mayoría de los sábados me paso toda la mañana haciendo lo que me apetece.",
+      "Me levanto tarde, preparo un buen desayuno y salgo a pasear por el barrio.",
+      "Aunque siempre me prometo ser productivo, acabo simplemente holgazaneando en casa y, la verdad, no me importa en absoluto."
     ]
   },
 
@@ -157,6 +215,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "濃厚なトマトソースのパスタが大好きです。(Nōkō na tomato sōsu no pasuta ga daisuki desu.)",
       "ご飯よりパスタの方が好きです。(Gohan yori pasuta no hō ga suki desu.)",
       "長い一週間の後に食べる手打ちタリアテッレほど好きなものはない。(Nagai isshūkan no ato ni taberu teuchi tariatere hodo suki na mono wa nai.)"
+    ],
+    FR: [
+      "J'adore les pâtes.",
+      "J'adore manger des pâtes fraîches faites maison.",
+      "J'aime vraiment un grand bol de pâtes avec une sauce tomate bien riche.",
+      "Je préfère les pâtes au riz à n'importe quel moment.",
+      "Rien ne vaut une assiette de tagliatelles faites main après une longue semaine."
+    ],
+    ES: [
+      "Me encanta la pasta.",
+      "Me encanta comer pasta fresca casera.",
+      "Me encanta de verdad un buen plato de pasta con una salsa de tomate bien sabrosa.",
+      "Prefiero la pasta al arroz en cualquier momento.",
+      "No hay nada como un plato de tagliatelle hechas a mano después de una semana larga."
     ]
   },
   5: {
@@ -187,6 +259,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "街中で人々のありのままの瞬間を撮るのが大好きです。(Machinaka de hitobito no ari no mama no shunkan o toru no ga daisuki desu.)",
       "色の温かさがデジタルより好きなので、フィルム写真の方が好きです。(Iro no atatakasa ga dejitaru yori suki na node, firumu shashin no hō ga suki desu.)",
       "フィルムを現像して初めて写真を見る瞬間ほど好きなものはない。(Firumu o genzō shite hajimete shashin o miru shunkan hodo suki na mono wa nai.)"
+    ],
+    FR: [
+      "J'adore la photographie.",
+      "J'adore sortir prendre des photos le week-end.",
+      "J'aime vraiment saisir des moments spontanés des gens dans la rue.",
+      "Je préfère la photographie argentique au numérique parce que les couleurs semblent plus chaudes.",
+      "Rien ne vaut la sensation de développer une pellicule et de voir les clichés pour la première fois."
+    ],
+    ES: [
+      "Me encanta la fotografía.",
+      "Me encanta salir a hacer fotos los fines de semana.",
+      "Me encanta de verdad capturar momentos espontáneos de la gente en la calle.",
+      "Prefiero la fotografía analógica a la digital porque los colores parecen más cálidos.",
+      "No hay nada como la sensación de revelar un carrete y ver las fotos por primera vez."
     ]
   },
   6: {
@@ -217,6 +303,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "ジャズミュージシャンがリアルタイムで即興演奏し合う場面が大好きです。(Jazu myūjishan ga riaru taimu de sokkyō ensō shi au bamen ga daisuki desu.)",
       "メロディーが予測しにくいので、ポップスよりジャズの方が好きです。(Merodī ga yosoku shinikui node, poppusu yori jazu no hō ga suki desu.)",
       "雨の金曜の夜に生のジャズクラブで聴くジャズほど好きなものはない。(Ame no kin'yō no yoru ni nama no jazu kurabu de kiku jazu hodo suki na mono wa nai.)"
+    ],
+    FR: [
+      "J'adore le jazz.",
+      "J'adore écouter du jazz pendant que je prépare le dîner.",
+      "J'aime vraiment la façon dont les musiciens de jazz improvisent et se répondent en temps réel.",
+      "Je préfère le jazz à la pop parce que les mélodies sont plus imprévisibles.",
+      "Rien ne vaut un club de jazz en live un vendredi soir pluvieux."
+    ],
+    ES: [
+      "Me encanta el jazz.",
+      "Me encanta escuchar jazz mientras preparo la cena.",
+      "Me encanta de verdad cómo los músicos de jazz improvisan y se responden en tiempo real.",
+      "Prefiero el jazz al pop porque las melodías son más impredecibles.",
+      "No hay nada como un club de jazz en directo un viernes por la noche lluvioso."
     ]
   },
   7: {
@@ -247,6 +347,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "朝早くから始まる工事の音が大嫌いです。(Asa hayaku kara hajimaru kōji no oto ga daikirai desu.)",
       "渋滞にはまっている方が嫌いです。(Jūtai ni hamatte iru hō ga kirai desu.)",
       "夜中の二時に鳴り出す車のアラームほど嫌いなものはない。(Yonaka no niji ni nari dasu kuruma no arāmu hodo kirai na mono wa nai.)"
+    ],
+    FR: [
+      "Je n'aime pas le bruit fort.",
+      "Je n'aime pas rester coincé dans les embouteillages pendant des heures.",
+      "Je ne supporte vraiment pas le bruit des travaux tôt le matin.",
+      "Je déteste être bloqué dans la circulation plus que d'attendre dans n'importe quelle file.",
+      "Rien ne gâche autant l'ambiance qu'une alarme de voiture qui se déclenche à deux heures du matin."
+    ],
+    ES: [
+      "No me gusta el ruido fuerte.",
+      "No me gusta quedarme atrapado en el tráfico durante horas.",
+      "No soporto en absoluto el ruido de las obras temprano por la mañana.",
+      "Detesto estar atascado en el tráfico más que esperar en cualquier tipo de cola.",
+      "No hay nada que estropee más el ambiente que una alarma de coche que salta a las dos de la madrugada."
     ]
   },
 
@@ -279,6 +393,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "新鮮な食材を買うために、今日の午後に市場へ行くつもりです。(Shinsen na shokuzai o kau tame ni, kyō no gogo ni ichiba e iku tsumori desu.)",
       "仕事の後で時間があったら、カルボナーラの新しいレシピに挑戦するつもりです。(Shigoto no ato de jikan ga attara, karubonaara no atarashii reshipi ni chōsen suru tsumori desu.)",
       "正しいチーズが見つからなくても、今夜きっとこの料理を完成させてみせます。(Tadashii chīzu ga mitsukaranakute mo, konya kitto kono ryōri o kansei sasete misemasu.)"
+    ],
+    FR: [
+      "Je vais cuisiner ce soir.",
+      "Je vais préparer un vrai risotto pour le dîner ce soir.",
+      "Je vais aller au marché cet après-midi afin d'acheter des ingrédients frais.",
+      "Je vais essayer cette nouvelle recette de carbonara si j'ai le temps après le travail.",
+      "Même s'il est difficile de trouver le bon fromage, je suis déterminé à réussir ce plat ce soir."
+    ],
+    ES: [
+      "Voy a cocinar esta noche.",
+      "Voy a preparar un buen risotto para la cena de esta noche.",
+      "Voy a ir al mercado esta tarde para comprar ingredientes frescos.",
+      "Voy a probar esa nueva receta de carbonara si tengo tiempo después del trabajo.",
+      "Aunque sea difícil encontrar el queso adecuado, estoy decidido a bordar este plato esta noche."
     ]
   },
   9: {
@@ -309,6 +437,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "登山道が混む前に出発するために、土曜日の朝早く家を出るつもりです。(Tozandō ga komu mae ni shuppatsu suru tame ni, doyōbi no asa hayaku ie o deru tsumori desu.)",
       "時間があれば海岸沿いの道を歩くつもりですが、短い散歩でも十分です。(Jikan ga areba kaigan zoi no michi o aruku tsumori desu ga, mijikai sanpo demo jūbun desu.)",
       "天気がどうであっても、今週末は外で過ごす時間をきっと作ってみせます。(Tenki ga dō de atte mo, konshūmatsu wa soto de sugosu jikan o kitto tsukutte misemasu.)"
+    ],
+    FR: [
+      "Je vais faire une randonnée ce week-end.",
+      "Samedi, je vais monter jusqu'au vieux phare sur les falaises.",
+      "Je vais partir tôt samedi matin afin de devancer la foule sur le sentier.",
+      "Je vais prendre le chemin côtier si j'ai le temps, mais même une courte marche fera l'affaire.",
+      "Quel que soit le temps, je suis déterminé à passer au moins une partie de ce week-end dehors."
+    ],
+    ES: [
+      "Voy a hacer senderismo este fin de semana.",
+      "El sábado voy a subir hasta el viejo faro de los acantilados.",
+      "Voy a salir temprano el sábado por la mañana para adelantarme a la multitud en el sendero.",
+      "Voy a tomar el camino de la costa si tengo tiempo, pero incluso un paseo corto servirá.",
+      "Haga el tiempo que haga, estoy decidido a pasar al menos parte de este fin de semana al aire libre."
     ]
   },
   10: {
@@ -339,6 +481,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "一人でお寺を巡るために、日本語の基礎を身につけるつもりです。(Hitori de otera o meguru tame ni, Nihongo no kiso o mi ni tsukeru tsumori desu.)",
       "それまでに十分なお金が貯まったら、桜の季節に行くつもりです。(Sore made ni jūbun na okane ga tamattara, sakura no kisetsu ni iku tsumori desu.)",
       "何年かかっても、きっと京都のあの石畳の道を歩いてみせます。(Nannenkakatte mo, kitto Kyōto no ano ishidatami no michi o aruite misemasu.)"
+    ],
+    FR: [
+      "Je vais visiter Kyoto un jour.",
+      "Je vais passer deux semaines à Kyoto, en séjournant dans une auberge traditionnelle.",
+      "Je vais apprendre les bases du japonais afin d'explorer les temples par moi-même.",
+      "Je vais y aller pendant la saison des cerisiers en fleurs si j'ai assez d'argent d'ici là.",
+      "Même s'il me faut des années pour économiser, je suis déterminé à marcher sur ces chemins de pierre à Kyoto."
+    ],
+    ES: [
+      "Algún día voy a visitar Kioto.",
+      "Voy a pasar dos semanas en Kioto, alojándome en una posada tradicional.",
+      "Voy a aprender japonés básico para explorar los templos por mi cuenta.",
+      "Voy a ir durante la temporada de los cerezos en flor si para entonces tengo suficiente dinero ahorrado.",
+      "Aunque me lleve años ahorrar, estoy decidido a caminar por esos senderos de piedra de Kioto."
     ]
   },
   11: {
@@ -369,6 +525,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "本当の読書習慣を身につけるために、寝る前の三十分を確保するつもりです。(Hontō no dokusho shūkan o mi ni tsukeru tame ni, neru mae no sanjuppun o kakuho suru tsumori desu.)",
       "時間が五分あれば、読書の後に短い読書記録をつけるつもりです。(Jikan ga gofun areba, dokusho no ato ni mijikai dokusho kiroku o tsukeru tsumori desu.)",
       "どんなに疲れた夜でも、今月中にきっとこの本を読み終えてみせます。(Donna ni tsukareta yoru demo, kongetsu-jū ni kitto kono hon o yomi oete misemasu.)"
+    ],
+    FR: [
+      "Je vais lire tous les jours ce mois-ci.",
+      "Je vais lire au moins vingt pages de mon roman italien chaque soir.",
+      "Je vais réserver trente minutes avant de dormir afin de créer une vraie habitude de lecture.",
+      "Je vais tenir un petit journal de lecture si j'ai cinq minutes de libre après chaque séance.",
+      "Même si certaines soirées sont épuisantes, je suis déterminé à finir ce livre avant la fin du mois."
+    ],
+    ES: [
+      "Voy a leer todos los días este mes.",
+      "Voy a leer al menos veinte páginas de mi novela italiana cada noche.",
+      "Voy a reservar treinta minutos antes de dormir para crear un verdadero hábito de lectura.",
+      "Voy a llevar un pequeño diario de lectura si tengo cinco minutos libres después de cada sesión.",
+      "Aunque algunas noches sean agotadoras, estoy decidido a terminar este libro antes de que acabe el mes."
     ]
   },
 
@@ -407,6 +577,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "昨日、外に出るには天気が悪すぎたので、家で勉強しました。(Kinō, soto ni deru ni wa tenki ga warusugita node, ie de benkyō shimashita.)",
       "昨日、仕事の後はくたくたでしたが、本を二章読み終えることができました。(Kinō, shigoto no ato wa kutakuta deshita ga, hon o nishō yomi oeru koto ga dekimashita.)",
       "昨夜やっと腰を落ち着けたとき、もう洗濯を三回済ませて部屋中を片付けていました。(Sakuya yatto koshi o ochitsuketa toki, mō sentaku o sankai sumasete heya-jū o katazukete imashita.)"
+    ],
+    FR: [
+      "Hier, j'ai cuisiné le dîner de A à Z.",
+      "Hier, je suis allé courir et j'ai préparé un vrai repas ensuite.",
+      "Hier, je suis resté étudier à la maison parce que le temps était trop mauvais pour sortir.",
+      "Hier, j'étais épuisé après le travail, mais j'ai réussi à lire deux chapitres de mon livre.",
+      "Quand je me suis enfin assis hier soir, j'avais déjà fait trois machines de linge et rangé tout l'appartement."
+    ],
+    ES: [
+      "Ayer preparé la cena desde cero.",
+      "Ayer salí a correr y luego me preparé una comida como es debido.",
+      "Ayer me quedé en casa a estudiar porque el tiempo estaba demasiado malo para salir.",
+      "Ayer estaba agotado después del trabajo, pero conseguí leer dos capítulos de mi libro.",
+      "Cuando por fin me senté anoche, ya había puesto tres lavadoras y ordenado todo el piso."
     ]
   },
   13: {
@@ -443,6 +627,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "料理人の友人が絶対に行くべきだと言っていたので、そのお店まで二十分歩きました。(Ryōrinin no yūjin ga zettai ni iku beki da to itte ita node, sono omise made nijuppun arukimashita.)",
       "外見はごく普通のお店でしたが、席を確保することができて、結果的に忘れられない食事になりました。(Gaiken wa goku futsū no omise deshita ga, seki o kakuho suru koto ga dekite, kekkateki ni wasurerarenai shokuji ni narimashita.)",
       "デザートが来たとき、もうその街を離れる前に再訪することを決めていました。(Dezāto ga kita toki, mō sono machi o hanareru mae ni saihō suru koto o kimete imashita.)"
+    ],
+    FR: [
+      "L'été dernier, j'ai mangé le bol de ramen le plus incroyable à Tokyo.",
+      "J'ai commandé un menu dégustation et j'ai goûté chaque plat.",
+      "J'ai marché vingt minutes pour atteindre cet endroit parce qu'un ami cuisinier m'avait dit qu'il était incontournable.",
+      "Le restaurant avait l'air tout à fait ordinaire de l'extérieur, mais j'ai réussi à avoir une table et cela s'est révélé inoubliable.",
+      "Quand le dessert est arrivé, j'avais déjà décidé de revenir avant même d'avoir quitté la ville."
+    ],
+    ES: [
+      "El verano pasado comí el cuenco de ramen más increíble en Tokio.",
+      "Pedí un menú de degustación y probé todos y cada uno de los platos.",
+      "Caminé veinte minutos para llegar a ese sitio porque un amigo cocinero me había dicho que era imperdible.",
+      "El restaurante parecía de lo más corriente por fuera, pero conseguí una mesa y resultó ser inolvidable.",
+      "Cuando llegó el postre, ya había decidido volver antes incluso de haberme ido de la ciudad."
     ]
   },
   14: {
@@ -479,6 +677,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "友人がそこを今まで見た中で最も美しい場所のひとつだと言っていたので、その町を選びました。(Yūjin ga soko o ima made mita naka de mottomo utsukushii basho no hitotsu da to itte ita node, sono machi o erabimashita.)",
       "登り道は急で疲れましたが、日没直前に頂上にたどり着くことができました。(Nobori michi wa kyū de tsukaremashita ga, nichibotsu chokuzen ni chōjō ni tadoritsuku koto ga dekimashita.)",
       "ベンチを見つけて座ったとき、もう五時間歩いて二百枚以上の写真を撮っていました。(Benchi o mitsukete suwatta toki, mō gojikan aruite nihyakumai ijō no shashin o totte imashita.)"
+    ],
+    FR: [
+      "Le printemps dernier, j'ai visité un petit village perché du sud de l'Italie.",
+      "J'ai flâné dans les vieilles ruelles et je me suis arrêté à chaque petite église que je trouvais.",
+      "J'ai choisi ce village parce qu'une amie me l'avait décrit comme l'un des plus beaux endroits qu'elle ait jamais vus.",
+      "La montée était raide et fatigante, mais j'ai réussi à atteindre le sommet juste avant le coucher du soleil.",
+      "Quand j'ai enfin trouvé un banc pour m'asseoir, j'avais déjà marché cinq heures et pris plus de deux cents photos."
+    ],
+    ES: [
+      "La primavera pasada visité un pequeño pueblo en lo alto de una colina del sur de Italia.",
+      "Deambulé por las viejas callejuelas y me detuve en cada pequeña iglesia que encontraba.",
+      "Elegí ese pueblo porque una amiga me lo había descrito como uno de los lugares más bonitos que había visto nunca.",
+      "La subida era empinada y agotadora, pero conseguí llegar a la cima justo antes del atardecer.",
+      "Cuando por fin encontré un banco donde sentarme, ya había caminado cinco horas y hecho más de doscientas fotos."
     ]
   },
   15: {
@@ -515,6 +727,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "スマホのメッセージに気を取られていたので、もう少しで彼女に気づかずに通り過ぎるところでした。(Sumaho no messēji ni ki o torarete ita node, mō sukoshi de kanojo ni kizukazu ni tōrisugiru tokoro deshita.)",
       "今週はまったく自由な時間がありませんでしたが、なんとか彼女とゆっくりコーヒーを飲む時間を作ることができました。(Konshū wa mattaku jiyū na jikan ga arimasen deshita ga, nantoka kanojo to yukkuri kōhī o nomu jikan o tsukuru koto ga dekimashita.)",
       "別れを告げたとき、もう一週間ずっと感じていたストレスを忘れていました。(Wakare o tsugeta toki, mō isshūkan zutto kanjite ita sutoresu o wasurete imashita.)"
+    ],
+    FR: [
+      "Cette semaine, je suis tombé sur un vieil ami d'école dans la rue.",
+      "Je me suis arrêté pour dire bonjour et on a fini par parler pendant plus d'une heure.",
+      "J'ai failli passer devant elle sans la voir parce que j'étais distrait par un message sur mon téléphone.",
+      "Je n'avais pas une minute de libre cette semaine, mais j'ai réussi à caser un long café avec elle.",
+      "Au moment de nous dire au revoir, j'avais déjà oublié à quel point j'avais été stressé toute la semaine."
+    ],
+    ES: [
+      "Esta semana me topé con un viejo amigo del colegio en la calle.",
+      "Me paré a saludar y acabamos hablando durante más de una hora.",
+      "Casi paso de largo sin verla porque estaba distraído con un mensaje en el móvil.",
+      "Esta semana no tenía nada de tiempo libre, pero conseguí sacar un largo café con ella.",
+      "Para cuando nos despedimos, ya había olvidado lo estresado que había estado toda la semana."
     ]
   },
 
@@ -553,6 +779,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "家では何も食べなかったから、オフィスの近くのカフェで何か買いました。(Ie de wa nani mo tabenakatta kara, ofisu no chikaku no kafe de nanika kaimashita.)",
       "早朝に会議があって寝坊できないので、アラームを三つかけました。(Sōchō ni kaigi ga atte nebō dekinai node, arāmu o mittsu kakemashita.)",
       "ほとんど目が覚めていなかったけれど、時間通りに家を出て、早い電車にまで乗れてしまいました。(Hotondo me ga samete inakatta keredo, jikan dōri ni ie o dete, hayai densha ni made norete shimaimashita.)"
+    ],
+    FR: [
+      "D'abord, je me suis fait un café bien serré et je me suis assis près de la fenêtre de la cuisine.",
+      "Ensuite, j'ai pris une douche rapide et je me suis habillé avant de regarder mon téléphone.",
+      "Je n'ai pas pris de petit-déjeuner à la maison, donc j'ai attrapé quelque chose au café près du bureau.",
+      "J'ai mis trois réveils parce que j'avais une réunion tôt et que je ne pouvais vraiment pas me permettre de dormir trop.",
+      "Même si j'étais à peine réveillé, j'ai fini par sortir à l'heure et j'ai même attrapé un train plus tôt."
+    ],
+    ES: [
+      "Primero, me preparé un café bien cargado y me senté junto a la ventana de la cocina.",
+      "Luego, me di una ducha rápida y me vestí antes de mirar el móvil.",
+      "No desayuné en casa, así que cogí algo en la cafetería que hay cerca de la oficina.",
+      "Puse tres alarmas porque tenía una reunión temprano y de verdad no podía permitirme quedarme dormido.",
+      "Aunque apenas estaba despierto, al final salí de casa a tiempo e incluso cogí un tren más temprano."
     ]
   },
   17: {
@@ -589,6 +829,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "最初はパッチがうまく貼れなかったから、表面をきれいに拭いてもう一度試しました。(Saisho wa patchi ga umaku harenakatta kara, hyōmen o kirei ni fuite mō ichido tameshimashita.)",
       "一度も自分でパンク修理をしたことがなかったので、動画のチュートリアルを調べなければなりませんでした。(Ichido mo jibun de panku shūri o shita koto ga nakatta node, dōga no chūtoriaru o shirabenakereba narimasen deshita.)",
       "一時間近くかかってしまったけれど、自分で直せてしまいましたし、かなり達成感がありました。(Ichijikan chikaku kakatte shimatta keredo, jibun de naosete shimaimashita shi, kanari tasseikan ga arimashita.)"
+    ],
+    FR: [
+      "D'abord, j'ai remarqué que le pneu de mon vélo était complètement à plat avant de partir.",
+      "Ensuite, j'ai trouvé le kit de réparation sous l'évier de la cuisine et j'ai tout étalé par terre.",
+      "La rustine n'a pas tenu du premier coup, donc j'ai dû bien nettoyer la surface et réessayer.",
+      "J'ai dû regarder un tutoriel vidéo parce que je n'avais jamais réparé une crevaison tout seul auparavant.",
+      "Même si ça m'a pris près d'une heure, j'ai fini par le réparer moi-même et j'en étais plutôt fier."
+    ],
+    ES: [
+      "Primero, me di cuenta de que la rueda de la bici estaba completamente pinchada antes de salir de casa.",
+      "Luego, encontré el kit de reparación debajo del fregadero y lo extendí todo en el suelo.",
+      "El parche no pegó a la primera, así que tuve que limpiar bien la superficie e intentarlo de nuevo.",
+      "Tuve que buscar un tutorial en vídeo porque nunca antes había arreglado un pinchazo yo solo.",
+      "Aunque me llevó casi una hora, al final lo arreglé yo mismo y me quedé bastante orgulloso."
     ]
   },
   18: {
@@ -625,6 +879,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "最初のコースは受け身すぎると感じたから、スピーキングの練習が多いものに替えました。(Saisho no kōsu wa ukemi sugiru to kanjita kara, supīkingu no renshū ga ōi mono ni kaemashita.)",
       "朝はすでにやることが多くて集中できないので、夜に勉強することにしました。(Asa wa sude ni yaru koto ga ōkute shūchū dekinai node, yoru ni benkyō suru koto ni shimashita.)",
       "最初はアプリで学ぶことに半信半疑でしたけれど、続けてしまったら本当に上達してしまいました。(Saisho wa apuri de manabu koto ni hanshinhangi deshita keredo, tsuzukete shimattara hontō ni jōtatsu shite shimaimashita.)"
+    ],
+    FR: [
+      "D'abord, j'ai cherché plusieurs cours de langue en ligne et j'ai retenu une liste de trois.",
+      "Ensuite, je me suis inscrit à un essai gratuit pour voir lequel convenait vraiment à ma façon d'apprendre.",
+      "Le premier cours me semblait trop passif, donc je suis passé à un autre avec plus de pratique orale.",
+      "J'ai choisi d'étudier le soir parce que mes matinées sont déjà trop chargées pour me concentrer correctement.",
+      "Même si j'étais sceptique au début à l'idée d'apprendre avec une appli, j'ai fini par m'y tenir et par faire de vrais progrès."
+    ],
+    ES: [
+      "Primero, busqué varios cursos de idiomas por internet y me quedé con una lista de tres.",
+      "Luego, me apunté a una prueba gratuita para ver cuál se ajustaba de verdad a mi forma de aprender.",
+      "El primer curso me parecía demasiado pasivo, así que me pasé a uno con más práctica oral.",
+      "Elegí estudiar por las noches porque mis mañanas ya están demasiado llenas para concentrarme bien.",
+      "Aunque al principio era escéptico con lo de aprender con una app, al final seguí con ello y hice progresos de verdad."
     ]
   },
   19: {
@@ -661,6 +929,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "次のバスまで二十分しかなかったから、いくつか買い物をして写真を撮りました。(Tsugi no basu made nijuppun shika nakatta kara, ikutsuka kaimono o shite shashin o torimashita.)",
       "チーズのお店のおばさんが家族の農場の話を全部してくれたので、予定より長く居てしまいました。(Chīzu no omise no obasan ga kazoku no nōjō no hanashi o zenbu shite kureta node, yotei yori nagaku ite shimaimashita.)",
       "最初は間違いから始まったのですけれど、結局ここ最近で一番楽しい午後になってしまいました。(Saisho wa machigai kara hajimatta no desu keredo, kekkyoku koko saikin de ichiban tanoshii gogo ni natte shimaimashita.)"
+    ],
+    FR: [
+      "D'abord, je me suis trompé de bus et je me suis retrouvé dans un quartier où je n'étais jamais allé.",
+      "Ensuite, j'ai erré un moment et je suis tombé par hasard sur un petit marché de rue que je n'aurais jamais trouvé autrement.",
+      "Je n'avais que vingt minutes avant le prochain bus, donc j'ai acheté deux ou trois choses et pris quelques photos.",
+      "Je suis resté plus longtemps que prévu parce que la dame du stand de fromages m'avait raconté toute l'histoire de la ferme familiale.",
+      "Même si tout est parti d'une erreur, j'ai fini par passer l'un des plus beaux après-midis depuis longtemps."
+    ],
+    ES: [
+      "Primero, me subí al autobús equivocado y acabé en un barrio en el que nunca había estado.",
+      "Luego, deambulé un rato y di por casualidad con un pequeño mercadillo callejero que jamás habría encontrado de otro modo.",
+      "Solo tenía veinte minutos hasta el siguiente autobús, así que compré un par de cosas e hice unas fotos.",
+      "Me quedé más tiempo del previsto porque la señora del puesto de quesos me había contado toda la historia de la granja familiar.",
+      "Aunque todo empezó por un error, al final pasé una de las mejores tardes que he tenido en mucho tiempo."
     ]
   },
 
@@ -699,6 +981,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "ベルリンのナイトライフはサンパウロのナイトライフと同じくらい賑やかです。(Berurin no naitoraifu wa Sanpauro no naitoraifu to onaji kurai nigiyaka desu.)",
       "京都の路地にあるあの小さなカフェは、今まで座った中で一番風情のある場所です。(Kyōto no roji ni aru ano chiisana kafe wa, ima made suwatta naka de ichiban fūjō no aru basho desu.)",
       "まったく計画なしに知らない街をぶらぶら歩くことにはかないません。(Mattaku keikaku nashi ni shiranai machi o burabura aruku koto ni wa kanaimasen.)"
+    ],
+    FR: [
+      "Kyoto est bien plus ancienne que Tokyo, mais les deux villes ont une atmosphère complètement différente.",
+      "Barcelone est la ville la plus vivante que j'aie visitée en Europe jusqu'à présent.",
+      "La vie nocturne de Berlin est aussi intense que celle de São Paulo.",
+      "Ce petit café dans une ruelle de Kyoto est l'endroit le plus atmosphérique où je me sois jamais assis.",
+      "Rien ne vaut le fait de flâner sans aucun plan dans une ville qu'on connaît à peine."
+    ],
+    ES: [
+      "Kioto es mucho más antigua que Tokio, pero las dos ciudades tienen un ambiente completamente distinto.",
+      "Barcelona es la ciudad más vibrante que he visitado en Europa hasta ahora.",
+      "La vida nocturna de Berlín es tan intensa como la de São Paulo.",
+      "Ese pequeño café en un callejón de Kioto es el lugar con más encanto en el que me he sentado nunca.",
+      "No hay nada como pasear sin ningún plan por una ciudad que apenas conoces."
     ]
   },
   21: {
@@ -735,6 +1031,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "他の人への彼女の忍耐力は、プレッシャーのもとで落ち着いていられる力と同じくらい見事です。(Hoka no hito e no kanojo no nintairyoku wa, puresshā no moto de ochitsuite irarereru chikara to onaji kurai migoto desu.)",
       "彼女は今まで幸運にも教えを受けた中で一番情熱的な先生です。(Kanojo wa ima made kōun ni mo oshie o uketa naka de ichiban jōnetsuteki na sensei desu.)",
       "何があっても信じてくれる人が人生にいるということにはかないません。(Nani ga atte mo shinjite kureru hito ga jinsei ni iru to iu koto ni wa kanaimasen.)"
+    ],
+    FR: [
+      "Ma grand-mère est bien plus résiliente que toute autre personne que j'aie connue.",
+      "C'est la personne la plus inspirante que j'aie rencontrée de toute ma vie.",
+      "Sa patience avec les autres est aussi remarquable que sa capacité à rester calme sous pression.",
+      "C'est l'enseignante la plus dévouée dont j'aie jamais eu la chance d'apprendre.",
+      "Rien ne vaut le fait d'avoir dans sa vie quelqu'un qui croit en vous quoi qu'il arrive."
+    ],
+    ES: [
+      "Mi abuela es mucho más resiliente que cualquier otra persona que haya conocido.",
+      "Es la persona más inspiradora que he conocido en toda mi vida.",
+      "Su paciencia con los demás es tan admirable como su capacidad de mantener la calma bajo presión.",
+      "Es la maestra más entregada de la que he tenido la suerte de aprender.",
+      "No hay nada como tener en la vida a alguien que cree en ti pase lo que pase."
     ]
   },
   22: {
@@ -771,6 +1081,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "今日の自分の自信は、始めた頃と同じくらい不安定ですが、違うかたちで。(Kyō no jibun no jishin wa, hajimeta koro to onaji kurai fuantei desu ga, chigau katachi de.)",
       "語学を学ぶことにしたのは、今まで自分の成長のためにした中で一番良い選択です。(Gogaku o manabu koto ni shita no wa, ima made jibun no seichō no tame ni shita naka de ichiban yoi sentaku desu.)",
       "やはり振り返って自分がどれだけ成長したかに気づく瞬間が一番ですね。(Yahari furikaette jibun ga dore dake seichō shita ka ni kizuku shunkan ga ichiban desu ne.)"
+    ],
+    FR: [
+      "Je suis bien plus à l'aise avec l'incertitude aujourd'hui qu'il y a cinq ans.",
+      "Ces deux dernières années ont été la période la plus formatrice de ma vie.",
+      "Ma confiance aujourd'hui est aussi fragile qu'à mes débuts, mais d'une autre manière.",
+      "Décider d'étudier les langues est le meilleur choix que j'aie jamais fait pour ma propre évolution.",
+      "Rien ne vaut le fait de regarder en arrière et de réaliser le chemin qu'on a réellement parcouru."
+    ],
+    ES: [
+      "Ahora me siento mucho más cómodo con la incertidumbre que hace cinco años.",
+      "Estos dos últimos años han sido la etapa más formativa de mi vida.",
+      "Mi confianza hoy es tan frágil como cuando empecé, pero de otra manera.",
+      "Decidir estudiar idiomas es la mejor decisión que he tomado nunca para mi propio crecimiento.",
+      "No hay nada como mirar atrás y darte cuenta de lo lejos que has llegado en realidad."
     ]
   },
   23: {
@@ -807,6 +1131,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "夏の夜のメインの広場はわたしがイタリアで訪れたどの広場と同じくらい活気があります。(Natsu no yoru no mein no hiroba wa watashi ga Itaria de otozureta dono hiroba to onaji kurai kakki ga arimasu.)",
       "古い屋根付き市場は、今まで静かな平日の朝に探索した中で一番魅力的な場所です。(Furui yanetsuki ichiba wa, ima made shizuka na heijitsu no asa ni tansakushita naka de ichiban miryokuteki na basho desu.)",
       "街角のバーでコーヒーを飲みながら街がゆっくり目覚めるのを眺めることにはかないません。(Machikado no bā de kōhī o nominagara machi ga yukkuri mezameru no o nagameru koto ni wa kanaimasen.)"
+    ],
+    FR: [
+      "Notre marché du dimanche est bien plus animé que tout ce que j'ai vu dans les villes alentour.",
+      "Le parc au bord de la rivière est l'endroit le plus paisible de toute la ville.",
+      "La grande place un soir d'été est aussi animée que n'importe quelle piazza que j'ai visitée en Italie.",
+      "Le vieux marché couvert est l'endroit le plus fascinant que j'aie exploré un matin de semaine tranquille.",
+      "Rien ne vaut le fait de prendre un café au bar du coin en regardant la ville s'éveiller lentement."
+    ],
+    ES: [
+      "Nuestro mercado de los domingos es mucho más animado que cualquier cosa que haya visto en los pueblos de alrededor.",
+      "El parque junto al río es el lugar más tranquilo de toda la ciudad.",
+      "La plaza principal en una tarde de verano es tan animada como cualquier plaza que haya visitado en Italia.",
+      "El viejo mercado cubierto es el lugar más fascinante que he explorado una tranquila mañana entre semana.",
+      "No hay nada como tomarse un café en el bar de la esquina viendo despertar poco a poco la ciudad."
     ]
   },
 
@@ -845,6 +1183,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "SNSは依存性があると思います。なぜならずっとスクロールし続けるように設計されているからです。(SNS wa izonsei ga aru to omoimasu. Nazenara zutto sukurōru shitsuzukeru yō ni sekkeisarete iru kara desu.)",
       "SNSがつながりを保つのに役立つとしても、やはり本当の友情を傷つける可能性があると思います。(SNS ga tsunagari o tamotsu no ni yakudatsu to shite mo, yahari hontō no yūjō o kizutsukeru kanōsei ga aru to omoimasu.)",
       "常時接続の長期的な影響はまだ十分に理解されていないのではないかと思います。(Jōji setsuzoku no chōkiteki na eikyō wa mada jūbun ni rikai sarete inai no de wa nai ka to omoimasu.)"
+    ],
+    FR: [
+      "Je pense que la technologie est utile.",
+      "Je pense que les réseaux sociaux ont changé notre façon de communiquer.",
+      "Je pense que les réseaux sociaux rendent dépendant parce qu'ils sont conçus pour nous garder à faire défiler.",
+      "Même si les réseaux sociaux nous aident à rester connectés, je pense quand même qu'ils peuvent nuire aux vraies amitiés.",
+      "Il me semble que nous n'avons pas encore vraiment saisi les effets à long terme d'une connexion permanente."
+    ],
+    ES: [
+      "Creo que la tecnología es útil.",
+      "Creo que las redes sociales han cambiado nuestra forma de comunicarnos.",
+      "Creo que las redes sociales son adictivas porque están diseñadas para mantenernos deslizando la pantalla.",
+      "Aunque las redes sociales nos ayuden a estar conectados, sigo pensando que pueden dañar las amistades de verdad.",
+      "Me parece que todavía no hemos entendido del todo los efectos a largo plazo de la conexión permanente."
     ]
   },
   25: {
@@ -881,6 +1233,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "流暢さへの鍵は継続だと思います。なぜなら毎日の練習から上達が生まれるからです。(Ryūchōsa e no kagi wa keizoku da to omoimasu. Nazenara mainichi no renshū kara jōtatsu ga umareru kara desu.)",
       "文法が難しく感じられるとしても、やはりきちんとマスターする価値があると思います。(Bunpō ga muzukashiku kanjirareru to shite mo, yahari kichinto masutā suru kachi ga aru to omoimasu.)",
       "言語を学ぶ最善の方法は毎日ただ使い続けることなのではないかと思います。(Gengo o manabu saizen no hōhō wa mainichi tada tsukaitsuzukeru koto na no de wa nai ka to omoimasu.)"
+    ],
+    FR: [
+      "Je pense qu'apprendre les langues est gratifiant.",
+      "Je pense que parler une deuxième langue ouvre beaucoup de portes dans la vie.",
+      "Je pense que la régularité est la clé de l'aisance parce que les progrès viennent de la pratique quotidienne.",
+      "Même si la grammaire peut sembler écrasante, je pense quand même qu'elle vaut la peine d'être bien maîtrisée.",
+      "Il me semble que la meilleure façon d'apprendre une langue serait tout simplement de l'utiliser chaque jour."
+    ],
+    ES: [
+      "Creo que aprender idiomas es gratificante.",
+      "Creo que hablar una segunda lengua abre muchas puertas en la vida.",
+      "Creo que la constancia es la clave de la fluidez porque los progresos vienen de la práctica diaria.",
+      "Aunque la gramática pueda resultar abrumadora, sigo pensando que merece la pena dominarla bien.",
+      "Me parece que la mejor forma de aprender una lengua sería simplemente usarla cada día."
     ]
   },
   26: {
@@ -917,6 +1283,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "旅は人を変えると思います。なぜなら未知のものに向き合うことを強いられるからです。(Tabi wa hito o kaeru to omoimasu. Nazenara michi no mono ni mukiau koto o shiirarereru kara desu.)",
       "家にいることが快適で費用もかからないとしても、やはり一度は旅をするべきだと思います。(Ie ni iru koto ga kaiteki de hiyō mo kakaranai to shite mo, yahari ichido wa tabi o suru beki da to omoimasu.)",
       "大切なのは行き先よりも、どれだけ新しい経験に心を開いているかではないかと思います。(Taisetsu na no wa yukisaki yori mo, dore dake atarashii keiken ni kokoro o hiraite iru ka de wa nai ka to omoimasu.)"
+    ],
+    FR: [
+      "Je pense que voyager ouvre l'esprit.",
+      "Je pense que rester chez soi peut être tout aussi enrichissant que partir à l'étranger.",
+      "Je pense que voyager vous transforme parce que cela vous force à affronter l'inconnu.",
+      "Même si rester chez soi est confortable et économique, je pense quand même que chacun devrait voyager au moins une fois.",
+      "Il me semble que ce qui compte le plus n'est pas où l'on va, mais à quel point on est ouvert aux nouvelles expériences."
+    ],
+    ES: [
+      "Creo que viajar abre la mente.",
+      "Creo que quedarse en casa puede ser tan enriquecedor como irse al extranjero.",
+      "Creo que viajar te cambia como persona porque te obliga a enfrentarte a lo desconocido.",
+      "Aunque quedarse en casa sea cómodo y barato, sigo pensando que todo el mundo debería viajar al menos una vez.",
+      "Me parece que lo que más importa no es adónde vas, sino lo abierto que estás a las nuevas experiencias."
     ]
   },
   27: {
@@ -953,6 +1333,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "早めに寝ることは良い第一歩だと思います。なぜなら休息が一日のほかのすべてに影響するからです。(Hayame ni neru koto wa yoi daiippo da to omoimasu. Nazenara kyūsoku ga ichinichi no hoka no subete ni eikyō suru kara desu.)",
       "習慣を変えるには時間と努力がかかるとしても、やはり正しい考え方があれば誰でもできると思います。(Shūkan o kaeru ni wa jikan to doryoku ga kakaru to shite mo, yahari tadashii kangaekata ga areba dare demo dekiru to omoimasu.)",
       "長続きするライフスタイルの変化は意志の力だけでなく、支えになる環境を作ることから生まれるのではないかと思います。(Nagatsuzuki suru raifusutairu no henka wa ishi no chikara dake de naku, sasae ni naru kankyō o tsukuru koto kara umareru no de wa nai ka to omoimasu.)"
+    ],
+    FR: [
+      "Je pense que les petites habitudes font une grande différence.",
+      "Je pense que changer sa routine quotidienne est plus difficile qu'il n'y paraît.",
+      "Je pense que se coucher plus tôt est un bon premier pas parce que le repos influence tout le reste de la journée.",
+      "Même si changer ses habitudes demande du temps et des efforts, je pense quand même que tout le monde peut y arriver avec le bon état d'esprit.",
+      "Il me semble qu'un changement de vie durable ne vient pas de la seule volonté, mais du fait de créer un environnement favorable."
+    ],
+    ES: [
+      "Creo que los pequeños hábitos marcan una gran diferencia.",
+      "Creo que cambiar la rutina diaria es más difícil de lo que parece.",
+      "Creo que acostarse más temprano es un buen primer paso porque el descanso influye en todo lo demás del día.",
+      "Aunque cambiar de hábitos lleve tiempo y esfuerzo, sigo pensando que cualquiera puede lograrlo con la actitud adecuada.",
+      "Me parece que un cambio de vida duradero no viene solo de la fuerza de voluntad, sino de crear un entorno que te apoye."
     ]
   },
 
@@ -991,6 +1385,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "寝る前に何時間もスマホの画面を見ていた、だからなかなか眠れませんでした。(Neru mae ni nanjikan mo sumaho no gamen o mite ita, dakara nakanaka nemurenakatta.)",
       "昨夜は寝るのが遅かっただけでなく、夜中に目が覚めることも何度かありました。(Sakuya wa neru no ga osokatta dake de naku, yonaka ni me ga sameru koto mo nandoka arimashita.)",
       "スマホを見れば見るほど眠れなくなり、眠れなければ翌朝がつらくなります。(Sumaho o mireba miru hodo nemurenaku nari, nemurenakereba yokuasa ga tsuraku narimasu.)"
+    ],
+    FR: [
+      "J'ai mal dormi la nuit dernière parce que j'ai bu du café trop tard dans la soirée.",
+      "J'étais si fatigué ce matin que j'arrivais à peine à sortir du lit.",
+      "J'avais fixé mon téléphone pendant des heures avant de me coucher, c'est pourquoi je n'arrivais pas à m'endormir.",
+      "La nuit dernière, non seulement je me suis couché tard, mais je me réveillais aussi toutes les heures.",
+      "Plus je passe la soirée à faire défiler mon téléphone, moins je dors, et moins j'arrive à me concentrer le lendemain."
+    ],
+    ES: [
+      "Anoche dormí mal porque tomé café demasiado tarde.",
+      "Esta mañana estaba tan cansado que apenas podía salir de la cama.",
+      "Había estado mirando el móvil durante horas antes de acostarme, por eso no conseguía dormirme.",
+      "Anoche no solo me acosté tarde, sino que además me despertaba cada hora.",
+      "Cuanto más me quedo por la noche deslizando el móvil, menos duermo y menos me concentro al día siguiente."
     ]
   },
   29: {
@@ -1027,6 +1435,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "いつも昼ごろにエネルギーが切れてしまう、だから自炊を始めることにしました。(Itsumo hirogoro ni enerugī ga kirete shimau, dakara jisui o hajimeru koto ni shimashita.)",
       "食事を変えただけでなく、毎晩一時間早く寝るようにもしました。(Shokuji o kaeta dake de naku, maiban ichijikan hayaku neru yō ni mo shimashita.)",
       "よく眠れば眠るほど体が軽くなり、体が軽くなれば運動も続けやすくなります。(Yoku nemureba nemuru hodo karada ga karuku nari, karada ga karuku nareba undō mo tsuzukeyasuku narimasu.)"
+    ],
+    FR: [
+      "J'ai arrêté de manger de la restauration rapide parce que je voulais me sentir en meilleure santé.",
+      "J'étais si mou chaque après-midi que j'ai décidé de supprimer le sucre au déjeuner.",
+      "Mon énergie s'effondrait toujours vers midi, c'est pourquoi j'ai commencé à préparer mes repas à la maison.",
+      "Non seulement j'ai changé ce que je mange, mais j'ai aussi commencé à me coucher une heure plus tôt.",
+      "Plus je dormais mieux, plus j'avais d'énergie pour bouger, et peu à peu tout le reste s'est mis en place."
+    ],
+    ES: [
+      "Dejé de comer comida rápida porque quería sentirme más sano.",
+      "Estaba tan flojo cada tarde que decidí quitar el azúcar del almuerzo.",
+      "Mi energía siempre se venía abajo hacia el mediodía, por eso empecé a prepararme la comida en casa.",
+      "No solo cambié lo que como, sino que además empecé a acostarme una hora antes.",
+      "Cuanto mejor dormía, más energía tenía para moverme, y poco a poco todo lo demás fue encajando."
     ]
   },
   30: {
@@ -1063,6 +1485,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "一夜漬けをやめて毎日少しずつ勉強することにした、だからテストの結果が少しずつ上がっています。(Ichiyazuke o yamete mainichi sukoshi zutsu benkyō suru koto ni shita, dakara tesuto no kekka ga sukoshi zutsu agatte imasu.)",
       "毎晩ノートを見直す時間を作っただけでなく、覚えたことを定着させるために短い音声メモも録るようにしました。(Maiban nōto o minaosu jikan o tsukutta dake de naku, oboeta koto o teichaku saseru tame ni mijikai onsei memo mo toru yō ni shimashita.)",
       "コツコツ勉強すればするほど自信がつき、自信がつけばつくほどもっと学びたくなります。(Kotsukotsu benkyō sureba suru hodo jishin ga tsuki, jishin ga tsukeba tsuku hodo motto manabitaku narimasu.)"
+    ],
+    FR: [
+      "J'ai commencé à étudier le matin parce que je me concentre mieux avant midi.",
+      "J'ai pris un projet supplémentaire au travail, si bien que j'avais tant à gérer que j'ai dû réorganiser tout mon emploi du temps.",
+      "J'ai décidé d'étudier un peu chaque jour plutôt que de bachoter, c'est pourquoi mes résultats se sont améliorés régulièrement.",
+      "Non seulement j'ai réservé du temps pour revoir mes notes chaque soir, mais j'ai aussi commencé à enregistrer de courts mémos vocaux pour ancrer ce que j'avais appris.",
+      "Plus j'étudiais avec régularité, plus je gagnais en confiance, et plus cette confiance me donnait envie d'étudier encore."
+    ],
+    ES: [
+      "Empecé a estudiar por las mañanas porque me concentro mejor antes del mediodía.",
+      "Asumí un proyecto extra en el trabajo, así que tenía tanto que gestionar que tuve que reorganizar todo mi horario.",
+      "Decidí estudiar un poco cada día en lugar de empollar de golpe, por eso mis resultados han ido mejorando de forma constante.",
+      "No solo reservé tiempo para repasar mis apuntes cada noche, sino que además empecé a grabar breves notas de voz para afianzar lo aprendido.",
+      "Cuanto más constante era al estudiar, más confianza ganaba, y más ganas me daban de estudiar todavía más."
     ]
   },
   31: {
@@ -1099,6 +1535,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "先月、親しい友人が海外に引っ越してしまった、だから最近少し寂しく感じています。(Sengetsu, shitashii yūjin ga kaigai ni hikkoshite shimatta, dakara saikin sukoshi sabishiku kanjite imasu.)",
       "プロジェクトがようやく終わったとき、ほっとしただけでなく、自分がやり遂げたことに深い誇りも感じました。(Purojekuto ga yōyaku owatta toki, hotto shita dake de naku, jibun ga yaritogeta koto ni fukai hokori mo kanjimashita.)",
       "自分の成長を人と分かち合えば分かち合うほどやる気が高まり、やる気が高まれば高まるほど毎日が楽しくなります。(Jibun no seichō o hito to wakachiaeba wakachiau hodo yaruki ga takamari, yaruki ga takamareba takamaru hodo mainichi ga tanoshiku narimasu.)"
+    ],
+    FR: [
+      "Je me sentais anxieux parce que j'avais une présentation importante le lendemain matin.",
+      "J'étais si nerveux avant l'entretien que j'arrivais à peine à manger.",
+      "Un ami proche est parti vivre à l'étranger le mois dernier, c'est pourquoi je me sens un peu seul ces derniers temps.",
+      "Non seulement j'étais soulagé quand le projet a enfin été terminé, mais aussi profondément fier de ce que j'avais réussi à accomplir.",
+      "Plus je partageais mes progrès avec les autres, plus je me sentais motivé, et plus cette motivation rendait toute l'expérience agréable."
+    ],
+    ES: [
+      "Me sentía ansioso porque tenía una presentación importante a la mañana siguiente.",
+      "Estaba tan nervioso antes de la entrevista que apenas podía comer.",
+      "Un amigo cercano se mudó al extranjero el mes pasado, por eso últimamente me siento un poco solo.",
+      "No solo me sentí aliviado cuando por fin terminó el proyecto, sino además profundamente orgulloso de lo que había logrado sacar adelante.",
+      "Cuanto más compartía mis progresos con los demás, más motivado me sentía, y más agradable se volvía toda la experiencia."
     ]
   },
 
@@ -1138,6 +1588,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "自分に対してとても厳しいのに、周りの人にはできるだけ優しくしようとしています。(Jibun ni taishite totemo kibishii noni, mawari no hito ni wa dekiru dake yasashiku shiyō to shite imasu.)",
       "悲観的になりやすい性格にもかかわらず、未来に対して希望を持ち続けることができています。(Hikanteki ni nari yasui seikaku ni mo kakawarazu, mirai ni taishite kibō o mochitsuzukeru koto ga dekite imasu.)",
       "頑固な一面があるとはいえ、その粘り強さのおかげで諦めずに続けられてしまいます。(Ganko na ichimen ga aru to wa ie, sono nebarizuyosa no okage de akiramezu ni tsuzukerarete shimaimasu.)"
+    ],
+    FR: [
+      "Je suis assez timide, mais j'adore rencontrer de nouvelles personnes.",
+      "J'ai tendance à trop réfléchir à tout ; cependant, je sais aussi agir avec fermeté quand ça compte.",
+      "Même si je peux être très dur avec moi-même, j'essaie sincèrement d'être gentil avec tout le monde autour de moi.",
+      "Malgré ma tendance naturelle au pessimisme, je parviens à rester plein d'espoir pour l'avenir.",
+      "Je sais que je peux être têtu parfois. Cela dit, je pense que c'est justement cette obstination qui me fait avancer."
+    ],
+    ES: [
+      "Soy bastante tímido, pero me encanta conocer a gente nueva.",
+      "Tiendo a darle demasiadas vueltas a todo; sin embargo, también sé actuar con decisión cuando hace falta.",
+      "Aunque puedo ser muy duro conmigo mismo, intento sinceramente ser amable con todos los que me rodean.",
+      "A pesar de mi tendencia natural al pesimismo, consigo mantener la esperanza en el futuro.",
+      "Sé que a veces puedo ser testarudo. Dicho esto, creo que es precisamente esa terquedad la que me hace seguir adelante."
     ]
   },
   33: {
@@ -1169,6 +1633,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "しっかり準備したのに、思い描いていたようにはうまくいきませんでした。(Shikkari junbi shita noni, omoiegaite ita yō ni wa umaku ikimasen deshita.)",
       "何ヶ月も楽しみにしていたにもかかわらず、最初はその体験が意外なほど普通に感じられました。(Nankagetsu mo tanoshimi ni shite ita ni mo kakawarazu, saisho wa sono taiken ga igai na hodo futsū ni kanjiraremashita.)",
       "ターニングポイントになると思っていたとはいえ、本当の変化はずっと静かなかたちでやってきてしまいました。(Tāningu pointo ni naru to omotte ita to wa ie, hontō no henka wa zutto shizuka na katachi de yatte kite shimaimashita.)"
+    ],
+    FR: [
+      "Je m'attendais à ce que ce soit facile, mais la réalité était bien différente.",
+      "Je pensais me sentir soulagé ; cependant, je me suis surtout senti épuisé.",
+      "Même si je m'étais préparé avec soin, les choses ne se sont pas passées comme je l'avais imaginé.",
+      "Malgré des mois d'attente, l'expérience m'a paru étonnamment ordinaire au début.",
+      "Je l'avais imaginé comme un tournant. Cela dit, le vrai changement est arrivé bien plus discrètement que je ne le pensais."
+    ],
+    ES: [
+      "Esperaba que fuera fácil, pero la realidad era muy distinta.",
+      "Pensaba que me sentiría aliviado; sin embargo, sobre todo me sentí agotado.",
+      "Aunque me había preparado con cuidado, las cosas no salieron como las había imaginado.",
+      "A pesar de meses de expectación, la experiencia me pareció sorprendentemente corriente al principio.",
+      "Me lo había imaginado como un punto de inflexión. Dicho esto, el verdadero cambio llegó de forma mucho más silenciosa de lo que esperaba."
     ]
   },
   34: {
@@ -1200,6 +1678,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "スマホを見るのをやめようと思っているのに、考えなしに手が伸びてしまいます。(Sumaho o miru no o yameyō to omotte iru noni, kangaenashi ni te ga nobite shimaimasu.)",
       "もっと書きたいという本物の気持ちにもかかわらず、一行も書かないまま何週間も過ぎてしまいます。(Motto kakitai to iu honmono no kimochi ni mo kakawarazu, ichigyo mo kakanai mama nanshūkan mo sugite shimaimasu.)",
       "何をすべきかはわかっているとはいえ、わかることと実際にやることは全然別のことになってしまいます。(Nani o subeki ka wa wakatte iru to wa ie, wakaru koto to jissai ni yaru koto wa zenzen betsu no koto ni natte shimaimasu.)"
+    ],
+    FR: [
+      "Je veux faire du sport tous les jours, mais je n'arrête pas de remettre à plus tard.",
+      "J'ai l'intention de me coucher plus tôt ; cependant, je finis toujours par veiller trop tard.",
+      "Même si je me dis d'arrêter de faire défiler l'écran, j'attrape mon téléphone sans réfléchir.",
+      "Malgré mon envie sincère d'écrire davantage, des semaines passent sans une seule ligne.",
+      "Je sais exactement ce que je devrais faire. Cela dit, savoir et faire vraiment sont deux choses très différentes."
+    ],
+    ES: [
+      "Quiero hacer ejercicio todos los días, pero no dejo de posponerlo.",
+      "Tengo la intención de acostarme más temprano; sin embargo, siempre acabo quedándome despierto hasta demasiado tarde.",
+      "Aunque me digo que deje de deslizar la pantalla, cojo el móvil sin pensar.",
+      "A pesar de mi deseo sincero de escribir más, pasan semanas sin una sola línea.",
+      "Sé exactamente lo que debería hacer. Dicho esto, saberlo y hacerlo de verdad son dos cosas muy distintas."
     ]
   },
   35: {
@@ -1231,6 +1723,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "人の目を気にしないと言っているのに、他人の言葉がこんなに影響するとは気づいていませんでした。(Hito no me o ki ni shinai to itte iru noni, tanin no kotoba ga konna ni eikyō suru to wa kizuite imasen deshita.)",
       "自分は忍耐強いと思っているにもかかわらず、些細なことですぐに苛立ってしまいます。(Jibun wa nintaizuyoi to omotte iru ni mo kakawarazu, sasai na koto de sugu ni iradatte shimaimasu.)",
       "完璧よりも成長が大切だと信じているとはいえ、失敗への恐れで動けなくなってしまいます。(Kanpeki yori mo seichō ga taisetsu da to shinjite iru to wa ie, shippai e no osore de ugokenaku natte shimaimasu.)"
+    ],
+    FR: [
+      "J'apprécie le silence, mais je me sens mal à l'aise quand tout devient trop calme.",
+      "Je dis avoir besoin de temps seul ; cependant, la solitude me touche plus que je ne veux l'admettre.",
+      "Même si je prétends me moquer de l'avis des autres, je remarque à quel point leurs mots m'affectent.",
+      "Malgré le fait que je me considère patient, je m'emporte pour les moindres contrariétés.",
+      "Je crois sincèrement que le progrès compte plus que la perfection. Cela dit, je me retrouve encore paralysé par la peur de me tromper."
+    ],
+    ES: [
+      "Valoro el silencio, pero me siento incómodo cuando todo se queda demasiado callado.",
+      "Digo que necesito tiempo a solas; sin embargo, la soledad me afecta más de lo que quiero admitir.",
+      "Aunque afirmo que no me importa lo que piensen los demás, noto lo mucho que me afectan sus palabras.",
+      "A pesar de considerarme una persona paciente, pierdo los nervios por las tonterías más pequeñas.",
+      "Creo sinceramente que el progreso importa más que la perfección. Dicho esto, sigo encontrándome paralizado por el miedo a equivocarme."
     ]
   },
 
@@ -1263,6 +1769,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "去年もっと時間があったら、新しい楽器を習っていたでしょう。(Kyonen motto jikan ga attara, atarashii gakki o naratte ita deshō.)",
       "自由な時間があれば毎日勉強できるし、そうなれば流暢になるのもずっと早くなるはずです。(Jiyū na jikan ga areba mainichi benkyō dekiru shi, sō nareba ryūchō ni naru no mo zutto hayaku naru hazu desu.)",
       "もっと短い時間の仕事を選んでいたら、どうなっていたかもしれないと、たまに思います。(Motto mijikai jikan no shigoto o erande ita ra, dō natte ita ka mo shirenai to, tama ni omoimasu.)"
+    ],
+    FR: [
+      "Si j'ai du temps libre ce week-end, je ferai une longue promenade.",
+      "Si j'avais plus de temps libre, je lirais beaucoup plus.",
+      "Si j'avais eu plus de temps libre l'année dernière, j'aurais appris un nouvel instrument.",
+      "Si j'avais plus de temps libre, j'étudierais tous les jours, ce qui voudrait dire que j'atteindrais l'aisance bien plus vite.",
+      "Je me demande parfois ce qui serait arrivé si j'avais choisi un travail aux horaires plus courts."
+    ],
+    ES: [
+      "Si tengo tiempo libre este fin de semana, daré un largo paseo.",
+      "Si tuviera más tiempo libre, leería mucho más.",
+      "Si hubiera tenido más tiempo libre el año pasado, habría aprendido un instrumento nuevo.",
+      "Si tuviera más tiempo libre, estudiaría todos los días, lo que significaría que alcanzaría la fluidez mucho más rápido.",
+      "A veces me pregunto qué habría pasado si hubiera elegido un trabajo con menos horas."
     ]
   },
   37: {
@@ -1293,6 +1813,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "５年前に海外に引っ越していたら、今頃本当にバイリンガルになっていたでしょう。(Gonenmae ni kaigai ni hikkoshite itara, imagoro hontō ni bairingaru ni natte ita deshō.)",
       "海外に住めば毎日文化に浸れるし、そうなればアクセントもすぐに消えるはずです。(Kaigai ni sumeba mainichi bunka ni hitareru shi, sō nareba akusento mo sugu ni kieru hazu desu.)",
       "あの外国の街での仕事のオファーを受けていたら、どうなっていたかもしれないと、たまに思います。(Ano gaikoku no machi de no shigoto no ofā o ukete itara, dō natte ita ka mo shirenai to, tama ni omoimasu.)"
+    ],
+    FR: [
+      "Si je pars vivre à l'étranger l'année prochaine, je suivrai un cours de langue immédiatement.",
+      "Si je vivais dans un autre pays, j'apprendrais la langue bien plus vite.",
+      "Si j'étais parti à l'étranger il y a cinq ans, je serais vraiment devenu bilingue aujourd'hui.",
+      "Si je vivais à l'étranger, je m'immergerais dans la culture chaque jour, ce qui voudrait dire que mon accent disparaîtrait vite.",
+      "Je me demande parfois ce qui serait arrivé si j'avais accepté cette offre d'emploi dans une ville étrangère."
+    ],
+    ES: [
+      "Si me mudo al extranjero el año que viene, haré un curso de idiomas de inmediato.",
+      "Si viviera en otro país, aprendería la lengua mucho más rápido.",
+      "Si me hubiera mudado al extranjero hace cinco años, ya sería de verdad bilingüe.",
+      "Si viviera en el extranjero, me sumergiría en la cultura cada día, lo que significaría que mi acento desaparecería enseguida.",
+      "A veces me pregunto qué habría pasado si hubiera aceptado aquella oferta de trabajo en una ciudad extranjera."
     ]
   },
   38: {
@@ -1323,6 +1857,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "大学で別のことを勉強していたら、まったく違う職業に就いていたでしょう。(Daigaku de betsu no koto o benkyō shite itara, mattaku chigau shokugyō ni tsuite ita deshō.)",
       "あのチャンスをつかんでいれば海外経験も積めたし、そうなれば今の生活はまったく別のものになっていたはずです。(Ano chansu o tsukande ireba kaigai keiken mo tsumeta shi, sō nareba ima no seikatsu wa mattaku betsu no mono ni natte ita hazu desu.)",
       "子どもの頃の夢を追いかけていたら、どうなっていたかもしれないと、たまに思います。(Kodomo no koro no yume o oikakete itara, dō natte ita ka mo shirenai to, tama ni omoimasu.)"
+    ],
+    FR: [
+      "Si je choisis un autre chemin, je ferai face à de nouveaux défis.",
+      "Si je faisais un choix différent, je mènerais une vie très différente.",
+      "Si j'avais étudié autre chose à l'université, j'aurais fini dans une carrière complètement différente.",
+      "Si j'avais saisi cette occasion, j'aurais acquis de l'expérience à l'étranger, ce qui voudrait dire que ma vie aujourd'hui serait tout autre.",
+      "Je me demande parfois ce qui serait arrivé si j'avais plutôt suivi mon rêve d'enfance."
+    ],
+    ES: [
+      "Si elijo otro camino, me enfrentaré a nuevos retos.",
+      "Si tomara una decisión distinta, llevaría una vida muy diferente.",
+      "Si hubiera estudiado otra cosa en la universidad, habría acabado en una carrera completamente distinta.",
+      "Si hubiera aprovechado aquella oportunidad, habría ganado experiencia en el extranjero, lo que significaría que mi vida hoy sería totalmente distinta.",
+      "A veces me pregunto qué habría pasado si en cambio hubiera seguido mi sueño de infancia."
     ]
   },
   39: {
@@ -1353,6 +1901,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "若い頃にもっと自信があったら、もっと頻繁に自分の意見を言っていたでしょう。(Wakai koro ni motto jishin ga attara, motto hinpan ni jibun no iken o itte ita deshō.)",
       "もっと社交的であれば友達も簡単にできるし、そうなれば新しい場所でも孤独を感じないはずです。(Motto shakōteki de areba tomodachi mo kantan ni dekiru shi, sō nareba atarashii basho demo kodoku o kanjinai hazu desu.)",
       "あのとき本当の気持ちを言える勇気があったら、どうなっていたかもしれないと、たまに思います。(Ano toki hontō no kimochi o ieru yūki ga attara, dō natte ita ka mo shirenai to, tama ni omoimasu.)"
+    ],
+    FR: [
+      "Si je deviens plus patient, je gérerai bien mieux le stress.",
+      "Si j'étais quelqu'un de différent, j'aborderais les problèmes très différemment.",
+      "Si j'avais eu plus confiance en moi plus jeune, je me serais exprimé plus souvent.",
+      "Si j'étais plus extraverti, je me ferais des amis facilement, ce qui voudrait dire que je ne me sentirais jamais seul dans un endroit nouveau.",
+      "Je me demande parfois ce qui serait arrivé si j'avais eu le courage de dire mes vraies opinions à l'époque."
+    ],
+    ES: [
+      "Si me vuelvo más paciente, gestionaré mucho mejor el estrés.",
+      "Si fuera una persona distinta, afrontaría los problemas de una forma muy diferente.",
+      "Si hubiera tenido más confianza cuando era más joven, habría hablado más a menudo.",
+      "Si fuera más extrovertido, haría amigos con facilidad, lo que significaría que nunca me sentiría solo en un lugar nuevo.",
+      "A veces me pregunto qué habría pasado si hubiera tenido el valor de decir mis verdaderas opiniones en aquel entonces."
     ]
   },
 
@@ -1391,6 +1953,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "わたしの恩師、それは一番つらい時期にずっと支えてくれた人で、今も定期的に連絡をくれます。(Watashi no onshi, sore wa ichiban tsurai jiki ni zutto sasaete kureta hito de, ima mo teikiteki ni renraku o kuremasu.)",
       "彼女はわたしのことを心から信じてくれた数少ない人の一人です。(Kanojo wa watashi no koto o kokoro kara shinjite kureta kazusukunai hito no hitori desu.)",
       "彼はこちらの話をちゃんと聞いてくれるような人で、だからこそ困ったときにいつも頼りにしています。(Kare wa kochira no hanashi o chanto kiite kureru yō na hito de, dakara koso komatta toki ni itsumo tayori ni shite imasu.)"
+    ],
+    FR: [
+      "C'est la personne qui me comprend le mieux.",
+      "C'est l'ami avec qui j'ai grandi.",
+      "Mon mentor, qui m'a guidé pendant mes années les plus difficiles, m'appelle encore régulièrement.",
+      "C'est l'une des rares personnes qui aient vraiment cru en moi.",
+      "C'est le genre de personne qui vous fait sentir écouté, c'est pourquoi je me tourne toujours vers lui quand j'ai besoin d'un conseil."
+    ],
+    ES: [
+      "Es la persona que mejor me entiende.",
+      "Es el amigo con el que crecí.",
+      "Mi mentor, que me guio durante mis años más difíciles, todavía me llama con regularidad.",
+      "Es una de las pocas personas que de verdad han creído en mí.",
+      "Es la clase de persona que te hace sentir escuchado, por eso siempre acudo a él cuando necesito un consejo."
     ]
   },
   41: {
@@ -1427,6 +2003,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "角にある古い図書館、それは去年閉館してしまいましたが、毎週土曜日を過ごした場所でした。(Kado ni aru furui toshokan, sore wa kyonen heikan shite shimaimashita ga, maishū doyōbi o sugoshita basho deshita.)",
       "あの頃と変わらない雰囲気を持つ場所の一つです。(Ano koro to kawaranai fun'iki o motsu basho no hitotsu desu.)",
       "気持ちをゆったりさせてくれるような場所で、だからこそ追い詰められたときにいつもそこへ戻ります。(Kimochi o yuttari sasete kureru yō na basho de, dakara koso oitsumerareta toki ni itsumo soko e modorimasu.)"
+    ],
+    FR: [
+      "C'est le parc qui a façonné mon enfance.",
+      "C'est le café où je retourne chaque fois que je visite la ville.",
+      "La vieille bibliothèque du coin, qui a fermé l'année dernière, était l'endroit où je passais tous mes samedis.",
+      "C'est l'un des rares endroits qui aient encore exactement la même atmosphère que lorsque j'étais petit.",
+      "C'est le genre d'endroit qui vous ralentit et vous fait respirer, c'est pourquoi j'y retourne chaque fois que je me sens débordé."
+    ],
+    ES: [
+      "Es el parque que marcó mi infancia.",
+      "Es la cafetería a la que vuelvo cada vez que visito la ciudad.",
+      "La vieja biblioteca de la esquina, que cerró el año pasado, era donde pasaba todos mis sábados.",
+      "Es uno de los pocos lugares que todavía se sienten exactamente igual que cuando era pequeño.",
+      "Es la clase de lugar que te obliga a ir más despacio y a respirar, por eso vuelvo allí siempre que me siento desbordado."
     ]
   },
   42: {
@@ -1463,6 +2053,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "最後の章、それは一気に読んでしまいましたが、読み終えた後にしばらく言葉が出ませんでした。(Saigo no shō, sore wa ikki ni yonde shimaimashita ga, yomiowatta ato ni shibaraku kotoba ga demasen deshita.)",
       "読み終えてからもずっと心に残った数少ない物語の一つです。(Yomiowatte kara mo zutto kokoro ni nokotta kazusukunai monogatari no hitotsu desu.)",
       "本を閉じた後も問いかけ続けてくれるような本で、だからこそ何年も経った今でも思い出します。(Hon o tojita ato mo toikake tsuzukete kureru yō na hon de, dakara koso nannen mo tatta ima demo omoidashimasu.)"
+    ],
+    FR: [
+      "C'est le livre qui a changé ma façon de voir le monde.",
+      "C'est un film que j'ai regardé plus de dix fois.",
+      "Le dernier chapitre, que j'ai lu d'une traite, m'a laissé complètement sans voix.",
+      "C'est l'une des rares histoires qui soient restées avec moi longtemps après la fin de ma lecture.",
+      "C'est le genre de livre qui continue de vous poser des questions même après l'avoir refermé, c'est pourquoi j'y pense encore des années plus tard."
+    ],
+    ES: [
+      "Es el libro que cambió mi forma de ver el mundo.",
+      "Es una película que he visto más de diez veces.",
+      "El último capítulo, que leí de una sentada, me dejó completamente sin palabras.",
+      "Es una de las pocas historias que han seguido conmigo mucho después de terminar de leerlas.",
+      "Es la clase de libro que sigue haciéndote preguntas incluso después de cerrarlo, por eso todavía pienso en él años después."
     ]
   },
   43: {
@@ -1499,6 +2103,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "一年間の海外生活、それはあやうくしなかったところでしたが、人生で最も大切な決断になりました。(Ichinenkan no kaigai seikatsu, sore wa ayauku shinakatta tokoro deshita ga, jinsei de mottomo taisetsu na ketsudan ni narimashita.)",
       "自分自身を見つめ直すきっかけになった経験の一つです。(Jibun jishin o mitsumenaosu kikkake ni natta keiken no hitotsu desu.)",
       "知っていると思っていたすべてを問い直させるような経験で、だからこそまったく別の人間になって帰ってきました。(Shitte iru to omotteita subete o toikaosasereru yō na keiken de, dakara koso mattaku betsu no ningen ni natte kaette kimashita.)"
+    ],
+    FR: [
+      "C'était une expérience qui a tout changé pour moi.",
+      "C'était un voyage auquel je ne m'étais jamais préparé.",
+      "Vivre un an à l'étranger, ce que j'ai failli ne pas faire, s'est révélé la décision la plus importante de ma vie.",
+      "C'était l'un de ces moments qui aient le pouvoir de redéfinir la façon dont on se voit.",
+      "C'était le genre d'expérience qui vous force à remettre en question tout ce que vous croyiez savoir, c'est pourquoi je suis revenu une personne complètement différente."
+    ],
+    ES: [
+      "Fue una experiencia que lo cambió todo para mí.",
+      "Fue un viaje para el que nunca me había preparado.",
+      "Vivir un año en el extranjero, algo que estuve a punto de no hacer, resultó ser la decisión más importante de mi vida.",
+      "Fue uno de esos momentos que tienen el poder de redefinir cómo te ves a ti mismo.",
+      "Fue la clase de experiencia que te obliga a cuestionar todo lo que creías saber, por eso volví siendo una persona completamente distinta."
     ]
   },
 
@@ -1534,6 +2152,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "以前より辛抱強くなりましたが、不確かさにはまだ苦労しています。(Izen yori shinbōzuyoku narimashita ga, futashikasa ni wa mada kurō shite imasu.)",
       "来年は自分自身をさらによく理解して、大切にしていることを行動に移したいと思っています。(Rainen wa jibun jishin o sara ni yoku rikai shite, taisetsu ni shite iru koto o kōdō ni utsushitai to omotte imasu.)",
       "年を重ねれば重ねるほど、自分自身のことをいかに知らないかということがわかってきます。(Toshi o kasanereba kasaneru hodo, jibun jishin no koto o ika ni shiranai ka to iu koto ga wakatte kimasu.)"
+    ],
+    FR: [
+      "Je me suis rendu compte que j'ai besoin de plus de temps seul pour me ressourcer.",
+      "Avec le recul, j'ai appris que je suis plus résilient que je ne le pensais.",
+      "Je suis plus patient qu'avant, mais j'ai encore du mal avec l'incertitude.",
+      "J'espère que l'année prochaine je me comprendrai encore mieux et j'agirai selon mes valeurs.",
+      "Plus je vieillis, plus je réalise à quel point je connais peu mes propres schémas."
+    ],
+    ES: [
+      "Me di cuenta de que necesito más tiempo a solas para recargar energías.",
+      "Mirando atrás, aprendí que soy más resiliente de lo que pensaba.",
+      "Soy más paciente que antes, pero sigo teniendo problemas con la incertidumbre.",
+      "Espero que el año que viene me entienda a mí mismo aún mejor y actúe según lo que valoro.",
+      "Cuanto mayor me hago, más me doy cuenta de lo poco que conozco de verdad mis propios patrones."
     ]
   },
   45: {
@@ -1565,6 +2197,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "以前より、助けを求めることに対してオープンになりました。(Izen yori, tasuke o motomeru koto ni taishite ōpun ni narimashita.)",
       "来年は大切にしている関係にもっと時間を注ぎたいと思っています。(Rainen wa taisetsu ni shite iru kankei ni motto jikan o sosogitai to omotte imasu.)",
       "年を重ねれば重ねるほど、長年かけて築いてきた深いつながりがいかに貴重かということがわかってきます。(Toshi o kasanereba kasaneru hodo, naganen kakete kizuite kita fukai tsunagari ga ika ni kichō ka to iu koto ga wakatte kimasu.)"
+    ],
+    FR: [
+      "Je me suis rendu compte que certaines amitiés demandent plus de soin et d'attention.",
+      "Avec le recul, j'ai remarqué que je me suis rapproché des gens qui comptent vraiment.",
+      "Je suis plus ouvert qu'avant quand il s'agit de demander de l'aide.",
+      "J'espère que l'année prochaine je consacrerai plus de temps aux relations qui me tiennent à cœur.",
+      "Plus je vieillis, plus j'apprécie les quelques liens profonds que j'ai tissés au fil des ans."
+    ],
+    ES: [
+      "Me di cuenta de que algunas amistades necesitan más cuidado y atención.",
+      "Mirando atrás, noté que me acerqué a las personas que de verdad importan.",
+      "Soy más abierto que antes a la hora de pedir ayuda.",
+      "Espero que el año que viene dedique más tiempo a las relaciones que me importan.",
+      "Cuanto mayor me hago, más aprecio los pocos vínculos profundos que he construido con los años."
     ]
   },
   46: {
@@ -1596,6 +2242,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "以前よりも話すことに自信が持てるようになりました。間違えても気にならなくなってきました。(Izen yori mo hanasu koto ni jishin ga moteru yō ni narimashita. Machigaete mo ki ni naranaku natte kimashita.)",
       "来年は会話が本当に自然に感じられるレベルに達したいと思っています。(Rainen wa kaiwa ga hontō ni shizen ni kanji rareru reberu ni tashitai to omotte imasu.)",
       "学習習慣を続ければ続けるほど、言語が自分の思考をいかに形作っているかということがわかってきます。(Gakushū shūkan o tsuzukereba tsuzukeru hodo, gengo ga jibun no shikō o ika ni katachizukutte iru ka to iu koto ga wakatte kimasu.)"
+    ],
+    FR: [
+      "Je me suis rendu compte que mon vocabulaire a beaucoup grandi cette année.",
+      "Avec le recul, j'ai remarqué que je peux maintenant exprimer des idées que je ne savais pas dire avant.",
+      "Je suis plus à l'aise à l'oral qu'avant, même quand je fais des erreurs.",
+      "J'espère que l'année prochaine j'atteindrai un niveau où les conversations sembleront vraiment naturelles.",
+      "Plus mon habitude d'étude dure, plus je remarque à quel point la langue façonne ma façon de penser."
+    ],
+    ES: [
+      "Me di cuenta de que mi vocabulario ha crecido mucho este año.",
+      "Mirando atrás, noté que ahora puedo expresar ideas que antes no sabía decir.",
+      "Estoy más cómodo hablando que antes, incluso cuando cometo errores.",
+      "Espero que el año que viene alcance un nivel en el que las conversaciones se sientan de verdad naturales.",
+      "Cuanto más dura mi hábito de estudio, más noto cómo la lengua moldea mi forma de pensar."
     ]
   },
   47: {
@@ -1627,6 +2287,20 @@ export const SUGGESTIONS: { [weekIndex: number]: GradedSuggestions } = {
       "以前より、自分の時間の使い方に対して意識的になりました。(Izen yori, jibun no jikan no tsukaikata ni taishite ishikiteki ni narimashita.)",
       "来年はこの成長の感覚を持ち続けて、さらに積み上げていきたいと思っています。(Rainen wa kono seichō no kankaku o mochitsuzukete, sara ni tsumiagate ikitai to omotte imasu.)",
       "年を重ねれば重ねるほど、小さくて継続的な努力が大きな身振りよりもずっと大切だということがわかってきます。(Toshi o kasanereba kasaneru hodo, chiisakute keizokuteki na doryoku ga ōkina miburishigusa yori mo zutto taisetsu da to iu koto ga wakatte kimasu.)"
+    ],
+    FR: [
+      "Je me suis rendu compte que les habitudes que j'ai construites cette année valent la peine d'être gardées.",
+      "Avec le recul, je veux emporter avec moi la curiosité qui m'a fait avancer.",
+      "Je suis plus intentionnel qu'avant dans la façon dont j'emploie mon temps.",
+      "J'espère que l'année prochaine je garderai ce sentiment de progression et continuerai à bâtir dessus.",
+      "Plus je vieillis, plus je comprends que de petits efforts constants comptent davantage que les grands gestes."
+    ],
+    ES: [
+      "Me di cuenta de que los hábitos que construí este año merecen conservarse.",
+      "Mirando atrás, quiero llevarme conmigo la curiosidad que me ha hecho seguir adelante.",
+      "Soy más intencional que antes con la forma en que empleo mi tiempo.",
+      "Espero que el año que viene mantenga esta sensación de crecimiento y siga construyendo sobre ella.",
+      "Cuanto mayor me hago, más entiendo que los pequeños esfuerzos constantes importan más que los grandes gestos."
     ]
   }
 };
