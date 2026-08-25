@@ -1,5 +1,5 @@
 // Rol completo de idiomas disponíveis (dados existem para todos).
-export const ALL_LANGS = ['EN', 'IT', 'DE', 'JP', 'FR'];
+export const ALL_LANGS = ['EN', 'IT', 'DE', 'JP', 'FR', 'ES'];
 // Alias mantido para iteração sobre dados (carregar/salvar/apagar/backup) —
 // percorre TODOS os idiomas para nunca perder dados de um idioma oculto.
 export const LANGS = ALL_LANGS;

@@ -81,7 +81,7 @@ export function App() {
     () => (localStorage.getItem('diary_inputMode') as 'draw' | 'type') || 'draw'
   );
   const [typedTexts, setTypedTexts] = useState<Record<string, string>>(
-    { EN: '', IT: '', DE: '', JP: '', FR: '' }
+    { EN: '', IT: '', DE: '', JP: '', FR: '', ES: '' }
   );
   const [activeLangs, setActiveLangsState] = useState<string[]>(() => DS.getActiveLangs());
   const [, setTick] = useState<number>(0);
@@ -402,7 +402,7 @@ export function App() {
         const p = pads.current[code];
         if (p) p.load([]);
       });
-      setTypedTexts({ EN: '', IT: '', DE: '', JP: '', FR: '' });
+      setTypedTexts({ EN: '', IT: '', DE: '', JP: '', FR: '', ES: '' });
     }
     setMeta({ ...m });
   }, []);
@@ -930,13 +930,13 @@ export function App() {
           <WritingBox
             key={code}
             code={code}
-            data={W.L[code as 'EN' | 'IT' | 'DE' | 'JP' | 'FR']!}
+            data={W.L[code as 'EN' | 'IT' | 'DE' | 'JP' | 'FR' | 'ES']!}
             T={T}
             paper={paper}
             registerCanvas={registerCanvas}
             onClearBox={clearBox}
             isActive={activeCanvas === code}
-            suggestions={SUGGESTIONS[flat]?.[code as 'EN' | 'IT' | 'DE' | 'JP' | 'FR'] || []}
+            suggestions={SUGGESTIONS[flat]?.[code as 'EN' | 'IT' | 'DE' | 'JP' | 'FR' | 'ES'] || []}
             inputMode={inputMode}
             typedText={typedTexts[code] || ''}
             onTextChange={(text) => {

@@ -1,6 +1,6 @@
 # Diário Poliglota ✍️🌍
 
-O **Diário Poliglota** é uma aplicação web progressiva (PWA) projetada para ajudar no aprendizado e prática de múltiplos idiomas simultaneamente (Inglês, Italiano, Alemão e Japonês). Combinando escrita manual (desenho no canvas) **ou** digitação por teclado, ditado por voz e sugestões de frases com progressão gramatical intencional, o projeto oferece uma experiência rica e imersiva para consolidar vocabulário diário.
+O **Diário Poliglota** é uma aplicação web progressiva (PWA) projetada para ajudar no aprendizado e prática de múltiplos idiomas simultaneamente. Estão disponíveis **seis idiomas** — Inglês, Italiano, Alemão, Japonês, Francês e Espanhol — e você escolhe de **1 a 4 deles** para exibir na tela ao mesmo tempo. Combinando escrita manual (desenho no canvas) **ou** digitação por teclado, ditado por voz e sugestões de frases com progressão gramatical intencional, o projeto oferece uma experiência rica e imersiva para consolidar vocabulário diário.
 
 🚀 **Hospedado para testes em**: [diariopoliglota.netlify.app](https://diariopoliglota.netlify.app)
 
@@ -12,6 +12,11 @@ O **Diário Poliglota** é uma aplicação web progressiva (PWA) projetada para 
 * **Modo Desenho (Canvas)**: Escreva à mão com o dedo ou caneta stylus em cada idioma.
 * **Modo Teclado**: Alterne para digitação por teclado físico ou virtual — ideal para celular ou uso rápido. O modo é global (todos os idiomas trocam juntos) e os dois tipos de entrada coexistem: traços e texto são armazenados de forma independente por dia/idioma, então **trocar de modo nunca apaga nada**.
 * **Atalho rápido**: `Ctrl+M` / `⌘+M` alterna entre caneta e teclado em qualquer contexto.
+
+### 🌐 Idiomas Selecionáveis
+* **Seis idiomas disponíveis**: Inglês, Italiano, Alemão, Japonês, Francês e Espanhol — cada um com prompts diários e sugestões graduadas próprias, além de voz nativa para TTS e ditado.
+* **Escolha de 1 a 4 na tela**: No menu de configurações, selecione quais idiomas quer praticar (mínimo 1, máximo 4). A grade se adapta automaticamente ao número escolhido.
+* **Sem perda de dados**: Trocar os idiomas visíveis nunca apaga o que você já escreveu — traços e textos de cada idioma continuam salvos.
 
 ### 📝 Prática de Escrita à Mão (Canvas)
 * **Desenho de alta precisão**: Traços suaves com o dedo ou caneta stylus.
@@ -37,7 +42,7 @@ Alterne o fundo do canvas para simular cadernos reais:
 
 ### 🎙️ Ditado por Voz (Web Speech API)
 * No **modo teclado**, um botão de microfone aparece no cabeçalho de cada caixa de idioma.
-* O reconhecimento de fala usa a língua correta de cada caixa (`en-US`, `it-IT`, `de-DE`, `ja-JP`) e adiciona o texto transcrito ao final do conteúdo existente.
+* O reconhecimento de fala usa a língua correta de cada caixa (`en-US`, `it-IT`, `de-DE`, `ja-JP`, `fr-FR`, `es-ES`) e adiciona o texto transcrito ao final do conteúdo existente.
 * Degradação silenciosa: em navegadores sem suporte (ex.: Firefox), o botão simplesmente não aparece.
 
 ### 🌓 Temas Dinâmicos e Cores Harmoniosas
