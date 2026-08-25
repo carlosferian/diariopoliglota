@@ -719,8 +719,8 @@ export function App() {
       }}
     >
       {/* TOP BAR */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '12px 20px 6px', flex: '0 0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: '0 0 auto' }}>
+      <div className="top-bar" style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '12px 20px 6px', flex: '0 0 auto' }}>
+        <div className="top-nav" style={{ display: 'flex', alignItems: 'center', gap: 8, flex: '0 0 auto' }}>
           <button onClick={() => goDay(-1)} style={headerBtnStyle} title="Dia anterior (←)">
             <ChevronLeft size={20} />
           </button>
@@ -729,7 +729,7 @@ export function App() {
           </button>
         </div>
 
-        <div style={{ minWidth: 0, flex: '1 1 auto', marginLeft: 4 }}>
+        <div className="date-block" style={{ minWidth: 0, flex: '1 1 auto', marginLeft: 4 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
             <span
               style={{
@@ -766,7 +766,7 @@ export function App() {
         </div>
 
         {/* Botões do Topo à Direita */}
-        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div className="top-actions" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
           <button onClick={exportPNG} style={headerBtnStyle} title="Exportar dia como imagem (PNG)">
             <Camera size={18} />
           </button>
@@ -845,6 +845,7 @@ export function App() {
 
       {/* THEME BAND */}
       <div
+        className="theme-band"
         style={{
           margin: '4px 20px 10px',
           background: T.band,
@@ -858,6 +859,7 @@ export function App() {
         }}
       >
         <div
+          className="band-week"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -883,7 +885,7 @@ export function App() {
             <span style={{ fontSize: 13, color: T.faint }}>/48</span>
           </span>
         </div>
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="band-main" style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
             <span style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: 22, color: T.text }}>
               "{W.t}"
@@ -897,7 +899,7 @@ export function App() {
             <span style={{ fontSize: 16, fontWeight: 700, color: T.text2 }}>{W.q}</span>
           </div>
         </div>
-        <div style={{ flex: '0 0 auto', maxWidth: 260, fontSize: 11.5, color: T.dim, fontWeight: 600, lineHeight: 1.3, textAlign: 'right' }}>
+        <div className="band-tip" style={{ flex: '0 0 auto', maxWidth: 260, fontSize: 11.5, color: T.dim, fontWeight: 600, lineHeight: 1.3, textAlign: 'right' }}>
           💡 {M.g}
         </div>
       </div>

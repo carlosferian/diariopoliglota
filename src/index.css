@@ -71,6 +71,44 @@ button {
   }
 }
 
+/* ===== Ajustes de layout para celular ===== */
+@media (max-width: 640px) {
+  /* TOP BAR: ações no topo, data em linha própria (evita a data espremida) */
+  .top-bar {
+    flex-wrap: wrap;
+    gap: 8px !important;
+  }
+  .top-bar .top-nav { order: 1; }
+  .top-bar .top-actions { order: 2; margin-left: auto !important; }
+  .top-bar .date-block {
+    order: 3;
+    flex: 1 1 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* THEME BAND: empilha os blocos para o texto da dica nunca ser cortado */
+  .theme-band {
+    flex-wrap: wrap;
+    align-items: flex-start !important;
+    gap: 8px 12px !important;
+    padding: 10px 14px !important;
+  }
+  .theme-band .band-week {
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 6px;
+    border-right: none !important;
+    padding-right: 0 !important;
+    width: 100%;
+  }
+  .theme-band .band-main { flex: 1 1 100% !important; }
+  .theme-band .band-tip {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+}
+
 .suggestions-list {
   display: flex;
   flex-direction: column;
