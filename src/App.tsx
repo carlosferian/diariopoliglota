@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import {
   ChevronLeft, ChevronRight, Camera, Sun, Moon, Coffee, Columns, MoreHorizontal,
-  Undo2, Redo2, AlignJustify, Square, Grid3X3, PenTool, Smartphone, Eraser, Keyboard
+  Undo2, Redo2, AlignJustify, Square, Grid3X3, PenTool, Smartphone, Eraser, Keyboard,
+  Settings, Hand
 } from 'lucide-react';
 import * as DS from './services/DiaryStore';
 import { InkPad } from './services/InkPad';
@@ -73,6 +74,9 @@ export function App() {
   const [penOnly, setPenOnly] = useState<boolean>(() => localStorage.getItem('diary_penOnly') === 'true');
   const [paper, setPaper] = useState<string>(() => localStorage.getItem('diary_paper') || 'pautado');
   const [showCal, setShowCal] = useState<boolean>(false);
+  const [calFocusSettings, setCalFocusSettings] = useState<boolean>(false);
+  // Modo rolagem (mobile): quando ativo, o dedo rola a tela em vez de desenhar.
+  const [panMode, setPanMode] = useState<boolean>(false);
   const [quota, setQuota] = useState<boolean>(false);
   const [mode, setMode] = useState<string>(() => localStorage.getItem('diary_mode') || 'auto');
   const [toast, setToast] = useState<any | null>(null);
@@ -287,6 +291,7 @@ export function App() {
   const pads = useRef<{ [code: string]: InkPad | null }>({});
   const viewRef = useRef(viewDate);
   const penOnlyRef = useRef(penOnly);
+  const panModeRef = useRef(panMode);
   const toolRef = useRef(tool);
   const inputModeRef = useRef(inputMode);
   const lastLang = useRef('EN');
@@ -294,6 +299,7 @@ export function App() {
 
   useEffect(() => { viewRef.current = viewDate; }, [viewDate]);
   useEffect(() => { penOnlyRef.current = penOnly; }, [penOnly]);
+  useEffect(() => { panModeRef.current = panMode; }, [panMode]);
   useEffect(() => { localStorage.setItem('diary_mode', mode); }, [mode]);
   useEffect(() => { localStorage.setItem('diary_paper', paper); }, [paper]);
   useEffect(() => { localStorage.setItem('diary_penOnly', String(penOnly)); }, [penOnly]);
@@ -357,7 +363,7 @@ export function App() {
       if (pads.current[code]) pads.current[code]!.destroy();
       pads.current[code] = new InkPad(el, {
         onChange: (s) => handleInk(code, s),
-        penOnly: () => penOnlyRef.current,
+        penOnly: () => penOnlyRef.current || panModeRef.current,
         onActive: (active) => setActiveCanvas(active ? code : null),
         mode: () => effModeRef.current,
         onPenDetected: () => setPenOnly(true),
@@ -617,16 +623,17 @@ export function App() {
   }, [tool]);
 
   useEffect(() => {
+    const allowScroll = penOnly || panMode;
     Object.values(pads.current).forEach((p) => {
       if (p) {
         // @ts-ignore
         if (p.canvas) {
           // @ts-ignore
-          p.canvas.style.touchAction = penOnly ? 'pan-y' : 'none';
+          p.canvas.style.touchAction = allowScroll ? 'pan-y' : 'none';
         }
       }
     });
-  }, [penOnly]);
+  }, [penOnly, panMode]);
 
   const flat = DS.weekFlatForDate(meta, viewDate);
   const M = YEAR[Math.floor(flat / 4)], W = M.w[flat % 4];
@@ -767,6 +774,13 @@ export function App() {
 
         {/* Botões do Topo à Direita */}
         <div className="top-actions" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <button
+            onClick={() => { setCalFocusSettings(true); setShowCal(true); }}
+            style={headerBtnStyle}
+            title="Configurações (idiomas, sincronização, lembretes)"
+          >
+            <Settings size={18} />
+          </button>
           <button onClick={exportPNG} style={headerBtnStyle} title="Exportar dia como imagem (PNG)">
             <Camera size={18} />
           </button>
@@ -805,7 +819,7 @@ export function App() {
             )}
           </button>
           <button
-            onClick={() => setShowCal(true)}
+            onClick={() => { setCalFocusSettings(false); setShowCal(true); }}
             title="Calendário, medalhas e progresso"
             style={{
               display: 'flex',
@@ -1153,6 +1167,42 @@ export function App() {
         </button>
       </div>
 
+      {/* Botão flutuante: alterna entre rolar e desenhar (essencial no celular) */}
+      {inputMode === 'draw' && (
+        <button
+          className="pan-fab"
+          onClick={() => setPanMode((v) => !v)}
+          title={
+            panMode
+              ? 'Modo rolagem ativo — toque para voltar a desenhar'
+              : 'Ativar modo rolagem para subir/descer a tela com o dedo'
+          }
+          style={{
+            position: 'fixed',
+            right: 14,
+            bottom: 84,
+            zIndex: 101,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 7,
+            background: panMode ? T.accent : (T.mode === 'light' ? 'rgba(255,255,255,0.97)' : 'rgba(20,26,48,0.95)'),
+            color: panMode ? '#0E1326' : T.text,
+            border: `1px solid ${panMode ? T.accent : T.border}`,
+            borderRadius: 999,
+            padding: '10px 16px',
+            fontFamily: "'Nunito', sans-serif",
+            fontWeight: 800,
+            fontSize: 13,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.35)',
+            backdropFilter: 'blur(6px)',
+            cursor: 'pointer',
+          }}
+        >
+          {panMode ? <PenTool size={16} /> : <Hand size={16} />}
+          {panMode ? 'Desenhar' : 'Rolar'}
+        </button>
+      )}
+
       {quota && (
         <div
           style={{
@@ -1187,6 +1237,7 @@ export function App() {
           }}
           onClose={() => setShowCal(false)}
           onDeleteDay={deleteDay}
+          focusSettings={calFocusSettings}
           activeLangs={activeLangs}
           onChangeActiveLangs={changeActiveLangs}
           onExport={exportBackup}

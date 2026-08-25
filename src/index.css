@@ -71,6 +71,13 @@ button {
   }
 }
 
+/* O botão de rolagem só faz sentido onde a grade rola (celular/tablet).
+   No desktop a grade cabe inteira na tela, então escondemos o botão. */
+.pan-fab { display: flex; }
+@media (min-width: 1024px) {
+  .pan-fab { display: none !important; }
+}
+
 /* ===== Ajustes de layout para celular ===== */
 @media (max-width: 640px) {
   /* TOP BAR: ações no topo, data em linha própria (evita a data espremida) */

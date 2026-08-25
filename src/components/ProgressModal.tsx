@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   X, Trophy, Flame, BookOpen, ChevronLeft, ChevronRight, 
   Download, Upload, Trash2, ShieldAlert
@@ -13,6 +13,9 @@ interface ProgressModalProps {
   onPick: (date: Date) => void;
   onClose: () => void;
   onDeleteDay: (date: Date) => void;
+
+  // Abrir já rolado até a área de ajustes/idiomas (via ícone de engrenagem)
+  focusSettings?: boolean;
 
   // Seleção de idiomas visíveis (1–4)
   activeLangs: string[];
@@ -61,6 +64,7 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
   onPick,
   onClose,
   onDeleteDay,
+  focusSettings,
   activeLangs,
   onChangeActiveLangs,
   onExport,
@@ -82,6 +86,17 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
   const [clientIdInput, setClientIdInput] = useState(gdriveClientId);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const settingsRef = useRef<HTMLDivElement>(null);
+
+  // Ao abrir pela engrenagem, rola direto para a área de ajustes/idiomas.
+  useEffect(() => {
+    if (focusSettings) {
+      const id = setTimeout(() => {
+        settingsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 80);
+      return () => clearTimeout(id);
+    }
+  }, [focusSettings]);
 
   const handleRestoreClick = async () => {
     if ('showOpenFilePicker' in window) {
@@ -430,7 +445,7 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
           </div>
 
           {/* Seleção de Idiomas Visíveis (1–4) */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, background: T.cellBg, padding: 14, borderRadius: 16, border: `1px solid ${T.border}` }}>
+          <div ref={settingsRef} style={{ display: 'flex', flexDirection: 'column', gap: 8, background: T.cellBg, padding: 14, borderRadius: 16, border: `1px solid ${T.border}`, scrollMarginTop: 12 }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 800, fontSize: 13.5, color: T.text }}>
                 <span>🌐 Idiomas na tela</span>
